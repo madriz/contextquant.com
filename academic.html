@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ContextQuant | Academic Research</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-deep:#060a12;--bg-card:rgba(255,255,255,0.025);--bg-card-hover:rgba(255,255,255,0.045);--border:rgba(255,255,255,0.06);--border-hover:rgba(74,186,112,0.3);--green:#4aba70;--green-dim:rgba(74,186,112,0.15);--blue:#5b8dd9;--blue-dim:rgba(91,141,217,0.15);--orange:#e67e51;--text-primary:#e8ecf2;--text-secondary:#8a94a8;--text-muted:#5a6577;--mono:'DM Mono','Courier New',monospace;--serif:'Instrument Serif',Georgia,serif;--sans:'DM Sans','Helvetica Neue',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg-deep);color:var(--text-primary);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,10,18,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 60px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:4px;color:var(--green);text-transform:uppercase;text-decoration:none}
+.nav-links{display:flex;gap:36px;align-items:center}.nav-links a{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color 0.3s}.nav-links a:hover{color:var(--text-primary)}.nav-links a.active{color:var(--green)}
+.nav-cta{font-family:var(--mono)!important;font-size:12px!important;padding:8px 20px;border:1px solid var(--green);color:var(--green)!important;border-radius:4px;transition:all 0.3s}.nav-cta:hover{background:var(--green-dim)}
+.page-hero{padding:140px 60px 80px;max-width:1200px;margin:0 auto;position:relative}
+.page-hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 600px 400px at 70% 30%,rgba(91,141,217,0.04) 0%,transparent 70%);pointer-events:none}
+.page-label{font-family:var(--mono);font-size:11px;letter-spacing:5px;color:var(--green);text-transform:uppercase;margin-bottom:20px;position:relative}
+.page-title{font-family:var(--serif);font-size:48px;line-height:1.15;color:#fff;margin-bottom:24px;position:relative}
+.page-sub{font-size:18px;font-weight:300;color:var(--text-secondary);line-height:1.8;max-width:740px;position:relative}
+section{padding:80px 60px;max-width:1200px;margin:0 auto}
+.section-label{font-family:var(--mono);font-size:11px;letter-spacing:5px;color:var(--green);text-transform:uppercase;margin-bottom:20px}
+.section-title{font-family:var(--serif);font-size:40px;color:#fff;margin-bottom:24px}
+.section-text{font-size:16px;font-weight:300;color:var(--text-secondary);line-height:1.8;max-width:800px;margin-bottom:20px}
+.divider{height:1px;background:linear-gradient(90deg,rgba(91,141,217,0.4),rgba(91,141,217,0.15) 50%,transparent);margin:40px 0}
+
+.dataset-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:40px 0}
+.ds-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px 20px;text-align:center;transition:all 0.3s}.ds-card:hover{border-color:var(--border-hover)}
+.ds-num{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--green);display:block;margin-bottom:6px}
+.ds-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted)}
+
+.hyp-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:28px 28px;margin-bottom:16px;display:grid;grid-template-columns:80px 1fr 140px;gap:20px;align-items:start;transition:all 0.3s}
+.hyp-card:hover{border-color:var(--border-hover)}
+.hyp-id{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--text-muted);padding-top:2px}
+.hyp-title{font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:6px}
+.hyp-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.hyp-status{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;text-align:center}
+.hs-strong{background:var(--green-dim);color:var(--green)}.hs-moderate{background:var(--blue-dim);color:var(--blue)}.hs-weak{background:rgba(122,133,153,0.12);color:var(--text-muted)}.hs-reversed{background:rgba(230,126,81,0.12);color:var(--orange)}
+
+.ref-list{columns:2;column-gap:32px;margin-top:24px}
+.ref-item{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:12px;break-inside:avoid}
+.ref-item strong{color:var(--text-primary);font-weight:500}
+
+.collab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.collab-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:28px 24px;transition:all 0.3s}.collab-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+.cc-title{font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:10px}
+.cc-text{font-size:14px;font-weight:300;color:var(--text-secondary);line-height:1.7}
+
+.paper-box{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:32px;margin:40px 0;display:flex;align-items:center;gap:24px}
+.paper-icon{font-family:var(--mono);font-size:36px;color:var(--blue);flex-shrink:0}
+.paper-title{font-size:16px;font-weight:600;color:var(--text-primary);margin-bottom:6px}
+.paper-desc{font-size:14px;color:var(--text-secondary)}
+.paper-status{font-family:var(--mono);font-size:11px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px}
+
+.cta-section{padding:100px 60px;text-align:center;max-width:800px;margin:0 auto}
+.ct{font-family:var(--serif);font-size:36px;color:#fff;margin-bottom:16px}.cx{font-size:16px;color:var(--text-secondary);margin-bottom:32px;line-height:1.8}
+.btn{font-family:var(--mono);font-size:13px;padding:14px 36px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;text-decoration:none;transition:all 0.3s}.btn:hover{background:#5ccf85}
+footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between}.fb{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase}.fr{font-size:12px;color:var(--text-muted)}
+.fi{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}.fi.v{opacity:1;transform:translateY(0)}
+@media(max-width:900px){nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.dataset-grid{grid-template-columns:repeat(2,1fr)}.hyp-card{grid-template-columns:1fr;gap:8px}.collab-grid{grid-template-columns:1fr}.ref-list{columns:1}}
+</style>
+</head>
+<body>
+<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="investor.html">Investor</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div></nav>
+
+<div class="page-hero">
+<div class="page-label">Academic Research</div>
+<h1 class="page-title">Peer-relative textual analysis<br>of corporate disclosures</h1>
+<p class="page-sub">A novel framework for measuring disclosure behavior as competitive deltas, grounded in established literature and validated across six years of out-of-sample data. We welcome collaboration, co-authorship, and data access inquiries.</p>
+</div>
+
+<section>
+<div class="section-label fi">The Dataset</div>
+<div class="section-title fi">Where it is. Where it is going.</div>
+<div class="section-text fi">The ContextQuant dataset is a structured panel of corporate textual and financial data designed for empirical research in accounting, finance, and NLP. It currently covers 185 US-listed and ADR-traded companies across seven years. The effective test sample is 130 US-domestic 10-K filers.</div>
+
+<div class="dataset-grid fi">
+<div class="ds-card"><span class="ds-num">17,207</span><span class="ds-label">SEC Filings</span></div>
+<div class="ds-card"><span class="ds-num">73,660</span><span class="ds-label">Parsed Text Sections</span></div>
+<div class="ds-card"><span class="ds-num">198,192</span><span class="ds-label">NLP Features</span></div>
+<div class="ds-card"><span class="ds-num">7M+</span><span class="ds-label">Words Analyzed</span></div>
+<div class="ds-card"><span class="ds-num">311,692</span><span class="ds-label">Daily Price Rows</span></div>
+<div class="ds-card"><span class="ds-num">53,579</span><span class="ds-label">Macro Observations</span></div>
+<div class="ds-card"><span class="ds-num">88,406</span><span class="ds-label">Political Contributions</span></div>
+<div class="ds-card"><span class="ds-num">2,907</span><span class="ds-label">Exec Comp Entries</span></div>
+<div class="ds-card"><span class="ds-num">24,078</span><span class="ds-label">Corporate Events</span></div>
+</div>
+
+<div class="section-text fi">The dataset is expanding along three dimensions. Coverage is extending to full US-listed market (~4,000 companies via EDGAR) and Canadian-listed companies (~3,500 via SEDAR+), with European and Asian filing repositories planned. Data sources are expanding to include patent filings (USPTO), insider transactions, and additional transcript coverage. NLP methods are extending from Loughran-McDonald dictionaries to transformer-based models (FinBERT, GPT-4 calibrated sentiment).</div>
+
+<div class="section-text fi">The underlying database uses SQLite with an 18-table schema covering filings, sections, features, price data, macro time series, competitive pairs, corporate events, executive compensation, and political contributions. The full pipeline is reproducible from raw EDGAR downloads through feature extraction and hypothesis testing.</div>
+</section>
+
+<div class="divider" style="max-width:1200px;margin:0 auto"></div>
+
+<section>
+<div class="section-label fi">Tested Hypotheses</div>
+<div class="section-title fi">Seven hypotheses tested in the first wave</div>
+<div class="section-text fi">All hypotheses tested using a rolling out-of-sample framework with six annual evaluation windows (2020-2025). Spearman rank IC, quintile spreads, t-statistics, and hit rates reported. Additional hypotheses on transcript analysis, patent innovation, and insider transactions are in development.</div>
+
+<div class="hyp-card fi"><div class="hyp-id">H1</div><div><div class="hyp-title">Risk Factor Specificity Predicts Forward Returns</div><div class="hyp-desc">TF-IDF scoring of Item 1A risk factors measures company-specific vs. boilerplate language. Higher specificity predicts 6-12 month underperformance. Mean IC = -0.121, spread = -6.9%, 4/6 years. 2023: IC = -0.275, t = -3.48 (p &lt; 0.01). Extends Campbell et al. (2014, RAS) and Kravet &amp; Muslu (2013, RAS).</div></div><div class="hyp-status hs-strong">Strong</div></div>
+
+<div class="hyp-card fi"><div class="hyp-id">H2</div><div><div class="hyp-title">MD&amp;A Sentiment Drift Predicts Short-Term Returns</div><div class="hyp-desc">YoY changes in Loughran-McDonald net sentiment from Item 7. Perfect consistency: 6/6 years at 0-30 day horizon (p = 0.016, sign test). Excessive optimism is a contrarian indicator. Extends Jiang et al. (2019, JFE) at the firm level and Huang et al. (2014, TAR) on tone management.</div></div><div class="hyp-status hs-strong">Strong</div></div>
+
+<div class="hyp-card fi"><div class="hyp-id">H3</div><div><div class="hyp-title">Combined Signal Contains Independent Information</div><div class="hyp-desc">Composite of H1 and H2 achieves 75% hit rate, exceeding both individual signals. Complementary time horizons: sentiment at 0-30d, risk specificity at 6-12m, composite dominates at 90-180d (IC = -0.106). Composite does not generate false signals in dormant environments.</div></div><div class="hyp-status hs-strong">Strong</div></div>
+
+<div class="hyp-card fi"><div class="hyp-id">H10</div><div><div class="hyp-title">Macro Regime Determines Which Signal Dominates</div><div class="hyp-desc">Risk specificity 2.7x more informative in high-uncertainty regimes; sentiment 2.1x in low-uncertainty. Composite at 90-180d in high uncertainty: IC = -0.137, 6/6 hit rate. Regime classification: VIX &gt; 20 or fed funds change &gt; 50bps/6mo. Novel finding of regime-complementary textual signals.</div></div><div class="hyp-status hs-moderate">Confirmed</div></div>
+
+<div class="hyp-card fi"><div class="hyp-id">H5</div><div><div class="hyp-title">8-K Event Clustering Predicts Short-Term Returns</div><div class="hyp-desc">Executive change flag (Item 5.02) shows directional signal at 0-30d but not robust across years. Event frequency and materiality surge inconsistent. Requires larger sample for statistical power.</div></div><div class="hyp-status hs-weak">Exploratory</div></div>
+
+<div class="hyp-card fi"><div class="hyp-id">H6</div><div><div class="hyp-title">Compensation Structure Predicts Disclosure Behavior</div><div class="hyp-desc">Limited by data availability (15 tickers with CEO-level comp). Supplementary test: IC = -0.149 between equity comp increases and subsequent risk specificity changes. Direction interesting but sample insufficient. Relates to Core et al. (1999, JFE) excess compensation framework.</div></div><div class="hyp-status hs-weak">Data-Limited</div></div>
+
+<div class="hyp-card fi"><div class="hyp-id">H7</div><div><div class="hyp-title">Political Spending Patterns and Returns</div><div class="hyp-desc">Hypothesis rejected: opposite direction. All contribution signals show positive ICs (avg +0.126). Higher political spending predicts outperformance, consistent with regulatory capture interpretation rather than regulatory risk. 49 tickers, 3 election cycles. Small-sample caveats apply.</div></div><div class="hyp-status hs-reversed">Reversed</div></div>
+</section>
+
+<div class="divider" style="max-width:1200px;margin:0 auto"></div>
+
+<section>
+<div class="section-label fi">Literature Positioning</div>
+<div class="section-title fi">Three novel contributions</div>
+<div class="section-text fi">First, we introduce a peer-relative framework measuring each company's textual characteristics against direct competitive peers rather than in isolation or against broad industry benchmarks. Second, we demonstrate that the specificity dimension of risk disclosures (TF-IDF) contains return-predictive information distinct from aggregate disclosure volume. Third, we document regime-complementary behavior of textual signals: different disclosure dimensions become informative under opposing macroeconomic conditions.</div>
+
+<div class="section-label fi" style="margin-top:48px">Key References</div>
+<div class="ref-list fi">
+<div class="ref-item"><strong>Campbell, Chen, Dhaliwal, Lu, Steele (2014)</strong>. The Information Content of Mandatory Risk Factor Disclosures. Review of Accounting Studies, 19(1), 396-455.</div>
+<div class="ref-item"><strong>Jiang, Lee, Martin, Zhou (2019)</strong>. Manager Sentiment and Stock Returns. Journal of Financial Economics, 132(1), 126-149.</div>
+<div class="ref-item"><strong>Kravet, Muslu (2013)</strong>. Textual Risk Disclosures and Investors' Risk Perceptions. Review of Accounting Studies, 18(4), 1088-1122.</div>
+<div class="ref-item"><strong>Huang, Teoh, Zhang (2014)</strong>. Tone Management. The Accounting Review, 89(3), 1083-1113.</div>
+<div class="ref-item"><strong>Loughran, McDonald (2011)</strong>. When Is a Liability Not a Liability? Textual Analysis, Dictionaries, and 10-Ks. Journal of Finance, 66(1), 35-65.</div>
+<div class="ref-item"><strong>Price, Doran, Peterson, Bliss (2012)</strong>. Earnings Conference Calls and Stock Returns. Journal of Banking &amp; Finance, 36(4), 992-1011.</div>
+<div class="ref-item"><strong>Tetlock (2007)</strong>. Giving Content to Investor Sentiment. Journal of Finance, 62(3), 1139-1168.</div>
+<div class="ref-item"><strong>Feldman, Govindaraj, Livnat, Segal (2009)</strong>. Management's Tone Change. Review of Accounting Studies, 15(4), 915-953.</div>
+</div>
+</section>
+
+<div class="divider" style="max-width:1200px;margin:0 auto"></div>
+
+<section>
+<div class="section-label fi">Working Paper</div>
+<div class="paper-box fi">
+<div class="paper-icon">[PDF]</div>
+<div>
+<div class="paper-title">Peer-Relative Textual Analysis of Corporate Disclosures: Evidence from Risk Specificity, Management Sentiment, and Macro Regime Conditioning</div>
+<div class="paper-desc">Full methodology, robustness checks, and portfolio simulation results. Includes complete hypothesis development, data description, and discussion of limitations.</div>
+<div class="paper-status">Forthcoming &mdash; March 2026</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="section-label fi">Collaboration</div>
+<div class="section-title fi">How to work with us</div>
+<div class="collab-grid fi">
+<div class="collab-card"><div class="cc-title">Data Access</div><div class="cc-text">We are open to providing dataset access to researchers working on related questions in disclosure quality, textual analysis, or market microstructure. Contact us to discuss scope and terms.</div></div>
+<div class="collab-card"><div class="cc-title">Co-Authorship</div><div class="cc-text">We welcome collaboration with faculty working in accounting, finance, or NLP. The dataset and framework lend themselves to multiple publishable studies beyond our initial hypotheses.</div></div>
+<div class="collab-card"><div class="cc-title">Extension Research</div><div class="cc-text">Open questions: transformer-based sentiment models, international filer analysis, mid/small-cap generalizability, Fama-French alpha estimation, and dynamic signal weighting optimization.</div></div>
+</div>
+</section>
+
+<div class="cta-section fi">
+<div class="ct">Interested in the research?</div>
+<div class="cx">Whether you are exploring data access, considering co-authorship, or have questions about the methodology, we would welcome the conversation.</div>
+<a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="btn">info@contextquant.com</a>
+</div>
+
+<footer><div class="fb">ContextQuant &copy; 2026</div><div class="fr">Predictive signals from public data the market chose not to read</div></footer>
+<script>const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fi').forEach(el=>o.observe(el));</script>
+</body>
+</html>

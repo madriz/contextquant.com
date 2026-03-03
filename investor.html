@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ContextQuant | Investor Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-deep:#060a12;--bg-card:rgba(255,255,255,0.025);--bg-card-hover:rgba(255,255,255,0.045);--border:rgba(255,255,255,0.06);--border-hover:rgba(74,186,112,0.3);--green:#4aba70;--green-dim:rgba(74,186,112,0.15);--blue:#5b8dd9;--blue-dim:rgba(91,141,217,0.15);--orange:#e67e51;--text-primary:#e8ecf2;--text-secondary:#8a94a8;--text-muted:#5a6577;--mono:'DM Mono','Courier New',monospace;--serif:'Instrument Serif',Georgia,serif;--sans:'DM Sans','Helvetica Neue',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg-deep);color:var(--text-primary);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,10,18,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 60px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:4px;color:var(--green);text-transform:uppercase;text-decoration:none}
+.nav-links{display:flex;gap:36px;align-items:center}.nav-links a{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color 0.3s}.nav-links a:hover{color:var(--text-primary)}.nav-links a.active{color:var(--green)}
+.nav-cta{font-family:var(--mono)!important;font-size:12px!important;padding:8px 20px;border:1px solid var(--green);color:var(--green)!important;border-radius:4px;transition:all 0.3s}.nav-cta:hover{background:var(--green-dim)}
+
+.page-hero{padding:140px 60px 80px;max-width:1200px;margin:0 auto;position:relative}
+.page-hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 700px 500px at 60% 30%,rgba(74,186,112,0.04) 0%,transparent 70%);pointer-events:none}
+.page-label{font-family:var(--mono);font-size:11px;letter-spacing:5px;color:var(--green);text-transform:uppercase;margin-bottom:20px;position:relative}
+.page-title{font-family:var(--serif);font-size:52px;line-height:1.15;color:#fff;margin-bottom:24px;position:relative}
+.page-sub{font-size:18px;font-weight:300;color:var(--text-secondary);line-height:1.8;max-width:720px;position:relative}
+
+section{padding:80px 60px;max-width:1200px;margin:0 auto}
+.section-label{font-family:var(--mono);font-size:11px;letter-spacing:5px;color:var(--green);text-transform:uppercase;margin-bottom:20px}
+.section-title{font-family:var(--serif);font-size:40px;color:#fff;margin-bottom:24px;line-height:1.2}
+.section-text{font-size:16px;font-weight:300;color:var(--text-secondary);line-height:1.8;max-width:800px;margin-bottom:20px}
+.divider{height:1px;background:linear-gradient(90deg,rgba(74,186,112,0.4),rgba(74,186,112,0.15) 50%,transparent);margin:40px 0}
+
+/* Opportunity stats */
+.opp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0}
+.opp-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:32px 28px;transition:all 0.3s}
+.opp-card:hover{border-color:var(--border-hover)}
+.opp-num{font-family:var(--mono);font-size:32px;font-weight:500;color:var(--green);display:block;margin-bottom:8px}
+.opp-label{font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:6px}
+.opp-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+
+/* Proof points */
+.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:40px 0}
+.proof-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:28px 24px;display:flex;gap:18px;align-items:start;transition:all 0.3s}
+.proof-card:hover{border-color:var(--border-hover)}
+.proof-num{font-family:var(--mono);font-size:20px;font-weight:500;color:var(--green);flex-shrink:0;min-width:80px}
+.proof-title{font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:4px}
+.proof-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+
+/* Revenue model */
+.rev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:40px 0}
+.rev-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:28px 24px;transition:all 0.3s}
+.rev-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+.rev-title{font-size:16px;font-weight:600;color:var(--text-primary);margin-bottom:8px}
+.rev-audience{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px;display:block}
+.rev-desc{font-size:14px;font-weight:300;color:var(--text-secondary);line-height:1.7}
+
+/* Moat */
+.moat-list{margin:40px 0}
+.moat-item{padding:24px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:start}
+.moat-item:last-child{border-bottom:none}
+.moat-label{font-size:16px;font-weight:600;color:var(--text-primary)}
+.moat-desc{font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.7}
+
+/* Milestones */
+.milestone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0}
+.ms-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:28px 24px;position:relative;overflow:hidden}
+.ms-card.done{border-top:3px solid var(--green)}
+.ms-card.next{border-top:3px solid var(--blue)}
+.ms-card.future{border-top:3px solid var(--text-muted)}
+.ms-phase{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.ms-phase.done{color:var(--green)}.ms-phase.next{color:var(--blue)}.ms-phase.future{color:var(--text-muted)}
+.ms-title{font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:8px}
+.ms-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.ms-items{list-style:none;padding:0;margin-top:12px}
+.ms-items li{font-size:12px;color:var(--text-muted);padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
+.ms-items li::before{content:'\2192';color:var(--green);margin-right:8px}
+.ms-card.next .ms-items li::before{color:var(--blue)}
+.ms-card.future .ms-items li::before{color:var(--text-muted)}
+
+.cta-section{padding:100px 60px;text-align:center;max-width:800px;margin:0 auto}
+.ct{font-family:var(--serif);font-size:36px;color:#fff;margin-bottom:16px}.cx{font-size:16px;color:var(--text-secondary);margin-bottom:32px;line-height:1.8}
+.btn{font-family:var(--mono);font-size:13px;padding:14px 36px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;text-decoration:none;transition:all 0.3s}.btn:hover{background:#5ccf85}
+footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between}.fb{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase}.fr{font-size:12px;color:var(--text-muted)}
+.fi{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}.fi.v{opacity:1;transform:translateY(0)}
+@media(max-width:900px){nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.opp-grid,.milestone-grid{grid-template-columns:1fr}.proof-grid,.rev-grid{grid-template-columns:1fr}.moat-item{grid-template-columns:1fr;gap:8px}}
+</style>
+</head>
+<body>
+<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Investor%20Inquiry" class="nav-cta">Get in Touch</a></div></nav>
+
+<div class="page-hero">
+<div class="page-label">Investor Overview</div>
+<h1 class="page-title">A validated methodology.<br>A market that does not have it.</h1>
+<p class="page-sub">The global financial data and analytics market exceeds $40 billion annually, dominated by Bloomberg, FactSet, Refinitiv, and S&P Global. Every institution subscribes to the same platforms and produces research that converges on identical conclusions. ContextQuant operates in the gap between what is publicly filed and what is actually priced.</p>
+</div>
+
+<section>
+<div class="section-label fi">The Opportunity</div>
+<div class="section-title fi">Public data. Private insight.</div>
+<div class="section-text fi">SEC filings contain thousands of pages of management-authored text per company per year. This text changes quarter to quarter in ways that predict stock performance. Virtually nobody exploits this systematically at scale, and certainly nobody measures it as competitive deltas against direct peers.</div>
+
+<div class="opp-grid fi">
+<div class="opp-card"><span class="opp-num">$40B+</span><div class="opp-label">Total Addressable Market</div><div class="opp-desc">Global financial data and analytics. Dominated by incumbents who do not offer peer-relative textual intelligence from corporate filings.</div></div>
+<div class="opp-card"><span class="opp-num">~4,000</span><div class="opp-label">US-Listed Companies</div><div class="opp-desc">Current coverage: 185 (Dow 30 + competitors). Immediate scaling target via EDGAR. Architecture built for this expansion.</div></div>
+<div class="opp-card"><span class="opp-num">0</span><div class="opp-label">Direct Competitors</div><div class="opp-desc">No existing product combines peer-relative filing analysis, regime-aware signal weighting, and out-of-sample validation in a single platform.</div></div>
+</div>
+</section>
+
+<div class="divider" style="max-width:1200px;margin:0 auto"></div>
+
+<section>
+<div class="section-label fi">Proof of Concept</div>
+<div class="section-title fi">Not a pitch deck with projections. A working system with results.</div>
+<div class="section-text fi">We did not build a slide presentation. We built a platform, ingested seven years of data, and ran rigorous out-of-sample tests. The results speak for themselves.</div>
+
+<div class="proof-grid fi">
+<div class="proof-card"><div class="proof-num">-6.9%</div><div><div class="proof-title">Average Quintile Spread</div><div class="proof-desc">Companies with the most specific risk language underperform the least specific by 6.9% over 6-12 months. Consistent across 4 of 6 test years.</div></div></div>
+<div class="proof-card"><div class="proof-num">6/6</div><div><div class="proof-title">Perfect Signal Consistency</div><div class="proof-desc">MD&A sentiment drift produced the correct directional spread in every single test year from 2020 through 2025. Probability by chance: 1.6%.</div></div></div>
+<div class="proof-card"><div class="proof-num">p &lt; 0.01</div><div><div class="proof-title">Statistical Significance</div><div class="proof-desc">The 2023 risk specificity result (t = -3.48) exceeds the Harvey-Liu-Zhu threshold for multiple-testing-adjusted significance in finance research.</div></div></div>
+<div class="proof-card"><div class="proof-num">75%</div><div><div class="proof-title">Combined Hit Rate</div><div class="proof-desc">Two independent signals combined outperform either alone. 75% directional accuracy across all window-year combinations tested.</div></div></div>
+<div class="proof-card"><div class="proof-num">198K+</div><div><div class="proof-title">Features from 7M+ Words</div><div class="proof-desc">Over 7 million words of management-authored text processed from 17,207 filings parsed into 73,660 sections. 198,000+ features covering risk specificity, sentiment drift, peer deviations, and macro conditioning, and more.</div></div></div>
+<div class="proof-card"><div class="proof-num">7/7</div><div><div class="proof-title">Hypotheses Reported Honestly</div><div class="proof-desc">Three of seven hypotheses were weak or opposite to expected. We report everything. Intellectual honesty is foundational to the platform's credibility.</div></div></div>
+</div>
+</section>
+
+<div class="divider" style="max-width:1200px;margin:0 auto"></div>
+
+<section>
+<div class="section-label fi">Revenue Model</div>
+<div class="section-title fi">Four paths to monetization</div>
+
+<div class="rev-grid fi">
+<div class="rev-card"><span class="rev-audience">Trading Desks &amp; Quant Teams</span><div class="rev-title">Signal Feed</div><div class="rev-desc">Subscription-based delivery of real-time filing alerts with specificity scores, sentiment drift measures, and peer-relative rankings. Priced per seat or per signal. Delivered via API or flat file. Integrates into existing quantitative workflows without disruption.</div></div>
+<div class="rev-card"><span class="rev-audience">Equity Research Teams</span><div class="rev-title">Dashboard License</div><div class="rev-desc">Interactive platform for research teams to explore filing changes, peer comparisons, historical signal performance, and regime indicators across their coverage universe. Annual license per team or per institution.</div></div>
+<div class="rev-card"><span class="rev-audience">Wealth Management</span><div class="rev-title">White-Label Advisory Intelligence</div><div class="rev-desc">Client-facing intelligence reports powered by ContextQuant's engine, branded to the institution. Narrative-driven insights for high-net-worth advisory conversations. Per-AUM or per-report pricing.</div></div>
+<div class="rev-card"><span class="rev-audience">Institutional Clients</span><div class="rev-title">Research &amp; Consulting</div><div class="rev-desc">Custom hypothesis testing and signal development for clients with proprietary datasets or specific coverage universes. Project-based or retainer pricing for bespoke analysis.</div></div>
+</div>
+</section>
+
+<div class="divider" style="max-width:1200px;margin:0 auto"></div>
+
+<section>
+<div class="section-label fi">Competitive Moat</div>
+<div class="section-title fi">Why this is hard to replicate</div>
+
+<div class="moat-list fi">
+<div class="moat-item"><div class="moat-label">Integration, Not Technology</div><div class="moat-desc">Any institution can hire NLP engineers. The moat is the integration: competitive peer mapping, cross-filing textual analysis with TF-IDF specificity scoring, compensation parsing, transcript tone analysis, political spending patterns, and macro regime conditioning, unified in a single system measuring peer-relative deltas across a seven-year validated panel.</div></div>
+<div class="moat-item"><div class="moat-label">First-Mover Data Advantage</div><div class="moat-desc">The platform accumulates signal performance data with every filing cycle. Each quarter adds more evidence, refines signal calibration, and expands the training history. A competitor starting today begins with zero validated track record. By the time they replicate the methodology, ContextQuant has years of live signal generation as a head start.</div></div>
+<div class="moat-item"><div class="moat-label">Academic Credibility</div><div class="moat-desc">The methodology is grounded in published research from top finance and accounting journals (JFE, TAR, RAS). The findings extend established work by Campbell et al., Jiang et al., Huang et al., and Kravet &amp; Muslu. This is not a black box. It is transparent, reproducible, and positioned for peer-reviewed publication.</div></div>
+<div class="moat-item"><div class="moat-label">Jurisdiction-Agnostic Architecture</div><div class="moat-desc">The peer-relative framework works wherever companies file public disclosures. US (EDGAR), Canada (SEDAR+), UK, Europe, Asia-Pacific. What changes across markets is the filing format, not the fundamental insight that disclosure behavior relative to peers predicts returns. Each new market is an expansion, not a rebuild.</div></div>
+</div>
+</section>
+
+<div class="divider" style="max-width:1200px;margin:0 auto"></div>
+
+<section>
+<div class="section-label fi">Roadmap</div>
+<div class="section-title fi">Where we are. Where we are going.</div>
+
+<div class="milestone-grid fi">
+<div class="ms-card done"><div class="ms-phase done">Completed</div><div class="ms-title">Proof of Concept</div><div class="ms-desc">Working platform with validated results on 185-company universe.</div><ul class="ms-items"><li>17,207 filings ingested and parsed</li><li>198,192 NLP features from 7M+ words</li><li>7 hypotheses tested, 2 strong signals validated</li><li>6 years out-of-sample evidence</li><li>Regime conditioning confirmed</li></ul></div>
+<div class="ms-card next"><div class="ms-phase next">Next Phase</div><div class="ms-title">North American Scale</div><div class="ms-desc">Full US and Canadian market coverage with live signal generation.</div><ul class="ms-items"><li>~4,000 US companies via EDGAR</li><li>~3,500 Canadian companies via SEDAR+</li><li>Real-time filing ingestion pipeline</li><li>Live dashboard and signal delivery API</li><li>Transcript coverage expansion</li></ul></div>
+<div class="ms-card future"><div class="ms-phase future">Future</div><div class="ms-title">Global Expansion</div><div class="ms-desc">European and Asia-Pacific markets. Advanced NLP. Institutional partnerships.</div><ul class="ms-items"><li>Companies House, AMF, BaFin (Europe)</li><li>EDINET, HKExnews, SGXNet (Asia-Pacific)</li><li>Transformer-based sentiment (FinBERT, GPT-4)</li><li>Patent and insider transaction signals</li><li>White-label enterprise deployments</li></ul></div>
+</div>
+</section>
+
+<div class="cta-section fi">
+<div class="ct">Interested in the opportunity?</div>
+<div class="cx">We are looking for partners who share our conviction that the next edge in financial markets comes not from better models on the same data, but from reading the data that everyone else has chosen to ignore.</div>
+<a href="mailto:info@contextquant.com?subject=ContextQuant%20Investor%20Inquiry" class="btn">info@contextquant.com</a>
+</div>
+
+<footer><div class="fb">ContextQuant &copy; 2026</div><div class="fr">Predictive signals from public data the market chose not to read</div></footer>
+<script>const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fi').forEach(el=>o.observe(el));</script>
+</body>
+</html>
