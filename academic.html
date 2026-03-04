@@ -60,26 +60,26 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 </style>
 </head>
 <body>
-<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="investor.html">Investor</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div></nav>
+<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div></nav>
 
 <div class="page-hero">
 <div class="page-label">Academic Research</div>
 <h1 class="page-title">Peer-relative textual analysis<br>of corporate disclosures</h1>
-<p class="page-sub">A novel framework for measuring disclosure behavior as competitive deltas, grounded in established literature and validated across six years of out-of-sample data. We welcome collaboration, co-authorship, and data access inquiries.</p>
+<p class="page-sub">A novel framework for measuring disclosure behavior as competitive deltas, grounded in established literature and validated across a ten-year study period. We welcome collaboration, co-authorship, and data access inquiries.</p>
 </div>
 
 <section>
 <div class="section-label fi">The Dataset</div>
 <div class="section-title fi">Where it is. Where it is going.</div>
-<div class="section-text fi">The ContextQuant dataset is a structured panel of corporate textual and financial data designed for empirical research in accounting, finance, and NLP. It currently covers 185 US-listed and ADR-traded companies across seven years. The effective test sample is 130 US-domestic 10-K filers.</div>
+<div class="section-text fi">The ContextQuant dataset is a structured panel of corporate textual and financial data designed for empirical research in accounting, finance, and NLP. It covers 185 US-listed and ADR-traded companies across a ten-year study period (2015&ndash;2025). The effective test sample is 130 US-domestic 10-K filers.</div>
 
 <div class="dataset-grid fi">
-<div class="ds-card"><span class="ds-num">17,207</span><span class="ds-label">SEC Filings</span></div>
-<div class="ds-card"><span class="ds-num">73,660</span><span class="ds-label">Parsed Text Sections</span></div>
-<div class="ds-card"><span class="ds-num">198,192</span><span class="ds-label">NLP Features</span></div>
-<div class="ds-card"><span class="ds-num">7M+</span><span class="ds-label">Words Analyzed</span></div>
-<div class="ds-card"><span class="ds-num">311,692</span><span class="ds-label">Daily Price Rows</span></div>
-<div class="ds-card"><span class="ds-num">53,579</span><span class="ds-label">Macro Observations</span></div>
+<div class="ds-card"><span class="ds-num">26,780</span><span class="ds-label">SEC Filings</span></div>
+<div class="ds-card"><span class="ds-num">109,312</span><span class="ds-label">Parsed Text Sections</span></div>
+<div class="ds-card"><span class="ds-num">282,000+</span><span class="ds-label">NLP Features</span></div>
+<div class="ds-card"><span class="ds-num">350M+</span><span class="ds-label">Words Analyzed</span></div>
+<div class="ds-card"><span class="ds-num">511,064</span><span class="ds-label">Daily Price Rows</span></div>
+<div class="ds-card"><span class="ds-num">53,579</span><span class="ds-label">Macro Observations (65 FRED series)</span></div>
 <div class="ds-card"><span class="ds-num">406,000+</span><span class="ds-label">Political Contributions</span></div>
 <div class="ds-card"><span class="ds-num">2,907</span><span class="ds-label">Exec Comp Entries</span></div>
 <div class="ds-card"><span class="ds-num">24,078</span><span class="ds-label">Corporate Events</span></div>
@@ -94,16 +94,18 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 
 <section>
 <div class="section-label fi">Tested Hypotheses</div>
-<div class="section-title fi">Seven hypotheses tested in the first wave</div>
-<div class="section-text fi">All hypotheses tested using a rolling out-of-sample framework with six annual evaluation windows (2020-2025). Spearman rank IC, quintile spreads, t-statistics, and hit rates reported. Additional hypotheses on transcript analysis, patent innovation, and insider transactions are in development.</div>
+<div class="section-title fi">Fifteen hypotheses tested across a ten-year study period</div>
+<div class="section-text fi">All hypotheses tested using a rolling annual framework with ten evaluation windows (2016&ndash;2025). For each test year, signals constructed using only data available prior to that year. Spearman rank IC, quintile spreads, t-statistics, and hit rates reported across four return adjustment methods: raw, market-adjusted, industry-adjusted, and peer-adjusted.</div>
 
-<div class="hyp-card fi"><div class="hyp-id">H1</div><div><div class="hyp-title">Risk Factor Specificity Predicts Forward Returns</div><div class="hyp-desc">TF-IDF scoring of Item 1A risk factors measures company-specific vs. boilerplate language. Higher specificity predicts 6-12 month underperformance. Mean IC = -0.121, spread = -6.9%, 4/6 years. 2023: IC = -0.275, t = -3.48 (p &lt; 0.01). Extends Campbell et al. (2014, RAS) and Kravet &amp; Muslu (2013, RAS).</div></div><div class="hyp-status hs-strong">Strong</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H1</div><div><div class="hyp-title">Risk Language Specificity Predicts Forward Returns</div><div class="hyp-desc">TF-IDF scoring of Item 1A risk factors measures company-specific vs. boilerplate language. Higher specificity predicts 6&ndash;12 month underperformance. Pooled cumulative IC = &minus;0.065 (p = 0.023, n = 1,215, industry-adjusted). Annual 90&ndash;180d results: correct direction in 8 of 10 years. 2023: IC = &minus;0.275, t = &minus;3.48, exceeding Harvey-Liu-Zhu t &gt; 3.0 threshold. Extends Campbell et al. (2014, RAS) and Kravet &amp; Muslu (2013, RAS).</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
-<div class="hyp-card fi"><div class="hyp-id">H2</div><div><div class="hyp-title">MD&amp;A Sentiment Drift Predicts Short-Term Returns</div><div class="hyp-desc">YoY changes in Loughran-McDonald net sentiment from Item 7. Perfect consistency: 6/6 years at 0-30 day horizon (p = 0.016, sign test). Excessive optimism is a contrarian indicator. Extends Jiang et al. (2019, JFE) at the firm level and Huang et al. (2014, TAR) on tone management.</div></div><div class="hyp-status hs-strong">Strong</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H2</div><div><div class="hyp-title">MD&amp;A Sentiment Drift: Regime-Dependent</div><div class="hyp-desc">YoY changes in Loughran-McDonald net sentiment from Item 7. Pooled cross-sectional IC = &minus;0.012 (not significant) across the full ten-year sample. Signal was strongly predictive in high-uncertainty years (2020&ndash;2021) but inconsistent across the full cycle. Retained in composite as regime-dependent component. Per-year IC varied from &minus;0.179 (2020) to +0.164 (2017), indicating sensitivity to macro environment. Extends Jiang et al. (2019, JFE) and Huang et al. (2014, TAR).</div></div><div class="hyp-status hs-moderate">Regime-Dependent</div></div>
 
-<div class="hyp-card fi"><div class="hyp-id">H3</div><div><div class="hyp-title">Combined Signal Contains Independent Information</div><div class="hyp-desc">Composite of H1 and H2 achieves 75% hit rate, exceeding both individual signals. Complementary time horizons: sentiment at 0-30d, risk specificity at 6-12m, composite dominates at 90-180d (IC = -0.106). Composite does not generate false signals in dormant environments.</div></div><div class="hyp-status hs-strong">Strong</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H9</div><div><div class="hyp-title">Outlook Divergence Predicts Forward Returns</div><div class="hyp-desc">When current management tone is more optimistic than forward-looking language, relative to peer group, the stock underperforms. IC = &minus;0.134 (p = 0.045) at the 3-month horizon. Strongest individual IC in the study. Peer-relative framing essential: absolute tone level alone is not predictive. Novel signal combining intra-document tone divergence with competitive peer benchmarking.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
-<div class="hyp-card fi"><div class="hyp-id">H10</div><div><div class="hyp-title">Macro Regime Determines Which Signal Dominates</div><div class="hyp-desc">Risk specificity 2.7x more informative in high-uncertainty regimes; sentiment 2.1x in low-uncertainty. Composite at 90-180d in high uncertainty: IC = -0.137, 6/6 hit rate. Regime classification: VIX &gt; 20 or fed funds change &gt; 50bps/6mo. Novel finding of regime-complementary textual signals.</div></div><div class="hyp-status hs-moderate">Confirmed</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H11</div><div><div class="hyp-title">Transcript-to-Filing Gap Predicts Forward Returns</div><div class="hyp-desc">When management tone on an earnings call diverges from tone in the most recent written filing, a return correction follows. IC = &minus;0.086 (p &lt; 0.05) at the 6-month horizon. Spread = &minus;6.6% between top and bottom quintiles. Signal captures inconsistency between prepared disclosure and real-time analyst communication. Extends Price et al. (2012, JBF) on earnings call informativeness.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
+
+<div class="hyp-card fi"><div class="hyp-id">H10</div><div><div class="hyp-title">Macro Regime Conditions Signal Strength</div><div class="hyp-desc">Risk specificity 2.7x more informative in high-uncertainty regimes (VIX &gt; 20 or Fed Funds &Delta; &gt; 50bps/6mo). Composite at 90&ndash;180d in high uncertainty: IC = &minus;0.137. Signal weakest 2022&ndash;2024 when macro dominated; recovering in 2025 as conditions normalize. Novel finding of regime-complementary textual signals with practical implications for dynamic signal weighting.</div></div><div class="hyp-status hs-moderate">Confirmed</div></div>
 
 <div class="hyp-card fi"><div class="hyp-id">H5</div><div><div class="hyp-title">8-K Event Clustering Predicts Short-Term Returns</div><div class="hyp-desc">Executive change flag (Item 5.02) shows directional signal at 0-30d but not robust across years. Event frequency and materiality surge inconsistent. Requires larger sample for statistical power.</div></div><div class="hyp-status hs-weak">Exploratory</div></div>
 
@@ -117,7 +119,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <section>
 <div class="section-label fi">Literature Positioning</div>
 <div class="section-title fi">Three novel contributions</div>
-<div class="section-text fi">First, we introduce a peer-relative framework measuring each company's textual characteristics against direct competitive peers rather than in isolation or against broad industry benchmarks. Second, we demonstrate that the specificity dimension of risk disclosures (TF-IDF) contains return-predictive information distinct from aggregate disclosure volume. Third, we document regime-complementary behavior of textual signals: different disclosure dimensions become informative under opposing macroeconomic conditions.</div>
+<div class="section-text fi">First, we introduce a peer-relative framework measuring each company's textual characteristics against direct competitive peers rather than in isolation or against broad industry benchmarks. Second, we demonstrate that the specificity dimension of risk disclosures (TF-IDF) contains return-predictive information distinct from aggregate disclosure volume. Third, we document regime-complementary behavior of textual signals: different disclosure dimensions become informative under opposing macroeconomic conditions. Fourth, we show that intra-document tone divergence (current vs. forward-looking language) and cross-document inconsistency (earnings call vs. written filing) contain independent return-predictive information at the 3&ndash;6 month horizon.</div>
 
 <div class="section-label fi" style="margin-top:48px">Key References</div>
 <div class="ref-list fi">
@@ -139,7 +141,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="paper-box fi">
 <div class="paper-icon">[PDF]</div>
 <div>
-<div class="paper-title">Peer-Relative Textual Analysis of Corporate Disclosures: Evidence from Risk Specificity, Management Sentiment, and Macro Regime Conditioning</div>
+<div class="paper-title">Peer-Relative Textual Analysis of Corporate Disclosures: Evidence from Risk Specificity, Outlook Divergence, Transcript-Filing Inconsistency, and Macro Regime Conditioning</div>
 <div class="paper-desc">Full methodology, robustness checks, and portfolio simulation results. Includes complete hypothesis development, data description, and discussion of limitations.</div>
 <div class="paper-status">Forthcoming &mdash; March 2026</div>
 </div>
