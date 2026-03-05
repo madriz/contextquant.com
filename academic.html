@@ -56,32 +56,9 @@ section{padding:80px 60px;max-width:1200px;margin:0 auto}
 .btn{font-family:var(--mono);font-size:13px;padding:14px 36px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;text-decoration:none;transition:all 0.3s}.btn:hover{background:#5ccf85}
 footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between}.fb{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase}.fr{font-size:12px;color:var(--text-muted)}
 .fi{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}.fi.v{opacity:1;transform:translateY(0)}
-
 .nav-mobile-label{display:none}
-@media(max-width:900px){
-  nav{padding:0 24px}
-  .nav-links a:not(.nav-cta){display:none}
-  .nav-mobile-label{display:flex !important}
-  .page-hero,section,.cta-section{padding-left:24px;padding-right:24px}
-  .page-title{font-size:38px}
-  .dataset-grid{grid-template-columns:repeat(2,1fr)}
-  .hyp-card{grid-template-columns:1fr;gap:8px}
-  .hyp-status{display:inline-block;margin-top:6px}
-  .collab-grid{grid-template-columns:1fr}
-  .ref-list{columns:1}
-}
-@media(max-width:480px){
-  .page-title{font-size:28px;line-height:1.2}
-  .page-sub{font-size:16px}
-  .section-title{font-size:26px}
-  .ds-num{font-size:20px}
-  .hyp-title{font-size:14px}
-  .hyp-desc{font-size:12px}
-  .ref-item{font-size:12px}
-  .paper-box{flex-direction:column;gap:12px}
-  .ct{font-size:26px}
-  footer{flex-direction:column;gap:12px;text-align:center;padding:32px 24px}
-}
+@media(max-width:900px){nav{padding:0 24px}.nav-links a:not(.nav-cta){display:none}.nav-mobile-label{display:flex !important}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.page-title{font-size:38px}.dataset-grid{grid-template-columns:repeat(2,1fr)}.hyp-card{grid-template-columns:1fr;gap:8px}.hyp-status{display:inline-block;margin-top:6px}.collab-grid{grid-template-columns:1fr}.ref-list{columns:1}}
+@media(max-width:480px){.page-title{font-size:28px;line-height:1.2}.page-sub{font-size:16px}.section-title{font-size:26px}.ds-num{font-size:20px}.hyp-title{font-size:14px}.hyp-desc{font-size:12px}.paper-box{flex-direction:column;gap:12px}.ct{font-size:26px}footer{flex-direction:column;gap:12px;text-align:center;padding:32px 24px}}
 .modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(6,10,18,0.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:24px}
 .modal-overlay.open{display:flex}
 .modal{background:#0d1520;border:1px solid rgba(74,186,112,0.25);border-radius:12px;padding:40px;max-width:460px;width:100%;position:relative}
@@ -103,10 +80,85 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 .download-btn:hover{background:#5ccf85}
 @media(max-width:480px){.modal{padding:28px 20px}.modal-row{grid-template-columns:1fr}}
 
+
+/* ── HAMBURGER MENU ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+  z-index: 200;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--green);
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile-drawer {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0; right: 0;
+  background: rgba(6,10,18,0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  padding: 16px 24px 24px;
+  z-index: 99;
+  gap: 4px;
+}
+.nav-mobile-drawer.open { display: flex; }
+.nav-mobile-drawer a {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.nav-mobile-drawer a:last-child { border-bottom: none; }
+.nav-mobile-drawer a:hover,
+.nav-mobile-drawer a.active { color: var(--green); }
+.nav-mobile-drawer a.drawer-cta {
+  color: var(--green);
+  margin-top: 8px;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  padding: 12px 16px;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .nav-hamburger { display: flex; }
+  .nav-links { display: none !important; }
+  .nav-mobile-label { display: none !important; }
+}
 </style>
 </head>
 <body>
-<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div><span class="nav-mobile-label"><a href="mailto:info@contextquant.com" style="color:var(--green);text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:2px;">GET IN TOUCH</a></span></nav>
+<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div><button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button></nav>
+<div class="nav-mobile-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="index.html#platform">Platform</a>
+  <a href="index.html#findings">Findings</a>
+  <a href="business.html">Business</a>
+  <a href="academic.html" class="active">Academic</a>
+  <a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="drawer-cta">Get in Touch</a>
+</div>
 
 <div class="page-hero">
 <div class="page-label">Academic Research</div>
@@ -145,7 +197,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 
 <div class="hyp-card fi"><div class="hyp-id">H1</div><div><div class="hyp-title">Risk Language Specificity Predicts Forward Returns</div><div class="hyp-desc">TF-IDF scoring of Item 1A risk factors. Higher peer-relative specificity predicts 6–12 month underperformance. Pooled IC = −0.065 (p = 0.023, n = 1,215). 8/10 years correct direction. 2023: IC = −0.275, t = −3.48, exceeding Harvey-Liu-Zhu t &gt; 3.0 threshold. Extends Campbell et al. (2014) and Kravet &amp; Muslu (2013).</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
-<div class="hyp-card fi"><div class="hyp-id">H2</div><div><div class="hyp-title">MD&amp;A Sentiment Drift: Regime-Dependent</div><div class="hyp-desc">Pooled cross-sectional IC = −0.012 (not significant) across the full ten-year sample. Strongly predictive in high-uncertainty years (2020–2021) but inconsistent across the full cycle. Retained in composite only. Extends Jiang et al. (2019, JFE) and Huang et al. (2014, TAR).</div></div><div class="hyp-status hs-moderate">Regime-Dependent</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H2</div><div><div class="hyp-title">MD&amp;A Sentiment Drift: Regime-Dependent</div><div class="hyp-desc">Pooled cross-sectional IC = −0.012 (not significant) across the full ten-year sample. Strongly predictive in high-uncertainty years but inconsistent across the full cycle. Retained in composite only. Extends Jiang et al. (2019, JFE) and Huang et al. (2014, TAR).</div></div><div class="hyp-status hs-moderate">Regime-Dependent</div></div>
 
 <div class="hyp-card fi"><div class="hyp-id">H9</div><div><div class="hyp-title">Outlook Divergence Predicts Forward Returns</div><div class="hyp-desc">When current management tone is more optimistic than forward-looking language, relative to peer group, the stock underperforms. IC = −0.134 (p = 0.045) at the 3-month horizon. Strongest individual IC in the study. Peer-relative framing essential: absolute tone alone is not predictive.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
@@ -229,7 +281,6 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
     <button class="modal-submit" id="gSubmit" onclick="submitGate()">Access Paper &rarr;</button>
   </div>
 </div>
-
 <script>
 function openPdfGate(){document.getElementById('pdfGate').classList.add('open');}
 function closePdfGate(){document.getElementById('pdfGate').classList.remove('open');}
@@ -271,6 +322,24 @@ function triggerDownload(){
   a.download='ContextQuant_WorkingPaper_March2026.pdf';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
 }
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('navHamburger');
+  var drawer = document.getElementById('navDrawer');
+  if(!btn || !drawer) return;
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('open');
+    drawer.classList.toggle('open');
+  });
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+    });
+  });
+})();
 </script>
 </body>
 </html>
