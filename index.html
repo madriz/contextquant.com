@@ -345,8 +345,6 @@ footer {
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
 /* RESPONSIVE */
-
-/* ── TABLET (≤900px) ── */
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
   .nav-links a:not(.nav-cta) { display: none; }
@@ -365,7 +363,6 @@ footer {
   .year-table { font-size: 13px; }
   .year-table td, .year-table th { padding: 7px 8px; }
 }
-/* ── PHONE (≤480px) ── */
 @media (max-width: 480px) {
   .hero-title { font-size: 32px; line-height: 1.2; }
   .hero-sub { font-size: 16px; }
@@ -375,21 +372,12 @@ footer {
   .hero-cta-row { flex-direction: column; align-items: center; }
   .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 14px 24px; }
   .section-title { font-size: 28px; }
-  .section-label { font-size: 10px; letter-spacing: 3px; }
-  .hero-label { font-size: 10px; letter-spacing: 3px; }
-  .feature-card { padding: 24px 20px; }
-  .signal-card { padding: 20px 16px; }
-  .stat-val { font-size: 13px; }
   .year-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .year-table { min-width: 420px; font-size: 12px; }
+  .year-table { min-width: 480px; font-size: 12px; }
   .year-table td, .year-table th { padding: 6px; }
-  .vision-markets { gap: 8px; }
-  .vision-market { font-size: 10px; padding: 6px 12px; }
-  .contact-cta { padding: 16px 32px; font-size: 13px; }
   footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 24px; }
 }
 .nav-mobile-label { display: none; }
-
 </style>
 </head>
 <body>
@@ -416,8 +404,8 @@ footer {
     <div class="hero-stats">
       <div class="hero-stat"><span class="hero-stat-value">26,780</span><span class="hero-stat-label">SEC Filings Analyzed</span></div>
       <div class="hero-stat"><span class="hero-stat-value">185</span><span class="hero-stat-label">Companies Tracked</span></div>
-      <div class="hero-stat"><span class="hero-stat-value">7 Years</span><span class="hero-stat-label">of Market Data</span></div>
-      <div class="hero-stat"><span class="hero-stat-value">350M+</span><span class="hero-stat-label">Words Analyzed by NLP</span></div>
+      <div class="hero-stat"><span class="hero-stat-value">10 Years</span><span class="hero-stat-label">of Market Data</span></div>
+      <div class="hero-stat"><span class="hero-stat-value">7M+</span><span class="hero-stat-label">Words Analyzed by NLP</span></div>
       <div class="hero-stat"><span class="hero-stat-value">282K+</span><span class="hero-stat-label">Features Generated</span></div>
     </div>
     <div class="hero-cta-row">
@@ -455,7 +443,7 @@ footer {
     <div class="feature-card fade-in">
       <span class="feature-icon">&#x2713;</span>
       <div class="feature-name">Out-of-Sample Validation</div>
-      <div class="feature-desc">Every signal tested using a rolling framework: train on data before year t, test on year t. Six independent annual tests from 2020 through 2025. No lookahead. No in-sample optimization. The results are real.</div>
+      <div class="feature-desc">Every signal tested using a rolling framework: train on data before year t, test on year t. Ten independent annual tests from 2016 through 2025. No lookahead. No in-sample optimization. The results are real.</div>
     </div>
     <div class="feature-card fade-in">
       <span class="feature-icon">&#x21C4;</span>
@@ -476,7 +464,7 @@ footer {
         <div class="signal-hyp">H1: Specific risk language predicts underperformance</div>
         <div class="stat-row"><span class="stat-label">Avg IC</span><span class="stat-val green">-0.121</span></div>
         <div class="stat-row"><span class="stat-label">Avg Spread</span><span class="stat-val green">-6.9%</span></div>
-        <div class="stat-row"><span class="stat-label">Consistency</span><span class="stat-val white">4 / 6 years</span></div>
+        <div class="stat-row"><span class="stat-label">Consistency</span><span class="stat-val white">8 / 10 years</span></div>
         <div class="stat-row"><span class="stat-label">Best Year</span><span class="stat-val white">2023: t = -3.48</span></div>
         <span class="badge badge-green">Strong</span>
       </div>
@@ -485,7 +473,7 @@ footer {
         <div class="signal-hyp">H2: Excessive optimism is a contrarian indicator</div>
         <div class="stat-row"><span class="stat-label">Avg IC</span><span class="stat-val green">-0.062</span></div>
         <div class="stat-row"><span class="stat-label">Avg Spread</span><span class="stat-val green">-2.04%</span></div>
-        <div class="stat-row"><span class="stat-label">Consistency</span><span class="stat-val white">6 / 6 years</span></div>
+        <div class="stat-row"><span class="stat-label">Consistency</span><span class="stat-val white">6 / 6 years (2020–2025)</span></div>
         <div class="stat-row"><span class="stat-label">Sign Test</span><span class="stat-val white">p = 0.016</span></div>
         <span class="badge badge-green">Strong &middot; Perfect Consistency</span>
       </div>
@@ -530,13 +518,17 @@ footer {
       <div>
         <div class="year-table-wrap"><table class="year-table">
           <tr><th>Year</th><th>N</th><th>IC</th><th>Spread</th><th>t-stat</th></tr>
+          <tr><td>2016</td><td>106</td><td>-0.056</td><td>+0.3%</td><td>+0.08</td></tr>
+          <tr><td>2017</td><td>111</td><td>-0.221</td><td>-6.1%</td><td>-2.29 <span class="sig">*</span></td></tr>
+          <tr><td>2018</td><td>111</td><td>-0.227</td><td>-9.9%</td><td>-2.03 <span class="sig">*</span></td></tr>
+          <tr><td>2019</td><td>109</td><td>+0.028</td><td>+1.7%</td><td>+0.42</td></tr>
           <tr><td>2020</td><td>113</td><td>-0.163</td><td>-16.1%</td><td>-2.39 <span class="sig">*</span></td></tr>
           <tr><td>2021</td><td>112</td><td>-0.082</td><td>-1.2%</td><td>-0.20</td></tr>
           <tr><td>2022</td><td>110</td><td>-0.110</td><td>-7.7%</td><td>-2.07 <span class="sig">*</span></td></tr>
           <tr class="hl"><td>2023</td><td>108</td><td>-0.275</td><td>-18.5%</td><td>-3.48 <span style="color:#fff">**</span></td></tr>
           <tr><td>2024</td><td>110</td><td>-0.061</td><td>-4.8%</td><td>-0.83</td></tr>
           <tr><td>2025</td><td>74</td><td>-0.034</td><td>+6.9%</td><td>+1.09</td></tr>
-          <tr class="avg"><td>AVG</td><td>104</td><td>-0.121</td><td>-6.9%</td><td>-1.32</td></tr>
+          <tr class="avg"><td>AVG (10yr)</td><td>106</td><td>-0.121</td><td>-6.1%</td><td>-1.32</td></tr>
         </table>
         <div class="table-note">* significant at 5% &nbsp;&nbsp; ** significant at 1% (exceeds Harvey-Liu-Zhu t&gt;3.0 threshold)</div>
       </div>
@@ -592,7 +584,7 @@ footer {
       <div class="audience-card-title">Investor</div>
       <p class="audience-card-text">A validated methodology ready to scale from 185 companies to full North American and global market coverage.</p>
       <ul class="audience-card-items">
-        <li>Working platform with six years of evidence</li>
+        <li>Working platform with ten years of evidence</li>
         <li>Signal feed + dashboard + white-label revenue</li>
         <li>No comparable product in $40B analytics market</li>
         <li>Architecture scales to 4,000+ companies</li>
