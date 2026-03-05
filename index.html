@@ -345,74 +345,61 @@ footer {
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
 /* RESPONSIVE */
-.nav-mobile-label{display:none}
-@media(max-width:900px){nav{padding:0 24px}.nav-links a:not(.nav-cta){display:none}.nav-mobile-label{display:flex !important}.hero{padding:100px 24px 60px}.hero-title{font-size:42px}.hero-stats{gap:20px;flex-wrap:wrap;justify-content:center}.hero-stat-value{font-size:22px}section,.contact-section{padding:80px 24px}.findings-inner{padding:0 24px}.features-grid,.signal-row{grid-template-columns:1fr}.audience-cards{grid-template-columns:1fr !important;max-width:100% !important}.detail-grid{grid-template-columns:1fr}.vision-section{padding:80px 24px}.section-title{font-size:36px}}
-@media(max-width:480px){.hero-title{font-size:32px;line-height:1.2}.hero-sub{font-size:16px}.hero-stats{gap:16px}.hero-stat-value{font-size:20px}.hero-stat-label{font-size:10px}.hero-cta-row{flex-direction:column;align-items:center}.btn-primary,.btn-secondary{width:100%;text-align:center;padding:14px 24px}.section-title{font-size:28px}.year-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.year-table{min-width:480px;font-size:12px}.year-table td,.year-table th{padding:6px}footer{flex-direction:column;gap:12px;text-align:center;padding:32px 24px}}
 
-/* ── HAMBURGER MENU ── */
-.nav-hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  cursor: pointer;
-  padding: 8px;
-  background: none;
-  border: none;
-  z-index: 200;
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--green);transition:all 0.3s;border-radius:2px}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile-drawer{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);flex-direction:column;padding:16px 24px 24px;z-index:99;gap:4px}
+.nav-mobile-drawer.open{display:flex}
+.nav-mobile-drawer a{font-family:var(--mono);font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--text-secondary);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);transition:color 0.2s}
+.nav-mobile-drawer a:last-child{border-bottom:none}
+.nav-mobile-drawer a:hover,.nav-mobile-drawer a.active{color:var(--green)}
+.nav-mobile-drawer a.drawer-cta{color:var(--green);margin-top:8px;border:1px solid var(--green);border-radius:4px;padding:12px 16px;text-align:center}
+
+.nav-mobile-label{display:none}
+@media(max-width:900px){
+  nav{padding:0 16px}
+  
+.nav-hamburger{display:flex}
+.nav-mobile-label{display:none !important}
+
+  .hero{padding:100px 24px 60px}
+  .hero-title{font-size:42px}
+  .hero-stats{gap:20px;flex-wrap:wrap;justify-content:center}
+  .hero-stat-value{font-size:22px}
+  section,.contact-section{padding:80px 24px}
+  .findings-inner{padding:0 24px}
+  .features-grid,.signal-row{grid-template-columns:1fr}
+  .audience-cards{grid-template-columns:1fr !important;max-width:100% !important}
+  .detail-grid{grid-template-columns:1fr}
+  .vision-section{padding:80px 24px}
+  .section-title{font-size:36px}
 }
-.nav-hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--green);
-  transition: all 0.3s;
-  border-radius: 2px;
+@media(max-width:480px){
+  .hero-title{font-size:32px;line-height:1.2}
+  .hero-sub{font-size:16px}
+  .hero-stats{gap:16px}
+  .hero-stat-value{font-size:20px}
+  .hero-stat-label{font-size:10px}
+  .hero-cta-row{flex-direction:column;align-items:center}
+  .btn-primary,.btn-secondary{width:100%;text-align:center;padding:14px 24px}
+  .section-title{font-size:28px}
+  
+.year-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;display:block}
+.year-table{min-width:520px;font-size:11px;table-layout:auto}
+.year-table td,.year-table th{padding:5px 6px;white-space:nowrap}
+
+  footer{flex-direction:column;gap:12px;text-align:center;padding:32px 24px}
 }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.nav-mobile-drawer {
-  display: none;
-  position: fixed;
-  top: 64px;
-  left: 0; right: 0;
-  background: rgba(6,10,18,0.97);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  flex-direction: column;
-  padding: 16px 24px 24px;
-  z-index: 99;
-  gap: 4px;
+
+@media(max-width:390px){
+  .year-table{min-width:460px;font-size:10px}
+  .year-table td,.year-table th{padding:4px 5px}
+  nav{padding:0 16px !important}
 }
-.nav-mobile-drawer.open { display: flex; }
-.nav-mobile-drawer a {
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  text-decoration: none;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border);
-  transition: color 0.2s;
-}
-.nav-mobile-drawer a:last-child { border-bottom: none; }
-.nav-mobile-drawer a:hover,
-.nav-mobile-drawer a.active { color: var(--green); }
-.nav-mobile-drawer a.drawer-cta {
-  color: var(--green);
-  margin-top: 8px;
-  border: 1px solid var(--green);
-  border-radius: 4px;
-  padding: 12px 16px;
-  text-align: center;
-}
-@media (max-width: 900px) {
-  .nav-hamburger { display: flex; }
-  .nav-links { display: none !important; }
-  .nav-mobile-label { display: none !important; }
-}
+
 </style>
 </head>
 <body>
@@ -428,18 +415,9 @@ footer {
     
     <a href="#contact" class="nav-cta">Get in Touch</a>
   </div>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="nav-mobile-drawer" id="navDrawer">
-  <a href="#">Home</a>
-  <a href="#platform">Platform</a>
-  <a href="#findings">Findings</a>
-  <a href="business.html">Business</a>
-  <a href="academic.html">Academic</a>
-  <a href="#contact" class="drawer-cta">Get in Touch</a>
-</div>
+<div class="nav-mobile-drawer" id="navDrawer"><a href="#">Home</a><a href="#platform">Platform</a><a href="#findings">Findings</a><a href="business.html">Business</a><a href="academic.html">Academic</a><a href="#contact" class="drawer-cta">Get in Touch</a></div>
 
 <section class="hero">
   <div class="hero-content">
@@ -665,22 +643,13 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-
 <script>
 (function(){
-  var btn = document.getElementById('navHamburger');
-  var drawer = document.getElementById('navDrawer');
-  if(!btn || !drawer) return;
-  btn.addEventListener('click', function(){
-    btn.classList.toggle('open');
-    drawer.classList.toggle('open');
-  });
-  drawer.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      btn.classList.remove('open');
-      drawer.classList.remove('open');
-    });
-  });
+  var btn=document.getElementById('navHamburger');
+  var drawer=document.getElementById('navDrawer');
+  if(!btn||!drawer)return;
+  btn.addEventListener('click',function(){btn.classList.toggle('open');drawer.classList.toggle('open');});
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');drawer.classList.remove('open');});});
 })();
 </script>
 </body>
