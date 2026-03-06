@@ -56,80 +56,33 @@ section{padding:80px 60px;max-width:1200px;margin:0 auto}
 .btn{font-family:var(--mono);font-size:13px;padding:14px 36px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;text-decoration:none;transition:all 0.3s}.btn:hover{background:#5ccf85}
 footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between}.fb{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase}.fr{font-size:12px;color:var(--text-muted)}
 .fi{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}.fi.v{opacity:1;transform:translateY(0)}
-
-/* ── MOBILE NAV ── */
-.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:10px;background:none;border:none;z-index:200;min-width:44px;min-height:44px;-webkit-tap-highlight-color:transparent}
-.nav-hamburger span{display:block;width:24px;height:2px;background:var(--green);transition:all 0.3s;border-radius:2px}
-.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-hamburger.open span:nth-child(2){opacity:0}
-.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.nav-mobile-drawer{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);flex-direction:column;padding:16px 24px 24px;z-index:99;gap:4px}
-.nav-mobile-drawer.open{display:flex}
-.nav-mobile-drawer a{font-family:var(--mono);font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--text-secondary);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);transition:color 0.2s}
-.nav-mobile-drawer a:last-child{border-bottom:none}
-.nav-mobile-drawer a:hover,.nav-mobile-drawer a.active{color:var(--green)}
-.nav-mobile-drawer a.drawer-cta{color:var(--green);margin-top:8px;border:1px solid var(--green);border-radius:4px;padding:12px 16px;text-align:center;border-bottom:none}
-@media(max-width:900px){.nav-hamburger{display:flex}.nav-links{display:none !important}}
-
-@media(max-width:900px){nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.page-title{font-size:38px}.dataset-grid{grid-template-columns:repeat(2,1fr)}.hyp-card{grid-template-columns:1fr;gap:8px}.hyp-status{display:inline-block;margin-top:6px}.collab-grid{grid-template-columns:1fr}.ref-list{columns:1}}
-@media(max-width:480px){.page-title{font-size:28px;line-height:1.2}.page-sub{font-size:16px}.section-title{font-size:26px}.ds-num{font-size:20px}.hyp-title{font-size:14px}.hyp-desc{font-size:12px}.paper-box{flex-direction:column;gap:12px}.ct{font-size:26px}footer{flex-direction:column;gap:12px;text-align:center;padding:32px 24px}}
-
-
-/* ── PDF GATE MODAL ── */
-.modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(6,10,18,0.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:24px}
-.modal-overlay.open{display:flex}
-.modal{background:#0d1520;border:1px solid rgba(74,186,112,0.25);border-radius:12px;padding:40px;max-width:460px;width:100%;position:relative}
-.modal-title{font-family:var(--serif);font-size:22px;color:#fff;margin-bottom:8px}
-.modal-sub{font-size:13px;color:var(--text-secondary);margin-bottom:28px;line-height:1.6}
-.modal-field{margin-bottom:16px}
-.modal-field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
-.modal-field input{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:10px 14px;font-size:14px;color:var(--text-primary);font-family:var(--sans);outline:none;transition:border-color 0.2s;box-sizing:border-box}
-.modal-field input:focus{border-color:var(--green)}
-.modal-field input.error{border-color:#e74c3c}
-.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.modal-submit{width:100%;margin-top:8px;padding:14px;background:var(--green);color:var(--bg-deep);font-family:var(--mono);font-size:12px;letter-spacing:3px;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;transition:background 0.2s}
-.modal-submit:hover{background:#5ccf85}
-.modal-submit:disabled{opacity:0.6;cursor:not-allowed}
-.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--text-muted);font-size:22px;cursor:pointer;line-height:1;padding:0}
-.modal-close:hover{color:var(--text-primary)}
-.modal-errmsg{font-size:12px;color:#e74c3c;margin-top:12px;display:none}
-.download-btn{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;cursor:pointer;transition:all 0.2s;margin-top:12px;display:inline-block}
-.download-btn:hover{background:#5ccf85}
-@media(max-width:480px){.modal{padding:28px 20px}.modal-row{grid-template-columns:1fr}}
+@media(max-width:900px){nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.dataset-grid{grid-template-columns:repeat(2,1fr)}.hyp-card{grid-template-columns:1fr;gap:8px}.collab-grid{grid-template-columns:1fr}.ref-list{columns:1}}
 </style>
 </head>
 <body>
-<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div><button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
-<div class="nav-mobile-drawer" id="navDrawer">
-  <a href="index.html">Home</a>
-  <a href="index.html#platform">Platform</a>
-  <a href="index.html#findings">Findings</a>
-  <a href="business.html">Business</a>
-  <a href="academic.html" class="active">Academic</a>
-  <a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="drawer-cta">Get in Touch</a>
-</div>
+<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="investor.html">Investor</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div></nav>
 
 <div class="page-hero">
 <div class="page-label">Academic Research</div>
 <h1 class="page-title">Peer-relative textual analysis<br>of corporate disclosures</h1>
-<p class="page-sub">A novel framework for measuring disclosure behavior as competitive deltas, grounded in established literature and validated across a ten-year study period. We welcome collaboration, co-authorship, and data access inquiries.</p>
+<p class="page-sub">A novel framework for measuring disclosure behavior as competitive deltas, grounded in established literature and validated across ten years of out-of-sample data (2016–2025). We welcome collaboration, co-authorship, and data access inquiries.</p>
 </div>
 
 <section>
 <div class="section-label fi">The Dataset</div>
 <div class="section-title fi">Where it is. Where it is going.</div>
-<div class="section-text fi">The ContextQuant dataset is a structured panel of corporate textual and financial data designed for empirical research in accounting, finance, and NLP. It covers 185 US-listed and ADR-traded companies across a ten-year study period (2015–2025). The effective test sample is 130 US-domestic 10-K filers.</div>
+<div class="section-text fi">The ContextQuant dataset is a structured panel of corporate textual and financial data designed for empirical research in accounting, finance, and NLP. It currently covers 185 US-listed and ADR-traded companies across ten years (2015–2025). The effective test sample is 130 US-domestic 10-K filers.</div>
 
 <div class="dataset-grid fi">
 <div class="ds-card"><span class="ds-num">26,780</span><span class="ds-label">SEC Filings</span></div>
 <div class="ds-card"><span class="ds-num">109,312</span><span class="ds-label">Parsed Text Sections</span></div>
-<div class="ds-card"><span class="ds-num">282,000+</span><span class="ds-label">NLP Features</span></div>
+<div class="ds-card"><span class="ds-num">282,137</span><span class="ds-label">NLP Features</span></div>
 <div class="ds-card"><span class="ds-num">350M+</span><span class="ds-label">Words Analyzed</span></div>
 <div class="ds-card"><span class="ds-num">511,064</span><span class="ds-label">Daily Price Rows</span></div>
-<div class="ds-card"><span class="ds-num">53,579</span><span class="ds-label">Macro Obs. (65 FRED series)</span></div>
+<div class="ds-card"><span class="ds-num">53,579</span><span class="ds-label">Macro Observations</span></div>
 <div class="ds-card"><span class="ds-num">406,000+</span><span class="ds-label">Political Contributions</span></div>
 <div class="ds-card"><span class="ds-num">2,907</span><span class="ds-label">Exec Comp Entries</span></div>
-<div class="ds-card"><span class="ds-num">24,078</span><span class="ds-label">Corporate Events</span></div>
+<div class="ds-card"><span class="ds-num">37,670</span><span class="ds-label">Corporate Events</span></div>
 </div>
 
 <div class="section-text fi">The dataset is expanding along three dimensions. Coverage is extending to full US-listed market (~4,000 companies via EDGAR) and Canadian-listed companies (~3,500 via SEDAR+), with European and Asian filing repositories planned. Data sources are expanding to include patent filings (USPTO), insider transactions, and additional transcript coverage. NLP methods are extending from Loughran-McDonald dictionaries to transformer-based models (FinBERT, GPT-4 calibrated sentiment).</div>
@@ -141,18 +94,18 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 
 <section>
 <div class="section-label fi">Tested Hypotheses</div>
-<div class="section-title fi">Fifteen hypotheses tested across a ten-year study period</div>
-<div class="section-text fi">All hypotheses tested using a rolling annual framework with ten evaluation windows (2016–2025). Signals constructed using only data available prior to each test year. Spearman rank IC, quintile spreads, t-statistics, and hit rates reported.</div>
+<div class="section-title fi">Fifteen hypotheses tested across the full ten-year sample</div>
+<div class="section-text fi">All hypotheses tested using a rolling out-of-sample framework with ten annual evaluation windows (2016–2025). Spearman rank IC, quintile spreads, t-statistics, and hit rates reported. The study period spans a global pandemic, a historic rate hiking cycle, a regional banking crisis, and a bull market — a demanding test environment by any standard.</div>
 
-<div class="hyp-card fi"><div class="hyp-id">H1</div><div><div class="hyp-title">Risk Language Specificity Predicts Forward Returns</div><div class="hyp-desc">TF-IDF scoring of Item 1A risk factors. Higher peer-relative specificity predicts 6–12 month underperformance. Pooled IC = −0.065 (p = 0.023, n = 1,215). 8/10 years correct direction. 2023: IC = −0.275, t = −3.48, exceeding Harvey-Liu-Zhu t &gt; 3.0 threshold. Extends Campbell et al. (2014) and Kravet &amp; Muslu (2013).</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H1</div><div><div class="hyp-title">Risk Factor Specificity Predicts Forward Returns</div><div class="hyp-desc">TF-IDF scoring of Item 1A risk factors measures company-specific vs. boilerplate language. Higher specificity predicts 6–12 month underperformance. Pooled IC = -0.065 (p = 0.023), spread = -5.9%, correct in 8 of 10 years (2016–2025). Peak year 2023: IC = -0.275, t = -3.48 (p &lt; 0.01), exceeding Harvey-Liu-Zhu t &gt; 3.0 threshold. Signal is strongest in high-uncertainty regimes. Extends Campbell et al. (2014, RAS) and Kravet &amp; Muslu (2013, RAS).</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
-<div class="hyp-card fi"><div class="hyp-id">H2</div><div><div class="hyp-title">MD&amp;A Sentiment Drift: Regime-Dependent</div><div class="hyp-desc">Pooled cross-sectional IC = −0.012 (not significant) across the full ten-year sample. Strongly predictive in high-uncertainty years but inconsistent across the full cycle. Retained in composite only. Extends Jiang et al. (2019, JFE) and Huang et al. (2014, TAR).</div></div><div class="hyp-status hs-moderate">Regime-Dependent</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H2</div><div><div class="hyp-title">MD&amp;A Sentiment Drift — Regime-Dependent</div><div class="hyp-desc">YoY changes in Loughran-McDonald net sentiment from Item 7. Pooled cross-sectional IC = -0.012 across the full ten-year sample (not significant). Per-year IC ranges from -0.179 (2020) to +0.164 (2017) — the signal reverses in calm markets. Retained as a regime-conditioned component of the composite signal, where it contributes during high-uncertainty periods. Not a reliable standalone predictor. Extends Jiang et al. (2019, JFE) and Huang et al. (2014, TAR).</div></div><div class="hyp-status hs-moderate">Regime-Dependent</div></div>
 
-<div class="hyp-card fi"><div class="hyp-id">H9</div><div><div class="hyp-title">Outlook Divergence Predicts Forward Returns</div><div class="hyp-desc">When current management tone is more optimistic than forward-looking language, relative to peer group, the stock underperforms. IC = −0.134 (p = 0.045) at the 3-month horizon. Strongest individual IC in the study. Peer-relative framing essential: absolute tone alone is not predictive.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H9</div><div><div class="hyp-title">Outlook Divergence Predicts Forward Returns</div><div class="hyp-desc">Peer-relative forward outlook tone: company LLM outlook sentiment minus peer group median. IC = -0.134 (p = 0.045) at 90-day horizon — the strongest individual IC in the study. Peer-relative framing is essential: absolute forward tone alone is not predictive. Sample limited to 241 events with three or more LLM-scored peers. Novel contribution: peer-relative transcript signal predicts equity returns at medium horizons.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
-<div class="hyp-card fi"><div class="hyp-id">H11</div><div><div class="hyp-title">Transcript-to-Filing Gap Predicts Forward Returns</div><div class="hyp-desc">When management tone on an earnings call diverges from the most recent written filing, a return correction follows. IC = −0.086 (p &lt; 0.05) at the 6-month horizon. Spread = −6.6%. Extends Price et al. (2012, JBF) on earnings call informativeness.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H11</div><div><div class="hyp-title">Transcript–Filing Tone Gap Predicts Returns</div><div class="hyp-desc">Divergence between FinBERT-scored earnings call tone and most recent written filing tone. IC = -0.086 (p &lt; 0.05) at 180-day horizon, spread = -6.59% between top and bottom quintiles. Captures inconsistency between prepared annual disclosure and real-time analyst communication — a behavioral signal not previously measured systematically. Applies to both equity research and credit risk use cases.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
-<div class="hyp-card fi"><div class="hyp-id">H10</div><div><div class="hyp-title">Macro Regime Conditions Signal Strength</div><div class="hyp-desc">Risk specificity 2.7× more informative in high-uncertainty regimes (VIX &gt; 20 or Fed Funds Δ &gt; 50bps/6mo). Composite at 90–180d in high uncertainty: IC = −0.137. Signal weakest 2022–2024; recovering in 2025. Novel regime-complementary signal behavior.</div></div><div class="hyp-status hs-moderate">Confirmed</div></div>
+<div class="hyp-card fi"><div class="hyp-id">H10</div><div><div class="hyp-title">Macro Regime Determines Which Signal Dominates</div><div class="hyp-desc">Risk specificity 2.7× more informative in high-uncertainty regimes; sentiment drift 2.1× more effective in low-uncertainty. Composite (H1+H2+H9+H11) at 90–180 days in high-uncertainty regimes: IC = -0.137. Walk-forward validation: IR = 1.41, zero sign flips across all 6 test years, mean spread = 8.8%. Backtest (2015–2025): Sharpe = 0.88, cumulative +213%, max drawdown -34.9%. Regime classification: VIX &gt; 20 or Fed Funds change &gt; 50bps/6mo. Novel finding: regime-complementary textual signals.</div></div><div class="hyp-status hs-moderate">Confirmed</div></div>
 
 <div class="hyp-card fi"><div class="hyp-id">H5</div><div><div class="hyp-title">8-K Event Clustering Predicts Short-Term Returns</div><div class="hyp-desc">Executive change flag (Item 5.02) shows directional signal at 0-30d but not robust across years. Event frequency and materiality surge inconsistent. Requires larger sample for statistical power.</div></div><div class="hyp-status hs-weak">Exploratory</div></div>
 
@@ -165,8 +118,8 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 
 <section>
 <div class="section-label fi">Literature Positioning</div>
-<div class="section-title fi">Three novel contributions</div>
-<div class="section-text fi">First, we introduce a peer-relative framework measuring each company's textual characteristics against direct competitive peers rather than in isolation or against broad industry benchmarks. Second, we demonstrate that the specificity dimension of risk disclosures (TF-IDF) contains return-predictive information distinct from aggregate disclosure volume. Third, we document regime-complementary behavior of textual signals: different disclosure dimensions become informative under opposing macroeconomic conditions. Fourth, we show that intra-document tone divergence (H9) and cross-document inconsistency (H11) contain independent return-predictive information at the 3–6 month horizon.</div>
+<div class="section-title fi">Four novel contributions</div>
+<div class="section-text fi">First, we introduce a peer-relative framework measuring each company's textual characteristics against direct competitive peers rather than in isolation or against broad industry benchmarks. Second, we demonstrate that the specificity dimension of risk disclosures (TF-IDF) contains return-predictive information distinct from aggregate disclosure volume. Third, we document regime-complementary behavior of textual signals: different disclosure dimensions become informative under opposing macroeconomic conditions. Fourth, we show that the divergence between a company's earnings call tone and its most recent written filing tone (H11) is a novel and independently significant predictor of 180-day forward returns — a behavioral inconsistency signal not previously measured systematically in the literature.</div>
 
 <div class="section-label fi" style="margin-top:48px">Key References</div>
 <div class="ref-list fi">
@@ -188,10 +141,9 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="paper-box fi">
 <div class="paper-icon">[PDF]</div>
 <div>
-<div class="paper-title">Peer-Relative Textual Analysis of Corporate Disclosures: Evidence from Risk Specificity, Outlook Divergence, Transcript-Filing Inconsistency, and Macro Regime Conditioning</div>
-<div class="paper-desc">Full methodology, robustness checks, and portfolio simulation results. Includes complete hypothesis development, data description, and discussion of limitations.</div>
-<div class="paper-status">March 2026 &mdash; 28 pages</div>
-<button class="download-btn" onclick="openPdfGate()">Download PDF</button>
+<div class="paper-title">Peer-Relative Textual Analysis of Corporate Disclosures: Evidence from Risk Specificity, Outlook Divergence, Transcript–Filing Gaps, and Macro Regime Conditioning</div>
+<div class="paper-desc">Full methodology, robustness checks, and portfolio simulation results. Includes complete hypothesis development (H1–H15), data description, return decomposition, walk-forward validation, and discussion of limitations.</div>
+<div class="paper-status">March 2026 &mdash; Available on request</div>
 </div>
 </div>
 </section>
@@ -214,89 +166,5 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 
 <footer><div class="fb">ContextQuant &copy; 2026</div><div class="fr">Predictive signals from public data the market chose not to read</div></footer>
 <script>const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fi').forEach(el=>o.observe(el));</script>
-<div class="modal-overlay" id="pdfGate">
-  <div class="modal">
-    <button class="modal-close" onclick="closePdfGate()">&times;</button>
-    <div class="modal-title">Download Working Paper</div>
-    <div class="modal-sub">Please share your details to access the paper. We use this only to understand who is reading our research.</div>
-    <div class="modal-row">
-      <div class="modal-field"><label>First Name</label><input type="text" id="gFirst" placeholder="Jane" autocomplete="given-name"></div>
-      <div class="modal-field"><label>Last Name</label><input type="text" id="gLast" placeholder="Smith" autocomplete="family-name"></div>
-    </div>
-    <div class="modal-field"><label>Institution</label><input type="text" id="gInst" placeholder="University / Fund / Firm" autocomplete="organization"></div>
-    <div class="modal-field"><label>Email Address</label><input type="email" id="gEmail" placeholder="jane@institution.com" autocomplete="email"></div>
-    <div class="modal-errmsg" id="gError">Please fill in all fields with a valid email address.</div>
-    <button class="modal-submit" id="gSubmit" onclick="submitGate()">Access Paper &rarr;</button>
-  </div>
-</div>
-<script>
-function openPdfGate(){document.getElementById('pdfGate').classList.add('open');}
-function closePdfGate(){document.getElementById('pdfGate').classList.remove('open');}
-document.getElementById('pdfGate').addEventListener('click',function(e){if(e.target===this)closePdfGate();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closePdfGate();});
-function submitGate(){
-  var f=document.getElementById('gFirst').value.trim();
-  var l=document.getElementById('gLast').value.trim();
-  var i=document.getElementById('gInst').value.trim();
-  var e=document.getElementById('gEmail').value.trim();
-  var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
-  ['gFirst','gLast','gInst','gEmail'].forEach(function(id){document.getElementById(id).classList.remove('error');});
-  if(!f||!l||!i||!e||!ok){
-    document.getElementById('gError').style.display='block';
-    if(!f)document.getElementById('gFirst').classList.add('error');
-    if(!l)document.getElementById('gLast').classList.add('error');
-    if(!i)document.getElementById('gInst').classList.add('error');
-    if(!e||!ok)document.getElementById('gEmail').classList.add('error');
-    return;
-  }
-  document.getElementById('gError').style.display='none';
-  var btn=document.getElementById('gSubmit');
-  btn.textContent='Sending…';btn.disabled=true;
-  fetch('https://formspree.io/f/mlgprrpv',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({first_name:f,last_name:l,institution:i,email:e})
-  }).then(function(){
-    btn.textContent='Access Paper →';btn.disabled=false;
-    triggerDownload();closePdfGate();
-  }).catch(function(){
-    btn.textContent='Access Paper →';btn.disabled=false;
-    triggerDownload();closePdfGate();
-  });
-}
-function triggerDownload(){
-  var a=document.createElement('a');
-  a.href='ContextQuant_WorkingPaper_March2026.pdf';
-  a.download='ContextQuant_WorkingPaper_March2026.pdf';
-  document.body.appendChild(a);a.click();document.body.removeChild(a);
-}
-</script>
-<script>
-(function(){
-  var btn=document.getElementById('navHamburger');
-  var drawer=document.getElementById('navDrawer');
-  if(!btn||!drawer)return;
-  function toggle(e){
-    e.preventDefault();
-    e.stopPropagation();
-    btn.classList.toggle('open');
-    drawer.classList.toggle('open');
-  }
-  btn.addEventListener('click',toggle);
-  btn.addEventListener('touchend',toggle);
-  drawer.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){
-      btn.classList.remove('open');
-      drawer.classList.remove('open');
-    });
-  });
-  document.addEventListener('click',function(e){
-    if(!btn.contains(e.target)&&!drawer.contains(e.target)){
-      btn.classList.remove('open');
-      drawer.classList.remove('open');
-    }
-  });
-})();
-</script>
 </body>
 </html>
