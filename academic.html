@@ -53,14 +53,33 @@ section{padding:80px 60px;max-width:1200px;margin:0 auto}
 
 .cta-section{padding:100px 60px;text-align:center;max-width:800px;margin:0 auto}
 .ct{font-family:var(--serif);font-size:36px;color:#fff;margin-bottom:16px}.cx{font-size:16px;color:var(--text-secondary);margin-bottom:32px;line-height:1.8}
-.btn{font-family:var(--mono);font-size:13px;padding:14px 36px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;text-decoration:none;transition:all 0.3s}.btn:hover{background:#5ccf85}
+.btn{font-family:var(--mono);font-size:13px;padding:14px 36px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;text-decoration:none;transition:all 0.3s;cursor:pointer}.btn:hover{background:#5ccf85}
+/* PDF Gate Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:500;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{display:flex}
+.modal-box{background:#0d1520;border:1px solid rgba(74,186,112,0.3);border-radius:10px;padding:40px;max-width:480px;width:100%;position:relative}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-muted);font-size:20px;cursor:pointer;line-height:1;padding:4px 8px}
+.modal-close:hover{color:var(--text-primary)}
+.modal-title{font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:8px}
+.modal-sub{font-size:14px;color:var(--text-secondary);margin-bottom:24px;line-height:1.6}
+.modal-field{margin-bottom:16px}
+.modal-field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+.modal-field input{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;padding:10px 14px;color:var(--text-primary);font-family:var(--sans);font-size:14px;outline:none;transition:border-color 0.2s}
+.modal-field input:focus{border-color:rgba(74,186,112,0.5)}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.modal-submit{width:100%;margin-top:8px;font-family:var(--mono);font-size:13px;padding:12px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;cursor:pointer;transition:background 0.3s;letter-spacing:1px}
+.modal-submit:hover{background:#5ccf85}
+.modal-note{font-size:12px;color:var(--text-muted);margin-top:12px;text-align:center}
+.modal-success{display:none;text-align:center;padding:20px 0}
+.modal-success p{color:var(--text-secondary);font-size:15px;line-height:1.7;margin-bottom:16px}
+.modal-success .success-icon{font-size:36px;margin-bottom:12px;color:var(--green)}
 footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between}.fb{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase}.fr{font-size:12px;color:var(--text-muted)}
 .fi{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}.fi.v{opacity:1;transform:translateY(0)}
 @media(max-width:900px){nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.dataset-grid{grid-template-columns:repeat(2,1fr)}.hyp-card{grid-template-columns:1fr;gap:8px}.collab-grid{grid-template-columns:1fr}.ref-list{columns:1}}
 </style>
 </head>
 <body>
-<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="investor.html">Investor</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div></nav>
+<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div></nav>
 
 <div class="page-hero">
 <div class="page-label">Academic Research</div>
@@ -144,6 +163,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="paper-title">Peer-Relative Textual Analysis of Corporate Disclosures: Evidence from Risk Specificity, Outlook Divergence, Transcript–Filing Gaps, and Macro Regime Conditioning</div>
 <div class="paper-desc">Full methodology, robustness checks, and portfolio simulation results. Includes complete hypothesis development (H1–H15), data description, return decomposition, walk-forward validation, and discussion of limitations.</div>
 <div class="paper-status">March 2026 &mdash; Available on request</div>
+<div style="margin-top:20px"><button class="btn" id="pdfDownloadBtn">Download Working Paper</button></div>
 </div>
 </div>
 </section>
@@ -165,6 +185,64 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 </div>
 
 <footer><div class="fb">ContextQuant &copy; 2026</div><div class="fr">Predictive signals from public data the market chose not to read</div></footer>
-<script>const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fi').forEach(el=>o.observe(el));</script>
+<!-- PDF Gate Modal -->
+<div class="modal-overlay" id="pdfModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div id="modalForm">
+      <div class="modal-title">Download Working Paper</div>
+      <div class="modal-sub">Please share your details and we'll give you immediate access to the full working paper.</div>
+      <div class="modal-row">
+        <div class="modal-field"><label>First Name</label><input type="text" name="first_name" id="f_first" placeholder="Jane" required></div>
+        <div class="modal-field"><label>Last Name</label><input type="text" name="last_name" id="f_last" placeholder="Smith" required></div>
+      </div>
+      <div class="modal-field"><label>Institution</label><input type="text" name="institution" id="f_inst" placeholder="e.g. RBC Capital Markets" required></div>
+      <div class="modal-field"><label>Work Email</label><input type="email" name="email" id="f_email" placeholder="jane@institution.com" required></div>
+      <button class="modal-submit" id="modalSubmit">Get the Paper &rarr;</button>
+      <div class="modal-note">Your information will not be shared with third parties.</div>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">&#10003;</div>
+      <p>Thank you. A link to the working paper has been sent to your email. If you don't see it within a few minutes, check your spam folder or contact us at <a href="mailto:info@contextquant.com" style="color:var(--green)">info@contextquant.com</a>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fi').forEach(el=>o.observe(el));
+
+// PDF Gate
+(function(){
+  var btn=document.getElementById('pdfDownloadBtn');
+  var modal=document.getElementById('pdfModal');
+  var closeBtn=document.getElementById('modalClose');
+  var submitBtn=document.getElementById('modalSubmit');
+  var form=document.getElementById('modalForm');
+  var success=document.getElementById('modalSuccess');
+
+  if(btn) btn.addEventListener('click',function(){modal.classList.add('open');});
+  if(closeBtn) closeBtn.addEventListener('click',function(){modal.classList.remove('open');});
+  modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open');});
+
+  if(submitBtn) submitBtn.addEventListener('click',function(){
+    var first=document.getElementById('f_first').value.trim();
+    var last=document.getElementById('f_last').value.trim();
+    var inst=document.getElementById('f_inst').value.trim();
+    var email=document.getElementById('f_email').value.trim();
+    if(!first||!last||!inst||!email){alert('Please complete all fields.');return;}
+    if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email address.');return;}
+    submitBtn.textContent='Sending\u2026';
+    submitBtn.disabled=true;
+    fetch('https://formspree.io/f/mlgprrpv',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({first_name:first,last_name:last,institution:inst,email:email,_subject:'ContextQuant Working Paper Download'})
+    }).then(function(r){
+      if(r.ok){form.style.display='none';success.style.display='block';}
+      else{submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Something went wrong. Please try again or email us directly.');}
+    }).catch(function(){submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Network error. Please email info@contextquant.com directly.');});
+  });
+})();
+</script>
 </body>
 </html>
