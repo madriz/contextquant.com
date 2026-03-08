@@ -191,7 +191,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
     <button class="modal-close" id="modalClose">&times;</button>
     <div id="modalForm">
       <div class="modal-title">Download Working Paper</div>
-      <div class="modal-sub">Please share your details and we'll give you immediate access to the full working paper.</div>
+      <div class="modal-sub">Please share your details to download the full working paper.</div>
       <div class="modal-row">
         <div class="modal-field"><label>First Name</label><input type="text" name="first_name" id="f_first" placeholder="Jane" required></div>
         <div class="modal-field"><label>Last Name</label><input type="text" name="last_name" id="f_last" placeholder="Smith" required></div>
@@ -203,7 +203,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
     </div>
     <div class="modal-success" id="modalSuccess">
       <div class="success-icon">&#10003;</div>
-      <p>Thank you. A link to the working paper has been sent to your email. If you don't see it within a few minutes, check your spam folder or contact us at <a href="mailto:info@contextquant.com" style="color:var(--green)">info@contextquant.com</a>.</p>
+      <p>Thank you. Your download has started automatically. If it did not, <a href="papers/working-paper.pdf" download="ContextQuant_WorkingPaper.pdf" style="color:var(--green)">click here</a>. For any questions contact us at <a href="mailto:info@contextquant.com" style="color:var(--green)">info@contextquant.com</a>.</p>
     </div>
   </div>
 </div>
@@ -238,7 +238,16 @@ const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({first_name:first,last_name:last,institution:inst,email:email,_subject:'ContextQuant Working Paper Download'})
     }).then(function(r){
-      if(r.ok){form.style.display='none';success.style.display='block';}
+      if(r.ok){
+        var a=document.createElement('a');
+        a.href='papers/working-paper.pdf';
+        a.download='ContextQuant_WorkingPaper.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        form.style.display='none';
+        success.style.display='block';
+      }
       else{submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Something went wrong. Please try again or email us directly.');}
     }).catch(function(){submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Network error. Please email info@contextquant.com directly.');});
   });
