@@ -233,23 +233,21 @@ const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.
     if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email address.');return;}
     submitBtn.textContent='Sending\u2026';
     submitBtn.disabled=true;
+    // Trigger download immediately within user gesture context
+    var a=document.createElement('a');
+    a.href='ContextQuant_WorkingPaper_March2026.pdf';
+    a.download='ContextQuant_WorkingPaper.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    form.style.display='none';
+    success.style.display='block';
+    // Send form data to Formspree in background
     fetch('https://formspree.io/f/mlgprrpv',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({first_name:first,last_name:last,institution:inst,email:email,_subject:'ContextQuant Working Paper Download'})
-    }).then(function(r){
-      if(r.ok){
-        var a=document.createElement('a');
-        a.href='ContextQuant_WorkingPaper_March2026.pdf';
-        a.download='ContextQuant_WorkingPaper.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        form.style.display='none';
-        success.style.display='block';
-      }
-      else{submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Something went wrong. Please try again or email us directly.');}
-    }).catch(function(){submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Network error. Please email info@contextquant.com directly.');});
+    }).catch(function(){console.log('Form submission failed silently.');});
   });
 })();
 </script>
