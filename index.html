@@ -346,11 +346,6 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .nav-hamburger{display:flex}
-  .nav-links{display:none;flex-direction:column;gap:0;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99}
-  .nav-links.mobile-open{display:flex}
-  .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px}
-  .nav-cta{margin-top:8px;text-align:center;padding:12px 20px!important}
   nav { padding: 0 24px; }
   .nav-links { gap: 20px; }
   .hero { padding: 100px 24px 60px; }
@@ -362,12 +357,25 @@ footer {
   .detail-grid { grid-template-columns: 1fr; }
   .vision-section { padding: 80px 24px; }
 }
+
+/* Hamburger nav */
 .nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;cursor:pointer;background:none;border:none;padding:0;z-index:200}
 .nav-hamburger span{display:block;height:2px;background:var(--green);border-radius:2px;transition:all 0.3s}
 .nav-hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-@media(max-width:480px){.page-title,.hero-title{font-size:32px}.section-title{font-size:28px}.dataset-grid{grid-template-columns:1fr}}
+
+@media(max-width:900px){
+  .nav-hamburger{display:flex !important}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99}
+  .nav-links.mobile-open{display:flex}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px}
+  .nav-cta{margin-top:8px;text-align:center;padding:12px 20px}
+}
+@media(max-width:480px){
+  .page-title,.hero-title{font-size:32px!important}
+  .section-title{font-size:28px!important}
+}
 </style>
 </head>
 <body>
@@ -480,7 +488,7 @@ footer {
       <div class="signal-card moderate">
         <div class="signal-name">Macro Regime Conditioning</div>
         <div class="signal-hyp">H10: Signals are regime-complementary</div>
-        <div class="stat-row"><span class="stat-label">Risk in HIGH</span><span class="stat-val blue">2.7× stronger</span></div>
+        <div class="stat-row"><span class="stat-label">Risk in HIGH</span><span class="stat-val blue">4.8× stronger</span></div>
         <div class="stat-row"><span class="stat-label">Sentiment in LOW</span><span class="stat-val blue">2.1× stronger</span></div>
         <div class="stat-row"><span class="stat-label">Composite IR</span><span class="stat-val white">1.41 · zero sign flips</span></div>
         <span class="badge badge-blue">Confirmed</span>

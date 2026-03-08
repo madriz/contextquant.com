@@ -74,18 +74,27 @@ section{padding:80px 60px;max-width:1200px;margin:0 auto}
 .modal-success p{color:var(--text-secondary);font-size:15px;line-height:1.7;margin-bottom:16px}
 .modal-success .success-icon{font-size:36px;margin-bottom:12px;color:var(--green)}
 footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between}.fb{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase}.fr{font-size:12px;color:var(--text-muted)}
-.{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}..v{opacity:1;transform:translateY(0)}
-@media(max-width:900px){
-  .nav-hamburger{display:flex}
-  .nav-links{display:none;flex-direction:column;gap:0;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99}
-  .nav-links.mobile-open{display:flex}
-  .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px}
-  .nav-cta{margin-top:8px;text-align:center;padding:12px 20px!important}nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.dataset-grid{grid-template-columns:repeat(2,1fr)}.hyp-card{grid-template-columns:1fr;gap:8px}.collab-grid{grid-template-columns:1fr}.ref-list{columns:1}}
+.fi{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}.fi.v{opacity:1;transform:translateY(0)}
+@media(max-width:900px){nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.dataset-grid{grid-template-columns:repeat(2,1fr)}.hyp-card{grid-template-columns:1fr;gap:8px}.collab-grid{grid-template-columns:1fr}.ref-list{columns:1}}
+
+/* Hamburger nav */
 .nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;cursor:pointer;background:none;border:none;padding:0;z-index:200}
 .nav-hamburger span{display:block;height:2px;background:var(--green);border-radius:2px;transition:all 0.3s}
 .nav-hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+@media(max-width:900px){
+  .nav-hamburger{display:flex !important}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99}
+  .nav-links.mobile-open{display:flex}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px}
+  .nav-cta{margin-top:8px;text-align:center;padding:12px 20px}
+}
+@media(max-width:480px){
+  .page-title,.hero-title{font-size:32px!important}
+  .section-title{font-size:28px!important}
+}
 </style>
 </head>
 <body>
@@ -99,11 +108,11 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 </div>
 
 <section>
-<div class="section-label ">The Dataset</div>
-<div class="section-title ">Where it is. Where it is going.</div>
-<div class="section-text ">The ContextQuant dataset is a structured panel of corporate textual and financial data designed for empirical research in accounting, finance, and NLP. It currently covers 185 US-listed and ADR-traded companies across ten years (2015–2025). The effective test sample is 130 US-domestic 10-K filers.</div>
+<div class="section-label">The Dataset</div>
+<div class="section-title">Where it is. Where it is going.</div>
+<div class="section-text">The ContextQuant dataset is a structured panel of corporate textual and financial data designed for empirical research in accounting, finance, and NLP. It currently covers 185 US-listed and ADR-traded companies across ten years (2015–2025). The effective test sample is 130 US-domestic 10-K filers.</div>
 
-<div class="dataset-grid ">
+<div class="dataset-grid">
 <div class="ds-card"><span class="ds-num">26,780</span><span class="ds-label">SEC Filings</span></div>
 <div class="ds-card"><span class="ds-num">109,312</span><span class="ds-label">Parsed Text Sections</span></div>
 <div class="ds-card"><span class="ds-num">282,137</span><span class="ds-label">NLP Features</span></div>
@@ -115,44 +124,44 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="ds-card"><span class="ds-num">37,670</span><span class="ds-label">Corporate Events</span></div>
 </div>
 
-<div class="section-text ">The dataset is expanding along three dimensions. Coverage is extending to full US-listed market (~4,000 companies via EDGAR) and Canadian-listed companies (~3,500 via SEDAR+), with European and Asian filing repositories planned. Data sources are expanding to include patent filings (USPTO), insider transactions, and additional transcript coverage. NLP methods are extending from Loughran-McDonald dictionaries to transformer-based models (FinBERT, GPT-4 calibrated sentiment).</div>
+<div class="section-text">The dataset is expanding along three dimensions. Coverage is extending to full US-listed market (~4,000 companies via EDGAR) and Canadian-listed companies (~3,500 via SEDAR+), with European and Asian filing repositories planned. Data sources are expanding to include patent filings (USPTO), insider transactions, and additional transcript coverage. NLP methods are extending from Loughran-McDonald dictionaries to transformer-based models (FinBERT, GPT-4 calibrated sentiment).</div>
 
-<div class="section-text ">The underlying database uses SQLite with an 18-table schema covering filings, sections, features, price data, macro time series, competitive pairs, corporate events, executive compensation, and political contributions. The full pipeline is reproducible from raw EDGAR downloads through feature extraction and hypothesis testing.</div>
+<div class="section-text">The underlying database uses SQLite with an 18-table schema covering filings, sections, features, price data, macro time series, competitive pairs, corporate events, executive compensation, and political contributions. The full pipeline is reproducible from raw EDGAR downloads through feature extraction and hypothesis testing.</div>
 </section>
 
 <div class="divider" style="max-width:1200px;margin:0 auto"></div>
 
 <section>
-<div class="section-label ">Tested Hypotheses</div>
-<div class="section-title ">Fifteen hypotheses tested across the full ten-year sample</div>
-<div class="section-text ">All hypotheses tested using a rolling out-of-sample framework with ten annual evaluation windows (2016–2025). Spearman rank IC, quintile spreads, t-statistics, and hit rates reported. The study period spans a global pandemic, a historic rate hiking cycle, a regional banking crisis, and a bull market — a demanding test environment by any standard.</div>
+<div class="section-label">Tested Hypotheses</div>
+<div class="section-title">Fifteen hypotheses tested across the full ten-year sample</div>
+<div class="section-text">All hypotheses tested using a rolling out-of-sample framework with ten annual evaluation windows (2016–2025). Spearman rank IC, quintile spreads, t-statistics, and hit rates reported. The study period spans a global pandemic, a historic rate hiking cycle, a regional banking crisis, and a bull market — a demanding test environment by any standard.</div>
 
-<div class="hyp-card "><div class="hyp-id">H1</div><div><div class="hyp-title">Risk Factor Specificity Predicts Forward Returns</div><div class="hyp-desc">TF-IDF scoring of Item 1A risk factors measures company-specific vs. boilerplate language. Higher specificity predicts 6–12 month underperformance. Pooled IC = -0.065 (p = 0.023), spread = -5.9%, correct in 8 of 10 years (2016–2025). Peak year 2023: IC = -0.275, t = -3.48 (p &lt; 0.01), exceeding Harvey-Liu-Zhu t &gt; 3.0 threshold. Signal is strongest in high-uncertainty regimes. Extends Campbell et al. (2014, RAS) and Kravet &amp; Muslu (2013, RAS).</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
+<div class="hyp-card"><div class="hyp-id">H1</div><div><div class="hyp-title">Risk Factor Specificity Predicts Forward Returns</div><div class="hyp-desc">TF-IDF scoring of Item 1A risk factors measures company-specific vs. boilerplate language. Higher specificity predicts 6–12 month underperformance. Pooled IC = -0.065 (p = 0.023), spread = -5.9%, correct in 8 of 10 years (2016–2025). Peak year 2023: IC = -0.275, t = -3.48 (p &lt; 0.01), exceeding Harvey-Liu-Zhu t &gt; 3.0 threshold. Signal is strongest in high-uncertainty regimes. Extends Campbell et al. (2014, RAS) and Kravet &amp; Muslu (2013, RAS).</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
-<div class="hyp-card "><div class="hyp-id">H2</div><div><div class="hyp-title">MD&amp;A Sentiment Drift — Regime-Dependent</div><div class="hyp-desc">YoY changes in Loughran-McDonald net sentiment from Item 7. Pooled cross-sectional IC = -0.012 across the full ten-year sample (not significant). Per-year IC ranges from -0.179 (2020) to +0.164 (2017) — the signal reverses in calm markets. Retained as a regime-conditioned component of the composite signal, where it contributes during high-uncertainty periods. Not a reliable standalone predictor. Extends Jiang et al. (2019, JFE) and Huang et al. (2014, TAR).</div></div><div class="hyp-status hs-moderate">Regime-Dependent</div></div>
+<div class="hyp-card"><div class="hyp-id">H2</div><div><div class="hyp-title">MD&amp;A Sentiment Drift — Regime-Dependent</div><div class="hyp-desc">YoY changes in Loughran-McDonald net sentiment from Item 7. Pooled cross-sectional IC = -0.012 across the full ten-year sample (not significant). Per-year IC ranges from -0.179 (2020) to +0.164 (2017) — the signal reverses in calm markets. Retained as a regime-conditioned component of the composite signal, where it contributes during high-uncertainty periods. Not a reliable standalone predictor. Extends Jiang et al. (2019, JFE) and Huang et al. (2014, TAR).</div></div><div class="hyp-status hs-moderate">Regime-Dependent</div></div>
 
-<div class="hyp-card "><div class="hyp-id">H9</div><div><div class="hyp-title">Outlook Divergence Predicts Forward Returns</div><div class="hyp-desc">Peer-relative forward outlook tone: company LLM outlook sentiment minus peer group median. IC = -0.134 (p = 0.045) at 90-day horizon — the strongest individual IC in the study. Peer-relative framing is essential: absolute forward tone alone is not predictive. Sample limited to 241 events with three or more LLM-scored peers. Novel contribution: peer-relative transcript signal predicts equity returns at medium horizons.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
+<div class="hyp-card"><div class="hyp-id">H9</div><div><div class="hyp-title">Outlook Divergence Predicts Forward Returns</div><div class="hyp-desc">Peer-relative forward outlook tone: company LLM outlook sentiment minus peer group median. IC = -0.134 (p = 0.045) at 90-day horizon — the strongest individual IC in the study. Peer-relative framing is essential: absolute forward tone alone is not predictive. Sample limited to 241 events with three or more LLM-scored peers. Novel contribution: peer-relative transcript signal predicts equity returns at medium horizons.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
-<div class="hyp-card "><div class="hyp-id">H11</div><div><div class="hyp-title">Transcript–Filing Tone Gap Predicts Returns</div><div class="hyp-desc">Divergence between FinBERT-scored earnings call tone and most recent written filing tone. IC = -0.086 (p &lt; 0.05) at 180-day horizon, spread = -6.59% between top and bottom quintiles. Captures inconsistency between prepared annual disclosure and real-time analyst communication — a behavioral signal not previously measured systematically. Applies to both equity research and credit risk use cases.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
+<div class="hyp-card"><div class="hyp-id">H11</div><div><div class="hyp-title">Transcript–Filing Tone Gap Predicts Returns</div><div class="hyp-desc">Divergence between FinBERT-scored earnings call tone and most recent written filing tone. IC = -0.086 (p &lt; 0.05) at 180-day horizon, spread = -6.59% between top and bottom quintiles. Captures inconsistency between prepared annual disclosure and real-time analyst communication — a behavioral signal not previously measured systematically. Applies to both equity research and credit risk use cases.</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
-<div class="hyp-card "><div class="hyp-id">H10</div><div><div class="hyp-title">Macro Regime Determines Which Signal Dominates</div><div class="hyp-desc">Risk specificity 2.7× more informative in high-uncertainty regimes; sentiment drift 2.1× more effective in low-uncertainty. Composite (H1+H2+H9+H11) at 90–180 days in high-uncertainty regimes: IC = -0.137. Walk-forward validation: IR = 1.41, zero sign flips across all 6 composite walk-forward test years (2020–2025), mean spread = 8.8%. Backtest (2015–2025): Sharpe = 0.88, cumulative +213%, max drawdown -34.9%. Regime classification: VIX &gt; 20 or Fed Funds change &gt; 50bps/6mo. Novel finding: regime-complementary textual signals.</div></div><div class="hyp-status hs-moderate">Confirmed</div></div>
+<div class="hyp-card"><div class="hyp-id">H10</div><div><div class="hyp-title">Macro Regime Determines Which Signal Dominates</div><div class="hyp-desc">Risk specificity 4.8× more informative in high-uncertainty regimes; sentiment drift 2.1× more effective in low-uncertainty. Composite (H1+H2+H9+H11) at 90–180 days in high-uncertainty regimes: IC = -0.137. Walk-forward validation: IR = 1.41, zero sign flips across all 6 composite walk-forward test years (2020–2025), mean spread = 8.8%. Backtest (2015–2025): Sharpe = 0.88, cumulative +213%, max drawdown -34.9%. Regime classification: VIX &gt; 20 or Fed Funds change &gt; 50bps/6mo. Novel finding: regime-complementary textual signals.</div></div><div class="hyp-status hs-moderate">Confirmed</div></div>
 
-<div class="hyp-card "><div class="hyp-id">H5</div><div><div class="hyp-title">8-K Event Clustering Predicts Short-Term Returns</div><div class="hyp-desc">Executive change flag (Item 5.02) shows directional signal at 0-30d but not robust across years. Event frequency and materiality surge inconsistent. Requires larger sample for statistical power.</div></div><div class="hyp-status hs-weak">Exploratory</div></div>
+<div class="hyp-card"><div class="hyp-id">H5</div><div><div class="hyp-title">8-K Event Clustering Predicts Short-Term Returns</div><div class="hyp-desc">Executive change flag (Item 5.02) shows directional signal at 0-30d but not robust across years. Event frequency and materiality surge inconsistent. Requires larger sample for statistical power.</div></div><div class="hyp-status hs-weak">Exploratory</div></div>
 
-<div class="hyp-card "><div class="hyp-id">H6</div><div><div class="hyp-title">Compensation Structure Predicts Disclosure Behavior</div><div class="hyp-desc">Limited by data availability (15 tickers with CEO-level comp). Supplementary test: IC = -0.149 between equity comp increases and subsequent risk specificity changes. Direction interesting but sample insufficient. Relates to Core et al. (1999, JFE) excess compensation framework.</div></div><div class="hyp-status hs-weak">Data-Limited</div></div>
+<div class="hyp-card"><div class="hyp-id">H6</div><div><div class="hyp-title">Compensation Structure Predicts Disclosure Behavior</div><div class="hyp-desc">Limited by data availability (15 tickers with CEO-level comp). Supplementary test: IC = -0.149 between equity comp increases and subsequent risk specificity changes. Direction interesting but sample insufficient. Relates to Core et al. (1999, JFE) excess compensation framework.</div></div><div class="hyp-status hs-weak">Data-Limited</div></div>
 
-<div class="hyp-card "><div class="hyp-id">H7</div><div><div class="hyp-title">Political Spending Patterns and Returns</div><div class="hyp-desc">Original hypothesis rejected but revised with expanded data (134 tickers, 406K contributions, up from 49). Raw total contributions show positive ICs (avg +0.159, peak IC = +0.273), confirming large political spenders outperform (regulatory capture). However, contribution intensity (spending normalized by dollar volume) at 90-180d shows negative spreads in all 3 cycles (3/3 hit rate): smaller companies spending disproportionately underperform. Direction depends on absolute vs. size-relative measurement. This size-conditioning effect is a novel finding.</div></div><div class="hyp-status hs-reversed">Size-Dependent</div></div>
+<div class="hyp-card"><div class="hyp-id">H7</div><div><div class="hyp-title">Political Spending Patterns and Returns</div><div class="hyp-desc">Original hypothesis rejected but revised with expanded data (134 tickers, 406K contributions, up from 49). Raw total contributions show positive ICs (avg +0.159, peak IC = +0.273), confirming large political spenders outperform (regulatory capture). However, contribution intensity (spending normalized by dollar volume) at 90-180d shows negative spreads in all 3 cycles (3/3 hit rate): smaller companies spending disproportionately underperform. Direction depends on absolute vs. size-relative measurement. This size-conditioning effect is a novel finding.</div></div><div class="hyp-status hs-reversed">Size-Dependent</div></div>
 </section>
 
 <div class="divider" style="max-width:1200px;margin:0 auto"></div>
 
 <section>
-<div class="section-label ">Literature Positioning</div>
-<div class="section-title ">Four novel contributions</div>
-<div class="section-text ">First, we introduce a peer-relative framework measuring each company's textual characteristics against direct competitive peers rather than in isolation or against broad industry benchmarks. Second, we demonstrate that the specificity dimension of risk disclosures (TF-IDF) contains return-predictive information distinct from aggregate disclosure volume. Third, we document regime-complementary behavior of textual signals: different disclosure dimensions become informative under opposing macroeconomic conditions. Fourth, we show that the divergence between a company's earnings call tone and its most recent written filing tone (H11) is a novel and independently significant predictor of 180-day forward returns — a behavioral inconsistency signal not previously measured systematically in the literature.</div>
+<div class="section-label">Literature Positioning</div>
+<div class="section-title">Four novel contributions</div>
+<div class="section-text">First, we introduce a peer-relative framework measuring each company's textual characteristics against direct competitive peers rather than in isolation or against broad industry benchmarks. Second, we demonstrate that the specificity dimension of risk disclosures (TF-IDF) contains return-predictive information distinct from aggregate disclosure volume. Third, we document regime-complementary behavior of textual signals: different disclosure dimensions become informative under opposing macroeconomic conditions. Fourth, we show that the divergence between a company's earnings call tone and its most recent written filing tone (H11) is a novel and independently significant predictor of 180-day forward returns — a behavioral inconsistency signal not previously measured systematically in the literature.</div>
 
-<div class="section-label " style="margin-top:48px">Key References</div>
-<div class="ref-list ">
+<div class="section-label" style="margin-top:48px">Key References</div>
+<div class="ref-list">
 <div class="ref-item"><strong>Campbell, Chen, Dhaliwal, Lu, Steele (2014)</strong>. The Information Content of Mandatory Risk Factor Disclosures. Review of Accounting Studies, 19(1), 396-455.</div>
 <div class="ref-item"><strong>Jiang, Lee, Martin, Zhou (2019)</strong>. Manager Sentiment and Stock Returns. Journal of Financial Economics, 132(1), 126-149.</div>
 <div class="ref-item"><strong>Kravet, Muslu (2013)</strong>. Textual Risk Disclosures and Investors' Risk Perceptions. Review of Accounting Studies, 18(4), 1088-1122.</div>
@@ -167,8 +176,8 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="divider" style="max-width:1200px;margin:0 auto"></div>
 
 <section>
-<div class="section-label ">Working Paper</div>
-<div class="paper-box ">
+<div class="section-label">Working Paper</div>
+<div class="paper-box">
 <div class="paper-icon">[PDF]</div>
 <div>
 <div class="paper-title">Peer-Relative Textual Analysis of Corporate Disclosures: Evidence from Risk Specificity, Outlook Divergence, Transcript–Filing Gaps, and Macro Regime Conditioning</div>
@@ -180,16 +189,16 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 </section>
 
 <section>
-<div class="section-label ">Collaboration</div>
-<div class="section-title ">How to work with us</div>
-<div class="collab-grid ">
+<div class="section-label">Collaboration</div>
+<div class="section-title">How to work with us</div>
+<div class="collab-grid">
 <div class="collab-card"><div class="cc-title">Data Access</div><div class="cc-text">We are open to providing dataset access to researchers working on related questions in disclosure quality, textual analysis, or market microstructure. Contact us to discuss scope and terms.</div></div>
 <div class="collab-card"><div class="cc-title">Co-Authorship</div><div class="cc-text">We welcome collaboration with faculty working in accounting, finance, or NLP. The dataset and framework lend themselves to multiple publishable studies beyond our initial hypotheses.</div></div>
 <div class="collab-card"><div class="cc-title">Extension Research</div><div class="cc-text">Open questions: transformer-based sentiment models, international filer analysis, mid/small-cap generalizability, Fama-French alpha estimation, and dynamic signal weighting optimization.</div></div>
 </div>
 </section>
 
-<div class="cta-section ">
+<div class="cta-section">
 <div class="ct">Interested in the research?</div>
 <div class="cx">Whether you are exploring data access, considering co-authorship, or have questions about the methodology, we would welcome the conversation.</div>
 <a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="btn">info@contextquant.com</a>
