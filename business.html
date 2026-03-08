@@ -34,12 +34,24 @@ section{padding:80px 60px;max-width:1200px;margin:0 auto}
 .ct{font-family:var(--serif);font-size:36px;color:#fff;margin-bottom:16px}.cx{font-size:16px;color:var(--text-secondary);margin-bottom:32px;line-height:1.8}
 .btn{font-family:var(--mono);font-size:13px;padding:14px 36px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;text-decoration:none;transition:all 0.3s}.btn:hover{background:#5ccf85}
 footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between}.fb{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase}.fr{font-size:12px;color:var(--text-muted)}
-.fi{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}.fi.v{opacity:1;transform:translateY(0)}
-/* HAMBURGER */.nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;cursor:pointer;background:none;border:none;padding:0;z-index:200}.nav-hamburger span{display:block;height:2px;background:var(--green);border-radius:2px;transition:all 0.3s}.nav-hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}.nav-hamburger.open span:nth-child(2){opacity:0}.nav-hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}@media(max-width:900px){nav{padding:0 24px}.nav-hamburger{display:flex}.nav-links{display:none;flex-direction:column;gap:0;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99}.nav-links.mobile-open{display:flex}.nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px}.nav-cta{margin-top:8px;text-align:center;padding:12px 20px!important}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.usecase{grid-template-columns:1fr;gap:12px}.value-grid{grid-template-columns:1fr}.usecase-label{width:auto}footer{padding:24px;flex-direction:column;gap:12px;text-align:center}}@media(max-width:480px){.page-title{font-size:36px}.section-title{font-size:28px}}
+.{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}..v{opacity:1;transform:translateY(0)}
+@media(max-width:900px){
+  .nav-hamburger{display:flex}
+  .nav-links{display:none;flex-direction:column;gap:0;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99}
+  .nav-links.mobile-open{display:flex}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px}
+  .nav-cta{margin-top:8px;text-align:center;padding:12px 20px!important}nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.usecase{grid-template-columns:1fr;gap:12px}.value-grid{grid-template-columns:1fr}}
+.nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;cursor:pointer;background:none;border:none;padding:0;z-index:200}
+.nav-hamburger span{display:block;height:2px;background:var(--green);border-radius:2px;transition:all 0.3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media(max-width:480px){.page-title,.hero-title{font-size:32px}.section-title{font-size:28px}.dataset-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html" class="active">Business</a><a href="academic.html">Academic</a><a href="/cdn-cgi/l/email-protection#d6bfb8b0b996b5b9b8a2b3aea2a7a3b7b8a2f8b5b9bbe9a5a3b4bcb3b5a2eb95b9b8a2b3aea287a3b7b8a2f3e4e69fb8a7a3bfa4af" class="nav-cta">Get in Touch</a></div><button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
+<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html" class="active">Business</a><a href="academic.html">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Inquiry" class="nav-cta">Get in Touch</a></div><button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
 
 <div class="page-hero">
 <div class="page-label">Business Applications</div>
@@ -48,23 +60,23 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 </div>
 
 <section>
-<div class="usecase fi"><div class="usecase-label">Equity<br>Research</div><div><div class="usecase-title">From consensus processing to anomaly detection</div><div class="usecase-text">Every major research team starts the day with the same data from the same terminals. ContextQuant adds an automated alert layer that flags companies whose filings changed in ways that historically predict underperformance, before the street has reacted. When a company's risk language becomes materially more specific than prior quarters and more specific than its peers, the system fires an alert with the historical evidence for what happens next.</div><div class="usecase-text">The alert has a 6–12 month shelf life for risk specificity signals, and a shorter horizon for outlook divergence signals around filing dates. Multiple time horizons serving the same desk.</div><span class="usecase-stat"><span class="sn">-5.9%</span><span class="sd">avg spread · risk specificity · 10yr</span></span><span class="usecase-stat"><span class="sn">-0.134</span><span class="sd">IC · outlook divergence signal</span></span></div></div>
+<div class="usecase "><div class="usecase-label">Equity<br>Research</div><div><div class="usecase-title">From consensus processing to anomaly detection</div><div class="usecase-text">Every major research team starts the day with the same data from the same terminals. ContextQuant adds an automated alert layer that flags companies whose filings changed in ways that historically predict underperformance, before the street has reacted. When a company's risk language becomes materially more specific than prior quarters and more specific than its peers, the system fires an alert with the historical evidence for what happens next.</div><div class="usecase-text">The alert has a 6–12 month shelf life for risk specificity signals, and a shorter horizon for outlook divergence signals around filing dates. Multiple time horizons serving the same desk.</div><span class="usecase-stat"><span class="sn">-5.9%</span><span class="sd">avg spread · risk specificity · 10yr</span></span><span class="usecase-stat"><span class="sn">-0.134</span><span class="sd">IC · outlook divergence signal</span></span></div></div>
 
-<div class="usecase fi"><div class="usecase-label">Trading</div><div><div class="usecase-title">Three independent, diversifying signal inputs</div><div class="usecase-text">The composite signal — equal-weighted across risk specificity, MD&amp;A sentiment drift, outlook divergence, and transcript-filing gap — achieves an Information Ratio of 1.41 across six years of composite walk-forward testing (2020–2025) with zero sign flips. Each component is uncorrelated with traditional quantitative factors, adding genuine diversification to existing signal libraries.</div><div class="usecase-text">The system knows when to trust which signal. During high-uncertainty markets, risk specificity is 4.8x more informative. During calm markets, sentiment drift takes priority. Dynamic weighting is built into the architecture.</div><span class="usecase-stat"><span class="sn">IR 1.41</span><span class="sd">composite · 6-year walk-forward</span></span><span class="usecase-stat"><span class="sn">4.8x</span><span class="sd">risk signal strength in high VIX</span></span></div></div>
+<div class="usecase "><div class="usecase-label">Trading</div><div><div class="usecase-title">Three independent, diversifying signal inputs</div><div class="usecase-text">The composite signal — equal-weighted across risk specificity, outlook divergence, and transcript-filing gap — achieves an Information Ratio of 1.41 across ten years of out-of-sample testing with zero sign flips. Each component is uncorrelated with traditional quantitative factors, adding genuine diversification to existing signal libraries.</div><div class="usecase-text">The system knows when to trust which signal. During high-uncertainty markets, risk specificity is 2.7x more informative. During calm markets, sentiment drift takes priority. Dynamic weighting is built into the architecture.</div><span class="usecase-stat"><span class="sn">IR 1.41</span><span class="sd">composite · 10-year walk-forward</span></span><span class="usecase-stat"><span class="sn">2.7x</span><span class="sd">risk signal strength in high VIX</span></span></div></div>
 
-<div class="usecase fi"><div class="usecase-label">Credit<br>Risk</div><div><div class="usecase-title">Early warning before the rating agencies</div><div class="usecase-text">When a borrower's 10-K risk language becomes materially more specific, management is disclosing a concrete threat. If that company is in the loan book, the specificity alert fires months before traditional indicators like rating downgrades, covenant breaches, or CDS spread widening.</div><div class="usecase-text">The 2023 result demonstrates this directly. During the regional banking stress period, the signal produced its strongest result (t = -3.48, p &lt; 0.01). Companies writing specific risk language about interest rate exposure and deposit concentration were the ones that experienced stress. The information was public, sitting on EDGAR months before the market reacted.</div><span class="usecase-stat"><span class="sn">p &lt; 0.01</span><span class="sd">2023 banking stress signal</span></span><span class="usecase-stat"><span class="sn">-18.5%</span><span class="sd">spread in strongest year</span></span></div></div>
+<div class="usecase "><div class="usecase-label">Credit<br>Risk</div><div><div class="usecase-title">Early warning before the rating agencies</div><div class="usecase-text">When a borrower's 10-K risk language becomes materially more specific, management is disclosing a concrete threat. If that company is in the loan book, the specificity alert fires months before traditional indicators like rating downgrades, covenant breaches, or CDS spread widening.</div><div class="usecase-text">The 2023 result demonstrates this directly. During the regional banking stress period, the signal produced its strongest result (t = -3.48, p &lt; 0.01). Companies writing specific risk language about interest rate exposure and deposit concentration were the ones that experienced stress. The information was public, sitting on EDGAR months before the market reacted.</div><span class="usecase-stat"><span class="sn">p &lt; 0.01</span><span class="sd">2023 banking stress signal</span></span><span class="usecase-stat"><span class="sn">-18.5%</span><span class="sd">spread in strongest year</span></span></div></div>
 
-<div class="usecase fi"><div class="usecase-label">Wealth<br>Advisory</div><div><div class="usecase-title">Insight that justifies the advisory fee</div><div class="usecase-text">High-net-worth clients are increasingly sophisticated. They have Bloomberg terminals. They read the same research. The retention problem in wealth management is not performance. It is perceived value.</div><div class="usecase-text">Imagine telling a client: "Your company just filed a 10-K where the risk language became materially more specific than any of the past five years. They added detailed language about regulatory exposure in three markets where they previously used generic disclosures. Historically, when companies make this shift, they underperform their peer group by an average of 5.9% over the following year." That conversation is worth the advisory fee.</div></div></div>
+<div class="usecase "><div class="usecase-label">Wealth<br>Advisory</div><div><div class="usecase-title">Insight that justifies the advisory fee</div><div class="usecase-text">High-net-worth clients are increasingly sophisticated. They have Bloomberg terminals. They read the same research. The retention problem in wealth management is not performance. It is perceived value.</div><div class="usecase-text">Imagine telling a client: "Your company just filed a 10-K where the risk language became materially more specific than any of the past five years. They added detailed language about regulatory exposure in three markets where they previously used generic disclosures. Historically, when companies make this shift, they underperform their peer group by an average of 5.9% over the following year." That conversation is worth the advisory fee.</div></div></div>
 
-<div class="usecase fi"><div class="usecase-label">Risk<br>Management</div><div><div class="usecase-title">A system that adapts to the environment</div><div class="usecase-text">Signal weights adjust automatically based on the current macro regime. During tariff escalation or rate transitions, risk specificity signals are upweighted. During calm markets, sentiment drift takes priority. The CRO's dashboard reflects the current environment, not a static model.</div><div class="usecase-text">When multiple signals fire together on the same company — elevated risk specificity, negative outlook divergence, widening transcript-filing gap — the alert is high-confidence. When none fire, the system stays quiet. That asymmetry is a feature, not a bug.</div><span class="usecase-stat"><span class="sn">IR 1.41</span><span class="sd">zero sign flips · 6 walk-forward test years</span></span></div></div>
+<div class="usecase "><div class="usecase-label">Risk<br>Management</div><div><div class="usecase-title">A system that adapts to the environment</div><div class="usecase-text">Signal weights adjust automatically based on the current macro regime. During tariff escalation or rate transitions, risk specificity signals are upweighted. During calm markets, sentiment drift takes priority. The CRO's dashboard reflects the current environment, not a static model.</div><div class="usecase-text">When multiple signals fire together on the same company — elevated risk specificity, negative outlook divergence, widening transcript-filing gap — the alert is high-confidence. When none fire, the system stays quiet. That asymmetry is a feature, not a bug.</div><span class="usecase-stat"><span class="sn">IR 1.41</span><span class="sd">zero sign flips · 6 walk-forward test years</span></span></div></div>
 </section>
 
 <div class="divider" style="max-width:1200px;margin:0 auto"></div>
 
 <section>
-<div class="section-label fi">Why This Is Different</div>
-<div class="section-title fi">Not another data feed. A structural edge.</div>
-<div class="value-grid fi">
+<div class="section-label ">Why This Is Different</div>
+<div class="section-title ">Not another data feed. A structural edge.</div>
+<div class="value-grid ">
 <div class="value-card"><div class="vt">Peer-Relative Measurement</div><div class="vd">Every signal measured as a competitive delta. It is not enough to know a company added a risk factor. What matters is whether its competitors added the same one.</div></div>
 <div class="value-card"><div class="vt">Regime-Aware Signals</div><div class="vd">The system knows which signal matters in which environment. Risk specificity in stress, sentiment in calm. Dynamic weighting, not a static model.</div></div>
 <div class="value-card"><div class="vt">Validated, Not Backtested</div><div class="vd">Ten years of rolling out-of-sample tests (2016–2025). Statistical significance at the 1% level in the strongest year. Zero sign flips in the composite walk-forward. These are not hypothetical returns.</div></div>
@@ -74,16 +86,30 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 </div>
 </section>
 
-<div class="cta-section fi">
+<div class="cta-section ">
 <div class="ct">Ready to see what your filings are telling you?</div>
 <div class="cx">We would welcome the opportunity to walk through the findings, demonstrate the platform, and discuss what a partnership could look like.</div>
-<a href="/cdn-cgi/l/email-protection#b0d9ded6dff0d3dfdec4d5c8c4c1c5d1dec49ed3dfdd8fc3c5d2dad5d3c48df3dfdec4d5c8c4e1c5d1dec4958280f2c5c3d9ded5c3c3958280f9dec1c5d9c2c9" class="btn"><span class="__cf_email__" data-cfemail="d3babdb5bc93b0bcbda7b6aba7a2a6b2bda7fdb0bcbe">[email&#160;protected]</span></a>
+<a href="mailto:info@contextquant.com?subject=ContextQuant%20Business%20Inquiry" class="btn">info@contextquant.com</a>
 </div>
 
 <footer><div class="fb">ContextQuant &copy; 2026</div><div class="fr">Predictive signals from public data the market chose not to read</div></footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fi').forEach(el=>o.observe(el));</script>
-
+<script>const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fade-in').forEach(el=>o.observe(el));</script>
 <script>
 (function(){
   var hb=document.getElementById('navHamburger');
-  var nl=document.getElementById('navLi
+  var nl=document.getElementById('navLinks');
+  if(!hb||!nl)return;
+  hb.addEventListener('click',function(){
+    hb.classList.toggle('open');
+    nl.classList.toggle('mobile-open');
+  });
+  nl.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      hb.classList.remove('open');
+      nl.classList.remove('mobile-open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
