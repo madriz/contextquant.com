@@ -75,11 +75,11 @@ section{padding:80px 60px;max-width:1200px;margin:0 auto}
 .modal-success .success-icon{font-size:36px;margin-bottom:12px;color:var(--green)}
 footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between}.fb{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase}.fr{font-size:12px;color:var(--text-muted)}
 .fi{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}.fi.v{opacity:1;transform:translateY(0)}
-@media(max-width:900px){nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.dataset-grid{grid-template-columns:repeat(2,1fr)}.hyp-card{grid-template-columns:1fr;gap:8px}.collab-grid{grid-template-columns:1fr}.ref-list{columns:1}}
+/* HAMBURGER */.nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;cursor:pointer;background:none;border:none;padding:0;z-index:200}.nav-hamburger span{display:block;height:2px;background:var(--green);border-radius:2px;transition:all 0.3s}.nav-hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}.nav-hamburger.open span:nth-child(2){opacity:0}.nav-hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}@media(max-width:900px){nav{padding:0 24px}.nav-hamburger{display:flex}.nav-links{display:none;flex-direction:column;gap:0;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99}.nav-links.mobile-open{display:flex}.nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px}.nav-cta{margin-top:8px;text-align:center;padding:12px 20px!important}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.dataset-grid{grid-template-columns:repeat(2,1fr)}.hyp-card{grid-template-columns:1fr;gap:8px}.collab-grid{grid-template-columns:1fr}.ref-list{columns:1}.modal-box{padding:24px}.modal-row{grid-template-columns:1fr}.paper-box{flex-direction:column;gap:16px}footer{padding:24px;flex-direction:column;gap:12px;text-align:center}}@media(max-width:480px){.page-title{font-size:32px}.section-title{font-size:28px}.dataset-grid{grid-template-columns:1fr}.hyp-card{padding:20px 16px}}
 </style>
 </head>
 <body>
-<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div></nav>
+<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html">Business</a><a href="academic.html" class="active">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Academic%20Inquiry" class="nav-cta">Get in Touch</a></div><button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button></nav>
 
 <div class="page-hero">
 <div class="page-label">Academic Research</div>
@@ -250,6 +250,24 @@ const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.
       }
       else{submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Something went wrong. Please try again or email us directly.');}
     }).catch(function(){submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Network error. Please email info@contextquant.com directly.');});
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var hb=document.getElementById('navHamburger');
+  var nl=document.getElementById('navLinks');
+  if(!hb||!nl)return;
+  hb.addEventListener('click',function(){
+    hb.classList.toggle('open');
+    nl.classList.toggle('mobile-open');
+  });
+  nl.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      hb.classList.remove('open');
+      nl.classList.remove('mobile-open');
+    });
   });
 })();
 </script>
