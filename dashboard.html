@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ContextQuant | Financial Sector Signal Dashboard</title>
+<meta name="description" content="NLP-derived signals from SEC filings and earnings call transcripts. Financial sector signal dashboard updated quarterly.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #060a12;
+  --bg-primary: #0a1018;
+  --bg-card: rgba(255,255,255,0.025);
+  --bg-card-hover: rgba(255,255,255,0.045);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(74,186,112,0.3);
+  --green: #4aba70;
+  --green-dim: rgba(74,186,112,0.15);
+  --blue: #5b8dd9;
+  --blue-dim: rgba(91,141,217,0.15);
+  --orange: #e67e51;
+  --orange-dim: rgba(230,126,81,0.15);
+  --red: #ff4560;
+  --red-dim: rgba(255,69,96,0.12);
+  --text-primary: #e8ecf2;
+  --text-secondary: #8a94a8;
+  --text-muted: #5a6577;
+  --mono: 'DM Mono', 'Courier New', monospace;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', 'Helvetica Neue', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(6,10,18,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 60px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  font-family: var(--mono); font-size: 14px; font-weight: 500;
+  letter-spacing: 4px; color: var(--green);
+  text-transform: uppercase; text-decoration: none;
+}
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  color: var(--text-secondary); text-decoration: none;
+  letter-spacing: 0.5px; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a.active { color: var(--green); }
+.nav-cta {
+  font-family: var(--mono) !important; font-size: 12px !important;
+  padding: 8px 20px; border: 1px solid var(--green);
+  color: var(--green) !important; border-radius: 4px; transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--green-dim); color: var(--text-primary) !important; }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand {
+  font-family: var(--mono); font-size: 12px; color: var(--text-muted);
+  letter-spacing: 3px; text-transform: uppercase;
+}
+.footer-right { font-size: 12px; color: var(--text-muted); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* BADGES */
+.badge {
+  display: inline-block; font-size: 9px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 3px;
+}
+.badge-green { background: var(--green-dim); color: var(--green); }
+.badge-blue { background: var(--blue-dim); color: var(--blue); }
+.badge-muted { background: rgba(122,133,153,0.12); color: var(--text-muted); }
+.badge-orange { background: var(--orange-dim); color: var(--orange); }
+.badge-red { background: var(--red-dim); color: var(--red); }
+
+/* SECTION BASE */
+.section-label {
+  font-family: var(--mono); font-size: 11px; font-weight: 400;
+  letter-spacing: 5px; color: var(--green); text-transform: uppercase; margin-bottom: 20px;
+}
+.section-title {
+  font-family: var(--serif); font-size: 48px; font-weight: 400;
+  line-height: 1.2; color: #ffffff; margin-bottom: 24px;
+}
+.section-text {
+  font-size: 17px; font-weight: 300; color: var(--text-secondary);
+  line-height: 1.8; max-width: 720px; margin-bottom: 20px;
+}
+
+/* Hamburger nav */
+.nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;cursor:pointer;background:none;border:none;padding:0;z-index:200}
+.nav-hamburger span{display:block;height:2px;background:var(--green);border-radius:2px;transition:all 0.3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ========================================
+   DASHBOARD-SPECIFIC STYLES
+   ======================================== */
+
+/* COMPACT HERO */
+.dash-hero {
+  padding: 140px 60px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.dash-hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 30% 20%, rgba(74,186,112,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 800px at 70% 80%, rgba(91,141,217,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+.dash-hero::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(74,186,112,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,186,112,0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 0%, transparent 100%);
+  pointer-events: none;
+}
+.dash-hero-content {
+  position: relative; z-index: 1; max-width: 900px; margin: 0 auto;
+}
+.dash-hero-label {
+  font-family: var(--mono); font-size: 12px; font-weight: 400;
+  letter-spacing: 5px; color: var(--green); text-transform: uppercase;
+  margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.dash-hero-title {
+  font-family: var(--serif); font-size: 64px; font-weight: 400;
+  line-height: 1.12; color: #ffffff; margin-bottom: 28px;
+  opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+}
+.dash-hero-sub {
+  font-family: var(--sans); font-size: 19px; font-weight: 300;
+  color: var(--text-secondary); line-height: 1.8;
+  max-width: 680px; margin: 0 auto 32px;
+  opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+}
+.regime-badge-inline {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--orange); padding: 10px 24px;
+  border: 1px solid rgba(230,126,81,0.3);
+  border-radius: 4px; background: rgba(230,126,81,0.06);
+  opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+}
+.regime-badge-inline .pulse-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--orange); animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(230,126,81,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(230,126,81,0); }
+}
+
+/* DASHBOARD MODULE CONTAINER */
+.dash-module {
+  padding: 80px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.dash-module-wide {
+  padding: 80px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* MODULE 1: UNIVERSE STATS */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 20px; margin-top: 32px;
+}
+.stat-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 32px 24px; text-align: center;
+  transition: all 0.4s; position: relative; overflow: hidden;
+}
+.stat-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--green);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+}
+.stat-card:hover {
+  background: var(--bg-card-hover); border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.stat-card:hover::before { transform: scaleX(1); }
+.stat-number {
+  font-family: var(--mono); font-size: 40px; font-weight: 500;
+  color: var(--green); display: block; margin-bottom: 8px; line-height: 1.1;
+}
+.stat-desc {
+  font-size: 13px; font-weight: 400; color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* MODULE 2: CONFIRMED SIGNALS */
+.signals-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 32px;
+}
+.signal-detail-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 28px 24px; transition: all 0.4s;
+  position: relative; overflow: hidden;
+}
+.signal-detail-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--green);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+}
+.signal-detail-card:hover {
+  background: var(--bg-card-hover); border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+.signal-detail-card:hover::before { transform: scaleX(1); }
+.signal-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.signal-header .signal-id {
+  font-family: var(--mono); font-size: 13px; font-weight: 500;
+  color: var(--text-primary);
+}
+.signal-desc-text {
+  font-size: 14px; font-weight: 300; color: var(--text-secondary);
+  line-height: 1.7; margin-bottom: 20px;
+}
+.metric-boxes {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px;
+}
+.metric-box {
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 6px; padding: 12px 10px; text-align: center;
+}
+.metric-box-label {
+  font-size: 9px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;
+}
+.metric-box-value {
+  font-family: var(--mono); font-size: 16px; font-weight: 500; color: var(--green);
+}
+.signal-note {
+  font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.5;
+  border-top: 1px solid rgba(255,255,255,0.04); padding-top: 12px;
+}
+
+/* MODULE 3: TWO COLUMNS */
+.two-col-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 32px; margin-top: 32px;
+}
+.col-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 28px 24px; overflow: hidden;
+}
+.col-card-title {
+  font-family: var(--serif); font-size: 24px; color: #ffffff; margin-bottom: 6px;
+}
+.col-card-subtitle {
+  font-size: 13px; font-weight: 300; color: var(--text-muted);
+  margin-bottom: 20px; line-height: 1.6;
+}
+
+/* SIGNAL RANKINGS TABLE */
+.rankings-table {
+  width: 100%; border-collapse: collapse;
+}
+.rankings-table th {
+  font-family: var(--mono); font-size: 10px; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted);
+  text-align: left; padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.rankings-table th:last-child { text-align: right; }
+.rankings-table td {
+  font-family: var(--mono); font-size: 13px; font-weight: 300;
+  padding: 8px 12px; color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.rankings-table td:first-child { font-weight: 500; }
+.rankings-table td:last-child { text-align: right; font-weight: 500; }
+.rankings-table td.bearish { color: var(--red); }
+.rankings-table td.bullish { color: var(--green); }
+.rankings-table .divider td {
+  padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.direction-bearish {
+  font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--red);
+}
+.direction-bullish {
+  font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--green);
+}
+
+/* QUADRANT MAP */
+.quadrant-container {
+  position: relative; width: 100%; min-height: 420px;
+}
+.quadrant-tooltip {
+  position: absolute; display: none; z-index: 50;
+  background: rgba(10,16,24,0.95); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; padding: 12px 16px; pointer-events: none;
+  backdrop-filter: blur(10px); min-width: 180px;
+}
+.quadrant-tooltip .tt-ticker {
+  font-family: var(--mono); font-size: 14px; font-weight: 500; color: #fff;
+  margin-bottom: 4px;
+}
+.quadrant-tooltip .tt-name {
+  font-size: 12px; color: var(--text-secondary); margin-bottom: 8px;
+}
+.quadrant-tooltip .tt-row {
+  display: flex; justify-content: space-between; gap: 16px; margin-bottom: 2px;
+}
+.quadrant-tooltip .tt-label {
+  font-size: 11px; color: var(--text-muted);
+}
+.quadrant-tooltip .tt-value {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+}
+.quadrant-legend {
+  display: flex; gap: 24px; justify-content: center;
+  padding-top: 16px; font-size: 12px; color: var(--text-muted);
+}
+.quadrant-legend span {
+  display: flex; align-items: center; gap: 6px;
+}
+.legend-dot {
+  width: 10px; height: 10px; border-radius: 50%; display: inline-block;
+}
+.legend-dot.red { background: var(--red); }
+.legend-dot.green { background: var(--green); }
+.legend-dot.hollow {
+  background: transparent; border: 1.5px solid var(--text-muted);
+  width: 14px; height: 14px;
+}
+
+/* MODULE 4: SUBGROUP TABLE + ALERTS */
+.subgroup-table {
+  width: 100%; border-collapse: collapse;
+}
+.subgroup-table th {
+  font-family: var(--mono); font-size: 10px; font-weight: 400;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted);
+  text-align: left; padding: 10px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.subgroup-table th:not(:first-child) { text-align: right; }
+.subgroup-table td {
+  font-family: var(--mono); font-size: 13px; font-weight: 300;
+  padding: 9px 10px; color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.subgroup-table td:not(:first-child) { text-align: right; }
+.subgroup-table td:first-child {
+  font-family: var(--sans); font-weight: 400;
+}
+.subgroup-table .sig { color: var(--green); font-weight: 500; }
+.subgroup-table .na { color: var(--text-muted); }
+.table-footnotes {
+  font-size: 11px; color: var(--text-muted); margin-top: 12px;
+  line-height: 1.6; font-style: italic;
+}
+
+/* ALERT CARDS */
+.alert-stack { display: flex; flex-direction: column; gap: 12px; }
+.alert-card {
+  background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px; padding: 18px 20px; transition: all 0.3s;
+}
+.alert-card:hover {
+  background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.08);
+}
+.alert-top {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+}
+.alert-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+.alert-dot.red { background: var(--red); box-shadow: 0 0 8px rgba(255,69,96,0.4); }
+.alert-dot.green { background: var(--green); box-shadow: 0 0 8px rgba(74,186,112,0.4); }
+.alert-ticker {
+  font-family: var(--mono); font-size: 15px; font-weight: 500; color: #fff;
+}
+.alert-score {
+  font-family: var(--mono); font-size: 14px; font-weight: 500;
+}
+.alert-score.neg { color: var(--red); }
+.alert-score.pos { color: var(--green); }
+.alert-badge {
+  font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 3px;
+}
+.alert-badge.persistent { background: var(--orange-dim); color: var(--orange); }
+.alert-badge.new { background: var(--blue-dim); color: var(--blue); }
+.alert-desc {
+  font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.6;
+}
+
+/* MODULE 5: REGIME PANEL */
+.regime-panel {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px; margin-top: 32px;
+}
+.regime-block {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 28px 24px;
+}
+.regime-indicator {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.regime-pulse {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--orange); animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.regime-status {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--orange);
+}
+.regime-details {
+  font-size: 14px; font-weight: 300; color: var(--text-secondary);
+  line-height: 1.7;
+}
+.regime-weight-table {
+  width: 100%; border-collapse: collapse;
+}
+.regime-weight-table td {
+  font-family: var(--mono); font-size: 13px; padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.regime-weight-table td:first-child { color: var(--text-secondary); }
+.regime-weight-table td:last-child { text-align: right; font-weight: 500; }
+.regime-weight-table .up { color: var(--green); }
+.regime-weight-table .down { color: var(--text-muted); }
+.regime-comparison { margin-top: 12px; }
+.regime-comp-row {
+  display: flex; justify-content: space-between; margin-bottom: 6px;
+}
+.regime-comp-row .rcl {
+  font-size: 13px; color: var(--text-muted);
+}
+.regime-comp-row .rcv {
+  font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--text-primary);
+}
+
+/* MODULE 6: DISCLAIMER */
+.disclaimer-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  border-radius: 0 8px 8px 0; padding: 36px 40px; margin-top: 32px;
+}
+.disclaimer-title {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--orange);
+  margin-bottom: 20px;
+}
+.disclaimer-text {
+  font-size: 13px; font-weight: 300; color: var(--text-muted);
+  line-height: 1.8; margin-bottom: 14px;
+}
+.disclaimer-text:last-of-type { margin-bottom: 0; }
+.disclaimer-footer {
+  font-family: var(--mono); font-size: 11px; color: var(--text-muted);
+  letter-spacing: 0.5px; margin-top: 24px; padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { gap: 20px; }
+  .dash-hero { padding: 100px 24px 40px; }
+  .dash-hero-title { font-size: 42px; }
+  .dash-module, .dash-module-wide { padding: 60px 24px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .signals-grid { grid-template-columns: 1fr; }
+  .two-col-grid { grid-template-columns: 1fr; }
+  .regime-panel { grid-template-columns: 1fr; }
+  .disclaimer-box { padding: 24px 20px; }
+  footer { padding: 40px 24px; flex-direction: column; gap: 12px; text-align: center; }
+  .quadrant-legend { flex-wrap: wrap; gap: 12px; }
+}
+@media(max-width:900px){
+  .nav-hamburger{display:flex !important}
+  .nav-links{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99}
+  .nav-links.mobile-open{display:flex}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px}
+  .nav-cta{margin-top:8px;text-align:center;padding:12px 20px}
+}
+@media(max-width:480px){
+  .dash-hero-title{font-size:32px!important}
+  .section-title{font-size:28px!important}
+  .stats-grid{grid-template-columns:1fr}
+  .metric-boxes{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">ContextQuant</a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#platform">Platform</a>
+    <a href="index.html#findings">Findings</a>
+    <a href="business.html">Business</a>
+    <a href="academic.html">Academic</a>
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="dash-hero">
+  <div class="dash-hero-content">
+    <div class="dash-hero-label">Financial Sector &middot; 37 Companies &middot; March 2026</div>
+    <h1 class="dash-hero-title">Signal Dashboard</h1>
+    <p class="dash-hero-sub">NLP-derived signals from SEC filings and earnings call transcripts. Updated quarterly after each earnings cycle.</p>
+    <div class="regime-badge-inline">
+      <span class="pulse-dot"></span>
+      High-Uncertainty Regime Active
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 1: UNIVERSE STATS -->
+<div class="dash-module fade-in">
+  <div class="section-label">Universe Overview</div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-number">37</span>
+      <span class="stat-desc">Companies in financial sector universe</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">7,055</span>
+      <span class="stat-desc">SEC filings parsed and analyzed</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">736</span>
+      <span class="stat-desc">Earnings call transcripts processed</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">6</span>
+      <span class="stat-desc">Out-of-sample test years (2020-2025)</span>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 2: CONFIRMED SIGNALS -->
+<div class="dash-module fade-in">
+  <div class="section-label">Confirmed Signals</div>
+  <h2 class="section-title" style="font-size:36px;">Three signals survived out-of-sample validation</h2>
+  <div class="signals-grid">
+
+    <!-- H9: Outlook Divergence -->
+    <div class="signal-detail-card">
+      <div class="signal-header">
+        <span class="signal-id">H9: Outlook Divergence</span>
+        <span class="badge badge-green">Confirmed OOS</span>
+      </div>
+      <p class="signal-desc-text">Companies whose forward-looking language in management discussion diverges from peer group tone show predictable underperformance. The peer delta is essential &mdash; absolute sentiment carries no signal.</p>
+      <div class="metric-boxes">
+        <div class="metric-box">
+          <div class="metric-box-label">OOS IC</div>
+          <div class="metric-box-value">&minus;0.445</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-box-label">Significance</div>
+          <div class="metric-box-value">p=0.049</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-box-label">Universe</div>
+          <div class="metric-box-value" style="font-size:14px;">Banking (17)</div>
+        </div>
+      </div>
+      <div class="signal-note">Fixed-split validation: train 2018&ndash;2021, test 2022&ndash;2025</div>
+    </div>
+
+    <!-- H11: Transcript-Filing Gap -->
+    <div class="signal-detail-card">
+      <div class="signal-header">
+        <span class="signal-id">H11: Transcript-Filing Gap</span>
+        <span class="badge badge-green">Confirmed OOS</span>
+      </div>
+      <p class="signal-desc-text">When management tone on earnings calls diverges from the language in the corresponding SEC filing, the inconsistency predicts negative forward returns. The gap captures what executives choose to emphasize verbally vs. what they commit to in writing.</p>
+      <div class="metric-boxes">
+        <div class="metric-box">
+          <div class="metric-box-label">Pooled IC</div>
+          <div class="metric-box-value">&minus;0.115 <span style="font-size:11px;color:var(--text-muted);">(p=0.079)</span></div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-box-label">Walk-fwd IC</div>
+          <div class="metric-box-value">&minus;0.193</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-box-label">Direction</div>
+          <div class="metric-box-value">6/8 yrs</div>
+        </div>
+      </div>
+      <div class="signal-note">Pooled IC is observation-weighted (primary). Walk-forward IC is year-weighted (equal weight per year). Both use 180d horizon.</div>
+    </div>
+
+    <!-- H2: MD&A Sentiment Drift -->
+    <div class="signal-detail-card">
+      <div class="signal-header">
+        <span class="signal-id">H2: MD&amp;A Sentiment Drift</span>
+        <span class="badge badge-green">Confirmed OOS</span>
+      </div>
+      <p class="signal-desc-text">Sequential drift in MD&amp;A sentiment &mdash; measuring how a company's filing tone shifts quarter-over-quarter relative to its peer group &mdash; predicts forward returns across the full 37-company financial universe.</p>
+      <div class="metric-boxes">
+        <div class="metric-box">
+          <div class="metric-box-label">OOS IC</div>
+          <div class="metric-box-value">+0.116</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-box-label">Hit Rate</div>
+          <div class="metric-box-value">80%</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-box-label">Universe</div>
+          <div class="metric-box-value" style="font-size:14px;">All 37</div>
+        </div>
+      </div>
+      <div class="signal-note">Strongest for Canadian banks (IC=+0.121) and P&amp;C insurers (IC=+0.085)</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODULE 3: SIGNAL RANKINGS + QUADRANT MAP -->
+<div class="dash-module fade-in">
+  <div class="section-label">Current Positioning</div>
+  <div class="two-col-grid">
+
+    <!-- LEFT: Signal Rankings -->
+    <div class="col-card">
+      <div class="col-card-title">Current Signal Scores</div>
+      <div class="col-card-subtitle">Composite z-score: H2 + H9 + H11 weighted by subgroup.</div>
+      <table class="rankings-table">
+        <tr><th>Company</th><th>Subgroup</th><th>Direction</th><th>Score</th></tr>
+        <tr><td class="bearish">MFC</td><td>Life Insurance</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;2.35</td></tr>
+        <tr><td class="bearish">BNS</td><td>Canadian Bank</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.89</td></tr>
+        <tr><td class="bearish">TD</td><td>Canadian Bank</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.55</td></tr>
+        <tr><td class="bearish">DB</td><td>Capital Markets</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.38</td></tr>
+        <tr><td class="bearish">JPM</td><td>US Bank</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.26</td></tr>
+        <tr><td class="bearish">RY</td><td>Canadian Bank</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.01</td></tr>
+        <tr><td class="bearish">CINF</td><td>P&amp;C Insurance</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;0.87</td></tr>
+        <tr class="divider"><td colspan="4"></td></tr>
+        <tr><td class="bullish">UNM</td><td>Life Insurance</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.79</td></tr>
+        <tr><td class="bullish">FITB</td><td>US Regional Bank</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.37</td></tr>
+        <tr><td class="bullish">MKL</td><td>P&amp;C Insurance</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.24</td></tr>
+        <tr><td class="bullish">PGR</td><td>P&amp;C Insurance</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.21</td></tr>
+        <tr><td class="bullish">MS</td><td>Capital Markets</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.20</td></tr>
+      </table>
+    </div>
+
+    <!-- RIGHT: Quadrant Map -->
+    <div class="col-card">
+      <div class="col-card-title">Peer-Relative Positioning Map</div>
+      <div class="col-card-subtitle">Companies plotted by MD&amp;A sentiment (x) and transcript-filing gap (y).</div>
+      <div class="quadrant-container" id="quadrantContainer">
+        <svg id="quadrantSVG" width="100%" viewBox="0 0 500 500" style="display:block;"></svg>
+        <div class="quadrant-tooltip" id="quadrantTooltip">
+          <div class="tt-ticker"></div>
+          <div class="tt-name"></div>
+          <div class="tt-row"><span class="tt-label">Z-Score</span><span class="tt-value tt-zscore"></span></div>
+          <div class="tt-row"><span class="tt-label">Direction</span><span class="tt-value tt-dir"></span></div>
+          <div class="tt-row"><span class="tt-label">Subgroup</span><span class="tt-value tt-sub"></span></div>
+        </div>
+      </div>
+      <div class="quadrant-legend">
+        <span><span class="legend-dot red"></span> Bearish signal</span>
+        <span><span class="legend-dot green"></span> Bullish signal</span>
+        <span><span class="legend-dot hollow"></span> Larger circle = stronger signal</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODULE 4: SUBGROUP TABLE + ALERTS -->
+<div class="dash-module fade-in">
+  <div class="section-label">Subgroup Analysis</div>
+  <div class="two-col-grid">
+
+    <!-- LEFT: Subgroup Table -->
+    <div class="col-card">
+      <div class="col-card-title">Out-of-Sample IC by Subgroup</div>
+      <div class="col-card-subtitle">Signal strength varies meaningfully across financial subgroups.</div>
+      <table class="subgroup-table">
+        <tr><th>Subgroup (N)</th><th>H2 IC</th><th>H9 IC</th><th>H11 IC</th><th>Coverage</th></tr>
+        <tr>
+          <td>Retail Banking (17)</td>
+          <td>+0.008</td>
+          <td class="sig">&minus;0.445&#9733;</td>
+          <td class="sig">&minus;0.193&#9733;</td>
+          <td>H9 + H11</td>
+        </tr>
+        <tr>
+          <td>Capital Markets (3)</td>
+          <td>+0.032</td>
+          <td>&minus;0.089</td>
+          <td>&minus;0.111</td>
+          <td class="na">Insufficient N&dagger;</td>
+        </tr>
+        <tr>
+          <td>P&amp;C Insurance (11)</td>
+          <td class="sig">+0.085</td>
+          <td class="na">n/a&Dagger;</td>
+          <td class="na">n/a&Dagger;</td>
+          <td>H2 only</td>
+        </tr>
+        <tr>
+          <td>Life Insurance (8)</td>
+          <td>+0.057</td>
+          <td class="na">n/a&Dagger;</td>
+          <td class="na">n/a&Dagger;</td>
+          <td>H2 only</td>
+        </tr>
+        <tr>
+          <td>Canadian Banks (6)</td>
+          <td class="sig">+0.121&#9733;</td>
+          <td>&minus;0.315</td>
+          <td>&minus;0.170</td>
+          <td>H2 + H9 + H11</td>
+        </tr>
+      </table>
+      <div class="table-footnotes">
+        &#9733; = OOS confirmed &nbsp;&nbsp; &dagger; = only 3 companies, insufficient for statistical validation &nbsp;&nbsp; &Dagger; = near zero for insurance subgroups
+      </div>
+    </div>
+
+    <!-- RIGHT: Alerts -->
+    <div class="col-card">
+      <div class="col-card-title">Current Alerts</div>
+      <div class="col-card-subtitle">Active signal triggers from the most recent quarterly update.</div>
+      <div class="alert-stack">
+        <div class="alert-card">
+          <div class="alert-top">
+            <span class="alert-dot red"></span>
+            <span class="alert-ticker">MFC</span>
+            <span class="alert-score neg">&minus;2.35</span>
+            <span class="alert-badge persistent">Persistent (2 Quarters)</span>
+          </div>
+          <div class="alert-desc">Life insurer MD&amp;A sentiment materially below peer median. Signal has persisted across two consecutive quarterly updates, indicating sustained negative drift.</div>
+        </div>
+        <div class="alert-card">
+          <div class="alert-top">
+            <span class="alert-dot red"></span>
+            <span class="alert-ticker">BNS</span>
+            <span class="alert-score neg">&minus;1.89</span>
+            <span class="alert-badge new">New This Quarter</span>
+          </div>
+          <div class="alert-desc">MD&amp;A sentiment drift and transcript tone divergence both negative. Combined H2 + H11 signal activation for Canadian bank subgroup.</div>
+        </div>
+        <div class="alert-card">
+          <div class="alert-top">
+            <span class="alert-dot red"></span>
+            <span class="alert-ticker">TD</span>
+            <span class="alert-score neg">&minus;1.55</span>
+            <span class="alert-badge new">New This Quarter</span>
+          </div>
+          <div class="alert-desc">Transcript optimism diverging from conservative filing language. H11 gap widening quarter-over-quarter suggests management verbal tone running ahead of written commitments.</div>
+        </div>
+        <div class="alert-card">
+          <div class="alert-top">
+            <span class="alert-dot green"></span>
+            <span class="alert-ticker">UNM</span>
+            <span class="alert-score pos">+1.79</span>
+            <span class="alert-badge persistent">Persistent (2 Quarters)</span>
+          </div>
+          <div class="alert-desc">Filing sentiment improving vs life insurer peers. Consistent positive drift across two quarters with MD&amp;A language becoming more constructive relative to subgroup median.</div>
+        </div>
+        <div class="alert-card">
+          <div class="alert-top">
+            <span class="alert-dot green"></span>
+            <span class="alert-ticker">FITB</span>
+            <span class="alert-score pos">+1.37</span>
+            <span class="alert-badge new">New This Quarter</span>
+          </div>
+          <div class="alert-desc">Regional bank MD&amp;A above peer group median. New positive signal activation with filing tone outperforming US regional banking cohort.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODULE 5: VALIDATION & REGIME PANEL -->
+<div class="dash-module fade-in">
+  <div class="section-label">Validation &amp; Regime Context</div>
+  <h2 class="section-title" style="font-size:36px;">Signal validation and regime interpretation</h2>
+  <div class="regime-panel">
+
+    <!-- LEFT: H11 Validation Detail -->
+    <div class="regime-block">
+      <div style="font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:16px;">Signal Validation &mdash; H11 Banking</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Pooled IC across 232 observations, 17 banking companies, 2018&ndash;2025. No look-ahead bias. Signal anchored to actual filing and transcript dates.</p>
+      <table class="regime-weight-table">
+        <tr><td>Pooled IC (180d)</td><td style="color:var(--green);">&minus;0.115 <span style="font-size:10px;color:var(--text-muted);">p=0.079</span></td></tr>
+        <tr><td>Pooled IC (90d)</td><td style="color:var(--green);">&minus;0.125 <span style="font-size:10px;color:var(--text-muted);">p=0.056</span></td></tr>
+        <tr><td>Walk-fwd mean IC</td><td style="color:var(--green);">&minus;0.193</td></tr>
+        <tr><td>Correct direction</td><td style="color:#ffffff;">6 / 8 yrs</td></tr>
+        <tr><td>2023 annual IC</td><td style="color:var(--text-secondary);">&minus;0.336 <span style="font-size:10px;color:var(--text-muted);">N=14</span></td></tr>
+        <tr><td>2024 annual IC</td><td style="color:var(--text-secondary);">&minus;0.422+ <span style="font-size:10px;color:var(--text-muted);">N=17</span></td></tr>
+        <tr><td>2025 annual IC</td><td style="color:var(--text-secondary);">&minus;0.357 <span style="font-size:10px;color:var(--text-muted);">N=13</span></td></tr>
+        <tr><td>L/S cumulative</td><td style="color:var(--text-secondary);">+12.9% <span style="font-size:10px;color:var(--text-muted);">19 qtrs</span></td></tr>
+      </table>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:14px;font-style:italic;line-height:1.6;">
+        L/S Sharpe ratio (0.24) is below significance threshold at this universe size (N=17 banks). Expanding to healthcare and other sectors is the primary path to portfolio-level validation. The IC and directional metrics above are the appropriate measures for a 17-company subgroup.
+      </div>
+    </div>
+
+    <!-- CENTER: Signal Weights -->
+    <div class="regime-block">
+      <div style="font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:16px;">Signal Weight Adjustment</div>
+      <table class="regime-weight-table">
+        <tr><td>H1 Risk Specificity</td><td class="up">4.8&times; &uarr;</td></tr>
+        <tr><td>H11 Transcript Gap</td><td class="up">1.7&times; &uarr;</td></tr>
+        <tr><td>H9 Outlook Divergence</td><td class="up">1.3&times; &uarr;</td></tr>
+        <tr><td>H2 Sentiment Drift</td><td class="down">~0&times; &darr;</td></tr>
+      </table>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:16px;font-style:italic;">
+        Risk-based signals dominate in high-uncertainty regime. Sentiment signals strengthen in low-uncertainty periods.
+      </div>
+    </div>
+
+    <!-- RIGHT: Composite IC -->
+    <div class="regime-block">
+      <div style="font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:16px;">Composite IC Comparison</div>
+      <div class="regime-comparison">
+        <div class="regime-comp-row">
+          <span class="rcl">High-Uncertainty IC</span>
+          <span class="rcv" style="color:var(--orange);">&minus;0.137</span>
+        </div>
+        <div class="regime-comp-row">
+          <span class="rcl">Low-Uncertainty IC</span>
+          <span class="rcv" style="color:var(--blue);">&minus;0.068</span>
+        </div>
+        <div class="regime-comp-row" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);">
+          <span class="rcl">High / Low Ratio</span>
+          <span class="rcv" style="color:#ffffff;font-size:18px;">2.0&times;</span>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:20px;font-style:italic;">
+        Signals are twice as predictive during high-uncertainty regimes &mdash; precisely when early warning matters most.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODULE 6: DISCLAIMER -->
+<div class="dash-module fade-in">
+  <div class="section-label">Important Disclosures</div>
+  <div class="disclaimer-box">
+    <div class="disclaimer-title">RESEARCH DISCLAIMERS &amp; LIMITATIONS</div>
+    <p class="disclaimer-text">This dashboard presents outputs from an ongoing independent research initiative into NLP-based signals in financial sector disclosures. Nothing herein constitutes investment advice, a solicitation, or a recommendation to buy or sell any security. Signal scores are preliminary research outputs, not trading recommendations. Recipients should conduct their own due diligence before relying on any information presented here.</p>
+    <p class="disclaimer-text">All signals are subject to continued out-of-sample testing and academic peer review. Past signal performance does not guarantee future results. Walk-forward validation covers 2020&ndash;2025 (6 test years); longer-term performance cannot be inferred from this period alone. The financial sector universe of 37 companies may not be representative of broader markets or other sectors.</p>
+    <p class="disclaimer-text">Three Canadian insurers (IFC, FFH, GWO) contribute filing-based signals only &mdash; no earnings call transcripts are currently available from free sources for these companies. US regional bank transcript coverage begins 2018. Analyst estimate data covers 22 tickers with full historical depth; 15 tickers have 2024&ndash;2025 coverage only, pending backfill. Signal scores for tickers with partial data should be interpreted with additional caution.</p>
+    <p class="disclaimer-text">H9 (Outlook Divergence) and H11 (Transcript-Filing Gap) are validated for the banking subgroup (17 companies) only. Insurance subgroup results for H9 and H11 are inconclusive due to small annual sample sizes (5&ndash;11 companies) and should not be cited as confirmed findings without further validation on an expanded insurer universe. H2 (MD&amp;A Sentiment Drift) is regime-dependent and should not be used as a standalone signal in high-uncertainty environments.</p>
+    <p class="disclaimer-text">ContextQuant is an independent research initiative. Findings have not been subjected to peer review or independent replication. No formal backtest of the composite signal has been conducted specifically on this 37-company financial sector universe. The performance metrics presented reflect individual signal out-of-sample IC and hit rates from walk-forward validation, not simulated portfolio returns.</p>
+    <div class="disclaimer-footer">&copy; 2026 ContextQuant Research &middot; contextquant.com &middot; For institutional research enquiries only &middot; Data sources: SEC EDGAR, SEDAR+, Alpha Vantage, FRED, yfinance, Motley Fool, stockinsights.ai</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">ContextQuant &copy; 2026</div>
+  <div class="footer-right">Predictive signals from public data the market chose not to read</div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+// Quadrant map rendering
+(function() {
+  var svg = document.getElementById('quadrantSVG');
+  var tooltip = document.getElementById('quadrantTooltip');
+  var container = document.getElementById('quadrantContainer');
+
+  var pad = 50;
+  var W = 500;
+  var H = 500;
+  var plotW = W - pad * 2;
+  var plotH = H - pad * 2;
+  var cx = W / 2;
+  var cy = H / 2;
+
+  var companies = [
+    { ticker: 'MFC',  name: 'Manulife Financial',   x: 0.22, y: 0.80, z: -2.35, sub: 'Life Insurance' },
+    { ticker: 'BNS',  name: 'Bank of Nova Scotia',   x: 0.28, y: 0.74, z: -1.89, sub: 'Canadian Bank' },
+    { ticker: 'TD',   name: 'Toronto-Dominion Bank', x: 0.32, y: 0.70, z: -1.55, sub: 'Canadian Bank' },
+    { ticker: 'RY',   name: 'Royal Bank of Canada',  x: 0.35, y: 0.73, z: -1.01, sub: 'Canadian Bank' },
+    { ticker: 'DB',   name: 'Deutsche Bank',         x: 0.25, y: 0.63, z: -1.38, sub: 'Capital Markets' },
+    { ticker: 'JPM',  name: 'JPMorgan Chase',        x: 0.40, y: 0.62, z: -1.26, sub: 'US Bank' },
+    { ticker: 'BCS',  name: 'Barclays',              x: 0.30, y: 0.58, z: -0.62, sub: 'Capital Markets' },
+    { ticker: 'CINF', name: 'Cincinnati Financial',  x: 0.26, y: 0.54, z: -0.87, sub: 'P&C Insurance' },
+    { ticker: 'UNM',  name: 'Unum Group',            x: 0.74, y: 0.24, z: 1.79, sub: 'Life Insurance' },
+    { ticker: 'FITB', name: 'Fifth Third Bancorp',   x: 0.68, y: 0.30, z: 1.37, sub: 'US Regional Bank' },
+    { ticker: 'MKL',  name: 'Markel Group',          x: 0.71, y: 0.36, z: 1.24, sub: 'P&C Insurance' },
+    { ticker: 'PGR',  name: 'Progressive Corp',      x: 0.75, y: 0.32, z: 1.21, sub: 'P&C Insurance' },
+    { ticker: 'MS',   name: 'Morgan Stanley',        x: 0.63, y: 0.28, z: 1.20, sub: 'Capital Markets' },
+    { ticker: 'GS',   name: 'Goldman Sachs',         x: 0.58, y: 0.46, z: 0.42, sub: 'Capital Markets' },
+    { ticker: 'PRU',  name: 'Prudential Financial',  x: 0.60, y: 0.42, z: 0.55, sub: 'Life Insurance' },
+    { ticker: 'SLF',  name: 'Sun Life Financial',    x: 0.52, y: 0.50, z: 0.10, sub: 'Life Insurance' },
+    { ticker: 'WFC',  name: 'Wells Fargo',           x: 0.45, y: 0.55, z: -0.30, sub: 'US Bank' },
+    { ticker: 'BAC',  name: 'Bank of America',       x: 0.48, y: 0.53, z: -0.18, sub: 'US Bank' },
+    { ticker: 'C',    name: 'Citigroup',             x: 0.42, y: 0.57, z: -0.45, sub: 'US Bank' },
+    { ticker: 'USB',  name: 'US Bancorp',            x: 0.56, y: 0.40, z: 0.65, sub: 'US Regional Bank' },
+    { ticker: 'PNC',  name: 'PNC Financial',         x: 0.58, y: 0.38, z: 0.72, sub: 'US Regional Bank' },
+    { ticker: 'KEY',  name: 'KeyCorp',               x: 0.51, y: 0.44, z: 0.28, sub: 'US Regional Bank' },
+    { ticker: 'AIG',  name: 'American Intl Group',   x: 0.47, y: 0.50, z: -0.05, sub: 'P&C Insurance' },
+    { ticker: 'TRV',  name: 'Travelers Companies',   x: 0.62, y: 0.44, z: 0.48, sub: 'P&C Insurance' },
+    { ticker: 'ALL',  name: 'Allstate Corp',         x: 0.55, y: 0.47, z: 0.32, sub: 'P&C Insurance' },
+    { ticker: 'HIG',  name: 'Hartford Financial',    x: 0.59, y: 0.45, z: 0.38, sub: 'P&C Insurance' }
+  ];
+
+  // Build SVG content
+  var svgContent = '';
+
+  // Background
+  svgContent += '<rect x="0" y="0" width="' + W + '" height="' + H + '" fill="#060a12" rx="6"/>';
+
+  // Quadrant tints
+  // Top-left: red tint
+  svgContent += '<rect x="' + pad + '" y="' + pad + '" width="' + (plotW/2) + '" height="' + (plotH/2) + '" fill="rgba(255,69,96,0.08)"/>';
+  // Bottom-right: green tint
+  svgContent += '<rect x="' + (pad + plotW/2) + '" y="' + (pad + plotH/2) + '" width="' + (plotW/2) + '" height="' + (plotH/2) + '" fill="rgba(74,186,112,0.06)"/>';
+
+  // Axis lines with glow
+  svgContent += '<line x1="' + pad + '" y1="' + cy + '" x2="' + (W - pad) + '" y2="' + cy + '" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>';
+  svgContent += '<line x1="' + cx + '" y1="' + pad + '" x2="' + cx + '" y2="' + (H - pad) + '" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>';
+
+  // Quadrant labels
+  // Top-left
+  svgContent += '<text x="' + (pad + 8) + '" y="' + (pad + 18) + '" fill="rgba(255,69,96,0.6)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1" font-weight="500">FILING PESSIMIST /</text>';
+  svgContent += '<text x="' + (pad + 8) + '" y="' + (pad + 30) + '" fill="rgba(255,69,96,0.6)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1" font-weight="500">CALL OPTIMIST</text>';
+  svgContent += '<text x="' + (pad + 8) + '" y="' + (pad + 46) + '" fill="rgba(255,69,96,0.4)" font-family="DM Sans, sans-serif" font-size="9" font-weight="400">H11 Bearish Zone</text>';
+
+  // Top-right
+  svgContent += '<text x="' + (W - pad - 8) + '" y="' + (pad + 18) + '" fill="rgba(255,255,255,0.2)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1" font-weight="500" text-anchor="end">FILING OPTIMIST /</text>';
+  svgContent += '<text x="' + (W - pad - 8) + '" y="' + (pad + 30) + '" fill="rgba(255,255,255,0.2)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1" font-weight="500" text-anchor="end">CALL OPTIMIST</text>';
+  svgContent += '<text x="' + (W - pad - 8) + '" y="' + (pad + 46) + '" fill="rgba(255,255,255,0.15)" font-family="DM Sans, sans-serif" font-size="9" font-weight="400" text-anchor="end">Monitor</text>';
+
+  // Bottom-left
+  svgContent += '<text x="' + (pad + 8) + '" y="' + (H - pad - 28) + '" fill="rgba(255,255,255,0.2)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1" font-weight="500">FILING PESSIMIST /</text>';
+  svgContent += '<text x="' + (pad + 8) + '" y="' + (H - pad - 16) + '" fill="rgba(255,255,255,0.2)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1" font-weight="500">CALL CAUTIOUS</text>';
+  svgContent += '<text x="' + (pad + 8) + '" y="' + (H - pad - 2) + '" fill="rgba(255,255,255,0.15)" font-family="DM Sans, sans-serif" font-size="9" font-weight="400">Distress Signal</text>';
+
+  // Bottom-right
+  svgContent += '<text x="' + (W - pad - 8) + '" y="' + (H - pad - 28) + '" fill="rgba(74,186,112,0.5)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1" font-weight="500" text-anchor="end">FILING OPTIMIST /</text>';
+  svgContent += '<text x="' + (W - pad - 8) + '" y="' + (H - pad - 16) + '" fill="rgba(74,186,112,0.5)" font-family="DM Mono, monospace" font-size="8" letter-spacing="1" font-weight="500" text-anchor="end">CALL CAUTIOUS</text>';
+  svgContent += '<text x="' + (W - pad - 8) + '" y="' + (H - pad - 2) + '" fill="rgba(74,186,112,0.35)" font-family="DM Sans, sans-serif" font-size="9" font-weight="400" text-anchor="end">Potential Value</text>';
+
+  // Arrow labels
+  svgContent += '<text x="' + (pad + 4) + '" y="' + (cy - 8) + '" fill="rgba(255,255,255,0.3)" font-family="DM Sans, sans-serif" font-size="9">&larr; More Pessimistic</text>';
+  svgContent += '<text x="' + (W - pad - 4) + '" y="' + (cy - 8) + '" fill="rgba(255,255,255,0.3)" font-family="DM Sans, sans-serif" font-size="9" text-anchor="end">More Optimistic &rarr;</text>';
+  svgContent += '<text x="' + (cx + 8) + '" y="' + (pad + 14) + '" fill="rgba(255,255,255,0.3)" font-family="DM Sans, sans-serif" font-size="9">&uarr; Call Optimistic</text>';
+  svgContent += '<text x="' + (cx + 8) + '" y="' + (H - pad - 4) + '" fill="rgba(255,255,255,0.3)" font-family="DM Sans, sans-serif" font-size="9">Call Cautious &darr;</text>';
+
+  // Axis titles
+  svgContent += '<text x="' + cx + '" y="' + (H - 6) + '" fill="rgba(255,255,255,0.25)" font-family="DM Sans, sans-serif" font-size="9" text-anchor="middle" font-weight="400">MD&amp;A Sentiment vs. Peer Median (H2)</text>';
+  svgContent += '<text x="14" y="' + cy + '" fill="rgba(255,255,255,0.25)" font-family="DM Sans, sans-serif" font-size="9" text-anchor="middle" font-weight="400" transform="rotate(-90, 14, ' + cy + ')">Call vs. Filing Gap (H11)</text>';
+
+  // Plot companies
+  for (var i = 0; i < companies.length; i++) {
+    var c = companies[i];
+    var px = pad + c.x * plotW;
+    var py = pad + c.y * plotH;
+    var absZ = Math.abs(c.z);
+    var r = Math.min(5 + absZ * 1.2, 11);
+    var color = c.z < -0.1 ? '#ff4560' : (c.z > 0.1 ? '#4aba70' : '#5a6577');
+    var colorDim = c.z < -0.1 ? 'rgba(255,69,96,0.2)' : (c.z > 0.1 ? 'rgba(74,186,112,0.2)' : 'rgba(90,101,119,0.15)');
+
+    svgContent += '<circle cx="' + px + '" cy="' + py + '" r="' + (r + 2) + '" fill="' + colorDim + '" class="dot-glow"/>';
+    svgContent += '<circle cx="' + px + '" cy="' + py + '" r="' + r + '" fill="' + color + '" opacity="0.85" class="company-dot" data-idx="' + i + '" style="cursor:pointer;"/>';
+    var lblX = px + r + 4;
+    var lblY = py + 4;
+    var lblW = c.ticker.length * 6.5 + 6;
+    svgContent += '<rect x="' + (lblX - 3) + '" y="' + (lblY - 9) + '" width="' + lblW + '" height="13" rx="2" fill="rgba(10,12,15,0.7)"/>';
+    svgContent += '<text x="' + lblX + '" y="' + lblY + '" fill="rgba(232,236,242,0.7)" font-family="DM Mono, monospace" font-size="10" font-weight="400">' + c.ticker + '</text>';
+  }
+
+  svg.innerHTML = svgContent;
+
+  // Tooltip handling
+  var dots = svg.querySelectorAll('.company-dot');
+  for (var d = 0; d < dots.length; d++) {
+    (function(dot) {
+      dot.addEventListener('mouseenter', function(e) {
+        var idx = parseInt(dot.getAttribute('data-idx'));
+        var c = companies[idx];
+        tooltip.querySelector('.tt-ticker').textContent = c.ticker;
+        tooltip.querySelector('.tt-name').textContent = c.name;
+        tooltip.querySelector('.tt-zscore').textContent = (c.z > 0 ? '+' : '') + c.z.toFixed(2);
+        tooltip.querySelector('.tt-zscore').style.color = c.z < 0 ? '#ff4560' : '#4aba70';
+        tooltip.querySelector('.tt-dir').textContent = c.z < 0 ? 'Bearish' : 'Bullish';
+        tooltip.querySelector('.tt-dir').style.color = c.z < 0 ? '#ff4560' : '#4aba70';
+        tooltip.querySelector('.tt-sub').textContent = c.sub;
+        tooltip.style.display = 'block';
+
+        var rect = container.getBoundingClientRect();
+        var svgRect = svg.getBoundingClientRect();
+        var scale = svgRect.width / W;
+        var px = pad + c.x * plotW;
+        var py = pad + c.y * plotH;
+        var left = px * scale + 20;
+        var top = py * scale - 20;
+
+        if (left + 200 > rect.width) left = px * scale - 200;
+        if (top < 0) top = 10;
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = top + 'px';
+      });
+      dot.addEventListener('mouseleave', function() {
+        tooltip.style.display = 'none';
+      });
+    })(dots[d]);
+  }
+})();
+
+// IntersectionObserver for fade-in
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+// Hamburger menu
+(function(){
+  var hb = document.getElementById('navHamburger');
+  var nl = document.getElementById('navLinks');
+  if (!hb || !nl) return;
+  hb.addEventListener('click', function() {
+    hb.classList.toggle('open');
+    nl.classList.toggle('mobile-open');
+  });
+  nl.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      hb.classList.remove('open');
+      nl.classList.remove('mobile-open');
+    });
+  });
+})();
+</script>
+</body>
+</html>

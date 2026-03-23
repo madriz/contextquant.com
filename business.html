@@ -58,7 +58,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 </style>
 </head>
 <body>
-<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html" class="active">Business</a><a href="academic.html">Academic</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Inquiry" class="nav-cta">Get in Touch</a></div><button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html" class="active">Business</a><a href="academic.html">Academic</a><a href="dashboard.html">Dashboard</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Inquiry" class="nav-cta">Get in Touch</a></div><button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="page-hero">
@@ -92,6 +92,113 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="value-card"><div class="vt">Transparent About Limitations</div><div class="vd">Twelve of fifteen hypotheses produced weak, nuanced, or non-significant results. We report everything. Intellectual honesty is the foundation of the platform's credibility.</div></div>
 <div class="value-card"><div class="vt">Built to Scale</div><div class="vd">Currently 185 companies. Architecture supports 4,000+ US via EDGAR, 3,500+ Canadian via SEDAR+, and European and Asian markets.</div></div>
 </div>
+</section>
+
+<div class="divider" style="max-width:1200px;margin:0 auto"></div>
+
+<!-- FINANCIAL SECTOR STUDY -->
+<section class="fi">
+<div class="section-label">Financial Sector Application &middot; 37 Companies &middot; 2018&ndash;2025</div>
+<div class="section-title">A Sector-Specific Study: North American Financial Institutions</div>
+
+<div class="usecase-text" style="max-width:720px;">The ContextQuant methodology was built on a 185-company universe spanning all sectors of the Dow 30 and their direct competitors. The financial sector study asks a sharper question: when the peer group is tightly defined&nbsp;&mdash; banks competing with banks, insurers competing with insurers&nbsp;&mdash; does the signal strengthen?</div>
+
+<div class="usecase-text" style="max-width:720px;margin-bottom:4px;"><strong style="color:var(--text-primary);">The answer, for banking, is yes.</strong></div>
+
+<div class="usecase-text" style="max-width:720px;">Restricting to 37 North American financial institutions (US and Canadian banks, global banks, P&amp;C and life insurers) and computing peer-relative signals within tight competitive peer groups produces a distinct set of findings from the broad-market study. The information content of financial sector filings is concentrated differently than in other sectors: earnings call tone divergence from peers and from the company&rsquo;s own filings carries predictive information that does not require a 185-company universe to detect.</div>
+
+<div style="margin-top:48px;margin-bottom:16px;">
+<div style="font-family:var(--mono);font-size:11px;letter-spacing:4px;color:var(--text-muted);text-transform:uppercase;margin-bottom:20px;">Why the Financial Sector</div>
+</div>
+
+<div class="usecase-text" style="max-width:720px;"><strong style="color:var(--text-primary);">First,</strong> financial institutions have uniquely comparable disclosure structures. A bank&rsquo;s 10-K risk factors, MD&amp;A, and earnings call are directly comparable to every other bank&rsquo;s&nbsp;&mdash; same regulatory framework, same accounting standards, same reporting cadence. Peer-relative signals are cleaner when peers face identical disclosure requirements.</div>
+
+<div class="usecase-text" style="max-width:720px;"><strong style="color:var(--text-primary);">Second,</strong> Canadian institutional investors&nbsp;&mdash; the primary target audience for this research&nbsp;&mdash; hold concentrated financial sector positions. The Big Six Canadian banks, major insurers, and their US peers represent core holdings across Canadian pension funds and asset managers. A signal validated on this specific universe is immediately relevant to their portfolios.</div>
+
+<div class="usecase-text" style="max-width:720px;"><strong style="color:var(--text-primary);">Third,</strong> the financial sector offers a natural test of signal specificity. If the original broad-market signals hold in a sector-specific application with tighter peer definitions, that strengthens the case for methodological robustness.</div>
+
+<!-- FINDINGS GRID -->
+<div class="value-grid" style="margin-top:56px;">
+
+<div class="value-card" style="border-top:3px solid var(--green);">
+<div class="vt">H11: Call vs. Filing Divergence Predicts Returns</div>
+<div class="vd" style="margin-bottom:16px;">When bank management sounds more optimistic on the earnings call than their most recent annual filing suggests, the stock underperforms. This gap&nbsp;&mdash; between what management writes in regulated filings and says in public calls&nbsp;&mdash; is measurable and persistent.</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+<div class="usecase-stat" style="margin:0;"><span class="sn">&minus;0.115</span><span class="sd">Pooled IC (180d), p=0.079</span></div>
+<div class="usecase-stat" style="margin:0;"><span class="sn">&minus;0.193</span><span class="sd">Walk-forward IC</span></div>
+<div class="usecase-stat" style="margin:0;"><span class="sn">6 / 8</span><span class="sd">years correct direction</span></div>
+<div class="usecase-stat" style="margin:0;"><span class="sn">2023&ndash;25</span><span class="sd">IC strengthening</span></div>
+</div>
+</div>
+
+<div class="value-card" style="border-top:3px solid #5b8dd9;">
+<div class="vt">H9: Peer-Relative Optimism Predicts Underperformance</div>
+<div class="vd" style="margin-bottom:16px;">When a bank&rsquo;s management tone on the earnings call is more optimistic than peer-group median at the same moment&nbsp;&mdash; controlling for the macro environment all banks face simultaneously&nbsp;&mdash; the stock underperforms at the 180-day horizon. The signal is stronger in the 17-bank universe than in the original broad-market study.</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+<div class="usecase-stat" style="margin:0;"><span class="sn">&minus;0.445</span><span class="sd">OOS IC (fixed split), p=0.049</span></div>
+<div class="usecase-stat" style="margin:0;"><span class="sn">2.98&times;</span><span class="sd">OOS/IS ratio</span></div>
+</div>
+<div style="font-size:12px;color:var(--text-muted);margin-top:10px;font-style:italic;">Train: 2018&ndash;2021 &nbsp;|&nbsp; Test: 2022&ndash;2025</div>
+</div>
+
+<div class="value-card" style="border-top:3px solid #e67e51;">
+<div class="vt">H2: Filing Sentiment Drift Strongest for Canadian Banks</div>
+<div class="vd" style="margin-bottom:16px;">The MD&amp;A sentiment drift signal&nbsp;&mdash; confirmed in the original study&nbsp;&mdash; holds across all 37 financial sector companies, but with meaningful subgroup variation. Canadian banks and P&amp;C insurers drive the strongest signal. US regional banks show near-zero IC, consistent with more formulaic disclosure practices.</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+<div class="usecase-stat" style="margin:0;"><span class="sn">+0.116</span><span class="sd">OOS IC (all 37), 80% hit rate</span></div>
+<div class="usecase-stat" style="margin:0;"><span class="sn">+0.121</span><span class="sd">Canadian banks (strongest)</span></div>
+<div class="usecase-stat" style="margin:0;"><span class="sn">+0.085</span><span class="sd">P&amp;C insurance</span></div>
+<div class="usecase-stat" style="margin:0;"><span class="sn">~0.000</span><span class="sd">US regional banks</span></div>
+</div>
+</div>
+
+</div>
+
+<!-- SIGNAL BOUNDARY NOTE -->
+<div style="margin-top:40px;padding:20px 24px;border-left:3px solid var(--text-muted);background:rgba(255,255,255,0.015);border-radius:0 6px 6px 0;max-width:720px;">
+<div style="font-size:14px;font-weight:300;color:var(--text-secondary);line-height:1.8;">These findings are based on a 37-company financial sector universe tested over 2018&ndash;2025. The H11 and H9 signals are validated for the banking subgroup (17 companies). Statistical significance at conventional thresholds requires a larger universe&nbsp;&mdash; healthcare and other sector studies are in development. Current results are preliminary and have not been peer-reviewed. Nothing here constitutes investment advice.</div>
+</div>
+
+<!-- DASHBOARD LINK -->
+<div style="text-align:center;margin-top:48px;">
+<a href="dashboard.html" style="font-family:var(--mono);font-size:13px;font-weight:500;padding:14px 36px;background:transparent;color:var(--text-secondary);border:1px solid var(--border);border-radius:4px;text-decoration:none;transition:all 0.3s;display:inline-block;">View Live Signal Dashboard &rarr;</a>
+</div>
+
+<!-- SIGNAL SNAPSHOT -->
+<div style="margin-top:56px;">
+<div style="font-family:var(--mono);font-size:11px;letter-spacing:4px;color:var(--green);text-transform:uppercase;margin-bottom:8px;">Current Signal Scores &mdash; March 2026</div>
+<div style="font-size:13px;color:var(--text-muted);margin-bottom:24px;">Composite z-score. Updated quarterly after each earnings cycle. Signal horizon: 90&ndash;180 days.</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;">
+
+<!-- BEARISH -->
+<div>
+<div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#ff4560;margin-bottom:12px;">Bearish</div>
+<table style="width:100%;border-collapse:collapse;">
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">MFC</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;2.35</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Life Ins</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">BNS</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;1.89</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Canadian Bank</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">TD</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;1.55</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Canadian Bank</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">DB</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;1.38</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Capital Mkts</td></tr>
+<tr><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">JPM</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;1.26</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">US Bank</td></tr>
+</table>
+</div>
+
+<!-- BULLISH -->
+<div>
+<div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px;">Bullish</div>
+<table style="width:100%;border-collapse:collapse;">
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">UNM</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.79</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Life Ins</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">FITB</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.37</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">US Regional</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">MKL</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.24</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">P&amp;C Ins</td></tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">PGR</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.21</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">P&amp;C Ins</td></tr>
+<tr><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">MS</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.20</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Capital Mkts</td></tr>
+</table>
+</div>
+
+</div>
+<div style="font-size:11px;color:var(--text-muted);margin-top:16px;font-style:italic;max-width:720px;">Signal scores are research outputs, not trading recommendations. See <a href="dashboard.html" style="color:var(--text-secondary);">dashboard</a> for full universe and methodology detail.</div>
+</div>
+
 </section>
 
 <div class="cta-section">
