@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ContextQuant | Financial Sector Signal Dashboard</title>
-<meta name="description" content="NLP-derived signals from SEC filings and earnings call transcripts. Financial sector signal dashboard updated quarterly.">
+<title>ContextQuant | Signal Dashboard</title>
+<meta name="description" content="NLP-derived signals from SEC filings and earnings call transcripts. Three-study signal dashboard updated quarterly.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -549,9 +549,9 @@ footer {
 <!-- HERO -->
 <section class="dash-hero">
   <div class="dash-hero-content">
-    <div class="dash-hero-label">Financial Sector &middot; 37 Companies &middot; March 2026</div>
+    <div class="dash-hero-label">Three Studies &middot; 222 Companies &middot; March 2026</div>
     <h1 class="dash-hero-title">Signal Dashboard</h1>
-    <p class="dash-hero-sub">NLP-derived signals from SEC filings and earnings call transcripts. Updated quarterly after each earnings cycle.</p>
+    <p class="dash-hero-sub">NLP-derived signals from SEC filings and earnings call transcripts across three independent studies. Financial sector (37 companies), healthcare (34 companies), and diversified market (185 companies). Updated quarterly.</p>
     <div class="regime-badge-inline">
       <span class="pulse-dot"></span>
       High-Uncertainty Regime Active
@@ -886,17 +886,93 @@ footer {
   </div>
 </div>
 
-<!-- MODULE 6: DISCLAIMER -->
+<!-- MODULE: HEALTHCARE STUDY -->
+<div class="dash-module fade-in">
+  <div class="section-label">Healthcare Study &middot; 34 Companies &middot; 2015-2025</div>
+  <h2 class="section-title" style="font-size:36px;">Healthcare Sector Signals</h2>
+  <p class="section-text">LM sentiment replicates at IC=-0.100 OOS (p=0.008, N=2,009). Medical devices is the strongest subgroup (IC=-0.295 OOS). Large pharma forward-looking ratio is a standalone signal (IC=+0.350 OOS). Managed care signals flip direction and are excluded from the standard product.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:16px;">Confirmed Signals (OOS)</div>
+      <table style="width:100%;border-collapse:collapse;">
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">LM full universe</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">IC = -0.100</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">LM medical devices</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">IC = -0.295</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">FLR large pharma</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">IC = +0.350</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">H11 peer-rel (earnings)</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">IC = +0.162</td></tr>
+        <tr><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Haiku ROA</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">IC = +0.295</td></tr>
+      </table>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">ROA Prediction (OOS)</div>
+      <table style="width:100%;border-collapse:collapse;">
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">llm_confidence</td><td style="font-family:var(--mono);font-size:13px;color:var(--blue);text-align:right;">IC = +0.289</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">llm_net_sentiment</td><td style="font-family:var(--mono);font-size:13px;color:var(--blue);text-align:right;">IC = +0.331</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">llm_risk_tone</td><td style="font-family:var(--mono);font-size:13px;color:var(--blue);text-align:right;">IC = -0.375</td></tr>
+        <tr><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">llm_forward_ratio</td><td style="font-family:var(--mono);font-size:13px;color:var(--blue);text-align:right;">IC = -0.367</td></tr>
+      </table>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:12px;font-style:italic;">5/5 OOS years positive for Haiku ROA. All Haiku features significant. N=619.</div>
+    </div>
+
+  </div>
+  <div style="font-size:12px;color:var(--text-muted);margin-top:16px;font-style:italic;">Managed care (UNH, CVS, CI, HUM, MOH) excluded from standard ranking: signals flip direction in this subgroup. European pharma (NVS, AZN, SNY) shows opposite direction (positive language predicts beats). Healthcare and diversified study individual company scores available on request.</div>
+</div>
+
+<!-- MODULE: DIVERSIFIED STUDY -->
+<div class="dash-module fade-in">
+  <div class="section-label">Diversified Market &middot; 185 Companies &middot; 9 GICS Sectors</div>
+  <h2 class="section-title" style="font-size:36px;">Cross-Sector Signals</h2>
+  <p class="section-text">LM sentiment survives BH correction at IC=-0.090 (p&lt;0.001, N=4,650). Financials within Dow30 is the strongest sector (IC=-0.249). Consumer Discretionary has the largest quintile spread (-30.40%). Panel fixed effects fail cross-sector (p=0.987), confirming sector homogeneity matters.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:16px;">Sector ROA Prediction (OOS IC)</div>
+      <table style="width:100%;border-collapse:collapse;">
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Consumer Discretionary</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+0.390</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Communication Services</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+0.298</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Materials</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+0.199</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Financials</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+0.185</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Information Technology</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+0.131</td></tr>
+        <tr><td style="font-size:13px;color:var(--text-muted);padding:8px 0;">Full universe</td><td style="font-family:var(--mono);font-size:13px;color:var(--text-secondary);text-align:right;">+0.190</td></tr>
+      </table>
+    </div>
+
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:16px;">Quintile Spreads (Earnings, OOS)</div>
+      <table style="width:100%;border-collapse:collapse;">
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Consumer Discretionary</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">-30.40%</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Financials</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">-19.93%</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Information Technology</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">-16.07%</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Consumer Staples</td><td style="font-family:var(--mono);font-size:13px;color:var(--text-secondary);text-align:right;">-12.90%</td></tr>
+        <tr><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Health Care</td><td style="font-family:var(--mono);font-size:13px;color:var(--text-secondary);text-align:right;">-8.19%</td></tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODULE: METHODOLOGY -->
+<div class="dash-module fade-in">
+  <div style="background:rgba(255,255,255,0.015);border:1px solid var(--border);border-radius:8px;padding:24px 28px;max-width:860px;">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">Methodology Note</div>
+    <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:8px;">Signal scores are peer-relative z-scores computed from the most recent filing. Updated quarterly. Positive scores indicate bullish language relative to peer group history. Negative scores indicate bearish. These are research outputs, not trading recommendations.</p>
+    <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">Financial sector scores use composite z-scores (H2 + H9 + H11 where available). Healthcare and diversified study scores use LM sentiment z-scores. Haiku confidence scores available for 155 Dow30 tickers, 35 financial sector tickers, and 34 healthcare tickers. ROA prediction validated OOS across all three studies.</p>
+  </div>
+</div>
+
+<!-- MODULE: DISCLAIMER -->
 <div class="dash-module fade-in">
   <div class="section-label">Important Disclosures</div>
   <div class="disclaimer-box">
     <div class="disclaimer-title">RESEARCH DISCLAIMERS &amp; LIMITATIONS</div>
-    <p class="disclaimer-text">This dashboard presents outputs from an ongoing independent research initiative into NLP-based signals in financial sector disclosures. Nothing herein constitutes investment advice, a solicitation, or a recommendation to buy or sell any security. Signal scores are preliminary research outputs, not trading recommendations. Recipients should conduct their own due diligence before relying on any information presented here.</p>
-    <p class="disclaimer-text">All signals are subject to continued out-of-sample testing and academic peer review. Past signal performance does not guarantee future results. Walk-forward validation covers 2020&ndash;2025 (6 test years); longer-term performance cannot be inferred from this period alone. The financial sector universe of 37 companies may not be representative of broader markets or other sectors.</p>
-    <p class="disclaimer-text">Three Canadian insurers (IFC, FFH, GWO) contribute filing-based signals only &mdash; no earnings call transcripts are currently available from free sources for these companies. US regional bank transcript coverage begins 2018. Analyst estimate data covers 22 tickers with full historical depth; 15 tickers have 2024&ndash;2025 coverage only, pending backfill. Signal scores for tickers with partial data should be interpreted with additional caution.</p>
-    <p class="disclaimer-text">H9 (Outlook Divergence) and H11 (Transcript-Filing Gap) are validated for the banking subgroup (17 companies) only. Insurance subgroup results for H9 and H11 are inconclusive due to small annual sample sizes (5&ndash;11 companies) and should not be cited as confirmed findings without further validation on an expanded insurer universe. H2 (MD&amp;A Sentiment Drift) is regime-dependent and should not be used as a standalone signal in high-uncertainty environments.</p>
-    <p class="disclaimer-text">ContextQuant is an independent research initiative. Findings have not been subjected to peer review or independent replication. No formal backtest of the composite signal has been conducted specifically on this 37-company financial sector universe. The performance metrics presented reflect individual signal out-of-sample IC and hit rates from walk-forward validation, not simulated portfolio returns.</p>
-    <div class="disclaimer-footer">&copy; 2026 ContextQuant Research &middot; contextquant.com &middot; For institutional research enquiries only &middot; Data sources: SEC EDGAR, SEDAR+, Alpha Vantage, FRED, yfinance, Motley Fool, stockinsights.ai</div>
+    <p class="disclaimer-text">This dashboard presents outputs from an ongoing independent research initiative into NLP-based signals from corporate disclosures across three independent studies (financials 37 companies, healthcare 34, diversified 185). Nothing herein constitutes investment advice, a solicitation, or a recommendation to buy or sell any security. Signal scores are preliminary research outputs, not trading recommendations.</p>
+    <p class="disclaimer-text">All signals are subject to continued out-of-sample testing and academic peer review. Past signal performance does not guarantee future results. Walk-forward validation covers 2021-2025 (5 OOS test years). The combined signal was discovered out of sample, not pre-specified. In-sample both LM and Haiku signals are contrarian and cancel (IS IC=-0.007). Healthcare Haiku trend weakens 2022-2025.</p>
+    <p class="disclaimer-text">Financial sector: H9 and H11 validated for banking (17 companies) only. Three Canadian insurers (IFC, FFH, GWO) contribute filing-based signals only. Healthcare: managed care signals flip direction. Diversified: panel fixed effects fail cross-sector (p=0.987). ROA prediction survives macro controls in financials only (t=+4.77). Leverage and NIM predictions do not survive macro controls.</p>
+    <p class="disclaimer-text">ContextQuant is an independent research initiative. Findings have not been subjected to peer review or independent replication. No formal backtest of the composite signal has been conducted specifically on the sector-specific universes. The performance metrics presented reflect individual signal out-of-sample IC and hit rates from walk-forward validation, not simulated portfolio returns.</p>
+    <div class="disclaimer-footer">&copy; 2026 ContextQuant Research &middot; contextquant.com &middot; For institutional research enquiries only &middot; Data sources: SEC EDGAR, SEDAR+, Alpha Vantage, FRED, yfinance, Anthropic Claude Haiku</div>
   </div>
 </div>
 

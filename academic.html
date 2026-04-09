@@ -104,27 +104,27 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="page-hero">
 <div class="page-label">Academic Research</div>
 <h1 class="page-title">Peer-relative textual analysis<br>of corporate disclosures</h1>
-<p class="page-sub">A novel framework for measuring disclosure behavior as competitive deltas, grounded in established literature and validated across ten years of out-of-sample data (2016–2025). We welcome collaboration, co-authorship, and data access inquiries.</p>
+<p class="page-sub">A novel framework for measuring disclosure behavior as competitive deltas, grounded in established literature and validated across three independent universes (financials, healthcare, diversified) with a seven-test battery over 2015-2025. 222 companies, 2,761 company-years. We welcome collaboration, co-authorship, and data access inquiries.</p>
 </div>
 
 <section>
 <div class="section-label">The Dataset</div>
 <div class="section-title">Where it is. Where it is going.</div>
-<div class="section-text">The ContextQuant dataset is a structured panel of corporate textual and financial data designed for empirical research in accounting, finance, and NLP. It currently covers 185 US-listed and ADR-traded companies across ten years (2015–2025). The effective test sample is 130 US-domestic 10-K filers.</div>
+<div class="section-text">The ContextQuant dataset spans three independent databases designed for empirical research in accounting, finance, and NLP. It covers 222 unique companies across 11 years (2015-2025): a 185-company diversified market study, a 37-company financial sector study, and a 34-company healthcare study. 2,761 company-years of merged NLP, financial ratio, and analyst estimate data.</div>
 
 <div class="dataset-grid">
-<div class="ds-card"><span class="ds-num">26,780</span><span class="ds-label">SEC Filings</span></div>
-<div class="ds-card"><span class="ds-num">109,312</span><span class="ds-label">Parsed Text Sections</span></div>
-<div class="ds-card"><span class="ds-num">282,137</span><span class="ds-label">NLP Features</span></div>
-<div class="ds-card"><span class="ds-num">350M+</span><span class="ds-label">Words Analyzed</span></div>
+<div class="ds-card"><span class="ds-num">26,780+</span><span class="ds-label">SEC Filings</span></div>
+<div class="ds-card"><span class="ds-num">222</span><span class="ds-label">Unique Companies</span></div>
+<div class="ds-card"><span class="ds-num">500K+</span><span class="ds-label">NLP Features</span></div>
+<div class="ds-card"><span class="ds-num">500M+</span><span class="ds-label">Words Analyzed</span></div>
 <div class="ds-card"><span class="ds-num">511,064</span><span class="ds-label">Daily Price Rows</span></div>
 <div class="ds-card"><span class="ds-num">53,579</span><span class="ds-label">Macro Observations</span></div>
-<div class="ds-card"><span class="ds-num">406,000+</span><span class="ds-label">Political Contributions</span></div>
-<div class="ds-card"><span class="ds-num">2,907</span><span class="ds-label">Exec Comp Entries</span></div>
-<div class="ds-card"><span class="ds-num">37,670</span><span class="ds-label">Corporate Events</span></div>
+<div class="ds-card"><span class="ds-num">3,184</span><span class="ds-label">Earnings Transcripts</span></div>
+<div class="ds-card"><span class="ds-num">135</span><span class="ds-label">Signal Tests Conducted</span></div>
+<div class="ds-card"><span class="ds-num">35</span><span class="ds-label">Significant OOS</span></div>
 </div>
 
-<div class="section-text">The dataset is expanding along three dimensions. Coverage is extending to full US-listed market (~4,000 companies via EDGAR) and Canadian-listed companies (~3,500 via SEDAR+), with European and Asian filing repositories planned. Data sources are expanding to include patent filings (USPTO), insider transactions, and additional transcript coverage. NLP methods are extending from Loughran-McDonald dictionaries to transformer-based models (FinBERT, GPT-4 calibrated sentiment).</div>
+<div class="section-text">The dataset is expanding along three dimensions. Coverage is extending to full US-listed market (~4,000 companies via EDGAR) and Canadian-listed companies (~3,500 via SEDAR+), with IT and Energy sector studies planned next. NLP methods span four approaches: Loughran-McDonald dictionary, FinBERT transformer, Claude Haiku structured scoring, and a combined LM+Haiku signal. XBRL financial ratio extraction provides balance sheet prediction targets (ROA, leverage, NIM, provisions).</div>
 
 <div class="section-text">The underlying database uses SQLite with an 18-table schema covering filings, sections, features, price data, macro time series, competitive pairs, corporate events, executive compensation, and political contributions. The full pipeline is reproducible from raw EDGAR downloads through feature extraction and hypothesis testing.</div>
 </section>
@@ -133,8 +133,8 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 
 <section>
 <div class="section-label">Tested Hypotheses</div>
-<div class="section-title">Fifteen hypotheses tested across the full ten-year sample</div>
-<div class="section-text">All hypotheses tested using a rolling out-of-sample framework with ten annual evaluation windows (2016–2025). Spearman rank IC, quintile spreads, t-statistics, and hit rates reported. The study period spans a global pandemic, a historic rate hiking cycle, a regional banking crisis, and a bull market — a demanding test environment by any standard.</div>
+<div class="section-title">Original study: fifteen hypotheses across ten years</div>
+<div class="section-text">All hypotheses tested using a rolling out-of-sample framework with ten annual evaluation windows (2016-2025). Spearman rank IC, quintile spreads, t-statistics, and hit rates reported. Seven-test validation battery: walk-forward IC, Benjamini-Hochberg correction, panel fixed effects, year-by-year stability, VIX regime conditioning, Fama-French five-factor alpha, and economic magnitude. Replicated across three independent universes (financials, healthcare, diversified).</div>
 
 <div class="hyp-card"><div class="hyp-id">H1</div><div><div class="hyp-title">Risk Factor Specificity Predicts Forward Returns</div><div class="hyp-desc">TF-IDF scoring of Item 1A risk factors measures company-specific vs. boilerplate language. Higher specificity predicts 6–12 month underperformance. Pooled IC = -0.065 (p = 0.023), spread = -5.9%, correct in 8 of 10 years (2016–2025). Peak year 2023: IC = -0.275, t = -3.48 (p &lt; 0.01), exceeding Harvey-Liu-Zhu t &gt; 3.0 threshold. Signal is strongest in high-uncertainty regimes. Extends Campbell et al. (2014, RAS) and Kravet &amp; Muslu (2013, RAS).</div></div><div class="hyp-status hs-strong">Confirmed</div></div>
 
@@ -157,8 +157,8 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 
 <section>
 <div class="section-label">Literature Positioning</div>
-<div class="section-title">Four novel contributions</div>
-<div class="section-text">First, we introduce a peer-relative framework measuring each company's textual characteristics against direct competitive peers rather than in isolation or against broad industry benchmarks. Second, we demonstrate that the specificity dimension of risk disclosures (TF-IDF) contains return-predictive information distinct from aggregate disclosure volume. Third, we document regime-complementary behavior of textual signals: different disclosure dimensions become informative under opposing macroeconomic conditions. Fourth, we show that the divergence between a company's earnings call tone and its most recent written filing tone (H11) is a novel and independently significant predictor of 180-day forward returns — a behavioral inconsistency signal not previously measured systematically in the literature.</div>
+<div class="section-title">Seven novel contributions</div>
+<div class="section-text">First, we introduce a peer-relative framework measuring each company's textual characteristics against direct competitive peers. Second, the specificity dimension of risk disclosures (TF-IDF) contains return-predictive information distinct from aggregate volume. Third, regime-complementary behavior: different disclosure dimensions become informative under opposing macro conditions. Fourth, the transcript-filing gap (H11) is a novel behavioral inconsistency signal, confirmed in two sectors with opposite mechanisms. Fifth, Claude Haiku confidence as standalone ROA predictor (IC=+0.398 OOS, no comparable result in the literature). Sixth, the forward-looking ratio as contrarian early warning: more future talk predicts present weakening. Seventh, credibility-based signal selectivity: the signal works best where management guidance is least reliable, enabling signal routing by management type.</div>
 
 <div class="section-label" style="margin-top:48px">Key References</div>
 <div class="ref-list">
@@ -170,6 +170,8 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="ref-item"><strong>Price, Doran, Peterson, Bliss (2012)</strong>. Earnings Conference Calls and Stock Returns. Journal of Banking &amp; Finance, 36(4), 992-1011.</div>
 <div class="ref-item"><strong>Tetlock (2007)</strong>. Giving Content to Investor Sentiment. Journal of Finance, 62(3), 1139-1168.</div>
 <div class="ref-item"><strong>Feldman, Govindaraj, Livnat, Segal (2009)</strong>. Management's Tone Change. Review of Accounting Studies, 15(4), 915-953.</div>
+<div class="ref-item"><strong>Cohen, Malloy, Nguyen (2020)</strong>. Lazy Prices. Journal of Finance, 75(3), 1371-1415. Changes to 10-K language predict earnings, profitability, and bankruptcies. 188 bps monthly alpha. ContextQuant extends from "did the document change" to "what does the change mean relative to peers."</div>
+<div class="ref-item"><strong>Goyal, Wahal (2024)</strong>. R&amp;D, Innovation, and the Stock Market. R&amp;D predicts profitability up to 10 years ahead. Relevant to planned IT sector study.</div>
 </div>
 </section>
 
@@ -194,7 +196,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="collab-grid">
 <div class="collab-card"><div class="cc-title">Data Access</div><div class="cc-text">We are open to providing dataset access to researchers working on related questions in disclosure quality, textual analysis, or market microstructure. Contact us to discuss scope and terms.</div></div>
 <div class="collab-card"><div class="cc-title">Co-Authorship</div><div class="cc-text">We welcome collaboration with faculty working in accounting, finance, or NLP. The dataset and framework lend themselves to multiple publishable studies beyond our initial hypotheses.</div></div>
-<div class="collab-card"><div class="cc-title">Extension Research</div><div class="cc-text">Open questions: transformer-based sentiment models, international filer analysis, mid/small-cap generalizability, Fama-French alpha estimation, and dynamic signal weighting optimization.</div></div>
+<div class="collab-card"><div class="cc-title">Extension Research</div><div class="cc-text">Open questions: Haiku mechanism interpretability, forward-looking ratio contrarian mechanism across sectors, Fama-French alpha for healthcare and diversified studies, patent-NLP interaction for IT sector, and international filer generalizability.</div></div>
 </div>
 </section>
 
