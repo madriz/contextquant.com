@@ -4,7 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ContextQuant | Signal Dashboard</title>
-<meta name="description" content="NLP-derived signals from SEC filings and earnings call transcripts. Three-study signal dashboard updated quarterly.">
+<meta name="description" content="ContextQuant signal dashboard: NLP-derived scores for 222 companies across financials, healthcare, and diversified sectors. Updated quarterly.">
+<link rel="canonical" href="https://contextquant.com/dashboard.html">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YC6H3H6DWF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YC6H3H6DWF');
+</script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -513,6 +526,8 @@ footer {
   .disclaimer-box { padding: 24px 20px; }
   footer { padding: 40px 24px; flex-direction: column; gap: 12px; text-align: center; }
   .quadrant-legend { flex-wrap: wrap; gap: 12px; }
+  .rankings-table, .subgroup-table, .regime-weight-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .dash-module table:not(.rankings-table):not(.subgroup-table):not(.regime-weight-table) { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
 @media(max-width:900px){
   .nav-hamburger{display:flex !important}
