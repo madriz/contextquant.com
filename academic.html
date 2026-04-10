@@ -10,14 +10,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YC6H3H6DWF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-YC6H3H6DWF');
-</script>
+<!-- Analytics loaded after cookie consent (see bottom of page) -->
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg-deep:#060a12;--bg-card:rgba(255,255,255,0.025);--bg-card-hover:rgba(255,255,255,0.045);--border:rgba(255,255,255,0.06);--border-hover:rgba(74,186,112,0.3);--green:#4aba70;--green-dim:rgba(74,186,112,0.15);--blue:#5b8dd9;--blue-dim:rgba(91,141,217,0.15);--orange:#e67e51;--text-primary:#e8ecf2;--text-secondary:#8a94a8;--text-muted:#5a6577;--mono:'DM Mono','Courier New',monospace;--serif:'Instrument Serif',Georgia,serif;--sans:'DM Sans','Helvetica Neue',sans-serif}
@@ -227,7 +220,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
     <button class="modal-close" id="modalClose">&times;</button>
     <div id="modalForm">
       <div class="modal-title">Download Working Paper</div>
-      <div class="modal-sub">Please share your details and we'll give you immediate access to the full working paper.</div>
+      <div class="modal-sub">Please share your details and the working paper will open in a new tab immediately.</div>
       <div class="modal-row">
         <div class="modal-field"><label>First Name</label><input type="text" name="first_name" id="f_first" placeholder="Jane" required></div>
         <div class="modal-field"><label>Last Name</label><input type="text" name="last_name" id="f_last" placeholder="Smith" required></div>
@@ -239,7 +232,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
     </div>
     <div class="modal-success" id="modalSuccess">
       <div class="success-icon">&#10003;</div>
-      <p>Thank you. A link to the working paper has been sent to your email. If you don't see it within a few minutes, check your spam folder or contact us at <a href="mailto:info@contextquant.com" style="color:var(--green)">info@contextquant.com</a>.</p>
+      <p>Your download should open in a new tab. If it does not appear, please check your popup blocker or contact us at <a href="mailto:info@contextquant.com" style="color:var(--green)">info@contextquant.com</a>.</p>
     </div>
   </div>
 </div>
@@ -260,23 +253,27 @@ const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.
   if(closeBtn) closeBtn.addEventListener('click',function(){modal.classList.remove('open');});
   modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('open');});
 
-  if(submitBtn) submitBtn.addEventListener('click',function(){
+  if(submitBtn) submitBtn.addEventListener('click',function(e){
+    if(e && e.preventDefault) e.preventDefault();
     var first=document.getElementById('f_first').value.trim();
     var last=document.getElementById('f_last').value.trim();
     var inst=document.getElementById('f_inst').value.trim();
     var email=document.getElementById('f_email').value.trim();
     if(!first||!last||!inst||!email){alert('Please complete all fields.');return;}
     if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email address.');return;}
-    submitBtn.textContent='Sending\u2026';
-    submitBtn.disabled=true;
-    fetch('https://formspree.io/f/mlgprrpv',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({first_name:first,last_name:last,institution:inst,email:email,_subject:'ContextQuant Working Paper Download'})
-    }).then(function(r){
-      if(r.ok){form.style.display='none';success.style.display='block';}
-      else{submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Something went wrong. Please try again or email us directly.');}
-    }).catch(function(){submitBtn.textContent='Get the Paper \u2192';submitBtn.disabled=false;alert('Network error. Please email info@contextquant.com directly.');});
+    // Open the PDF synchronously within the user gesture (required for mobile Safari).
+    window.open('ContextQuant_WorkingPaper_April2026.pdf','_blank');
+    // Fire and forget: send form data to Formspree in the background.
+    try{
+      fetch('https://formspree.io/f/mlgprrpv',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({first_name:first,last_name:last,institution:inst,email:email,_subject:'ContextQuant Working Paper Download'})
+      });
+    }catch(err){}
+    // Swap to the thank-you view immediately.
+    form.style.display='none';
+    success.style.display='block';
   });
 })();
 </script>
@@ -294,6 +291,50 @@ const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.
       hb.classList.remove('open');
       nl.classList.remove('mobile-open');
     });
+  });
+})();
+</script>
+<!-- Cookie consent banner -->
+<div id="cqCookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.06);padding:20px 24px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;font-size:13px;font-weight:300;color:#8a94a8;line-height:1.6;">This site uses cookies for analytics to understand how visitors interact with our research. No personal data is sold or shared with third parties.</div>
+    <div style="display:flex;gap:12px;flex-shrink:0;">
+      <button id="cqCookieDecline" style="font-family:'DM Mono','Courier New',monospace;font-size:12px;padding:10px 22px;background:transparent;color:#8a94a8;border:1px solid rgba(255,255,255,0.06);border-radius:4px;cursor:pointer;transition:all 0.3s;">Decline</button>
+      <button id="cqCookieAccept" style="font-family:'DM Mono','Courier New',monospace;font-size:12px;padding:10px 22px;background:#4aba70;color:#060a12;border:none;border-radius:4px;cursor:pointer;transition:all 0.3s;">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function loadGA4(){
+    if(window.__cqGA4Loaded)return;
+    window.__cqGA4Loaded=true;
+    var s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-YC6H3H6DWF';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;
+    gtag('js',new Date());
+    gtag('config','G-YC6H3H6DWF');
+  }
+  var banner=document.getElementById('cqCookieBanner');
+  var accept=document.getElementById('cqCookieAccept');
+  var decline=document.getElementById('cqCookieDecline');
+  var accepted=null,declined=null;
+  try{accepted=localStorage.getItem('cq_cookies_accepted');}catch(e){}
+  try{declined=localStorage.getItem('cq_cookies_declined');}catch(e){}
+  if(accepted==='true'){loadGA4();}
+  else if(declined!=='true'&&banner){banner.style.display='block';}
+  if(accept)accept.addEventListener('click',function(){
+    try{localStorage.setItem('cq_cookies_accepted','true');}catch(e){}
+    if(banner)banner.style.display='none';
+    loadGA4();
+  });
+  if(decline)decline.addEventListener('click',function(){
+    try{localStorage.setItem('cq_cookies_declined','true');}catch(e){}
+    if(banner)banner.style.display='none';
   });
 })();
 </script>
