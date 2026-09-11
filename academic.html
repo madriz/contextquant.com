@@ -111,22 +111,22 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="page-hero">
 <div class="page-label">Academic Research</div>
 <h1 class="page-title">Peer-relative textual analysis<br>of corporate disclosures</h1>
-<p class="page-sub">A novel framework for measuring disclosure behavior as competitive deltas, grounded in established literature and validated across three independent universes (financials, healthcare, diversified) with a seven-test battery over 2015 to Q1 2026. 225 companies, 2,603 company-years. We welcome collaboration, co-authorship, and data access inquiries.</p>
+<p class="page-sub">A novel framework for measuring disclosure behavior as competitive deltas, grounded in established literature and validated across three independent universes (financials, healthcare, diversified) with a seven-test battery over 2015 to Q1 2026. 225 companies, 2,344 company-years. We welcome collaboration, co-authorship, and data access inquiries.</p>
 </div>
 
 <section>
 <div class="section-label">The Dataset</div>
 <div class="section-title">Where it is. Where it is going.</div>
-<div class="section-text">The ContextQuant dataset spans three independent databases designed for empirical research in accounting, finance, and NLP. It covers 225 unique companies across 11 years (2015 to Q1 2026): a 185-company diversified market study, a 37-company financial sector study, and a 34-company healthcare study. 2,603 company-years of merged NLP, financial ratio, and analyst estimate data.</div>
+<div class="section-text">The ContextQuant dataset spans three independent databases designed for empirical research in accounting, finance, and NLP. It covers 225 unique companies across 11 years (2015 to Q1 2026): a 185-company diversified market study, a 37-company financial sector study, and a 34-company healthcare study. 2,344 company-years of merged NLP, financial ratio, and analyst estimate data.</div>
 
 <div class="dataset-grid">
-<div class="ds-card"><span class="ds-num">26,780</span><span class="ds-label">SEC Filings</span></div>
+<div class="ds-card"><span class="ds-num">35,384</span><span class="ds-label">SEC Filings</span></div>
 <div class="ds-card"><span class="ds-num">225</span><span class="ds-label">Unique Companies</span></div>
-<div class="ds-card"><span class="ds-num">785K</span><span class="ds-label">NLP Features</span></div>
-<div class="ds-card"><span class="ds-num">765M</span><span class="ds-label">Words Analyzed</span></div>
+<div class="ds-card"><span class="ds-num">487K</span><span class="ds-label">NLP Features</span></div>
+<div class="ds-card"><span class="ds-num">427M</span><span class="ds-label">Words Analyzed</span></div>
 <div class="ds-card"><span class="ds-num">511,075</span><span class="ds-label">Daily Price Rows</span></div>
 <div class="ds-card"><span class="ds-num">53,579</span><span class="ds-label">Macro Observations</span></div>
-<div class="ds-card"><span class="ds-num">3,224</span><span class="ds-label">Earnings Transcripts</span></div>
+<div class="ds-card"><span class="ds-num">1,390</span><span class="ds-label">Earnings Transcripts</span></div>
 <div class="ds-card"><span class="ds-num">135</span><span class="ds-label">Signal Tests Conducted</span></div>
 <div class="ds-card"><span class="ds-num">35</span><span class="ds-label">Significant OOS</span></div>
 </div>
@@ -190,7 +190,7 @@ footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify
 <div class="paper-icon">[PDF]</div>
 <div>
 <div class="paper-title">Peer-Relative Disclosure Signals Predict Earnings and Balance Sheet Changes: Evidence from Three Independent Studies</div>
-<div class="paper-desc">Three-study research program covering 225 companies, 2,603 company-years, 2015 to Q1 2026. Cross-sector LM sentiment signal (IC=-0.151 OOS financials, 2021 to Q1 2026), LM-Haiku orthogonality finding (combined IC=+0.296 financials), Haiku confidence predicts ROA (IC=+0.398 OOS, survives macro controls). 135 signal tests across the program. Seven-test validation battery: walk-forward, BH correction, panel FE, Fama-French five-factor alpha, regime conditioning.</div>
+<div class="paper-desc">Three-study research program covering 225 companies, 2,344 company-years, 2015 to Q1 2026. Cross-sector LM sentiment signal (IC=-0.151 OOS financials, 2021 to Q1 2026), LM-Haiku orthogonality finding (combined IC=+0.296 financials), Haiku confidence predicts ROA (IC=+0.398 OOS, survives macro controls). 135 signal tests across the program. Seven-test validation battery: walk-forward, BH correction, Fama-French five-factor alpha, regime conditioning.</div>
 <div class="paper-status">April 2026, available on request</div>
 <div class="paper-status" style="text-transform:none;letter-spacing:0;font-size:12px;line-height:1.7;margin-top:10px;">Working paper dated April 2026. Figures were updated in September 2026; see this page for current values.</div>
 <div style="margin-top:20px"><button class="btn" id="pdfDownloadBtn">Download Working Paper</button></div>
@@ -339,6 +339,73 @@ const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.
   });
 })();
 </script>
+
+<section class="sept-update" style="max-width:760px;margin:56px auto;padding:0 24px;">
+  <h2>September 2026 update</h2>
+  <p>The test window has been extended to Q1 2026. A filing quarter counts as
+  complete when at least 90 percent of the expected EDGAR population is present
+  with a matched outcome. At 2026Q1 the complete share is 100 percent for
+  financials, 100 percent for healthcare and 96 percent for the diversified
+  Dow30 universe, so 2026Q1 is the last quarter included. The 2026 Q2 10-Qs are
+  held out of every tested window.</p>
+
+  <p>Over 2021 to Q1 2026 the combined LM and Haiku signal returns IC +0.296 on
+  992 financials observations. Year by year the combined signal carries the
+  expected sign in 6 of 6 years in financials, 6 of 6 in healthcare and 6 of 6
+  in the diversified universe.</p>
+
+  <p>After the Fama-French five factors, the LM coefficient in financials has
+  t = -3.08 (p = 0.002). There is no corresponding figure for healthcare or the
+  diversified universe: the script that produces it is written against the
+  financials schema and has not been adapted, so no value is quoted.</p>
+
+  <p>Outcomes to the end of 2025 come from Alpha Vantage and outcomes after
+  that from Yahoo Finance. On the 394 financials quarters where both sources
+  have data, the Spearman correlation of the surprise is +0.8702 and the two
+  sources agree on beat against miss 90.4 percent of the time. The equivalent
+  sign agreement is 92.5 percent in healthcare and 93.0 percent in the
+  diversified universe.</p>
+
+  <p>The combined estimator lets the database choose one Haiku-scored section
+  per filing where more than one exists. A variant that fixes the choice in a
+  set order moves the largest headline figure by 0.0064, below the 0.02
+  threshold set before the check was run, so the published estimator is
+  retained and the check is recorded rather than acted on.</p>
+
+  <p>148 predictions are registered and will be scored after Q3 2026 earnings.</p>
+</section>
+
+
+<section class="corrections" style="max-width:760px;margin:56px auto;padding:0 24px;">
+  <h2>Corrections, September 2026</h2>
+  <ul>
+    <li>LM financials IC -0.103 replaced. No script in the repository produces
+    it; the estimator that produces the published combined figures gives
+    -0.151 over 2021 to Q1 2026 on 992 observations.</li>
+    <li>"FF5 alpha t = -2.81" relabelled. That figure is the LM coefficient
+    after the five factors, not the alpha. It is now t = -3.08, and the alpha
+    is reported separately.</li>
+    <li>Momentum interaction t relabelled as the full-sample figure. The
+    published -3.37 is the full sample, not the out-of-sample result.</li>
+    <li>Regulation FD amplification removed. No script produces the -0.138 and
+    -0.013 pair or the tenfold claim.</li>
+    <li>H9 outlook divergence -0.445 and the 2.98x ratio removed. No producing
+    script.</li>
+    <li>H2 financials subgroup ICs removed. No subgroup artifact exists.</li>
+    <li>Credibility selectivity ICs removed. The credibility files carry no IC
+    column.</li>
+    <li>H11 walk-forward IC -0.193 and the 6 of 8 year count removed. No
+    producing script.</li>
+    <li>H6 supplementary IC -0.149 removed. The value appears nowhere under H6.</li>
+    <li>The risk specificity year table was a stitch of two different series
+    and has been rebuilt from a single query.</li>
+    <li>VIX regime figures restated from the stored VIXCLS series rather than a
+    live feed, so they are reproducible.</li>
+    <li>Panel fixed effects omitted. The layer runs and produces a value, but
+    there is no reconciled row for it, so nothing is quoted.</li>
+  </ul>
+</section>
+
 
 <section class="vixnote" style="max-width:720px;margin:48px auto;padding:0 24px;">
   <h3>Volatility regime</h3>
