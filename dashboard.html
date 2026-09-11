@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ContextQuant | Signal Dashboard</title>
-<meta name="description" content="ContextQuant signal dashboard: NLP-derived scores for 222 companies across financials, healthcare, and diversified sectors. Updated quarterly.">
+<meta name="description" content="ContextQuant signal dashboard: NLP-derived scores for 225 companies across financials, healthcare, and diversified sectors. Updated quarterly.">
 <link rel="canonical" href="https://contextquant.com/dashboard.html">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -535,6 +535,10 @@ footer {
   .stats-grid{grid-template-columns:1fr}
   .metric-boxes{grid-template-columns:1fr}
 }
+@media (max-width: 640px) {
+  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  .two-col-grid { grid-template-columns: 1fr !important; }
+}
 </style>
 </head>
 <body>
@@ -557,7 +561,7 @@ footer {
 <!-- HERO -->
 <section class="dash-hero">
   <div class="dash-hero-content">
-    <div class="dash-hero-label">Three Studies &middot; 222 Companies &middot; March 2026</div>
+    <div class="dash-hero-label">Three Studies &middot; 225 Companies &middot; March 2026</div>
     <h1 class="dash-hero-title">Signal Dashboard</h1>
     <p class="dash-hero-sub">NLP-derived signals from SEC filings and earnings call transcripts across three independent studies. Financial sector (37 companies), healthcare (34 companies), and diversified market (185 companies). Updated quarterly.</p>
     <div class="regime-badge-inline">
@@ -576,11 +580,11 @@ footer {
       <span class="stat-desc">Companies in financial sector universe</span>
     </div>
     <div class="stat-card">
-      <span class="stat-number">7,055</span>
+      <span class="stat-number">7,545</span>
       <span class="stat-desc">SEC filings parsed and analyzed</span>
     </div>
     <div class="stat-card">
-      <span class="stat-number">736</span>
+      <span class="stat-number">896</span>
       <span class="stat-desc">Earnings call transcripts processed</span>
     </div>
     <div class="stat-card">
@@ -597,29 +601,6 @@ footer {
   <div class="signals-grid">
 
     <!-- H9: Outlook Divergence -->
-    <div class="signal-detail-card">
-      <div class="signal-header">
-        <span class="signal-id">H9: Outlook Divergence</span>
-        <span class="badge badge-green">Confirmed OOS</span>
-      </div>
-      <p class="signal-desc-text">Companies whose forward-looking language in management discussion diverges from peer group tone show predictable underperformance. The peer delta is essential &mdash; absolute sentiment carries no signal.</p>
-      <div class="metric-boxes">
-        <div class="metric-box">
-          <div class="metric-box-label">OOS IC</div>
-          <div class="metric-box-value">&minus;0.445</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-box-label">Significance</div>
-          <div class="metric-box-value">p=0.049</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-box-label">Universe</div>
-          <div class="metric-box-value" style="font-size:14px;">Banking (17)</div>
-        </div>
-      </div>
-      <div class="signal-note">Fixed-split validation: train 2018&ndash;2021, test 2022&ndash;2025</div>
-    </div>
-
     <!-- H11: Transcript-Filing Gap -->
     <div class="signal-detail-card">
       <div class="signal-header">
@@ -632,41 +613,11 @@ footer {
           <div class="metric-box-label">Pooled IC</div>
           <div class="metric-box-value">&minus;0.115 <span style="font-size:11px;color:var(--text-muted);">(p=0.079)</span></div>
         </div>
-        <div class="metric-box">
-          <div class="metric-box-label">Walk-fwd IC</div>
-          <div class="metric-box-value">&minus;0.193</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-box-label">Direction</div>
-          <div class="metric-box-value">6/8 yrs</div>
-        </div>
       </div>
-      <div class="signal-note">Pooled IC is observation-weighted (primary). Walk-forward IC is year-weighted (equal weight per year). Both use 180d horizon.</div>
+      <div class="signal-note">Pooled IC is observation-weighted, measured against the one-quarter-ahead ROA change (task5_h11_ratio_overlay.csv, N 462).</div>
     </div>
 
     <!-- H2: MD&A Sentiment Drift -->
-    <div class="signal-detail-card">
-      <div class="signal-header">
-        <span class="signal-id">H2: MD&amp;A Sentiment Drift</span>
-        <span class="badge badge-green">Confirmed OOS</span>
-      </div>
-      <p class="signal-desc-text">Sequential drift in MD&amp;A sentiment &mdash; measuring how a company's filing tone shifts quarter-over-quarter relative to its peer group &mdash; predicts forward returns across the full 37-company financial universe.</p>
-      <div class="metric-boxes">
-        <div class="metric-box">
-          <div class="metric-box-label">OOS IC</div>
-          <div class="metric-box-value">+0.116</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-box-label">Hit Rate</div>
-          <div class="metric-box-value">80%</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-box-label">Universe</div>
-          <div class="metric-box-value" style="font-size:14px;">All 37</div>
-        </div>
-      </div>
-      <div class="signal-note">Strongest for Canadian banks (IC=+0.121) and P&amp;C insurers (IC=+0.085)</div>
-    </div>
 
   </div>
 </div>
@@ -675,28 +626,6 @@ footer {
 <div class="dash-module fade-in">
   <div class="section-label">Current Positioning</div>
   <div class="two-col-grid">
-
-    <!-- LEFT: Signal Rankings -->
-    <div class="col-card">
-      <div class="col-card-title">Current Signal Scores</div>
-      <div class="col-card-subtitle">Composite z-score: H2 + H9 + H11 weighted by subgroup.</div>
-      <table class="rankings-table">
-        <tr><th>Company</th><th>Subgroup</th><th>Direction</th><th>Score</th></tr>
-        <tr><td class="bearish">MFC</td><td>Life Insurance</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;2.35</td></tr>
-        <tr><td class="bearish">BNS</td><td>Canadian Bank</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.89</td></tr>
-        <tr><td class="bearish">TD</td><td>Canadian Bank</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.55</td></tr>
-        <tr><td class="bearish">DB</td><td>Capital Markets</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.38</td></tr>
-        <tr><td class="bearish">JPM</td><td>US Bank</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.26</td></tr>
-        <tr><td class="bearish">RY</td><td>Canadian Bank</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;1.01</td></tr>
-        <tr><td class="bearish">CINF</td><td>P&amp;C Insurance</td><td><span class="direction-bearish">Bearish</span></td><td class="bearish">&minus;0.87</td></tr>
-        <tr class="divider"><td colspan="4"></td></tr>
-        <tr><td class="bullish">UNM</td><td>Life Insurance</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.79</td></tr>
-        <tr><td class="bullish">FITB</td><td>US Regional Bank</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.37</td></tr>
-        <tr><td class="bullish">MKL</td><td>P&amp;C Insurance</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.24</td></tr>
-        <tr><td class="bullish">PGR</td><td>P&amp;C Insurance</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.21</td></tr>
-        <tr><td class="bullish">MS</td><td>Capital Markets</td><td><span class="direction-bullish">Bullish</span></td><td class="bullish">+1.20</td></tr>
-      </table>
-    </div>
 
     <!-- RIGHT: Quadrant Map -->
     <div class="col-card">
@@ -730,102 +659,10 @@ footer {
     <!-- LEFT: Subgroup Table -->
     <div class="col-card">
       <div class="col-card-title">Out-of-Sample IC by Subgroup</div>
-      <div class="col-card-subtitle">Signal strength varies meaningfully across financial subgroups.</div>
-      <table class="subgroup-table">
-        <tr><th>Subgroup (N)</th><th>H2 IC</th><th>H9 IC</th><th>H11 IC</th><th>Coverage</th></tr>
-        <tr>
-          <td>Retail Banking (17)</td>
-          <td>+0.008</td>
-          <td class="sig">&minus;0.445&#9733;</td>
-          <td class="sig">&minus;0.193&#9733;</td>
-          <td>H9 + H11</td>
-        </tr>
-        <tr>
-          <td>Capital Markets (3)</td>
-          <td>+0.032</td>
-          <td>&minus;0.089</td>
-          <td>&minus;0.111</td>
-          <td class="na">Insufficient N&dagger;</td>
-        </tr>
-        <tr>
-          <td>P&amp;C Insurance (11)</td>
-          <td class="sig">+0.085</td>
-          <td class="na">n/a&Dagger;</td>
-          <td class="na">n/a&Dagger;</td>
-          <td>H2 only</td>
-        </tr>
-        <tr>
-          <td>Life Insurance (8)</td>
-          <td>+0.057</td>
-          <td class="na">n/a&Dagger;</td>
-          <td class="na">n/a&Dagger;</td>
-          <td>H2 only</td>
-        </tr>
-        <tr>
-          <td>Canadian Banks (6)</td>
-          <td class="sig">+0.121&#9733;</td>
-          <td>&minus;0.315</td>
-          <td>&minus;0.170</td>
-          <td>H2 + H9 + H11</td>
-        </tr>
-      </table>
-      <div class="table-footnotes">
-        &#9733; = OOS confirmed &nbsp;&nbsp; &dagger; = only 3 companies, insufficient for statistical validation &nbsp;&nbsp; &Dagger; = near zero for insurance subgroups
-      </div>
+      <div class="col-card-subtitle">Subgroup ICs are withheld. No script in the repository produces them, so they could not be reproduced or refreshed.</div>
     </div>
 
     <!-- RIGHT: Alerts -->
-    <div class="col-card">
-      <div class="col-card-title">Current Alerts</div>
-      <div class="col-card-subtitle">Active signal triggers from the most recent quarterly update.</div>
-      <div class="alert-stack">
-        <div class="alert-card">
-          <div class="alert-top">
-            <span class="alert-dot red"></span>
-            <span class="alert-ticker">MFC</span>
-            <span class="alert-score neg">&minus;2.35</span>
-            <span class="alert-badge persistent">Persistent (2 Quarters)</span>
-          </div>
-          <div class="alert-desc">Life insurer MD&amp;A sentiment materially below peer median. Signal has persisted across two consecutive quarterly updates, indicating sustained negative drift.</div>
-        </div>
-        <div class="alert-card">
-          <div class="alert-top">
-            <span class="alert-dot red"></span>
-            <span class="alert-ticker">BNS</span>
-            <span class="alert-score neg">&minus;1.89</span>
-            <span class="alert-badge new">New This Quarter</span>
-          </div>
-          <div class="alert-desc">MD&amp;A sentiment drift and transcript tone divergence both negative. Combined H2 + H11 signal activation for Canadian bank subgroup.</div>
-        </div>
-        <div class="alert-card">
-          <div class="alert-top">
-            <span class="alert-dot red"></span>
-            <span class="alert-ticker">TD</span>
-            <span class="alert-score neg">&minus;1.55</span>
-            <span class="alert-badge new">New This Quarter</span>
-          </div>
-          <div class="alert-desc">Transcript optimism diverging from conservative filing language. H11 gap widening quarter-over-quarter suggests management verbal tone running ahead of written commitments.</div>
-        </div>
-        <div class="alert-card">
-          <div class="alert-top">
-            <span class="alert-dot green"></span>
-            <span class="alert-ticker">UNM</span>
-            <span class="alert-score pos">+1.79</span>
-            <span class="alert-badge persistent">Persistent (2 Quarters)</span>
-          </div>
-          <div class="alert-desc">Filing sentiment improving vs life insurer peers. Consistent positive drift across two quarters with MD&amp;A language becoming more constructive relative to subgroup median.</div>
-        </div>
-        <div class="alert-card">
-          <div class="alert-top">
-            <span class="alert-dot green"></span>
-            <span class="alert-ticker">FITB</span>
-            <span class="alert-score pos">+1.37</span>
-            <span class="alert-badge new">New This Quarter</span>
-          </div>
-          <div class="alert-desc">Regional bank MD&amp;A above peer group median. New positive signal activation with filing tone outperforming US regional banking cohort.</div>
-        </div>
-      </div>
-    </div>
 
   </div>
 </div>
@@ -838,67 +675,25 @@ footer {
 
     <!-- LEFT: H11 Validation Detail -->
     <div class="regime-block">
-      <div style="font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:16px;">Signal Validation &mdash; H11 Banking</div>
-      <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Pooled IC across 232 observations, 17 banking companies, 2018&ndash;2025. No look-ahead bias. Signal anchored to actual filing and transcript dates.</p>
+      <div style="font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:16px;">Signal Validation, H11 Banking</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;"></p>
       <table class="regime-weight-table">
         <tr><td>Pooled IC (180d)</td><td style="color:var(--green);">&minus;0.115 <span style="font-size:10px;color:var(--text-muted);">p=0.079</span></td></tr>
-        <tr><td>Pooled IC (90d)</td><td style="color:var(--green);">&minus;0.125 <span style="font-size:10px;color:var(--text-muted);">p=0.056</span></td></tr>
-        <tr><td>Walk-fwd mean IC</td><td style="color:var(--green);">&minus;0.193</td></tr>
-        <tr><td>Correct direction</td><td style="color:#ffffff;">6 / 8 yrs</td></tr>
-        <tr><td>2023 annual IC</td><td style="color:var(--text-secondary);">&minus;0.336 <span style="font-size:10px;color:var(--text-muted);">N=14</span></td></tr>
-        <tr><td>2024 annual IC</td><td style="color:var(--text-secondary);">&minus;0.422+ <span style="font-size:10px;color:var(--text-muted);">N=17</span></td></tr>
-        <tr><td>2025 annual IC</td><td style="color:var(--text-secondary);">&minus;0.357 <span style="font-size:10px;color:var(--text-muted);">N=13</span></td></tr>
-        <tr><td>L/S cumulative</td><td style="color:var(--text-secondary);">+12.9% <span style="font-size:10px;color:var(--text-muted);">19 qtrs</span></td></tr>
       </table>
       <div style="font-size:11px;color:var(--text-muted);margin-top:14px;font-style:italic;line-height:1.6;">
-        L/S Sharpe ratio (0.24) is below significance threshold at this universe size (N=17 banks). Expanding to healthcare and other sectors is the primary path to portfolio-level validation. The IC and directional metrics above are the appropriate measures for a 17-company subgroup.
+ appropriate measures for a 17-company subgroup.
       </div>
     </div>
 
-    <!-- CENTER: Signal Weights -->
-    <div class="regime-block">
-      <div style="font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:16px;">Signal Weight Adjustment</div>
-      <table class="regime-weight-table">
-        <tr><td>H1 Risk Specificity</td><td class="up">4.8&times; &uarr;</td></tr>
-        <tr><td>H11 Transcript Gap</td><td class="up">1.7&times; &uarr;</td></tr>
-        <tr><td>H9 Outlook Divergence</td><td class="up">1.3&times; &uarr;</td></tr>
-        <tr><td>H2 Sentiment Drift</td><td class="down">~0&times; &darr;</td></tr>
-      </table>
-      <div style="font-size:12px;color:var(--text-muted);margin-top:16px;font-style:italic;">
-        Risk-based signals dominate in high-uncertainty regime. Sentiment signals strengthen in low-uncertainty periods.
-      </div>
-    </div>
-
-    <!-- RIGHT: Composite IC -->
-    <div class="regime-block">
-      <div style="font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--text-secondary);margin-bottom:16px;">Composite IC Comparison</div>
-      <div class="regime-comparison">
-        <div class="regime-comp-row">
-          <span class="rcl">High-Uncertainty IC</span>
-          <span class="rcv" style="color:var(--orange);">&minus;0.137</span>
-        </div>
-        <div class="regime-comp-row">
-          <span class="rcl">Low-Uncertainty IC</span>
-          <span class="rcv" style="color:var(--blue);">&minus;0.068</span>
-        </div>
-        <div class="regime-comp-row" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);">
-          <span class="rcl">High / Low Ratio</span>
-          <span class="rcv" style="color:#ffffff;font-size:18px;">2.0&times;</span>
-        </div>
-      </div>
-      <div style="font-size:12px;color:var(--text-muted);margin-top:20px;font-style:italic;">
-        Signals are twice as predictive during high-uncertainty regimes &mdash; precisely when early warning matters most.
-      </div>
-    </div>
 
   </div>
 </div>
 
 <!-- MODULE: HEALTHCARE STUDY -->
 <div class="dash-module fade-in">
-  <div class="section-label">Healthcare Study &middot; 34 Companies &middot; 2015-2025</div>
+  <div class="section-label">Healthcare Study &middot; 34 Companies &middot; 2015 to Q1 2026</div>
   <h2 class="section-title" style="font-size:36px;">Healthcare Sector Signals</h2>
-  <p class="section-text">LM sentiment replicates at IC=-0.100 OOS (p=0.008, N=2,009). Medical devices is the strongest subgroup (IC=-0.295 OOS). Large pharma forward-looking ratio is a standalone signal (IC=+0.350 OOS). Managed care signals flip direction and are excluded from the standard product.</p>
+  <p class="section-text">LM sentiment replicates at IC=-0.124 OOS (N=952, 2021 to Q1 2026). Medical devices is the strongest subgroup (IC=-0.295 OOS). Large pharma forward-looking ratio is a standalone signal (IC=+0.350 OOS). Managed care signals flip direction and are excluded from the standard product.</p>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
 
@@ -932,7 +727,7 @@ footer {
 <div class="dash-module fade-in">
   <div class="section-label">Diversified Market &middot; 185 Companies &middot; 9 GICS Sectors</div>
   <h2 class="section-title" style="font-size:36px;">Cross-Sector Signals</h2>
-  <p class="section-text">LM sentiment survives BH correction at IC=-0.090 (p&lt;0.001, N=4,650). Financials within Dow30 is the strongest sector (IC=-0.249). Consumer Discretionary has the largest quintile spread (-30.40%). Panel fixed effects fail cross-sector (p=0.987), confirming sector homogeneity matters.</p>
+  <p class="section-text">LM sentiment survives BH correction at IC=-0.087 (p&lt;0.001, N=1,984, 2021 to Q1 2026). Financials within Dow30 is the strongest sector (IC=-0.262, 2021 to Q1 2026). Panel fixed effects fail cross-sector (p=0.987), confirming sector homogeneity matters.</p>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
 
@@ -945,17 +740,6 @@ footer {
         <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Financials</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+0.185</td></tr>
         <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Information Technology</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+0.131</td></tr>
         <tr><td style="font-size:13px;color:var(--text-muted);padding:8px 0;">Full universe</td><td style="font-family:var(--mono);font-size:13px;color:var(--text-secondary);text-align:right;">+0.190</td></tr>
-      </table>
-    </div>
-
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;">
-      <div style="font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:16px;">Quintile Spreads (Earnings, OOS)</div>
-      <table style="width:100%;border-collapse:collapse;">
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Consumer Discretionary</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">-30.40%</td></tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Financials</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">-19.93%</td></tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Information Technology</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">-16.07%</td></tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Consumer Staples</td><td style="font-family:var(--mono);font-size:13px;color:var(--text-secondary);text-align:right;">-12.90%</td></tr>
-        <tr><td style="font-size:13px;color:var(--text-secondary);padding:8px 0;">Health Care</td><td style="font-family:var(--mono);font-size:13px;color:var(--text-secondary);text-align:right;">-8.19%</td></tr>
       </table>
     </div>
 
