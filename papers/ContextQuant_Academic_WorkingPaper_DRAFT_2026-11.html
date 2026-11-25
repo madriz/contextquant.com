@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading for Credit Trouble</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1b2230;
+  --ink-2: #39424f;
+  --muted: #5d6673;
+  --rule: #c9ced6;
+  --rule-soft: #e4e7eb;
+  --paper: #ffffff;
+  --tint: #f4f5f2;
+  --green: #2f8f57;
+  --blue: #3b6fb6;
+  --banner: #fff4d6;
+  --banner-ink: #6b4a00;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+body { font-family: 'Source Serif 4', Georgia, 'Liberation Serif', 'DejaVu Serif', serif; font-size: 17px; line-height: 1.58; }
+.banner { background: var(--banner); color: var(--banner-ink); border-bottom: 1px solid #e8d39a; text-align: center; font-size: 15px; font-weight: 600; padding: 10px 16px; letter-spacing: 0.01em; }
+main { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+h1 { font-size: 30px; line-height: 1.22; font-weight: 700; margin: 18px 0 14px; letter-spacing: -0.005em; }
+.author { font-size: 16px; color: var(--ink-2); margin: 0 0 4px; }
+.date { font-size: 15px; color: var(--muted); margin: 0 0 26px; }
+h2 { font-size: 22px; font-weight: 700; margin: 40px 0 10px; line-height: 1.3; }
+h3 { font-size: 18px; font-weight: 600; margin: 26px 0 8px; line-height: 1.35; }
+h4 { font-size: 16px; font-weight: 600; margin: 18px 0 6px; font-style: italic; }
+p { margin: 0 0 12px; text-align: left; hyphens: auto; }
+ul, ol { margin: 0 0 12px; padding-left: 24px; }
+li { margin-bottom: 4px; }
+.abstract { background: var(--tint); border-left: 3px solid var(--green); padding: 16px 20px 8px; margin: 0 0 18px; font-size: 16px; }
+.abstract h2 { margin-top: 0; font-size: 18px; }
+.keywords { font-size: 14.5px; color: var(--ink-2); margin-bottom: 26px; }
+.note-box { border: 1px solid var(--rule); padding: 12px 16px 4px; margin: 14px 0 18px; font-size: 15.5px; background: #fafbfa; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; line-height: 1.35; margin: 6px 0 4px; font-variant-numeric: tabular-nums; }
+caption { caption-side: top; text-align: left; font-size: 14.5px; font-weight: 600; padding: 0 0 6px; color: var(--ink); }
+th { text-align: left; white-space: normal; font-weight: 600; border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 4px 6px; vertical-align: bottom; }
+td { border-bottom: 1px solid var(--rule-soft); padding: 3px 6px; vertical-align: top; }
+tbody tr:last-child td { border-bottom: 1.5px solid var(--ink); }
+td.n { text-align: right; white-space: nowrap; } th.n { text-align: right; }
+tr.grp td { font-style: italic; color: var(--ink-2); background: #f7f8f6; }
+tr.hl td { background: #eef6f0; }
+.tnote { font-size: 12.5px; color: var(--muted); line-height: 1.4; margin: 4px 0 20px; }
+.tblock { margin: 18px 0 8px; break-inside: avoid; page-break-inside: avoid; }
+.tblock.long { break-inside: auto; page-break-inside: auto; }
+figure { margin: 22px 0 22px; break-inside: avoid; page-break-inside: avoid; }
+figure svg { width: 100%; height: auto; display: block; }
+figcaption { font-size: 13px; color: var(--ink-2); line-height: 1.42; margin-top: 6px; }
+figcaption b { color: var(--ink); }
+.eq { font-style: italic; margin: 8px 0 12px 24px; }
+.refs p { padding-left: 24px; text-indent: -24px; font-size: 15px; margin-bottom: 7px; }
+.small { font-size: 14px; color: var(--ink-2); }
+a { color: var(--blue); }
+.toc { font-size: 15px; columns: 2; column-gap: 28px; margin-bottom: 20px; }
+.toc div { break-inside: avoid; }
+@media print {
+  body { font-size: 9.6pt; line-height: 1.34; }
+  p { margin-bottom: 7px; }
+  li { margin-bottom: 2px; }
+  figure { margin: 10px auto; max-width: 80%; }
+  .tblock { margin: 10px 0 4px; }
+  .tnote { margin-bottom: 10px; }
+  td { padding: 2px 5px; }
+  th { padding: 3px 5px; }
+  main { max-width: none; padding: 0; }
+  .banner { font-size: 9.5pt; padding: 6px 10px; margin-bottom: 4px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h1 { font-size: 19pt; margin-top: 10pt; }
+  h2 { font-size: 13pt; margin-top: 14pt; break-after: avoid; page-break-after: avoid; }
+  h3 { font-size: 11pt; margin-top: 9pt; break-after: avoid; page-break-after: avoid; }
+  h4 { font-size: 10.6pt; break-after: avoid; }
+  .abstract { font-size: 9.6pt; padding: 10px 14px 4px; }
+  .note-box { font-size: 10pt; }
+  table { font-size: 7.8pt; }
+  caption { font-size: 9.2pt; }
+  .tnote, figcaption { font-size: 7.9pt; }
+  .refs p { font-size: 9.6pt; }
+  .toc { font-size: 9.6pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; page-break-inside: avoid; }
+  .pb { break-before: page; page-break-before: always; }
+  a { color: var(--ink); text-decoration: none; }
+  tr.hl td, tr.grp td, .abstract, .note-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  main { padding: 24px 16px 60px; }
+  h1 { font-size: 24px; }
+  .toc { columns: 1; }
+  .tblock { overflow-x: auto; }
+  table { font-size: 12px; }
+}
+</style>
+<style>@media (max-width:600px){html,body{overflow-x:hidden}table{display:block;max-width:100%;overflow-x:auto;box-sizing:border-box}td,th{word-break:break-word}svg{max-width:100%;height:auto}code,.hash{word-break:break-all}}</style>
+</head>
+<body>
+<div class="banner">Draft for review, not for distribution. November 2026.</div>
+<main>
+
+<h1>Reading for Credit Trouble: A Pre-Registered Test of Language-Model Filing Analysis as a Downgrade Early Warning</h1>
+<p class="author">Rodrigo Madriz, ContextQuant (info@contextquant.com)</p>
+<p class="date">Working paper draft, 22 November 2026. Internal draft: numbers are taken from the program's results files as of this date; nothing here has been published.</p>
+
+<div class="abstract">
+<h2>Abstract</h2>
+<p>We test, in a pre-registered program in which every test ran once, whether a large language model's reading of corporate filings gives early warning of credit-rating downgrades beyond the information credit analysts already hold. Filings of 886 US-listed companies in five universes are read by the Loughran-McDonald dictionary, by FinBERT and by a large language model (Claude Haiku), and every verdict comes from filings made between January 2021 and June 2026. A reading of whether a filing is worse than the company's previous one (the Change Signal) places 23.4% of its worst tenth of filings in a downgrade within twelve months, against a base rate of 7.2% (lift 3.3, 90% interval 2.4 to 4.3), and 16.9% against 4.2% among companies whose S&amp;P outlook was stable or positive. Its coefficient survives rating level, history and outlook, market and accounting variables, Merton distance to default, Altman Z, Ohlson O, 23 volatility measures, fundamental volatility, 13 macro series and the Lazy Prices and Brown-Tucker text-change measures (+0.769 log odds per standard deviation, odds ratio 2.16), and it keeps an independent coefficient in a horse race with every rival. A measurement-mode index built only from verified quotes (the Credit Stress Index), and the quarter-on-quarter change in language-model tone (Tone Shift), add smaller but significant amounts. Dictionary and FinBERT sentiment, as levels or changes, add nothing. Against matched companies of the same rating notch over the same window, flags are far more frequent before S&amp;P downgrades (Change Signal 67.6% against 27.9%). The readings do not make a better rating model: controls alone reach an out-of-sample AUC of 0.875 and text adds +0.004, not significant; their value is the concentration of downgrades among flagged names. Name blanking, a recall probe used as a control (which removes 4% to 10% of the credit effects) and a test of the model's stated knowledge leave the credit results intact, and scores for filings made after the model's training cutoff are locked by cryptographic hash ahead of a prospective test.</p>
+</div>
+<p class="keywords"><b>JEL:</b> G14, G24, G33, M41. <b>Keywords:</b> credit ratings, downgrades, textual analysis, large language models, look-ahead bias, pre-registration, replication.</p>
+
+<div class="toc">
+<div>1 Introduction</div><div>2 Related literature</div><div>3 Data</div><div>4 Text measures</div><div>5 Research design</div><div>6 Results</div><div>7 Look-ahead bias and memory</div><div>8 Limitations</div><div>9 Extensions in progress</div><div>10 Conclusion</div><div>References</div><div>Appendix A: Registration timeline</div><div>Appendix B: Additional tables</div>
+</div>
+
+<h2>1. Introduction</h2>
+<p>Credit analysts read filings, but they cannot read every filing of every issuer every quarter, and rating agencies change ratings slowly. A sizeable literature shows that disclosure text carries information about credit risk (Mayew, Sethuraman and Venkatachalam 2015; Donovan, Jennings, Koharki and Lee 2021) and that changes in filings matter (Cohen, Malloy and Nguyen 2020). Large language models (LLMs) now read text with something close to an analyst's judgement, which raises an obvious question: can a model that reads each new filing against the last one flag the companies that are about to be downgraded, earlier or more reliably than the information a credit desk already uses?</p>
+<p>Two problems make evidence on LLMs in finance hard to read. The first is the familiar one of specification search: many signals, outcomes, horizons and subsamples, with the reported result chosen after the fact (Harvey, Liu and Zhu 2016; Hou, Xue and Zhang 2020). The second is specific to LLMs: a model trained on text published after a filing may simply remember how the company fared (Glasserman and Lin 2023; Sarkar and Vafa 2024; Lopez-Lira, Tang and Zhu 2025). A credible test has to answer both, and it has to hold the text to the baselines a credit professional would actually use.</p>
+<p>This paper reports such a test. The program is pre-registered: hypotheses, outcomes, directions, controls and thresholds were written down, committed to version control and tagged before any test, extensions were added as dated amendments, and each registered test ran once. It covers five universes and 886 companies, with all verdicts out of sample (filings from 2021-01-01 to 2026-06-30). The credit question is held to agency information (rating level, history, outlook and watch), market risk (a battery of 23 volatility and drawdown measures), structural and accounting credit scores (distance to default, Altman Z, Ohlson O), fundamental volatility, macro conditions, and the published text-change measures. Every LLM result is then tested for memory, and filings written after the model's training data end are scored and locked before their outcomes exist.</p>
+<p>Our contributions are four.</p>
+<ol>
+<li><b>A pre-registered, out-of-sample estimate of what an LLM reading of filing deterioration adds to downgrade prediction</b> beyond agency, market, accounting and structural credit information and beyond published text measures. Three readings pass: the Change Signal (an LLM judgement of whether a filing is worse than the previous one, given the whole filing, five quarters of financial statements, the previous filing's MD&amp;A and risk factors and the latest call), a measurement-mode Credit Stress Index built only from verified quotes, and Tone Shift (the quarter-on-quarter worsening of LLM tone). The Change Signal is the strongest and keeps an independent coefficient in a horse race with every rival.</li>
+<li><b>Evidence that standard filing sentiment adds nothing to a credit model.</b> Dictionary category shares, dictionary and FinBERT net tone as levels (raw, against industry, against competitors) and as changes are tested head to head; none passes, and the six levels together add +0.0004 to out-of-sample AUC.</li>
+<li><b>Memory tests as validation of the credit results.</b> Name blanking, a recall probe used as a control, a split by the model's stated knowledge and its formal interaction, a repeat-noise check with averaging, and locked post-cutoff samples. The credit results keep their size and significance under each of them.</li>
+<li><b>Rule-based evidence fixed before results.</b> Decile tables at three horizons, a full quarter's flag list, the signal path before downgrades, and a comparison of each downgrade with matched companies of the same notch over the same window, so that no example and no chance baseline is chosen after the fact.</li>
+</ol>
+<p>The results are also bounded. The readings do not improve the accuracy of a full credit model: the controls reach an out-of-sample AUC of 0.875, and no text signal adds a significant amount. Among calm companies on 2024 test data no reading improves AUC or the top-tenth hit rate after correction. When S&amp;P had already placed a company on negative outlook or watch, the readings flagged first in only 25% to 48% of the subsequent downgrades. The value we find is of a different kind: downgrades are concentrated in the flagged tenth, the association survives every control, and before downgrades the flags appear far more often than at matched companies that were not downgraded, including before downgrades that came with no agency warning. Whether this holds on filings the model cannot have seen is the subject of a locked prospective test.</p>
+<p>The rest of the paper is organised as follows. Section 2 reviews the literature. Sections 3 to 5 describe the data, the text measures and the design. Section 6 reports the credit results and Section 7 the memory tests. Section 8 states the limitations, Section 9 the extensions in progress and Section 10 concludes.</p>
+
+<h2>2. Related literature</h2>
+<h3>2.1 Text and returns</h3>
+<p>The modern finance text literature starts from the observation that general-purpose word lists misclassify financial language; Loughran and McDonald (2011) build finance-specific lists that remain the standard dictionary baseline. Cohen, Malloy and Nguyen (2020) show that firms whose annual and quarterly reports change from one year to the next subsequently underperform, and that such changes predict news, earnings and bankruptcies; their cosine and Jaccard similarity measures ("Lazy Prices") are rivals in our credit models. Brown and Tucker (2011) measure year-over-year MD&amp;A modification, and Feldman, Govindaraj, Livnat and Segal (2010) show that changes in MD&amp;A tone carry information for returns. Li (2010), Davis, Piger and Sedor (2012) and Druz, Petzev, Wagner and Zeckhauser (2020) find that tone in filings, press releases and calls is associated with future earnings and with forecast revisions.</p>
+<h3>2.2 Large language models in finance</h3>
+<p>Lopez-Lira and Tang (2023) report that ChatGPT's reading of news headlines forecasts next-day returns; Kim, Muhn and Nikolaev (2024) find that an LLM given anonymised financial statements predicts the direction of earnings changes; Chen, Kelly and Xiu (2022) use LLM embeddings to forecast returns. For credit, Drinkall, Pierrehumbert and Zohren (2024) find that generative LLMs lose to traditional models at forecasting rating levels. That result frames ours: we do not ask an LLM to forecast a rating, and we find no gain in overall accuracy, but we do find an incremental association with downgrades that standard text methods do not deliver.</p>
+<h3>2.3 Look-ahead bias and memory</h3>
+<p>An LLM's training data may include the outcomes being predicted. Glasserman and Lin (2023) and Sarkar and Vafa (2024) set out the problem and propose anonymisation and point-in-time checks; Lopez-Lira, Tang and Zhu (2025) show that LLMs can reproduce historical financial data they have memorised. Gao, Jiang and Yan (2025) propose a date-only recall probe, close to the one we use, and attribute about 37% of a one-day return effect to it. He, Lv, Manela and Wu (2025) train chronologically consistent models that see only text available at each date. Our memory tests (Section 7) follow this literature: blanking, a probe used as a control, the knowledge interaction of Gao, Jiang and Yan, and post-cutoff samples.</p>
+<h3>2.4 Text and credit risk</h3>
+<p>Mayew, Sethuraman and Venkatachalam (2015) show that MD&amp;A disclosure predicts the ability to continue as a going concern; Bonsall and Miller (2017) relate readability to bond ratings; Donovan, Jennings, Koharki and Lee (2021) build a machine-learning measure of credit risk from conference calls and MD&amp;A; Mamaysky, Shen and Wu (working paper) find credit information in earnings calls priced in CDS spreads. Two recent papers appear close to ours but have been seen only as title listings and are <b>unverified</b>: Khoja (2024, SSRN 4965227), on LLM scores from calls and rating migration, and Fang, Hu, Tang, Wallis and Yang (SSRN 7429342, "Do Language Models Know Who Fails?"). Any claim of priority in this paper is conditional on reading both.</p>
+<h3>2.5 Text and volatility</h3>
+<p>That tone and risk language predict volatility is well established: Kogan, Levin, Routledge, Sagi and Smith (2009) predict volatility from 10-K text, Loughran and McDonald (2011) link negative and uncertain words to later volatility, Kravet and Muslu (2013) relate risk disclosure to risk perceptions, and Campbell, Chen, Dhaliwal, Lu and Steele (2014) show that risk-factor disclosures are informative. This literature is why the downgrade models hold a full volatility battery fixed (Section 5.2).</p>
+<h3>2.6 Earnings-call tone</h3>
+<p>Price, Doran, Peterson and Bliss (2012) find that call tone, especially in the question-and-answer section, predicts returns; Davis and Tama-Sweet (2012) show that press releases sound more upbeat than the MD&amp;A and that a gloomier MD&amp;A predicts worse performance; Davis, Ge, Matsumoto and Zhang (2015) find a manager-specific component in call tone. Our filing readings include the latest call as context for the Change Signal (Section 4.4).</p>
+<h3>2.7 Pre-registration and replication</h3>
+<p>Harvey, Liu and Zhu (2016) and Hou, Xue and Zhang (2020) document how many published return predictors fail out of sample or under stricter hurdles. Pre-registration is rare in archival finance and accounting; Bloomfield, Rennekamp and Steenhoven (2018) study the registered-report experiment at the <i>Journal of Accounting Research</i>. Our design (time-stamped registrations, single runs, family-wise correction, publication of every verdict) is a direct response to these critiques.</p>
+<h3>2.8 Position of this paper</h3>
+<p>That text predicts credit events is known. To our knowledge, and subject to reading the two unverified papers above, no paper combines an LLM reading of the direction of filing change, a full agency, market, structural and accounting control set, published text-change measures as rivals, a head-to-head with the dictionary and FinBERT, pre-registration, and memory tests. Relative to Lazy Prices, the Change Signal measures the direction of change rather than its amount, and it survives their measures as controls.</p>
+
+<h2>3. Data</h2>
+<h3>3.1 Universes</h3>
+<p>The program covers five universes, built for separate studies and pooled where stated: the Dow 30 (38 historical and current members) with competitors, 152 companies with out-of-sample filings; the Nasdaq-100 with competitors, 724 companies; semiconductors, 42; banks and insurers ("financials"), 37; and healthcare, 34. After overlaps the program holds 888 entities and 886 companies (Table 1). Competitor groups were defined before any test; industry groups use the Fama-French 12 classification from the SEC industry code.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 1. Universes and filings</caption>
+<thead><tr><th>Universe</th><th class="n">Filings 2015 to 2026-06</th><th class="n">Companies</th><th class="n">Filings out of sample</th><th class="n">Companies</th></tr></thead>
+<tbody>
+<tr><td>Nasdaq-100 + competitors</td><td class="n">26,368</td><td class="n">747</td><td class="n">13,734</td><td class="n">724</td></tr>
+<tr><td>Dow 30 + competitors</td><td class="n">5,744</td><td class="n">155</td><td class="n">2,766</td><td class="n">152</td></tr>
+<tr><td>Financials</td><td class="n">1,334</td><td class="n">37</td><td class="n">662</td><td class="n">37</td></tr>
+<tr><td>Healthcare</td><td class="n">1,378</td><td class="n">34</td><td class="n">678</td><td class="n">34</td></tr>
+<tr><td>Semiconductors</td><td class="n">1,657</td><td class="n">42</td><td class="n">816</td><td class="n">42</td></tr>
+<tr><td>Pooled</td><td class="n">30,104</td><td class="n">840</td><td class="n">15,460</td><td class="n">815</td></tr>
+</tbody>
+</table>
+<p class="tnote">Periodic filings with text signals in the study panels; out of sample = filed 2021-01-01 to 2026-06-30. Source: RESULTS_A4 Part M.</p>
+</div>
+
+<h3>3.2 Filings, transcripts and scale</h3>
+<p>Filings come from SEC EDGAR, fetched with a declared User-Agent at no more than eight requests a second. Table 2 gives the scale. Of 129,974 indexed filings, 60,815 periodic reports (10-K, 10-Q, 20-F, 40-F and equivalents) were read in full, with sections (MD&amp;A, risk factors, risk-factor updates) extracted. 16,035 earnings-call transcripts come from public transcript sources.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 2. Scale of the program</caption>
+<thead><tr><th>Item</th><th class="n">Value</th></tr></thead>
+<tbody>
+<tr><td>Companies</td><td class="n">886 (888 entities)</td></tr>
+<tr><td>SEC filings indexed</td><td class="n">129,974</td></tr>
+<tr><td>Periodic reports read in full</td><td class="n">60,815</td></tr>
+<tr><td>Earnings-call transcripts</td><td class="n">16,035</td></tr>
+<tr><td>Words analysed</td><td class="n">1.03 billion</td></tr>
+<tr><td>Years</td><td class="n">12 (2015 to 2026); out of sample 2021 to mid-2026</td></tr>
+<tr><td>Registered tests in the program</td><td class="n">about 8,700, each run once</td></tr>
+<tr><td>Registrations</td><td class="n">4 study registrations, 9 dated amendments</td></tr>
+<tr><td>Rated companies in credit tests (pooled)</td><td class="n">457 to 489</td></tr>
+<tr><td>Downgrades out of sample in credit tests (pooled)</td><td class="n">568 to 589</td></tr>
+<tr><td>LLM cost of the November program</td><td class="n">about USD 236</td></tr>
+</tbody>
+</table>
+<p class="tnote">Source: Facts sheet of 22 November 2026, section 1. The LLM requests number in the tens of thousands (16,229 recall-probe requests, 9,930 measurement-mode readings, 3,470 full-package readings, 1,532 post-cutoff full readings, plus section scoring of every MD&amp;A and risk-factor section).</p>
+</div>
+
+<h3>3.3 Credit ratings</h3>
+<p>Rating histories are the issuer credit rating histories that S&amp;P, Moody's and Fitch publish under SEC Rule 17g-7(b), downloaded manually under each agency's terms and parsed into one table. Each company is matched by a single issuer rule: the parent's issuer rating, or, where the parent has none at that agency, its main debt-issuing subsidiary, with the reason recorded. The histories are published about twelve months late and end on 2025-09-30, so a twelve-month outcome is defined only for filings made by about September 2024. The main outcome, down_12, is a downgrade by any of the three agencies within twelve months of the filing date; 3- and 6-month horizons are secondary. Only the S&amp;P rows carry outlooks and CreditWatch placements, so every "calm" or "warning" definition uses the S&amp;P issuer rating state. Out of sample, rows with a twelve-month outcome number 9,564 rated filings in the all-studies pool (595 downgraded within twelve months), 8,186 in the Nasdaq-100 and semiconductor pool (538) and 2,834 in the Dow 30 and semiconductor pool on which the Change Signal is scored (138).</p>
+<h3>3.4 Prices, listing and bankruptcy rules</h3>
+<p>Every return in every registered test is computed from daily closing prices, compounded daily on the QQQ trading calendar, from a corrected panel (<code>prices_a1</code>, 4,503,951 rows, frozen with SHA-256 a41b1ae3...436a) built under Amendment 1. Its rules: bankruptcy and delisting events come from each company's own filings (8-K item 1.03, a text search of every 8-K for "chapter 11" and "voluntary petition", Form 15, Form 25 and plan effective dates), and the old shares' series ends at cancellation; returns are used only while the security trades on a national exchange (from Form 25, Form 8-A12B and periodic reports), so over-the-counter periods are excluded; any day priced under USD 0.01 is excluded. A monthly gate (no month above +100% or below -90%) and a daily gate (no day above +100% or below -75%) pass a move only with a filed event or an independent second source within 20%. On the final panel both gates show zero unexplained days and months; 13 days and 15 months were excluded; all 62 falls of 90% or more are explained; the wider bankruptcy search found two new cases (Mallinckrodt 2023, Spirit 2025). Market values use shares outstanding from SEC XBRL as filed, with a vendor source second (79 entities have no share count from either).</p>
+<h3>3.5 Accounting data, credit scores and volatility measures</h3>
+<p>Accounting values come from SEC XBRL company facts, each value as first filed. For every filing we compute, on or before the filing date: realised volatility over 20, 60 and 250 trading days (close-to-close, Parkinson, Garman-Klass, Yang-Zhang, with open, high and low scaled by the adjusted-to-raw close ratio so that splits do not create jumps); EWMA volatility and a GARCH(1,1) forecast of 90-day volatility fitted on the prior 750 returns (no fit failed); beta and downside beta to QQQ; idiosyncratic volatility against the five Fama-French factors and momentum; skewness; the deepest prior 90- and 250-day falls; the volatility of ROA, sales growth and operating cash flow over the prior 12 quarters; accruals, leverage and interest coverage; Altman Z (Z'' outside manufacturing); Ohlson O; and the naive Merton distance to default in the Bharath-Shumway form. Coverage is incomplete for the accounting scores (Table 3), and missing continuous controls take the pool median with a missing flag.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 3. Coverage of selected control measures (filing keys of the five universes)</caption>
+<thead><tr><th>Measure</th><th class="n">Filings with a value</th><th class="n">Of</th><th class="n">Median</th><th class="n">5th to 95th percentile</th></tr></thead>
+<tbody>
+<tr><td>Yang-Zhang volatility, 60 days (daily)</td><td class="n">35,410</td><td class="n">36,450</td><td class="n">0.0200</td><td class="n">0.0103 to 0.0529</td></tr>
+<tr><td>GARCH(1,1) 90-day forecast</td><td class="n">32,891</td><td class="n">36,450</td><td class="n">0.1989</td><td class="n">0.1072 to 0.5167</td></tr>
+<tr><td>Beta to QQQ, 250 days</td><td class="n">34,683</td><td class="n">36,450</td><td class="n">0.7528</td><td class="n">0.1251 to 1.6249</td></tr>
+<tr><td>Prior 250-day deepest fall</td><td class="n">34,387</td><td class="n">36,450</td><td class="n">-0.2865</td><td class="n">-0.6466 to -0.1192</td></tr>
+<tr><td>Standard deviation of quarterly ROA</td><td class="n">31,885</td><td class="n">36,450</td><td class="n">0.0109</td><td class="n">0.0020 to 0.0660</td></tr>
+<tr><td>Leverage</td><td class="n">25,457</td><td class="n">36,450</td><td class="n">0.2420</td><td class="n">0.0061 to 0.6045</td></tr>
+<tr><td>Altman Z</td><td class="n">26,583</td><td class="n">36,450</td><td class="n">2.5152</td><td class="n">-2.9878 to 10.6844</td></tr>
+<tr><td>Ohlson O</td><td class="n">30,408</td><td class="n">36,450</td><td class="n">0.7467</td><td class="n">-2.5476 to 3.8853</td></tr>
+<tr><td>Distance to default</td><td class="n">23,017</td><td class="n">36,450</td><td class="n">8.7566</td><td class="n">2.2103 to 22.4001</td></tr>
+</tbody>
+</table>
+<p class="tnote">36,450 filing keys, 840 companies (the five Amendment 4 universes and the Dow 30 and semiconductor pool). Interest coverage is missing for 44% of rows in the downgrade models. Source: RESULTS_A7 Part V; RESULTS_A3 Part J.</p>
+</div>
+
+<h3>3.6 Analyst coverage and macro series</h3>
+<p>Analyst counts and consensus estimates come from a commercial vendor's historical records. Coverage differs sharply across universes: in the Nasdaq-100 universe 34.5% of companies have 11 or fewer analysts and 13% have no estimate record, while more than half of the Dow 30 universe has 19 or more. Thirteen macro series come from FRED as usable at each filing date (with publication lags): VIX, 2- and 10-year Treasury yields and their spread, investment-grade and high-yield option-adjusted spreads, Moody's Baa minus the 10-year yield (standing in for the BBB spread, because FRED keeps only three years of that series), the federal funds rate, real GDP growth, unemployment, CPI inflation and industrial production.</p>
+<h3>3.7 Periods</h3>
+<p>Methods were designed on 2015 to 2020 data. Every verdict reported here uses filings made between 2021-01-01 and 2026-06-30 ("out of sample"). Filings made from 2026-07-01 onward, after the published end of the LLM's training data, form the locked prospective sample (Section 7.5).</p>
+
+<h2>4. Text measures</h2>
+<p>Every reading is computed for each filing and, where stated, made relative to the company's industry group and to its named competitor group in the same quarter (the company's value minus the group median). "Worsening" signals are changes against the company's own previous comparable filing, signed so that a positive value means worse. Table 4 summarises the measures. Prompts, item definitions, the Credit Stress Index formula and the composition of the reading packages are proprietary and not reported; we describe the concepts, inputs and settings that a referee needs to judge the design. This is an internal draft, so we name the model family: Claude Haiku, version 5.5 (model identifier <code>claude-haiku-5-5</code>, published training-data end June 2026) for every new score from 2026-10-31. Older Haiku 4.5 scores are kept as the historical record and enter only the tests registered for them.</p>
+<h3>4.1 Dictionary</h3>
+<p>Net tone (positive minus negative words over total words) and the negative, uncertainty, constraining and litigious category shares of the MD&amp;A, from the program's frozen Loughran-McDonald (2011) word lists, which are an abridged version of the full dictionary. The dictionary cannot remember outcomes.</p>
+<h3>4.2 FinBERT</h3>
+<p>Net tone from a financial-domain BERT model (the ProsusAI FinBERT release) applied to text chunks and averaged. It was trained before the out-of-sample period and is treated as memory-free.</p>
+<h3>4.3 Section-level LLM tone and Tone Shift</h3>
+<p>Each MD&amp;A and risk-factor section is scored by the LLM with a frozen prompt (fixed in March 2026) for net sentiment, management confidence, risk tone and the forward-looking ratio. A "combined" signal blends the dictionary and LLM net tone with weights fixed in an earlier registration. <b>Tone Shift</b> (registry code F8) is the quarter-on-quarter worsening of LLM net tone against the company's own previous filing. Its registered home is the Nasdaq-100 universe; it is also tested pooled.</p>
+<h3>4.4 Change Signal</h3>
+<p>The <b>Change Signal</b> (registry code F9) comes from a "next-generation" reading registered in the November 2026 program (Part H). For each filing the model receives, using only what was public on the filing date: the full filing text (every item, untruncated, plus any exhibit holding the MD&amp;A or annual report); the financial statements as numbers for the period and the four prior periods from XBRL as filed; the MD&amp;A and risk factors of the previous comparable filing; and the transcript of the most recent earnings call held on or before the filing date. Company and period are given, not blanked. The model returns a structured set of fields, each with a short evidence quote. The Change Signal is minus the field that rates how much more positive or negative the filing is than the previous one, so that higher means worse. It was scored on the Dow 30 and semiconductor universes with their competitors (3,470 filings at a cost of USD 121.76), which gives 1,766 rated out-of-sample filings of 139 companies in the downgrade models ("pool H").</p>
+<h3>4.5 Credit Stress Index</h3>
+<p>The <b>Credit Stress Index</b> (CSI) is a measurement reading designed to limit what the model can contribute beyond the text. The model is asked only to list credit-relevant disclosures of predefined kinds (for example liquidity and financing language, risk factors added or removed since the previous filing, and the direction of guidance), each with an exact quote, and is told not to use knowledge beyond the text and not to rank or select. Each quote is matched to its source after normalising whitespace, quotation marks, dashes and case, and unmatched items are dropped: 96% of items verify on normal text (3.7% to 4.0% dropped), and every unmatched item in a hand-checked dry run of 285 items was a genuine non-match. The index is computed outside the model by a fixed, equally weighted formula of log verified counts, z-scored within year-quarter, set in the registration before any outcome was read. A reading costs about USD 0.0015 to 0.002 per filing. From Amendment 9 the registered CSI for prospective tests is the average of three identical readings (Section 7.4).</p>
+
+<div class="tblock">
+<table>
+<caption>Table 4. Text measures used in the credit tests</caption>
+<thead><tr><th>Measure</th><th>Reads</th><th>Construction</th><th>Universe in the credit tests</th><th>Memory exposure</th></tr></thead>
+<tbody>
+<tr><td>Dictionary (LM)</td><td>MD&amp;A</td><td>Net tone, four category shares; level, industry- and competitor-relative, and change</td><td>All five, pooled</td><td>None</td></tr>
+<tr><td>FinBERT</td><td>MD&amp;A</td><td>Net tone; level, relative and change</td><td>All five, pooled</td><td>None (trained before 2021)</td></tr>
+<tr><td>Tone Shift (F8)</td><td>MD&amp;A and risk factors, by section</td><td>Quarter-on-quarter worsening of LLM net tone</td><td>Nasdaq-100; pooled</td><td>Exposed (named text)</td></tr>
+<tr><td>Change Signal (F9)</td><td>Whole filing, five quarters of statements, previous MD&amp;A and risk factors, latest call</td><td>LLM judgement of worsening against the previous filing</td><td>Dow 30 and semiconductors with competitors (pool H)</td><td>Most exposed (full package, named)</td></tr>
+<tr><td>Credit Stress Index</td><td>MD&amp;A, current and previous risk factors (cut to 8,000 words each)</td><td>Verified quote counts, fixed formula outside the model</td><td>Pooled rated sample</td><td>Exposed, but no free scoring</td></tr>
+</tbody>
+</table>
+<p class="tnote">Prompts, item definitions and formula weights are not reported. Section 7 reports the memory tests for each measure.</p>
+</div>
+
+<h2>5. Research design</h2>
+<h3>5.1 Registration, amendments and the single-run rule</h3>
+<p>The credit tests reported here belong to the November 2026 program registration (<code>PREREGISTRATION.md</code>, registered 2026-11-04T13:49:05Z, tag <code>prereg-program-2026-11</code>) and its nine dated amendments, each committed and tagged before any test it defines had run (Appendix A). Two study registrations of 31 October 2026 (semiconductors and the ratings study) and the Nasdaq-100 registration of 4 November 2026 precede it. Each amendment states why it was added, the exact tests, directions (one-sided or two-sided), the family for multiple-testing correction, reading rules fixed in advance, and an API budget with a worst-case quote from exact token counts. Every registered test ran once; a dry run with shuffled outcomes or signals preceded each part to check code, without producing a real result. Anything added after results were seen is labelled exploratory and carries no verdict. Deviations are listed in the run reports; the material ones are noted where they arise.</p>
+<p>Verdicts are mechanical: PASS (expected sign, p below 0.05 after correction), CONSISTENT NOT SIGNIFICANT (expected sign, not significant), FAIL (wrong sign, or the expected sign not reached), DIFFERENT and NO DIFFERENCE FOUND for two-sided tests, and NOT TESTABLE or NOT ESTIMABLE (too few rows or events, or a separated logit).</p>
+<h3>5.2 Models and controls</h3>
+<p>Downgrade models are logits of down_12 (and of 3- and 6-month downgrades) on the standardised signal and controls, with year-quarter and Fama-French 12 industry effects; estimates are log odds per standard deviation of the signal. Table 5 lists the control sets. "J2" is the Amendment 3 set; "full controls" (V-b) add the credit toolkit of Amendment 7; W1 adds the published text-change measures on top. In the memory tests we also add the recall probe's own downgrade probability as a control (Section 7.2).</p>
+
+<div class="tblock">
+<table>
+<caption>Table 5. Control sets in the downgrade models</caption>
+<thead><tr><th>Set</th><th>Variables (all measured on or before the filing date)</th></tr></thead>
+<tbody>
+<tr><td>J2 (Amendment 3)</td><td>Rating level (mean notch), investment-grade flag, rating changes in the past 12 months, quarters since the last change (0-4, 5-8, 9-12, over 12, none), S&amp;P outlook or watch (negative, positive); 12-month return and volatility, log market value, leverage, interest coverage, last EPS surprise; S&amp;P 500, Nasdaq-100 and sector SPDR 12-month returns; 13 macro series; year-quarter and industry effects</td></tr>
+<tr><td>V-b, "full controls" (Amendment 7)</td><td>J2 plus Yang-Zhang 60-day volatility, GARCH(1,1) 90-day forecast, beta, downside beta, idiosyncratic volatility, skewness, prior 90- and 250-day falls; volatility of ROA, sales growth and operating cash flow, accruals, leverage, coverage; distance to default (Bharath-Shumway), Altman Z, Ohlson O</td></tr>
+<tr><td>W1 (Amendment 7)</td><td>V-b plus Lazy Prices cosine and Jaccard similarity of the MD&amp;A and of the risk factors against the previous filing, and the Brown-Tucker MD&amp;A modification score</td></tr>
+<tr><td>Probe (Amendment 5)</td><td>The recall probe's stated probability of an S&amp;P downgrade within 12 months, asked with no filing text</td></tr>
+</tbody>
+</table>
+<p class="tnote">The full volatility battery of Amendment 7 has 23 measures (four realised-volatility estimators at three windows, EWMA, GARCH, beta, downside beta, idiosyncratic volatility, skewness and two prior falls); the downgrade models use the subset listed, the drawdown models all 23.</p>
+</div>
+
+<h3>5.3 Statistics</h3>
+<p><b>Intervals.</b> 90% percentile intervals from a bootstrap clustered by company, 2,000 resamples, fixed seed 20261031. <b>Multiple testing.</b> Benjamini-Hochberg within each registered family or part; family sizes range from 2 to 2,992 tests. <b>Permutation.</b> In Amendment 3 a result counts as "signal" only if it survives the controls, a permutation test (the signal shuffled across companies within each year-quarter, 1,000 times, with the score statistic) and both comparison groups; likelihood-ratio tests compare models with and without the signal. <b>Fama-MacBeth.</b> For the program's market outcomes, cross-sectional regressions by period with Newey-West standard errors (lags fixed in the registration, with longer lags as a registered check). <b>Out-of-sample AUC.</b> Two designs: the J2 model fitted on 2015 to 2020 and tested on 2021 to 2026-06 (for signals scored in both periods), and, for signals scored only out of sample, a fit on 2021 to 2023 and a test on 2024 to 2026-06 filings with a full outcome window. <b>Rule-based evidence.</b> Decile tables, a full quarter's flag list and the signal path before downgrades were fixed in Amendment 7 before any result, so that no example could be chosen after the fact. <b>Matched baselines.</b> Amendment 9 compares each downgrade's 365-day window with up to ten windows of the same length, ending on the same date, at companies in the same pool and S&amp;P notch that were not downgraded in the window or the following 90 days.</p>
+<h3>5.4 Power and budget</h3>
+<p>Each part reported its minimum detectable effect at 80% power where registered. All LLM requests ran through the Batch API under hard caps approved in advance (USD 200 for the first round, USD 90 for Amendment 5, USD 29 for Amendments 7 and 8, USD 20 from 2026-11-22); the November program cost about USD 236 in all.</p>
+
+<h2>6. Results</h2>
+<h3>6.1 Downgrades: decile tables at 3, 6 and 12 months</h3>
+<p>The program's first credit tests (Part E of the registration) found the right direction for every tone-deterioration measure, with the year-on-year change strongest (AUC 0.57 to 0.59), and only 2 of 24 tests passing beyond rating level, prior downgrades and the past year's return. The Part H reading changed the picture: its change field reached a downgrade AUC of 0.70 to 0.74. Amendment 3 then put every signal through the J2 control set and permutation tests. The dictionary and FinBERT changes point the right way but do not survive (odds ratios 1.05 to 1.13 per standard deviation, BH p 0.05 to 0.30); LLM tone worsening in the Nasdaq-100 and semiconductor pool passes (odds ratio 1.17, likelihood-ratio BH p 0.013, permutation 0.016); and the Change Signal passes with an odds ratio of 2.19 (permutation p 0.007).</p>
+<p>Table 6 gives the registered decile evidence (Amendment 7, Part Y1). Each reading is ranked over the rated out-of-sample filings of its universe, and decile 10 (worst) is the flag. For the Change Signal the flagged tenth is downgraded within twelve months 23.4% of the time against a base rate of 7.2%, a lift of 3.3 (90% interval 2.4 to 4.3); one tenth of the filings carries a third of all downgrades in the pool. The lift is about the same at 3 and 6 months, so the signal is not only picking up imminent actions. The CSI's flagged tenth is downgraded at about twice the base rate at every horizon, and Tone Shift's at 1.3 to 1.4 times. Figure 1 shows the full Change Signal distribution: the risk is concentrated in deciles 9 and 10, and the best deciles are downgraded at about half the base rate.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 6. Flagged (worst) tenth: downgrade within the horizon, out of sample</caption>
+<thead><tr><th>Reading (universe)</th><th class="n">Horizon</th><th class="n">Flagged filings</th><th class="n">Downgraded</th><th class="n">Flagged rate</th><th class="n">Base rate</th><th class="n">Lift</th><th class="n">90% interval</th><th class="n">Recall</th></tr></thead>
+<tbody>
+<tr class="hl"><td>Change Signal (pool H)</td><td class="n">3 m</td><td class="n">232</td><td class="n">20</td><td class="n">8.6%</td><td class="n">2.5%</td><td class="n">3.44</td><td class="n">2.48 to 4.53</td><td class="n">35%</td></tr>
+<tr class="hl"><td>Change Signal (pool H)</td><td class="n">6 m</td><td class="n">218</td><td class="n">32</td><td class="n">14.7%</td><td class="n">4.2%</td><td class="n">3.51</td><td class="n">2.60 to 4.58</td><td class="n">35%</td></tr>
+<tr class="hl"><td>Change Signal (pool H)</td><td class="n">12 m</td><td class="n">192</td><td class="n">45</td><td class="n">23.4%</td><td class="n">7.2%</td><td class="n">3.25</td><td class="n">2.37 to 4.26</td><td class="n">33%</td></tr>
+<tr><td>Credit Stress Index (pooled)</td><td class="n">3 m</td><td class="n">624</td><td class="n">48</td><td class="n">7.7%</td><td class="n">3.1%</td><td class="n">2.46</td><td class="n">1.96 to 2.98</td><td class="n">25%</td></tr>
+<tr><td>Credit Stress Index (pooled)</td><td class="n">6 m</td><td class="n">624</td><td class="n">73</td><td class="n">11.7%</td><td class="n">5.5%</td><td class="n">2.15</td><td class="n">1.76 to 2.54</td><td class="n">22%</td></tr>
+<tr><td>Credit Stress Index (pooled)</td><td class="n">12 m</td><td class="n">624</td><td class="n">121</td><td class="n">19.4%</td><td class="n">9.2%</td><td class="n">2.11</td><td class="n">1.80 to 2.43</td><td class="n">21%</td></tr>
+<tr><td>Tone Shift (Nasdaq-100)</td><td class="n">3 m</td><td class="n">642</td><td class="n">27</td><td class="n">4.2%</td><td class="n">3.3%</td><td class="n">1.28</td><td class="n">0.91 to 1.68</td><td class="n">13%</td></tr>
+<tr><td>Tone Shift (Nasdaq-100)</td><td class="n">6 m</td><td class="n">606</td><td class="n">50</td><td class="n">8.3%</td><td class="n">5.7%</td><td class="n">1.45</td><td class="n">1.18 to 1.74</td><td class="n">15%</td></tr>
+<tr><td>Tone Shift (Nasdaq-100)</td><td class="n">12 m</td><td class="n">535</td><td class="n">74</td><td class="n">13.8%</td><td class="n">9.7%</td><td class="n">1.43</td><td class="n">1.24 to 1.62</td><td class="n">14%</td></tr>
+<tr><td>SEVERE flag (pooled, binary)</td><td class="n">12 m</td><td class="n">843</td><td class="n">96</td><td class="n">11.4%</td><td class="n">9.2%</td><td class="n">1.24</td><td class="n">1.00 to 1.50</td><td class="n">17%</td></tr>
+</tbody>
+</table>
+<p class="tnote">Rated filings 2021 to 2026-06 with a full outcome window before 2025-09-30. Pool H: Dow 30 and semiconductors with competitors (12 months: 1,915 filings in deciles, 138 downgrades). CSI: pooled rows scored in measurement mode (12 months: about 6,235 filings, 573 downgrades). Tone Shift: Nasdaq-100 (12 months: 518 downgrades). Lift interval: company-clustered bootstrap. Recall: the share of all downgrades in the pool that came from the flagged tenth. SEVERE: any verified going-concern, covenant breach or waiver, or dividend suspension item. Descriptive by registration; no BH. Source: RESULTS_A7 Y1.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 680 300" role="img" aria-label="Change Signal: downgrade rate within 12 months by decile">
+  <rect x="0" y="0" width="680" height="300" fill="#ffffff"/>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12" fill="#5d6673">
+    <line x1="60" y1="240" x2="660" y2="240" stroke="#1b2230" stroke-width="1"/>
+    <line x1="60" y1="198" x2="660" y2="198" stroke="#e4e7eb" stroke-width="1"/>
+    <line x1="60" y1="156" x2="660" y2="156" stroke="#e4e7eb" stroke-width="1"/>
+    <line x1="60" y1="114" x2="660" y2="114" stroke="#e4e7eb" stroke-width="1"/>
+    <line x1="60" y1="72" x2="660" y2="72" stroke="#e4e7eb" stroke-width="1"/>
+    <line x1="60" y1="30" x2="660" y2="30" stroke="#e4e7eb" stroke-width="1"/>
+    <text x="52" y="244" text-anchor="end">0%</text>
+    <text x="52" y="202" text-anchor="end">5%</text>
+    <text x="52" y="160" text-anchor="end">10%</text>
+    <text x="52" y="118" text-anchor="end">15%</text>
+    <text x="52" y="76" text-anchor="end">20%</text>
+    <text x="52" y="34" text-anchor="end">25%</text>
+  </g>
+  <g fill="#3b6fb6">
+    <rect x="70" y="214.0" width="40" height="26.0" rx="2"/>
+    <rect x="130" y="231.6" width="40" height="8.4" rx="2"/>
+    <rect x="190" y="182.9" width="40" height="57.1" rx="2"/>
+    <rect x="250" y="214.0" width="40" height="26.0" rx="2"/>
+    <rect x="310" y="204.7" width="40" height="35.3" rx="2"/>
+    <rect x="370" y="204.7" width="40" height="35.3" rx="2"/>
+    <rect x="430" y="173.6" width="40" height="66.4" rx="2"/>
+    <rect x="490" y="196.3" width="40" height="43.7" rx="2"/>
+    <rect x="550" y="130.0" width="40" height="110.0" rx="2"/>
+  </g>
+  <rect x="610" y="43.4" width="40" height="196.6" rx="2" fill="#2f8f57"/>
+  <line x1="60" y1="179.5" x2="660" y2="179.5" stroke="#1b2230" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12.5" fill="#1b2230">
+    <text x="66" y="172">Base rate 7.2%</text>
+    <text x="90" y="208" text-anchor="middle">3.1%</text>
+    <text x="570" y="124" text-anchor="middle">13.1%</text>
+    <text x="630" y="37" text-anchor="middle" font-weight="600">23.4%</text>
+    <text x="602" y="60" text-anchor="end" font-size="12">Flagged tenth</text>
+  </g>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12" fill="#39424f" text-anchor="middle">
+    <text x="90" y="257">1</text><text x="150" y="257">2</text><text x="210" y="257">3</text><text x="270" y="257">4</text><text x="330" y="257">5</text>
+    <text x="390" y="257">6</text><text x="450" y="257">7</text><text x="510" y="257">8</text><text x="570" y="257">9</text><text x="630" y="257">10</text>
+    <text x="360" y="280">Change Signal decile (1 = least worsening, 10 = most worsening)</text>
+  </g>
+  <text x="14" y="135" font-family="Source Serif 4, Georgia, serif" font-size="12" fill="#39424f" transform="rotate(-90 14 135)" text-anchor="middle">Downgraded within 12 months</text>
+</svg>
+<figcaption><b>Figure 1. Change Signal: share of filings downgraded within twelve months, by decile.</b> Pool H (Dow 30 and semiconductors with competitors), rated filings 2021 to 2024-09 with a full outcome window, about 192 filings per decile, 138 downgrades. Dashed line: base rate. The 90% interval of the flagged tenth's lift is 2.37 to 4.26. Source: RESULTS_A7 Y1.</figcaption>
+</figure>
+
+<h3>6.2 Beyond the credit toolkit and published text benchmarks</h3>
+<p>Table 7 follows each reading through the registered control sets. The full credit toolkit takes little from the credit signals. Tone Shift goes from +0.153 log odds per standard deviation with the J2 controls to +0.132 with the full controls in the Nasdaq-100 (pooled: +0.152 to +0.134); the Change Signal from +0.786 to +0.769 in pool H, with +0.918 in the Dow 30 alone; the CSI enters at +0.175. Adding the Lazy Prices similarity measures and the Brown-Tucker modification score changes almost nothing (Change Signal +0.799 and +0.929; Tone Shift +0.134 to +0.141), so the direction of change carries information that the amount of change does not. Adding the recall probe as well leaves every row significant (Section 7). The full credit toolkit was chosen because it is what a credit desk already has; that the readings survive it means they are not a restatement of market, balance-sheet or structural default risk. The full controls matter: LLM net tone correlates +0.37 with the prior 250-day fall and +0.33 with distance to default, so part of what tone says is known risk, and the downgrade coefficients are estimated with that risk held fixed.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 7. Downgrade within 12 months: log odds per standard deviation of the reading, by control set</caption>
+<thead><tr><th>Reading</th><th>Sample</th><th class="n">N</th><th class="n">Down-grades</th><th class="n">J2</th><th class="n">J2 + probe</th><th class="n">Full controls</th><th class="n">90% interval</th><th class="n">p after BH</th><th class="n">Full + probe</th><th class="n">Full + Lazy Prices, Brown-Tucker</th></tr></thead>
+<tbody>
+<tr class="hl"><td>Change Signal</td><td>Pool H, 139 cos</td><td class="n">1,766</td><td class="n">138</td><td class="n">+0.786</td><td class="n">+0.756</td><td class="n">+0.769</td><td class="n">+0.538 to +1.001</td><td class="n">&lt;0.0001</td><td class="n">+0.727</td><td class="n">+0.799</td></tr>
+<tr class="hl"><td>Change Signal</td><td>Dow 30, 112 cos</td><td class="n">1,419</td><td class="n">103</td><td class="n">+0.892</td><td class="n">+0.853</td><td class="n">+0.918</td><td class="n">+0.636 to +1.201</td><td class="n">&lt;0.0001</td><td class="n">+0.842</td><td class="n">+0.929</td></tr>
+<tr><td>Credit Stress Index</td><td>Pooled, 459 cos</td><td class="n">5,972</td><td class="n">573</td><td class="n"></td><td class="n"></td><td class="n">+0.175</td><td class="n">+0.085 to +0.266</td><td class="n">0.004</td><td class="n">+0.159</td><td class="n"></td></tr>
+<tr><td>Tone Shift</td><td>Nasdaq-100, 392 cos</td><td class="n">5,085</td><td class="n">518</td><td class="n">+0.153</td><td class="n">+0.141</td><td class="n">+0.132</td><td class="n">+0.040 to +0.225</td><td class="n">0.024</td><td class="n">+0.119</td><td class="n">+0.141</td></tr>
+<tr><td>Tone Shift</td><td>Pooled, 457 cos</td><td class="n">5,962</td><td class="n">568</td><td class="n">+0.152</td><td class="n">+0.140</td><td class="n">+0.134</td><td class="n">+0.047 to +0.221</td><td class="n">0.015</td><td class="n">+0.122</td><td class="n">+0.134</td></tr>
+<tr><td>Combined tone, worsening</td><td>Nasdaq-100</td><td class="n">5,085</td><td class="n">518</td><td class="n">+0.139</td><td class="n">+0.128</td><td class="n">+0.123</td><td class="n">+0.031 to +0.214</td><td class="n">0.031</td><td class="n">+0.111</td><td class="n">+0.136</td></tr>
+<tr><td>SEVERE flag</td><td>Pooled</td><td class="n">5,972</td><td class="n">573</td><td class="n"></td><td class="n"></td><td class="n">-0.039</td><td class="n">-0.128 to +0.049</td><td class="n">0.92</td><td class="n">-0.032</td><td class="n"></td></tr>
+</tbody>
+</table>
+<p class="tnote">Logit with year-quarter and industry effects; one-sided tests (expected positive). Interval and BH p shown for the full-control model (family of 44 tests in Part V; 6 in Part X). Odds ratios at the full controls: Change Signal 2.16 (pool H) and 2.50 (Dow 30); CSI 1.19; Tone Shift 1.14. The Dow 30 J2 and J2 + probe entries are the Amendment 6 study-level estimates. The CSI and SEVERE are scored only in the pooled measurement-mode sample and enter at the full controls. Every row except SEVERE passes in every column. Sources: RESULTS_A4 Q, A5 S1b, A6 T4, A7 V-b, W1, X-c.</p>
+</div>
+
+<p><b>Horse race.</b> Amendment 7 registered a single logit with every rival and the full controls (Table 8). The Change Signal keeps +0.459 per standard deviation (p 0.0001) and the CSI +0.153 (p 0.008) with every other measure in the model; Tone Shift shrinks to +0.078 (p 0.18) once the two richer readings are present; the dictionary and FinBERT changes and every dictionary share are not different from zero. Of the Lazy Prices measures, the risk-factor cosine and Jaccard similarities have opposite-signed coefficients of similar size (+0.346 and -0.314), which mostly offset. In the Amendment 8 joint model that also holds the six sentiment levels, the Change Signal passes after correction (+0.450, BH p 0.044), and the CSI (+0.147) and Tone Shift (+0.088) have 90% intervals above zero but miss after correction (BH p 0.10).</p>
+
+<div class="tblock">
+<table>
+<caption>Table 8. Horse race: all readings and rivals in one downgrade logit with the full controls</caption>
+<thead><tr><th>Measure</th><th class="n">Log odds per SD</th><th class="n">Standard error</th><th class="n">p (two-sided)</th></tr></thead>
+<tbody>
+<tr class="hl"><td>Change Signal</td><td class="n">+0.459</td><td class="n">0.118</td><td class="n">0.0001</td></tr>
+<tr class="hl"><td>Credit Stress Index</td><td class="n">+0.153</td><td class="n">0.058</td><td class="n">0.0081</td></tr>
+<tr><td>Tone Shift</td><td class="n">+0.078</td><td class="n">0.059</td><td class="n">0.1833</td></tr>
+<tr><td>Dictionary net tone, change</td><td class="n">-0.055</td><td class="n">0.101</td><td class="n">0.5862</td></tr>
+<tr><td>FinBERT net tone, change</td><td class="n">+0.053</td><td class="n">0.068</td><td class="n">0.4319</td></tr>
+<tr><td>Lazy Prices cosine, MD&amp;A</td><td class="n">+0.015</td><td class="n">0.264</td><td class="n">0.9547</td></tr>
+<tr><td>Lazy Prices Jaccard, MD&amp;A</td><td class="n">-0.054</td><td class="n">0.094</td><td class="n">0.5671</td></tr>
+<tr><td>Lazy Prices cosine, risk factors</td><td class="n">+0.346</td><td class="n">0.150</td><td class="n">0.0210</td></tr>
+<tr><td>Lazy Prices Jaccard, risk factors</td><td class="n">-0.314</td><td class="n">0.141</td><td class="n">0.0261</td></tr>
+<tr><td>Brown-Tucker modification</td><td class="n">+0.086</td><td class="n">0.254</td><td class="n">0.7350</td></tr>
+<tr><td>Dictionary shares (negative, uncertainty, constraining, litigious)</td><td class="n">-0.092 to +0.053</td><td class="n"></td><td class="n">0.24 to 0.51</td></tr>
+<tr><td>Dictionary share changes (same four)</td><td class="n">-0.045 to +0.112</td><td class="n"></td><td class="n">0.22 to 0.93</td></tr>
+</tbody>
+</table>
+<p class="tnote">N 5,972 filings, 439 companies, 573 downgrades; pooled rated sample with a CSI score. Company-clustered standard errors. Source: RESULTS_A7 X-d.</p>
+</div>
+
+<h3>6.3 Calm companies and the agency-lead tests</h3>
+<p>A credit reader's first objection is that the readings may only repeat what the agency has already signalled through an outlook or watch. Amendment 8 restricted the sample to "quiet" filings: S&amp;P outlook stable or positive and no CreditWatch placement on the filing date. Table 9 shows that the association is, if anything, sharper there. The Change Signal's flagged tenth is downgraded within twelve months 16.9% of the time against a 4.2% base rate (lift 4.1, interval 3.0 to 5.4), and 14.5% against 3.6% in the Dow 30 alone. Every reading passes in the logit with the full controls on quiet filings. Figure 2 sets the lift among calm companies beside the lift among all rated filings: for the Change Signal and Tone Shift it is higher among calm companies, because their base rates are lower.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 9. Quiet filings (S&amp;P stable or positive outlook, no watch): flagged tenth and logit with the full controls</caption>
+<thead><tr><th>Reading (pool)</th><th class="n">Quiet filings</th><th class="n">Companies</th><th class="n">Downgrades (12 m)</th><th class="n">Flagged rate</th><th class="n">Base rate</th><th class="n">Lift (90% interval)</th><th class="n">Recall</th><th class="n">Log odds per SD (90% interval)</th><th class="n">p after BH</th></tr></thead>
+<tbody>
+<tr class="hl"><td>Change Signal (pool H)</td><td class="n">1,659</td><td class="n">132</td><td class="n">69</td><td class="n">16.9%</td><td class="n">4.2%</td><td class="n">4.06 (2.98 to 5.40)</td><td class="n">41%</td><td class="n">+0.853 (+0.514 to +1.193)</td><td class="n">&lt;0.0001</td></tr>
+<tr class="hl"><td>Change Signal (Dow 30)</td><td class="n">1,373</td><td class="n">109</td><td class="n">50</td><td class="n">14.5%</td><td class="n">3.6%</td><td class="n">3.98 (2.79 to 5.44)</td><td class="n">40%</td><td class="n">+0.970 (+0.510 to +1.430)</td><td class="n">0.0004</td></tr>
+<tr><td>Tone Shift (Nasdaq-100)</td><td class="n">4,422</td><td class="n">375</td><td class="n">253</td><td class="n">11.1%</td><td class="n">5.7%</td><td class="n">1.93 (1.61 to 2.25)</td><td class="n">19%</td><td class="n">+0.182 (+0.059 to +0.306)</td><td class="n">0.015</td></tr>
+<tr><td>Credit Stress Index (pooled)</td><td class="n">5,246</td><td class="n">441</td><td class="n">288</td><td class="n">11.0%</td><td class="n">5.5%</td><td class="n">2.01 (1.61 to 2.40)</td><td class="n">20%</td><td class="n">+0.227 (+0.105 to +0.349)</td><td class="n">0.0028</td></tr>
+</tbody>
+</table>
+<p class="tnote">Decile columns on all quiet filings; logit columns on quiet filings with every control available (N 1,511, 1,225, 4,194 and 5,013). The outcome is a downgrade by any agency; "quiet" uses the S&amp;P state, the only agency whose histories carry outlooks. BH over 8 tests. Source: RESULTS_A8 Z2a.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 680 270" role="img" aria-label="Worst-decile lift at 12 months, all rated filings and calm companies">
+  <rect x="0" y="0" width="680" height="270" fill="#ffffff"/>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12.5">
+    <circle cx="210" cy="16" r="5" fill="#3b6fb6"/><text x="220" y="20" fill="#1b2230">All rated filings</text>
+    <circle cx="350" cy="16" r="5" fill="#2f8f57"/><text x="360" y="20" fill="#1b2230">Calm: S&amp;P stable or positive outlook, no watch</text>
+  </g>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5d6673" text-anchor="middle">
+    <line x1="200" y1="34" x2="200" y2="240" stroke="#e4e7eb"/><text x="200" y="256">0</text>
+    <line x1="275" y1="34" x2="275" y2="240" stroke="#1b2230" stroke-dasharray="4 3"/><text x="275" y="256">1 (no lift)</text>
+    <line x1="350" y1="34" x2="350" y2="240" stroke="#e4e7eb"/><text x="350" y="256">2</text>
+    <line x1="425" y1="34" x2="425" y2="240" stroke="#e4e7eb"/><text x="425" y="256">3</text>
+    <line x1="500" y1="34" x2="500" y2="240" stroke="#e4e7eb"/><text x="500" y="256">4</text>
+    <line x1="575" y1="34" x2="575" y2="240" stroke="#e4e7eb"/><text x="575" y="256">5</text>
+    <line x1="650" y1="34" x2="650" y2="240" stroke="#e4e7eb"/><text x="650" y="256">6</text>
+    <line x1="200" y1="240" x2="650" y2="240" stroke="#1b2230"/>
+  </g>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12.5" fill="#1b2230" text-anchor="end">
+    <text x="190" y="65">Change Signal</text>
+    <text x="190" y="140">Credit Stress Index</text>
+    <text x="190" y="215">Tone Shift</text>
+  </g>
+  <g stroke-width="2.5">
+    <line x1="377.75" y1="52" x2="519.5" y2="52" stroke="#3b6fb6"/>
+    <line x1="423.5" y1="74" x2="605" y2="74" stroke="#2f8f57"/>
+    <line x1="335" y1="127" x2="382.25" y2="127" stroke="#3b6fb6"/>
+    <line x1="320.75" y1="149" x2="380" y2="149" stroke="#2f8f57"/>
+    <line x1="293" y1="202" x2="321.5" y2="202" stroke="#3b6fb6"/>
+    <line x1="320.75" y1="224" x2="368.75" y2="224" stroke="#2f8f57"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="2">
+    <circle cx="443.75" cy="52" r="6" fill="#3b6fb6"/>
+    <circle cx="504.5" cy="74" r="6" fill="#2f8f57"/>
+    <circle cx="358.25" cy="127" r="6" fill="#3b6fb6"/>
+    <circle cx="350.75" cy="149" r="6" fill="#2f8f57"/>
+    <circle cx="307.25" cy="202" r="6" fill="#3b6fb6"/>
+    <circle cx="344.75" cy="224" r="6" fill="#2f8f57"/>
+  </g>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12" fill="#1b2230">
+    <text x="527" y="56">3.3</text>
+    <text x="613" y="78">4.1</text>
+    <text x="390" y="131">2.1</text>
+    <text x="388" y="153">2.0</text>
+    <text x="329" y="206">1.4</text>
+    <text x="376" y="228">1.9</text>
+  </g>
+  <text x="425" y="268" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#39424f" text-anchor="middle">Lift of the flagged tenth over the base rate, downgrade within 12 months (bar: 90% interval)</text>
+</svg>
+<figcaption><b>Figure 2. Worst-decile lift at twelve months, among all rated filings and among calm companies.</b> Change Signal: pool H; Credit Stress Index: pooled; Tone Shift: Nasdaq-100. Calm base rates are lower (4.2%, 5.5% and 5.7%) than the all-filing base rates (7.2%, 9.2% and 9.7%). Sources: RESULTS_A7 Y1; RESULTS_A8 Z2a.</figcaption>
+</figure>
+
+<p>The second objection is about lead time over the agency's own warning. Table 10 restricts attention to S&amp;P downgrades preceded by a negative outlook or watch in the prior twelve months and asks whether the reading flagged before the warning. It usually did not: the reading came first in 48% (Change Signal, pool H), 47% (Dow 30), 34% (Tone Shift) and 25% (CSI) of these downgrades, and every registered test of "more than half" fails. When the Change Signal or Tone Shift did flag first, the median lead was one to three months with a wide spread; CSI flags came at about the same time as the warning. The readings find trouble at companies the agency still calls stable; they are not a reliable way to get ahead of an agency that is already watching.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 10. Lead over the agency's warning: S&amp;P downgrades preceded by a negative outlook or watch</caption>
+<thead><tr><th>Reading (pool)</th><th class="n">Warned downgrades</th><th class="n">Companies</th><th class="n">Reading first</th><th class="n">90% interval</th><th class="n">p after BH</th><th class="n">Median lead when flagged (days)</th><th class="n">Interquartile range</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Change Signal (pool H)</td><td class="n">23</td><td class="n">16</td><td class="n">47.8%</td><td class="n">29.6% to 66.5%</td><td class="n">0.91</td><td class="n">+46</td><td class="n">+4 to +171</td><td>FAIL</td></tr>
+<tr><td>Change Signal (Dow 30)</td><td class="n">17</td><td class="n">13</td><td class="n">47.1%</td><td class="n">26.0% to 68.9%</td><td class="n">0.91</td><td class="n">+84</td><td class="n">+7 to +114</td><td>FAIL</td></tr>
+<tr><td>Tone Shift (Nasdaq-100)</td><td class="n">108</td><td class="n">57</td><td class="n">34.3%</td><td class="n">26.7% to 42.5%</td><td class="n">1.00</td><td class="n">+68</td><td class="n">+4 to +167</td><td>FAIL</td></tr>
+<tr><td>Credit Stress Index (pooled)</td><td class="n">114</td><td class="n">64</td><td class="n">24.6%</td><td class="n">18.1% to 32.1%</td><td class="n">1.00</td><td class="n">-2</td><td class="n">-86 to +110</td><td>FAIL</td></tr>
+</tbody>
+</table>
+<p class="tnote">One-sided test that the reading flags first in more than 50% of warned downgrades. Lead = agency's first warning date minus the reading's first flag date. A downgrade the reading never flagged counts as "not first" and is left out of the median. Flag = at or above each reading's worst-decile cut-off (10.0% to 13.1% of filings, because the Change Signal and Tone Shift take few distinct values). Source: RESULTS_A8 Z2b.</p>
+</div>
+
+<h3>6.4 Matched chance baselines before downgrades (Amendment 9)</h3>
+<p>A flag rate before downgrades means little without a fair chance baseline. Each downgrade's 365-day window holds three or four filings, so the chance that at least one of them is flagged is well above the share of flagged filings in the panel. Amendment 9 therefore registered a matched comparison: each S&amp;P downgrade against up to ten companies of the same notch, in the same pool, over the same window, that were not downgraded; the number of filings per window is matched by construction (3.2 to 4.0 in events and controls alike). Table 11 and Figure 3 report the result. Matched companies had a flagged filing 28% (Change Signal), 41% (Tone Shift) and 28% (CSI) of the time. Against this baseline every test on all downgrades passes: 67.6% against 27.9% for the Change Signal, 53.7% against 41.5% for Tone Shift and 49.3% against 27.8% for the CSI. Before surprise downgrades (no S&amp;P negative outlook or watch in the prior year), Tone Shift flagged 73.9% against 39.8% at matched companies, a gap of 34 points that passes after correction. The Change Signal flagged all six surprise downgrades in its pool (four in the Dow 30), against 31.7% at matched companies, but six events support an anecdote with a direction, not a rate. The CSI's surprise-downgrade gap points the right way and is not significant.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 11. Flag rate in the 365 days before S&amp;P downgrades against matched non-downgraded companies</caption>
+<thead><tr><th>Reading (pool)</th><th>Events</th><th class="n">Downgrades tested</th><th class="n">Companies</th><th class="n">Controls</th><th class="n">Flag rate, downgrades</th><th class="n">Flag rate, controls</th><th class="n">Difference (pts)</th><th class="n">90% interval</th><th class="n">p after BH</th><th class="n">Conditional logit (log odds)</th></tr></thead>
+<tbody>
+<tr class="hl"><td>Change Signal (pool H)</td><td>All</td><td class="n">34</td><td class="n">25</td><td class="n">340</td><td class="n">67.6%</td><td class="n">27.9%</td><td class="n">+39.7</td><td class="n">+24.3 to +52.9</td><td class="n">&lt;0.0001</td><td class="n">+1.908</td></tr>
+<tr><td>Change Signal (Dow 30)</td><td>All</td><td class="n">26</td><td class="n">20</td><td class="n">254</td><td class="n">61.5%</td><td class="n">26.6%</td><td class="n">+34.9</td><td class="n">+17.1 to +51.6</td><td class="n">0.0022</td><td class="n">+1.747</td></tr>
+<tr><td>Tone Shift (Nasdaq-100)</td><td>All</td><td class="n">134</td><td class="n">83</td><td class="n">1,237</td><td class="n">53.7%</td><td class="n">41.5%</td><td class="n">+12.3</td><td class="n">+4.0 to +21.0</td><td class="n">0.017</td><td class="n">+0.569</td></tr>
+<tr><td>Credit Stress Index (pooled)</td><td>All</td><td class="n">142</td><td class="n">94</td><td class="n">1,331</td><td class="n">49.3%</td><td class="n">27.8%</td><td class="n">+21.5</td><td class="n">+13.4 to +29.6</td><td class="n">&lt;0.0001</td><td class="n">+0.978</td></tr>
+<tr class="hl"><td>Tone Shift (Nasdaq-100)</td><td>No agency warning</td><td class="n">23</td><td class="n">22</td><td class="n">218</td><td class="n">73.9%</td><td class="n">39.8%</td><td class="n">+34.1</td><td class="n">+17.0 to +49.6</td><td class="n">0.0010</td><td class="n">+1.523</td></tr>
+<tr><td>Credit Stress Index (pooled)</td><td>No agency warning</td><td class="n">24</td><td class="n">23</td><td class="n">233</td><td class="n">41.7%</td><td class="n">29.0%</td><td class="n">+12.7</td><td class="n">-4.6 to +30.4</td><td class="n">0.14</td><td class="n">+0.570</td></tr>
+<tr><td>Change Signal (pool H)</td><td>No agency warning</td><td class="n">6</td><td class="n">6</td><td class="n">60</td><td class="n">6 of 6</td><td class="n">31.7%</td><td class="n">(+68.3)</td><td class="n">(too few)</td><td class="n">&lt;0.0001</td><td class="n">not finite</td></tr>
+<tr><td>Change Signal (Dow 30)</td><td>No agency warning</td><td class="n">4</td><td class="n">4</td><td class="n">37</td><td class="n">4 of 4</td><td class="n">16.1%</td><td class="n">(+83.9)</td><td class="n">(too few)</td><td class="n">&lt;0.0001</td><td class="n">not finite</td></tr>
+</tbody>
+</table>
+<p class="tnote">S&amp;P downgrades 2021 to 2025-09. "No agency warning": no S&amp;P negative outlook or negative CreditWatch at any point in the 365 days before the downgrade. Controls: up to 10 company-windows per event, same pool and notch (within one notch if fewer than 10), no S&amp;P downgrade in the window or the following 90 days. "Downgrades tested" excludes events with no available control: of all events, 148 (Tone Shift) and 157 (CSI) S&amp;P downgrades, 14 and 15 without a control; flag rates are computed on the events with controls. One-sided tests, BH over 16 rows. The Change Signal surprise rows rest on 6 and 4 events: the conditional logit has no finite estimate (verdict CONSISTENT NOT SIGNIFICANT for that reason only) and the differences should be read as anecdotes. Source: RESULTS_A9 AB.</p>
+</div>
+
+<figure>
+<svg viewBox="0 0 680 310" role="img" aria-label="Flag rate before downgrades against matched companies">
+  <rect x="0" y="0" width="680" height="310" fill="#ffffff"/>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12" fill="#5d6673" text-anchor="middle">
+    <line x1="230" y1="40" x2="230" y2="268" stroke="#e4e7eb"/>
+    <line x1="320" y1="40" x2="320" y2="268" stroke="#e4e7eb"/>
+    <line x1="410" y1="40" x2="410" y2="268" stroke="#e4e7eb"/>
+    <line x1="500" y1="40" x2="500" y2="268" stroke="#e4e7eb"/>
+    <line x1="590" y1="40" x2="590" y2="268" stroke="#e4e7eb"/>
+    <line x1="230" y1="268" x2="590" y2="268" stroke="#1b2230"/>
+    <text x="230" y="284">0%</text><text x="320" y="284">25%</text><text x="410" y="284">50%</text><text x="500" y="284">75%</text><text x="590" y="284">100%</text>
+    <text x="410" y="302" fill="#39424f">Share of 365-day windows with at least one flagged filing</text>
+  </g>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12.5">
+    <circle cx="240" cy="18" r="5" fill="#2f8f57"/><text x="250" y="22" fill="#1b2230">Before a downgrade</text>
+    <circle cx="400" cy="18" r="5" fill="#3b6fb6"/><text x="410" y="22" fill="#1b2230">Matched companies, not downgraded</text>
+  </g>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12" fill="#1b2230">
+    <text x="10" y="54" font-style="italic" fill="#39424f">All S&amp;P downgrades</text>
+    <text x="220" y="76" text-anchor="end">Change Signal (34)</text>
+    <text x="220" y="106" text-anchor="end">Tone Shift (134)</text>
+    <text x="220" y="136" text-anchor="end">Credit Stress Index (142)</text>
+    <text x="10" y="170" font-style="italic" fill="#39424f">No agency warning</text>
+    <text x="220" y="192" text-anchor="end">Tone Shift (23)</text>
+    <text x="220" y="222" text-anchor="end">Credit Stress Index (24)</text>
+    <text x="220" y="252" text-anchor="end">Change Signal (6, anecdotal)</text>
+  </g>
+  <g stroke="#9aa3ae" stroke-width="2">
+    <line x1="330.4" y1="72" x2="473.4" y2="72"/>
+    <line x1="379.4" y1="102" x2="423.3" y2="102"/>
+    <line x1="330.1" y1="132" x2="407.5" y2="132"/>
+    <line x1="373.3" y1="188" x2="496.0" y2="188"/>
+    <line x1="334.4" y1="218" x2="380.1" y2="218"/>
+    <line x1="344.1" y1="248" x2="590" y2="248" stroke-dasharray="4 3"/>
+  </g>
+  <g fill="#3b6fb6" stroke="#ffffff" stroke-width="2">
+    <circle cx="330.4" cy="72" r="6"/><circle cx="379.4" cy="102" r="6"/><circle cx="330.1" cy="132" r="6"/>
+    <circle cx="373.3" cy="188" r="6"/><circle cx="334.4" cy="218" r="6"/><circle cx="344.1" cy="248" r="6"/>
+  </g>
+  <g fill="#2f8f57" stroke="#ffffff" stroke-width="2">
+    <circle cx="473.4" cy="72" r="6"/><circle cx="423.3" cy="102" r="6"/><circle cx="407.5" cy="132" r="6"/>
+    <circle cx="496.0" cy="188" r="6"/><circle cx="380.1" cy="218" r="6"/>
+  </g>
+  <circle cx="590" cy="248" r="5.5" fill="#ffffff" stroke="#2f8f57" stroke-width="2.5"/>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12" fill="#1b2230">
+    <text x="605" y="76">+39.7 pts</text>
+    <text x="605" y="106">+12.3 pts</text>
+    <text x="605" y="136">+21.5 pts</text>
+    <text x="605" y="192">+34.1 pts</text>
+    <text x="605" y="222">+12.7 n.s.</text>
+    <text x="605" y="252">6 of 6</text>
+  </g>
+</svg>
+<figcaption><b>Figure 3. Flags before S&amp;P downgrades against matched companies of the same notch over the same window.</b> Number of downgrades in brackets (events with at least one matched control). Every "all downgrades" gap and the Tone Shift surprise gap pass after BH; the CSI surprise gap is not significant (n.s.); the Change Signal surprise row (hollow marker) rests on six events. Source: RESULTS_A9 AB.</figcaption>
+</figure>
+
+<p><b>Signal path.</b> Amendment 7 fixed in advance a comparison of mean signal values in the four quarters before each downgrade against matched filings of the same pool, quarter and notch (Figure 4). Companies later downgraded already score worse four quarters ahead (Change Signal +0.090 against -0.114; CSI +0.873 against +0.052), and the gap widens towards the downgrade quarter (+0.111 against -0.177; +1.505 against -0.083). For Tone Shift the gap is small (+0.049 to +0.069 against -0.011 to -0.020). The values are in Appendix Table B4. A full quarter's flag list, fixed in advance, shows what a user would have seen (Appendix Table B3): of the 18 filings the Change Signal flagged in July to September 2024, 6 were downgraded within twelve months (NKE, INTC after 6 days, CVS, WBD, UAA, DG) and 12 were not (BA, HUM, TEX, ITW, ROK, AGCO, MCD, YUM, UNH, HD, DE, LOW), a hit rate of 33% against a 7.2% base rate; the median lead of the hits across the three readings is 211 to 237 days. Most flagged names were not downgraded: the list is a watch list, not a forecast.</p>
+
+<figure>
+<svg viewBox="0 0 680 280" role="img" aria-label="Signal path before downgrades, Change Signal and Credit Stress Index">
+  <rect x="0" y="0" width="680" height="280" fill="#ffffff"/>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="13" font-weight="600" fill="#1b2230">
+    <text x="60" y="18">Change Signal (pool H)</text>
+    <text x="400" y="18">Credit Stress Index (pooled)</text>
+  </g>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5d6673">
+    <line x1="55" y1="55.7" x2="305" y2="55.7" stroke="#e4e7eb"/><text x="50" y="59.7" text-anchor="end">+0.1</text>
+    <line x1="55" y1="107.1" x2="305" y2="107.1" stroke="#9aa3ae"/><text x="50" y="111.1" text-anchor="end">0</text>
+    <line x1="55" y1="158.6" x2="305" y2="158.6" stroke="#e4e7eb"/><text x="50" y="162.6" text-anchor="end">-0.1</text>
+    <line x1="55" y1="210" x2="305" y2="210" stroke="#e4e7eb"/><text x="50" y="214" text-anchor="end">-0.2</text>
+    <line x1="395" y1="40" x2="645" y2="40" stroke="#e4e7eb"/><text x="390" y="44" text-anchor="end">1.5</text>
+    <line x1="395" y1="90" x2="645" y2="90" stroke="#e4e7eb"/><text x="390" y="94" text-anchor="end">1.0</text>
+    <line x1="395" y1="140" x2="645" y2="140" stroke="#e4e7eb"/><text x="390" y="144" text-anchor="end">0.5</text>
+    <line x1="395" y1="190" x2="645" y2="190" stroke="#9aa3ae"/><text x="390" y="194" text-anchor="end">0</text>
+  </g>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#39424f" text-anchor="middle">
+    <text x="60" y="232">-4</text><text x="120" y="232">-3</text><text x="180" y="232">-2</text><text x="240" y="232">-1</text><text x="300" y="232">0</text>
+    <text x="400" y="232">-4</text><text x="460" y="232">-3</text><text x="520" y="232">-2</text><text x="580" y="232">-1</text><text x="640" y="232">0</text>
+    <text x="180" y="250">Quarters before the downgrade quarter</text>
+    <text x="520" y="250">Quarters before the downgrade quarter</text>
+  </g>
+  <polyline points="60,60.9 120,57.8 180,49.5 240,57.8 300,50.1" fill="none" stroke="#2f8f57" stroke-width="2"/>
+  <polyline points="60,165.8 120,162.7 180,177.6 240,191.5 300,198.2" fill="none" stroke="#3b6fb6" stroke-width="2"/>
+  <g fill="#2f8f57" stroke="#ffffff" stroke-width="1.5"><circle cx="60" cy="60.9" r="4.5"/><circle cx="120" cy="57.8" r="4.5"/><circle cx="180" cy="49.5" r="4.5"/><circle cx="240" cy="57.8" r="4.5"/><circle cx="300" cy="50.1" r="4.5"/></g>
+  <g fill="#3b6fb6" stroke="#ffffff" stroke-width="1.5"><circle cx="60" cy="165.8" r="4.5"/><circle cx="120" cy="162.7" r="4.5"/><circle cx="180" cy="177.6" r="4.5"/><circle cx="240" cy="191.5" r="4.5"/><circle cx="300" cy="198.2" r="4.5"/></g>
+  <polyline points="400,102.7 460,65.6 520,45.7 580,63.2 640,39.5" fill="none" stroke="#2f8f57" stroke-width="2"/>
+  <polyline points="400,184.8 460,191.4 520,197.7 580,199.1 640,198.3" fill="none" stroke="#3b6fb6" stroke-width="2"/>
+  <g fill="#2f8f57" stroke="#ffffff" stroke-width="1.5"><circle cx="400" cy="102.7" r="4.5"/><circle cx="460" cy="65.6" r="4.5"/><circle cx="520" cy="45.7" r="4.5"/><circle cx="580" cy="63.2" r="4.5"/><circle cx="640" cy="39.5" r="4.5"/></g>
+  <g fill="#3b6fb6" stroke="#ffffff" stroke-width="1.5"><circle cx="400" cy="184.8" r="4.5"/><circle cx="460" cy="191.4" r="4.5"/><circle cx="520" cy="197.7" r="4.5"/><circle cx="580" cy="199.1" r="4.5"/><circle cx="640" cy="198.3" r="4.5"/></g>
+  <g font-family="Source Serif 4, Georgia, serif" font-size="12" fill="#1b2230">
+    <text x="70" y="40">Later downgraded</text>
+    <text x="70" y="148">Matched, not downgraded</text>
+    <text x="410" y="125">Later downgraded</text>
+    <text x="410" y="178">Matched, not downgraded</text>
+  </g>
+  <text x="340" y="272" font-family="Source Serif 4, Georgia, serif" font-size="11.5" fill="#5d6673" text-anchor="middle">Higher values mean worse. Separate scales: the two readings are in different units.</text>
+</svg>
+<figcaption><b>Figure 4. Signal path before downgrades.</b> Mean reading in the four quarters before each downgrade (green) and at matched filings of the same pool, quarter and notch that were not downgraded (blue). Change Signal: 47 to 61 downgrade filings and 347 to 536 matched filings per quarter; CSI: 150 to 201 and 2,243 to 3,190. Source: RESULTS_A7 Y3.</figcaption>
+</figure>
+
+<h3>6.5 Standard sentiment</h3>
+<p>A fair test of word counts and FinBERT must include sentiment as vendors usually sell it: a level, not only a change. Amendment 7 entered each dictionary category share and its change as a rival in the J2 model, and Amendment 8 entered six net-tone levels (dictionary and FinBERT; raw, against the industry and against competitors) one at a time and jointly beside the LLM readings, all with the full controls. Table 12 summarises. No standard measure passes. The dictionary litigious share has the wrong sign. LLM tone worsening stays at +0.146 to +0.156 beside every dictionary share. Out of sample, the six levels together add +0.0004 to the AUC. The scope of this finding is company filings and downgrades; news sentiment was not tested.</p>
+<p>The result is not that dictionary and FinBERT measures are uninformative about credit. On the 12-month notch change (an ordinal outcome that includes upgrades), all four tone changes rank the outcome after the full controls and the probe: LLM net +0.029, FinBERT +0.023, dictionary +0.023, combined +0.018 (rank partial IC, all PASS). There the LLM is not clearly ahead. What the word methods do not do is identify downgrades beyond the controls.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 12. Standard sentiment as a downgrade predictor beside the controls</caption>
+<thead><tr><th>Measure</th><th>Model</th><th class="n">N</th><th class="n">Log odds per SD</th><th class="n">p after BH</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="6">Dictionary category shares of the MD&amp;A (J2 controls; Nasdaq-100 / pooled)</td></tr>
+<tr><td>Negative share</td><td>rival in J2</td><td class="n">5,223 / 6,180</td><td class="n">-0.024 / +0.024</td><td class="n">0.79 / 0.51</td><td>FAIL / CNS</td></tr>
+<tr><td>Uncertainty share</td><td>rival in J2</td><td class="n">5,223 / 6,180</td><td class="n">+0.062 / +0.001</td><td class="n">0.29 / 0.64</td><td>CNS / CNS</td></tr>
+<tr><td>Constraining share</td><td>rival in J2</td><td class="n">5,223 / 6,180</td><td class="n">+0.016 / +0.057</td><td class="n">0.55 / 0.27</td><td>CNS / CNS</td></tr>
+<tr><td>Litigious share</td><td>rival in J2</td><td class="n">5,223 / 6,180</td><td class="n">-0.126 / -0.136</td><td class="n">1.00 / 1.00</td><td>FAIL / FAIL</td></tr>
+<tr><td>Changes in the four shares</td><td>rival in J2</td><td class="n">5,087 / 5,999</td><td class="n">-0.024 to +0.054</td><td class="n">0.33 to 0.79</td><td>none passes</td></tr>
+<tr class="grp"><td colspan="6">Net tone levels, one at a time (full controls; pooled, 439 companies, 573 downgrades)</td></tr>
+<tr><td>Dictionary net level</td><td>alone</td><td class="n">5,972</td><td class="n">+0.068</td><td class="n">0.42</td><td>CNS</td></tr>
+<tr><td>FinBERT net level</td><td>alone</td><td class="n">5,972</td><td class="n">+0.093</td><td class="n">0.42</td><td>CNS</td></tr>
+<tr><td>Dictionary level vs industry / vs competitors</td><td>alone</td><td class="n">5,972</td><td class="n">+0.054 / +0.021</td><td class="n">0.42 / 0.51</td><td>CNS</td></tr>
+<tr><td>FinBERT level vs industry / vs competitors</td><td>alone</td><td class="n">5,972</td><td class="n">+0.096 / +0.069</td><td class="n">0.42 / 0.42</td><td>CNS</td></tr>
+<tr><td>The six levels</td><td>jointly with CSI, Tone Shift, Change Signal</td><td class="n">5,972</td><td class="n">-0.340 to +0.347</td><td class="n">0.42 to 0.83</td><td>none passes</td></tr>
+</tbody>
+</table>
+<p class="tnote">Levels enter as minus the level (positive = worse sentiment, more downgrades). CNS: consistent, not significant. Out-of-sample AUC (fit 2021 to 2023, test 2024 to 2026-06, 105 test downgrades): controls 0.8751; with the six levels 0.8755 (+0.0004, interval -0.0035 to +0.0044); no single level adds more than +0.0018. Sources: RESULTS_A7 W2; RESULTS_A8 Z3.</p>
+</div>
+
+<h3>6.6 Accuracy and its limits</h3>
+<p>The readings rank, but they do not make a better rating model. The controls carry almost all the predictable part: rating level, history and outlook do most of the work, and the controls alone reach an out-of-sample AUC of about 0.875 (fit 2021 to 2023, test 2024 to 2026-06, 1,199 test filings, 105 downgrades). Table 13 shows the gains. The CSI, Tone Shift and the Change Signal together add +0.0042 (interval -0.0015 to +0.0102), which is larger than the +0.0004 of the six standard levels but not distinguishable from zero. Every text signal entered at once loses 0.010, the cost of fitting 18 extra terms on 4,773 rows. In the earlier Amendment 3 design (fit 2015 to 2020), no tone signal raised the out-of-sample AUC by more than 0.006.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 13. Out-of-sample AUC of a downgrade model with and without the readings</caption>
+<thead><tr><th>Signals added to the full controls</th><th class="n">AUC controls</th><th class="n">AUC with</th><th class="n">Gain</th><th class="n">90% interval</th></tr></thead>
+<tbody>
+<tr><td>CSI, Tone Shift and Change Signal</td><td class="n">0.8751</td><td class="n">0.8794</td><td class="n">+0.0042</td><td class="n">-0.0015 to +0.0102</td></tr>
+<tr><td>Six standard sentiment levels</td><td class="n">0.8751</td><td class="n">0.8755</td><td class="n">+0.0004</td><td class="n">-0.0035 to +0.0044</td></tr>
+<tr><td>All nine</td><td class="n">0.8751</td><td class="n">0.8773</td><td class="n">+0.0022</td><td class="n">-0.0045 to +0.0091</td></tr>
+<tr><td>Change Signal alone</td><td class="n">0.875</td><td class="n">0.878</td><td class="n">+0.0024</td><td class="n">-0.0018 to +0.0071</td></tr>
+<tr><td>CSI alone</td><td class="n">0.875</td><td class="n">0.876</td><td class="n">+0.0013</td><td class="n">-0.0026 to +0.0053</td></tr>
+<tr><td>Tone Shift alone</td><td class="n">0.875</td><td class="n">0.877</td><td class="n">+0.0014</td><td class="n">-0.0009 to +0.0040</td></tr>
+<tr><td>Every text signal of the horse race (18 terms)</td><td class="n">0.875</td><td class="n">0.866</td><td class="n">-0.0096</td><td class="n">-0.0274 to +0.0031</td></tr>
+</tbody>
+</table>
+<p class="tnote">Pooled rated sample with a CSI score: fit 2021 to 2023 (4,773 rows), test 2024 to 2026-06 with a full outcome window (1,199 rows, 105 downgrades); industry effects. Sources: RESULTS_A8 Z3 (first three rows); RESULTS_A7 X-d.</p>
+</div>
+
+<p>Amendment 9, Part AC, asked the most demanding version of the question: among quiet filings only, fit the full-control model on 2021 to 2023 and test on 2024, with and without each reading (Table 14). The full credit model already ranks well among calm companies (test AUC 0.77 to 0.84). Adding a reading moves the AUC by +0.014 (Change Signal, pool H), +0.025 (Dow 30), +0.003 (Tone Shift) and -0.0000 (CSI), and none survives correction. The top tenth of predicted risk is almost the same set of filings with and without the reading, with the same downgrade rate. The one interesting pattern is the "what the model misses" test (AC3): among quiet test filings outside the controls-only top tenth, the Change Signal flagged 3 of the 4 downgrades in pool H (flagged filings downgraded 9.4% of the time against 0.4% for the rest) and 4 of 5 in the Dow 30. Its interval is above zero, but it misses after correction and rests on four and five downgrades. Tone Shift and the CSI show nothing of the kind (2 of 16 and 2 of 21).</p>
+
+<div class="tblock">
+<table>
+<caption>Table 14. Accuracy where the agency is quiet: out-of-sample test on 2024 filings</caption>
+<thead><tr><th>Reading (pool)</th><th class="n">Test rows</th><th class="n">Down-grades</th><th class="n">AUC controls</th><th class="n">AUC with reading</th><th class="n">Gain</th><th class="n">90% interval</th><th class="n">p after BH</th><th class="n">Top tenth: rate, controls / with</th><th class="n">Missed down-grades flagged</th></tr></thead>
+<tbody>
+<tr><td>Change Signal (pool H)</td><td class="n">300</td><td class="n">13</td><td class="n">0.8365</td><td class="n">0.8510</td><td class="n">+0.0145</td><td class="n">-0.0087 to +0.0453</td><td class="n">0.40</td><td class="n">30.0% / 30.0%</td><td class="n">3 of 4</td></tr>
+<tr><td>Change Signal (Dow 30)</td><td class="n">245</td><td class="n">10</td><td class="n">0.7664</td><td class="n">0.7915</td><td class="n">+0.0251</td><td class="n">+0.0064 to +0.0476</td><td class="n">0.12</td><td class="n">20.8% / 20.8%</td><td class="n">4 of 5</td></tr>
+<tr><td>Tone Shift (Nasdaq-100)</td><td class="n">829</td><td class="n">36</td><td class="n">0.8448</td><td class="n">0.8475</td><td class="n">+0.0027</td><td class="n">-0.0013 to +0.0074</td><td class="n">0.40</td><td class="n">24.1% / 25.3%</td><td class="n">2 of 16</td></tr>
+<tr><td>Credit Stress Index (pooled)</td><td class="n">994</td><td class="n">43</td><td class="n">0.8408</td><td class="n">0.8407</td><td class="n">-0.0000</td><td class="n">-0.0078 to +0.0082</td><td class="n">0.68</td><td class="n">22.2% / 22.2%</td><td class="n">2 of 21</td></tr>
+</tbody>
+</table>
+<p class="tnote">Quiet filings only; full controls and industry effects; fit 2021 to 2023 (1,211, 980, 3,365 and 4,019 rows), test 2024 filings with a full 12-month outcome. "Missed downgrades flagged" (AC3): among test filings outside the controls-only top tenth, the downgrades the reading flagged; the flagged-minus-unflagged rate difference has BH p 0.18 (both Change Signal rows), 0.68 (Tone Shift) and 0.68 (CSI). One-sided tests, BH over 12. Source: RESULTS_A9 AC.</p>
+</div>
+
+<p>Fallen angels (an S&amp;P downgrade from BBB- or better to BB+ or worse within twelve months) were registered as a separate outcome but cannot be tested on this panel: each pool has 4 to 12 events between 2021 and 2024-09, under the registered minimum of 15. Descriptively, the Change Signal's worst decile held 4 of the 8 investment-grade filings followed by a fall (lift 5.0, from four events); Tone Shift shows no lift (0.9) and the CSI a lift of 1.8 with an interval that includes 1. These are counts, not evidence.</p>
+
+<h2>7. Look-ahead bias and memory</h2>
+<p>Claude Haiku 5.5's published training data run to June 2026, after every outcome in the out-of-sample window. Every LLM result in Section 6 is therefore memory-exposed: the model may have read about later downgrades. We ran five kinds of test, each registered before it ran.</p>
+<h3>7.1 Name blanking</h3>
+<p>Blanking replaces company names, tickers, brands, people, addresses and exact dates with placeholders. For the credit readings (Amendment 4, every downgrade event plus three matched non-downgraded filings), blanking barely moved the results (Table 15), but the model still named the company in 79% of blanked Tone Shift sections and 98% of blanked Change Signal packages, which carry financial statements, a call and the previous filing. Blanking therefore shows that the names themselves do not drive the results; it cannot show that the model's knowledge of the company does not. The one clean check is Tone Shift on the 413 rows where the model could not name the company: the blanked odds ratio there is 1.19, the same as elsewhere.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 15. Blanking: credit readings on normal and blanked text, same filings</caption>
+<thead><tr><th>Reading</th><th>Rows</th><th class="n">N</th><th class="n">Down-grades</th><th class="n">Odds ratio per SD, normal</th><th class="n">Blanked</th><th class="n">AUC normal</th><th class="n">Blanked</th><th class="n">Difference in AUC (90% interval)</th><th class="n">p after BH</th></tr></thead>
+<tbody>
+<tr><td>Tone Shift</td><td>All</td><td class="n">2,053</td><td class="n">528</td><td class="n">1.205</td><td class="n">1.174</td><td class="n">0.553</td><td class="n">0.541</td><td class="n">-0.012 (-0.025 to +0.001)</td><td class="n">0.25</td></tr>
+<tr><td>Tone Shift</td><td>Company not identified</td><td class="n">413</td><td class="n">113</td><td class="n">1.161</td><td class="n">1.187</td><td class="n">0.564</td><td class="n">0.553</td><td class="n">-0.011 (-0.037 to +0.019)</td><td class="n">0.64</td></tr>
+<tr><td>Change Signal</td><td>All</td><td class="n">552</td><td class="n">138</td><td class="n">2.126</td><td class="n">1.928</td><td class="n">0.702</td><td class="n">0.671</td><td class="n">-0.031 (-0.059 to -0.004)</td><td class="n">0.25</td></tr>
+<tr><td>Change Signal</td><td>Company not identified</td><td class="n">9</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">NOT TESTABLE</td><td class="n"></td></tr>
+<tr><td>Credit Stress Index</td><td>Tone Shift sample</td><td class="n">2,053</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">0.649</td><td class="n">0.634</td><td class="n">-0.015 (-0.035 to +0.005)</td><td class="n">0.46</td></tr>
+<tr><td>Credit Stress Index</td><td>Change Signal sample</td><td class="n">552</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">0.605</td><td class="n">0.606</td><td class="n">+0.000 (-0.048 to +0.048)</td><td class="n">0.98</td></tr>
+</tbody>
+</table>
+<p class="tnote">Two-sided tests, expected no difference; every row NO DIFFERENCE FOUND. Rank correlation of blanked with normal scores: Tone Shift level 0.94, Change Signal 0.83, CSI 0.63 (see Section 8.4). Sources: RESULTS_A4 Part O; RESULTS_A7 X-b.</p>
+</div>
+
+<h3>7.2 Recall probe used as a control</h3>
+<p>Amendment 5 asked the model, with no filing text, only the company's name, its ticker and the filing date, for the probability that the stock beat the Nasdaq-100 over the next 180 trading days, fell more than 25% against it within 90 days, was downgraded by S&amp;P within twelve months, and beat the next quarter's consensus, plus its stated knowledge of the later period (16,229 requests). For the 766 filings made after its training data end, it answered "unknown" every time; for in-window filings it claimed some knowledge for 79% of them. Its answers rank the outcomes strongly (Table 16): the model's training data clearly hold what happened to these companies, so recall is a live explanation of every LLM result, and under the registered reading rule every LLM result stays "memory-exposed". The question is how much that matters. With the probe as a control, the return effects lose about two thirds of their size and all their significance; the drawdown effect loses 14% to 24%; the credit effects lose 4% to 8% (Amendment 5) and keep every verdict. In the full-control models of Amendment 7 the credit coefficients with the probe are 90% or more of those without it (Table 7).</p>
+
+<div class="tblock">
+<table>
+<caption>Table 16. Recall probe: what the model knows without the filing, and what it removes</caption>
+<thead><tr><th>Outcome</th><th class="n">Probe IC with the outcome (in-window)</th><th class="n">90% interval</th><th>Result controlled</th><th class="n">Coefficient without / with probe</th><th class="n">Share removed</th><th>Verdict with probe</th></tr></thead>
+<tbody>
+<tr><td>Abnormal return, day 2 to 180</td><td class="n">+0.231</td><td class="n">+0.209 to +0.253</td><td>LLM net tone, Fama-MacBeth slope</td><td class="n">+0.0349 / +0.0113</td><td class="n">68%</td><td>CNS (was PASS)</td></tr>
+<tr><td>Deepest 90-day fall</td><td class="n">+0.411</td><td class="n">+0.388 to +0.432</td><td>LLM net tone, partial IC</td><td class="n">+0.187 / +0.148</td><td class="n">21%</td><td>PASS</td></tr>
+<tr><td>Downgrade within 12 months</td><td class="n">+0.253</td><td class="n">+0.210 to +0.297</td><td>Tone Shift (J2), log odds</td><td class="n">+0.153 / +0.141</td><td class="n">8%</td><td>PASS</td></tr>
+<tr><td>Downgrade within 12 months</td><td class="n"></td><td class="n"></td><td>Change Signal (J2), log odds</td><td class="n">+0.786 / +0.756</td><td class="n">4%</td><td>PASS</td></tr>
+<tr><td>Next quarter's surprise</td><td class="n">+0.072</td><td class="n">+0.049 to +0.095</td><td></td><td class="n"></td><td class="n"></td><td></td></tr>
+</tbody>
+</table>
+<p class="tnote">Probe ICs: two-sided, all DIFFERENT (BH p 0.002). Over all P rows (returns, two horizons, two groups, two signals) the probe removes 52% to 127% and no row stays significant. Low-knowledge half (below the within-year median of stated knowledge): Tone Shift IC +0.046 against +0.045 in the high-knowledge half; Change Signal +0.189 against +0.207; LLM return IC at 180 days +0.033 against +0.109. Source: RESULTS_A5 S1.</p>
+</div>
+
+<h3>7.3 Knowledge split and knowledge interaction</h3>
+<p>If recall drove a result, it should be stronger where the model says it knows more. For returns it is: the 180-day return IC is +0.033 in the low-knowledge half and +0.109 in the high-knowledge half, the pattern recall would produce. For credit it is not: Tone Shift +0.046 against +0.045, Change Signal +0.189 against +0.207 (Table 16 note). Amendment 7 then ran the formal interaction of Gao, Jiang and Yan (2025), the signal times the model's stated knowledge, in the downgrade logits with the full controls. All six interactions show no difference (estimates -0.051 to +0.102, BH p 0.60 to 1.00). The credit readings work about as well on companies the model says it knows little about. This is evidence against recall, not proof.</p>
+<h3>7.4 Repeat noise and averaging</h3>
+<p>Blanking moved the CSI more than expected: the rank correlation between normal and blanked readings was 0.632, against a registered expectation of at least 0.90, although the CSI's downgrade AUC did not change (Table 15). Amendment 8 asked whether this reflects memory or simply that the model does not give the same answer twice. It resent 300 identical requests. The repeat correlation was 0.690, against 0.615 for normal against blanked on the same filings (item overlap 0.698 against 0.620), so by the rule registered in advance the blanking instability is read as run-to-run noise, not memory. A temperature-zero arm could not run because the model's API rejects the temperature field. Amendment 9 then averaged three identical readings of the 766 post-cutoff filings (Table 17): pairwise rank correlations of single readings are 0.667 to 0.708, and the Spearman-Brown reliability of the three-run mean is 0.867. The averaged CSI is the registered signal for the prospective tests.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 17. Repeatability of the Credit Stress Index</caption>
+<thead><tr><th>Comparison</th><th class="n">Filings</th><th class="n">CSI rank correlation</th><th class="n">Item overlap (Jaccard, mean)</th></tr></thead>
+<tbody>
+<tr><td>Normal against blanked (Amendment 7)</td><td class="n">2,536</td><td class="n">0.632</td><td class="n">0.619</td></tr>
+<tr><td>Identical request repeated (Amendment 8)</td><td class="n">300</td><td class="n">0.690</td><td class="n">0.698</td></tr>
+<tr><td>Normal against blanked, same 300 filings</td><td class="n">300</td><td class="n">0.615</td><td class="n">0.620</td></tr>
+<tr><td>Post-cutoff readings, pairwise (Amendment 9)</td><td class="n">766</td><td class="n">0.667, 0.679, 0.708</td><td class="n"></td></tr>
+<tr><td>Spearman-Brown reliability, three-run mean</td><td class="n">766</td><td class="n">0.867</td><td class="n"></td></tr>
+</tbody>
+</table>
+<p class="tnote">Registered reading rule (Amendment 8): repeat correlation at or below 0.75 reads as noise; above 0.85, as sensitivity to company identity. Sources: RESULTS_A7 X-b; RESULTS_A8 Z1; RESULTS_A9 AA.</p>
+</div>
+
+<h3>7.5 Locked post-cutoff samples</h3>
+<p>Filings made after June 2026 cannot be remembered. 766 filings of 579 companies, filed 2026-07-01 to 2026-10-30, were read in full (with and without up to four competitors' filings), in measurement mode once, and in measurement mode twice more for the average. Each score file was frozen, hashed with SHA-256, committed and pushed before any outcome existed (Table 18). No outcome of these filings has been read or computed.</p>
+
+<div class="tblock">
+<table>
+<caption>Table 18. Prospective record: scores locked before outcomes</caption>
+<thead><tr><th>Set</th><th>Filings</th><th>SHA-256</th><th>Readout</th></tr></thead>
+<tbody>
+<tr><td>Full reading with and without competitors (Amendment 5, S2)</td><td>766 filings, 579 companies</td><td style="font-size:0.85em;word-break:break-all">9d4a3a671b68c824927e072c2dc706964793804b42fdccbd38adae4cedbc5671</td><td>Deepest 90-day fall and day 2 to 60 return, on or after 2027-03-22</td></tr>
+<tr><td>CSI, single reading (Amendment 7, X1)</td><td>same 766</td><td style="font-size:0.85em;word-break:break-all">8543d8c96c80c2f1611b9b44e1133fdd76a04d23ebb4fe5bd46dab6b5942dbab</td><td>Deepest fall on or after 2027-03-22; downgrades at 30 post-cutoff events</td></tr>
+<tr><td>CSI, three-reading average (Amendment 9)</td><td>same 766</td><td style="font-size:0.85em;word-break:break-all">e263dc00d72ef6b954a55290c6c171c7ea2c79381d620a55fba6312716551928</td><td>As above; the registered CSI for these tests</td></tr>
+</tbody>
+</table>
+<p class="tnote">The post-cutoff downgrade test runs once at least 30 post-cutoff downgrades exist, expected late 2027. The Change Signal has no separate post-cutoff downgrade test yet: the full reading of S2 includes the change field, but the live window holds too few downgrades. Source: Facts sheet section 9; RESULTS_A5 S2; A7; A9 AA.</p>
+</div>
+
+<h2>8. Limitations</h2>
+<ol>
+<li><b>Scope.</b> The readings were also evaluated on other outcomes registered in the same program. On stock returns the language-model association does not survive the recall control, and drawdown rankings add little beyond standard volatility models; because most quarterly filings are made on or after the release of the earnings they report, filing tone is also not treated here as an earnings forecast. The paper's claims are confined to credit.</li>
+<li><b>Memory is not ruled out.</b> Every LLM credit result is memory-exposed under the registered rule. Blanking, the probe control, the knowledge split and interaction all point against recall as the driver of the credit results, but only the post-cutoff tests can settle it, and the downgrade version needs at least 30 post-cutoff downgrades (expected late 2027). The Change Signal, which reads full named packages, is the most exposed and has the weakest blanking check (the model identified 98% of blanked packages).</li>
+<li><b>Accuracy.</b> Text does not improve the out-of-sample AUC of a full credit model, overall or among calm companies. The value claimed is concentration of downgrades in flagged names and association beyond controls, not a better rating model.</li>
+<li><b>Agency lead.</b> When S&amp;P was already watching, the readings usually did not flag first. The surprise-downgrade evidence for the Change Signal rests on 6 events.</li>
+<li><b>Scope of the Change Signal.</b> It is scored on 139 rated, mostly large companies (Dow 30 and semiconductors with competitors). Its semiconductor estimate is unstable (35 downgrades, a fit that did not fully converge with the probe). Extension to the Nasdaq-100 universe has not been tested.</li>
+<li><b>Ratings data.</b> Histories end on 2025-09-30, so twelve-month outcomes cover filings to about September 2024 and the 2024 test year is short. Outlooks and watches are available only for S&amp;P, while the downgrade outcome uses any agency. Fallen angels are too rare to test.</li>
+<li><b>Single model family and run-to-run noise.</b> All new readings come from one model version. Single readings are noisy (CSI repeat correlation about 0.69), the model accepts no temperature setting, and results based on single readings (all of Section 6) carry that noise; the three-run average applies only to the prospective sample.</li>
+<li><b>Decile cut-offs.</b> The decile tables rank filings over the out-of-sample panel. A real-time user would set cut-offs from earlier data; the matched-baseline and full-quarter tests use the same worst-decile cut-offs.</li>
+<li><b>Small universes.</b> The single-sector universes have little power; the financials downgrade logits are separated and not estimable, and most pooled results are dominated by the Nasdaq-100 universe (Appendix Tables B1 and B2).</li>
+<li><b>Measurement choices.</b> The dictionary lists are an abridged version of Loughran and McDonald; Moody's Baa minus the 10-year yield stands in for the BBB spread; interest coverage is missing for 44% of rows and accounting scores for a quarter to a third (handled by median imputation with a missing flag); some ordinary words were blanked by mistake in the first blanking test, which removes context and makes identification harder, not easier.</li>
+<li><b>Proprietary elements.</b> Prompts, item definitions and the CSI formula are not published here, which limits independent replication. They are available to research partners under agreement.</li>
+<li><b>Literature.</b> Two potentially close papers (Khoja 2024; Fang et al.) are unverified, and our novelty statement is conditional on reading them.</li>
+<li><b>Authorship and review.</b> The program was designed and run by one researcher with LLM assistance in coding and planning. The registrations, code and results files are version-controlled, but no external party has yet audited them.</li>
+</ol>
+
+<h2>9. Extensions in progress</h2>
+<p><b>Quarterly locked scoring.</b> Each new quarter's filings are read with the frozen readings, and the scores are hashed and committed before any outcome exists, as was done for the 766 filings of July to October 2026 (Table 18). The first post-cutoff readouts are due from March 2027: the registered drawdown and return tests on the first business day on or after 2027-03-22, and the downgrade test of the averaged Credit Stress Index once at least 30 downgrades follow post-cutoff filings (expected late 2027). Re-scoring the downgrade sample with a chronologically consistent model (He, Lv, Manela and Wu 2025) would give a second memory-proof check.</p>
+<p><b>Broader coverage.</b> The Change Signal is so far scored on 139 rated, mostly large companies. The next registrations extend it to the Nasdaq-100 universe and to further indexes and sectors, and add Canadian issuers through SEDAR+ (the current sample holds only issuers that file on EDGAR).</p>
+<p><b>Credit-market outcomes.</b> Rating actions are slow and discrete. CDS and bond spreads would show whether the readings lead market prices of credit as well as agency actions; this needs a bond or CDS data source that the program does not yet hold.</p>
+<p><b>Alternative-data proxies.</b> Some product-market data are published before the results they foreshadow. We have mapped free sources to all 888 entities (3,240 entity-proxy rows), each matched by a test query on company name or identifier (Table 19). Wikipedia page views cover two thirds of the companies, and app-store ratings, government contracts, developer activity, clinical trials and product, drug and device recalls cover most of the companies to which they apply. No history has been collected and no proxy has been tested: the identifiers are candidate matches to be confirmed by hand, and the tests (outcomes, horizons, comparison groups) will be registered before any data are read.</p>
+<div class="tblock">
+<table>
+<caption>Table 19. Alternative-data proxies mapped to the program's entities (not yet tested)</caption>
+<thead><tr><th>Proxy</th><th>Free source</th><th class="n">Companies it fits</th><th class="n">Found by test query</th></tr></thead>
+<tbody>
+<tr><td>Wikipedia page views</td><td>Wikimedia pageviews (article via Wikidata from the SEC CIK)</td><td class="n">888</td><td class="n">592</td></tr>
+<tr><td>App-store ratings and reviews</td><td>iTunes Search API</td><td class="n">365</td><td class="n">246</td></tr>
+<tr><td>Government contracts</td><td>USAspending.gov</td><td class="n">259</td><td class="n">198</td></tr>
+<tr><td>Software developer activity</td><td>GitHub</td><td class="n">153</td><td class="n">132</td></tr>
+<tr><td>Clinical trials</td><td>ClinicalTrials.gov</td><td class="n">93</td><td class="n">78</td></tr>
+<tr><td>Consumer-product recalls</td><td>CPSC SaferProducts</td><td class="n">146</td><td class="n">43</td></tr>
+<tr><td>Drug recalls</td><td>openFDA drug enforcement</td><td class="n">68</td><td class="n">26</td></tr>
+<tr><td>Device recalls</td><td>openFDA device recall</td><td class="n">25</td><td class="n">17</td></tr>
+<tr><td>Vehicle recalls</td><td>NHTSA</td><td class="n">14</td><td class="n">13</td></tr>
+</tbody>
+</table>
+<p class="tnote">"Fits": companies whose industry (from the SEC SIC code) the proxy applies to. "Found": one test query per source and company found a candidate identifier; matches are by name and include some same-name false matches, to be confirmed before collection. Search interest (447 companies) and patents (411) also fit but need a key or an unofficial client and were not tested. Source: docs/ALT_DATA_PROXIES.md (built 2026-11-05).</p>
+</div>
+
+<h2>10. Conclusion</h2>
+<p>An LLM reading of whether a filing is worse than the company's previous one carries information about future credit-rating downgrades that the standard credit toolkit, the published text-change measures and conventional sentiment do not. Its flagged tenth is downgraded at three to four times the base rate, among all rated companies and among those the agency still calls stable; its coefficient survives every control and the recall probe; and its flags are far more common before downgrades than at matched companies over the same windows. A measurement reading built only from verified quotes, and the quarter-on-quarter change in LLM tone, add smaller amounts. Dictionary and FinBERT sentiment add nothing. The readings are ranking inputs for a watch list, not a replacement for the rating model: they do not raise the accuracy of a full credit model and they rarely beat an agency that is already watching.</p>
+<p>The design is what makes these statements testable: hypotheses and thresholds registered before the tests, single runs, out-of-sample verdicts, the full credit toolkit and the published text benchmarks as controls, matched chance baselines, and memory tests that a recall-driven result would fail. The final check is prospective. Scores for filings written after the model's training data end are locked, and their results will be reported whatever they show.</p>
+
+<h2>References</h2>
+<div class="refs">
+<p>Bloomfield, R., K. Rennekamp and B. Steenhoven (2018). No system is perfect: Understanding how registration-based editorial processes affect reproducibility and investment in research quality. <i>Journal of Accounting Research</i> 56(2).</p>
+<p>Bonsall, S. B. and B. P. Miller (2017). The impact of narrative disclosure readability on bond ratings and the cost of debt. <i>Review of Accounting Studies</i> 22(2).</p>
+<p>Brown, S. V. and J. W. Tucker (2011). Large-sample evidence on firms' year-over-year MD&amp;A modifications. <i>Journal of Accounting Research</i> 49(2).</p>
+<p>Campbell, J. L., H. Chen, D. S. Dhaliwal, H. Lu and L. B. Steele (2014). The information content of mandatory risk factor disclosures in corporate filings. <i>Review of Accounting Studies</i> 19(1).</p>
+<p>Chen, Y., B. Kelly and D. Xiu (2022). Expected returns and large language models. Working paper, SSRN.</p>
+<p>Cohen, L., C. Malloy and Q. Nguyen (2020). Lazy prices. <i>Journal of Finance</i> 75(3).</p>
+<p>Davis, A. K., W. Ge, D. Matsumoto and J. L. Zhang (2015). The effect of manager-specific optimism on the tone of earnings conference calls. <i>Review of Accounting Studies</i> 20(2).</p>
+<p>Davis, A. K., J. M. Piger and L. M. Sedor (2012). Beyond the numbers: Measuring the information content of earnings press release language. <i>Contemporary Accounting Research</i> 29(3).</p>
+<p>Davis, A. K. and I. Tama-Sweet (2012). Managers' use of language across alternative disclosure outlets: Earnings press releases versus MD&amp;A. <i>Contemporary Accounting Research</i> 29(3).</p>
+<p>Donovan, J., J. Jennings, K. Koharki and J. Lee (2021). Measuring credit risk using qualitative disclosure. <i>Review of Accounting Studies</i> 26.</p>
+<p>Drinkall, F., J. Pierrehumbert and S. Zohren (2024). Traditional methods outperform generative LLMs at forecasting credit ratings. arXiv 2407.17624.</p>
+<p>Druz, M., I. Petzev, A. F. Wagner and R. J. Zeckhauser (2020). When managers change their tone, analysts and investors change their opinions. <i>Journal of Financial Economics</i> 137(2).</p>
+<p>Fang, Hu, Tang, Wallis and Yang. Do language models know who fails? SSRN 7429342. <b>Unverified: seen as a title listing only.</b></p>
+<p>Feldman, R., S. Govindaraj, J. Livnat and B. Segal (2010). Management's tone change, post earnings announcement drift and accruals. <i>Review of Accounting Studies</i> 15(4).</p>
+<p>Gao, Jiang and Yan (2025). Detecting lookahead bias in LLM forecasts. arXiv 2512.23847.</p>
+<p>Glasserman, P. and C. Lin (2023). Assessing look-ahead bias in stock return predictions generated by GPT sentiment analysis. arXiv 2309.17322.</p>
+<p>Harvey, C. R., Y. Liu and H. Zhu (2016). ... and the cross-section of expected returns. <i>Review of Financial Studies</i> 29(1).</p>
+<p>He, Lv, Manela and Wu (2025). Chronologically consistent large language models. arXiv 2502.21206.</p>
+<p>Hou, K., C. Xue and L. Zhang (2020). Replicating anomalies. <i>Review of Financial Studies</i> 33(5).</p>
+<p>Khoja (2024). LLM scores from earnings calls and rating migration. SSRN 4965227. <b>Unverified: seen as a title listing only; title paraphrased from the listing.</b></p>
+<p>Kim, A., M. Muhn and V. Nikolaev (2024). Financial statement analysis with large language models. arXiv 2407.17866.</p>
+<p>Kogan, S., D. Levin, B. R. Routledge, J. S. Sagi and N. A. Smith (2009). Predicting risk from financial reports with regression. Proceedings of NAACL HLT 2009.</p>
+<p>Kravet, T. and V. Muslu (2013). Textual risk disclosures and investors' risk perceptions. <i>Review of Accounting Studies</i> 18(4).</p>
+<p>Li, F. (2010). The information content of forward-looking statements in corporate filings: A naive Bayesian machine learning approach. <i>Journal of Accounting Research</i> 48(5).</p>
+<p>Lopez-Lira, A. and Y. Tang (2023). Can ChatGPT forecast stock price movements? Return predictability and large language models. arXiv 2304.07619.</p>
+<p>Lopez-Lira, A., Y. Tang and M. Zhu (2025). The memorization problem: Can we trust LLMs' economic forecasts? arXiv 2504.14765.</p>
+<p>Loughran, T. and B. McDonald (2011). When is a liability not a liability? Textual analysis, dictionaries, and 10-Ks. <i>Journal of Finance</i> 66(1).</p>
+<p>Mamaysky, H., Y. Shen and H. Wu. Credit information in earnings calls. Working paper, arXiv 2209.11914.</p>
+<p>Mayew, W. J., M. Sethuraman and M. Venkatachalam (2015). MD&amp;A disclosure and the firm's ability to continue as a going concern. <i>The Accounting Review</i> 90(4).</p>
+<p>Price, S. M., J. S. Doran, D. R. Peterson and B. A. Bliss (2012). Earnings conference calls and stock returns: The incremental informativeness of textual tone. <i>Journal of Banking and Finance</i> 36(4).</p>
+<p>Sarkar, S. K. and K. Vafa (2024). Lookahead bias in pretrained language models. SSRN 4754678.</p>
+<p class="small" style="text-indent:0;padding-left:0;margin-top:12px">Note on references. The list is limited to the papers in the program's literature map (KNOWLEDGE_BASE/LITERATURE_AND_NOVELTY.md, 2026-11-11). Where the map gives only authors, year and an identifier, journal details and titles were completed from standard bibliographic knowledge and must be checked against the sources before circulation; first names are omitted where not checked. Standard methods named in the text (Benjamini-Hochberg, Fama-MacBeth, Newey-West, Spearman-Brown, the Parkinson, Garman-Klass and Yang-Zhang estimators, GARCH, Altman Z, Ohlson O, the Bharath-Shumway distance to default, the Fama-French factors, FinBERT) are identified by their conventional names; formal citations are to be added from verified sources.</p>
+</div>
+
+<h2 class="pb">Appendix A. Registration and amendment timeline</h2>
+<div class="tblock">
+<table>
+<caption>Table A1. Registrations and amendments (all tagged in git before the tests they define)</caption>
+<thead><tr><th>Date</th><th>Document and tag</th><th>Content</th><th>Run</th></tr></thead>
+<tbody>
+<tr><td>2026-10-31</td><td>Semiconductor study registration (<code>prereg-semis-2026-10</code>)</td><td>Semiconductor study design and live predictions</td><td>2026-11-04, once</td></tr>
+<tr><td>2026-10-31</td><td>Ratings study registration (<code>prereg-ratings-2026-10</code>; amendment <code>-a1</code>, 2026-11-01)</td><td>17g-7(b) rating histories, one issuer rule</td><td>Data loaded; tests folded into the program</td></tr>
+<tr><td>2026-11-04</td><td>Nasdaq-100 registration (<code>prereg-ndx100-2026-11</code>)</td><td>770 entities, signals 1 to 9, outcomes O1 to O8</td><td>2026-11-04, once</td></tr>
+<tr><td>2026-11-04</td><td>Program registration (<code>prereg-program-2026-11</code>, commit e5d1eea)</td><td>Parts A to H: model swap, blanking, combined signal, rating actions (E), index exits, price fix, next-generation reading (H)</td><td>2026-11-05</td></tr>
+<tr><td>2026-11-05</td><td>Amendment 1 (<code>-a1</code>, 13e1b07)</td><td>Haiku 4.5 parts cancelled; price-panel rules; daily path O9, O10</td><td>2026-11-05</td></tr>
+<tr><td>2026-11-05</td><td>Amendment 2 (<code>-a2</code>, 18b38fd)</td><td>O9 at 21 horizons</td><td>2026-11-05</td></tr>
+<tr><td>2026-11-05</td><td>Amendment 3 (<code>-a3</code>, 75c8e10)</td><td>Decile tables; downgrades with full J2 controls, permutation, LR and OOS AUC; portfolios; re-analyses</td><td>2026-11-05</td></tr>
+<tr><td>2026-11-10</td><td>Amendment 4 (<code>-a4</code>)</td><td>Timing audit; forward EPS; blanked credit readings; orthogonality; universe parity; executive changes</td><td>2026-11-10 and 11</td></tr>
+<tr><td>2026-11-11</td><td>Amendment 5 (<code>-a5</code>)</td><td>Recall probe; post-cutoff full reading locked; no-cost re-analyses</td><td>2026-11-11 (S2 outcomes 2027)</td></tr>
+<tr><td>2026-11-11</td><td>Amendment 6 (<code>-a6</code>, 1c0cf5d)</td><td>Deep fall beyond volatility; results by universe; other registered checks</td><td>2026-11-11</td></tr>
+<tr><td>2026-11-11</td><td>Amendment 7 (<code>-a7</code>, 57498fe)</td><td>Volatility and credit-score battery; Lazy Prices, dictionary shares, knowledge interaction; measurement-mode CSI; rule-based evidence</td><td>2026-11-11</td></tr>
+<tr><td>2026-11-11</td><td>Amendment 8 (<code>-a8</code>, 68de652)</td><td>Repeat check; quiet filings and agency lead; sentiment levels</td><td>2026-11-11</td></tr>
+<tr><td>2026-11-22</td><td>Amendment 9 (<code>-a9</code>, a5855d9)</td><td>Three-run CSI on post-cutoff filings; matched chance baselines; accuracy among quiet filings; fallen angels</td><td>2026-11-22</td></tr>
+</tbody>
+</table>
+<p class="tnote">Dates are those written in the documents. The program registration and its approvals were made on 2026-11-04 (local date); Amendments 1 and 2 carry 2026-11-05 as written by the planning session and were tagged before any test that uses them (RESULTS.md, deviation 1). Commit hashes are given where the results files record them. Every amendment fixes the family for BH correction, test directions, reading rules and the API budget before it runs.</p>
+</div>
+
+<h2>Appendix B. Additional tables</h2>
+<h3>B.1 Universe parity</h3>
+<div class="tblock">
+<table>
+<caption>Table B1. Verdict counts by universe in the Amendment 4 parity family (1,746 rows, one BH family)</caption>
+<thead><tr><th>Universe</th><th class="n">PASS</th><th class="n">Consistent, not significant</th><th class="n">FAIL</th><th class="n">DIFFERENT</th><th class="n">No difference found</th><th class="n">Not testable</th></tr></thead>
+<tbody>
+<tr><td>Nasdaq-100</td><td class="n">63</td><td class="n">37</td><td class="n">2</td><td class="n">14</td><td class="n">54</td><td class="n">0</td></tr>
+<tr><td>Dow 30</td><td class="n">3</td><td class="n">102</td><td class="n">79</td><td class="n">8</td><td class="n">160</td><td class="n">0</td></tr>
+<tr><td>Financials</td><td class="n">4</td><td class="n">81</td><td class="n">57</td><td class="n">0</td><td class="n">78</td><td class="n">40</td></tr>
+<tr><td>Healthcare</td><td class="n">0</td><td class="n">93</td><td class="n">57</td><td class="n">0</td><td class="n">80</td><td class="n">30</td></tr>
+<tr><td>Semiconductors</td><td class="n">0</td><td class="n">105</td><td class="n">71</td><td class="n">3</td><td class="n">153</td><td class="n">20</td></tr>
+<tr><td>Pooled</td><td class="n">72</td><td class="n">77</td><td class="n">35</td><td class="n">19</td><td class="n">149</td><td class="n">0</td></tr>
+</tbody>
+</table>
+<p class="tnote">Tests N1f, N2f, N4f, P, O9, O10, L2 and J2 in every universe with Haiku 5.5. Fama-MacBeth tests are not testable in the small universes (fewer than 30 filings per period). Source: RESULTS_A4 Part Q.</p>
+</div>
+
+<div class="tblock">
+<table>
+<caption>Table B2. Tone Shift and the Change Signal by universe (downgrade within 12 months, J2 controls)</caption>
+<thead><tr><th>Universe</th><th class="n">Tone Shift (log odds per SD)</th><th class="n">With probe</th><th class="n">Downgrades</th><th class="n">Companies</th></tr></thead>
+<tbody>
+<tr><td>Nasdaq-100</td><td class="n">+0.153*</td><td class="n">+0.141*</td><td class="n">518</td><td class="n">392</td></tr>
+<tr><td>Dow 30</td><td class="n">+0.196</td><td class="n">+0.183</td><td class="n">94</td><td class="n">111</td></tr>
+<tr><td>Financials</td><td class="n">not estimable</td><td class="n">not estimable</td><td class="n">19</td><td class="n">29</td></tr>
+<tr><td>Healthcare</td><td class="n">+0.208</td><td class="n">+0.209</td><td class="n">32</td><td class="n">27</td></tr>
+<tr><td>Semiconductors</td><td class="n">+0.120</td><td class="n">+0.279</td><td class="n">35</td><td class="n">24</td></tr>
+<tr><td>Pooled</td><td class="n">+0.152*</td><td class="n">+0.140*</td><td class="n">568</td><td class="n">457</td></tr>
+</tbody>
+</table>
+<p class="tnote">* passes after BH in its registered part. Unstarred with-probe figures in the four single-sector universes are descriptive; the financials logit is separated. Change Signal by study, with the probe: Dow 30 +0.853 (112 companies, PASS); semiconductors +2.056 (27 companies, 35 downgrades, PASS but unstable). Source: RESULTS_A6 T4.</p>
+</div>
+
+<h3>B.2 The full quarter fixed by rule (July to September 2024)</h3>
+<div class="tblock">
+<table>
+<caption>Table B3. Every filing the Change Signal flagged, 2024-07-01 to 2024-09-30</caption>
+<thead><tr><th>Ticker</th><th>Filed</th><th class="n">Signal</th><th>Downgraded within 12 months</th><th>Downgrade date</th><th class="n">Lead (days)</th><th class="n">90-day fall</th></tr></thead>
+<tbody>
+<tr class="hl"><td>NKE</td><td>2024-07-25</td><td class="n">+0.400</td><td>yes</td><td>2025-07-16</td><td class="n">356</td><td class="n">-0.213</td></tr>
+<tr><td>BA</td><td>2024-07-31</td><td class="n">+0.400</td><td>no</td><td></td><td class="n"></td><td class="n">-0.330</td></tr>
+<tr><td>HUM</td><td>2024-07-31</td><td class="n">+0.300</td><td>no</td><td></td><td class="n"></td><td class="n"></td></tr>
+<tr><td>TEX</td><td>2024-07-31</td><td class="n">+0.300</td><td>no</td><td></td><td class="n"></td><td class="n">-0.248</td></tr>
+<tr class="hl"><td>INTC</td><td>2024-08-02</td><td class="n">+0.600</td><td>yes (too soon to count as warning)</td><td>2024-08-08</td><td class="n">6</td><td class="n">-0.242</td></tr>
+<tr><td>ITW</td><td>2024-08-02</td><td class="n">+0.300</td><td>no</td><td></td><td class="n"></td><td class="n">-0.083</td></tr>
+<tr class="hl"><td>CVS</td><td>2024-08-07</td><td class="n">+0.400</td><td>yes</td><td>2024-12-16</td><td class="n">131</td><td class="n"></td></tr>
+<tr><td>ROK</td><td>2024-08-07</td><td class="n">+0.500</td><td>no</td><td></td><td class="n"></td><td class="n">-0.090</td></tr>
+<tr class="hl"><td>WBD</td><td>2024-08-07</td><td class="n">+0.400</td><td>yes</td><td>2025-05-20</td><td class="n">286</td><td class="n">-0.171</td></tr>
+<tr><td>AGCO</td><td>2024-08-08</td><td class="n">+0.600</td><td>no</td><td></td><td class="n"></td><td class="n">-0.154</td></tr>
+<tr><td>MCD</td><td>2024-08-08</td><td class="n">+0.400</td><td>no</td><td></td><td class="n"></td><td class="n">-0.139</td></tr>
+<tr class="hl"><td>UAA</td><td>2024-08-08</td><td class="n">+0.350</td><td>yes</td><td>2025-04-28</td><td class="n">263</td><td class="n">-0.287</td></tr>
+<tr><td>YUM</td><td>2024-08-08</td><td class="n">+0.300</td><td>no</td><td></td><td class="n"></td><td class="n">-0.173</td></tr>
+<tr><td>UNH</td><td>2024-08-09</td><td class="n">+0.300</td><td>no</td><td></td><td class="n"></td><td class="n"></td></tr>
+<tr><td>HD</td><td>2024-08-20</td><td class="n">+0.300</td><td>no</td><td></td><td class="n"></td><td class="n">-0.124</td></tr>
+<tr><td>DE</td><td>2024-08-29</td><td class="n">+0.400</td><td>no</td><td></td><td class="n"></td><td class="n">-0.135</td></tr>
+<tr class="hl"><td>DG</td><td>2024-08-29</td><td class="n">+0.500</td><td>yes</td><td>2025-03-28</td><td class="n">211</td><td class="n">-0.237</td></tr>
+<tr><td>LOW</td><td>2024-08-29</td><td class="n">+0.300</td><td>no</td><td></td><td class="n"></td><td class="n">-0.184</td></tr>
+</tbody>
+</table>
+<p class="tnote">The quarter was fixed in the registration (Amendment 7, Y2) as the latest with a full twelve-month rating window. 18 flagged, 6 downgraded (33%, against a 7.2% base rate in pool H). In the same quarter Tone Shift flagged 29 filings in the Nasdaq-100 universe, of which 3 were downgraded within twelve months (INTC, QRTEA, UAA; 10% against a 9.7% base rate), and the CSI flagged 42, of which 5 were downgraded (MCHP, ALK, VSH, UAA, DISH; 12% against 9.2%). One notch for every downgrade. Flagged names fell 18% to 21% at the deepest point of the next 90 days on average. Source: RESULTS_A7 Y2, where every flagged filing of all three readings is listed.</p>
+</div>
+
+<h3>B.3 Signal path values</h3>
+<div class="tblock">
+<table>
+<caption>Table B4. Mean reading in the quarters before a downgrade and at matched filings</caption>
+<thead><tr><th>Reading</th><th>Group</th><th class="n">Quarter -4</th><th class="n">-3</th><th class="n">-2</th><th class="n">-1</th><th class="n">0</th></tr></thead>
+<tbody>
+<tr><td>Change Signal</td><td>Downgraded</td><td class="n">+0.090 (47)</td><td class="n">+0.096 (48)</td><td class="n">+0.112 (51)</td><td class="n">+0.096 (57)</td><td class="n">+0.111 (61)</td></tr>
+<tr><td>Change Signal</td><td>Matched, not downgraded</td><td class="n">-0.114 (347)</td><td class="n">-0.108 (369)</td><td class="n">-0.137 (424)</td><td class="n">-0.164 (479)</td><td class="n">-0.177 (536)</td></tr>
+<tr><td>Tone Shift</td><td>Downgraded</td><td class="n">+0.049 (180)</td><td class="n">+0.049 (187)</td><td class="n">+0.015 (195)</td><td class="n">+0.043 (209)</td><td class="n">+0.069 (219)</td></tr>
+<tr><td>Tone Shift</td><td>Matched, not downgraded</td><td class="n">-0.011 (1,869)</td><td class="n">-0.004 (1,988)</td><td class="n">-0.011 (2,192)</td><td class="n">-0.016 (2,385)</td><td class="n">-0.020 (2,551)</td></tr>
+<tr><td>Credit Stress Index</td><td>Downgraded</td><td class="n">+0.873 (150)</td><td class="n">+1.244 (157)</td><td class="n">+1.443 (168)</td><td class="n">+1.268 (187)</td><td class="n">+1.505 (201)</td></tr>
+<tr><td>Credit Stress Index</td><td>Matched, not downgraded</td><td class="n">+0.052 (2,243)</td><td class="n">-0.014 (2,383)</td><td class="n">-0.077 (2,675)</td><td class="n">-0.091 (2,923)</td><td class="n">-0.083 (3,190)</td></tr>
+</tbody>
+</table>
+<p class="tnote">Filings in brackets. Higher is worse for every reading. Matched filings: same pool, quarter and notch, not downgraded. Source: RESULTS_A7 Y3.</p>
+</div>
+
+<h3>B.4 Decile table, twelve months</h3>
+<div class="tblock">
+<table>
+<caption>Table B5. Downgrade within twelve months by decile: Change Signal and Credit Stress Index</caption>
+<thead><tr><th>Decile</th><th class="n">Change Signal: filings</th><th class="n">Downgrades</th><th class="n">Rate</th><th class="n">Lift (90% interval)</th><th class="n">CSI: filings</th><th class="n">Downgrades</th><th class="n">Rate</th><th class="n">Lift (90% interval)</th></tr></thead>
+<tbody>
+<tr><td>1 (best)</td><td class="n">192</td><td class="n">6</td><td class="n">3.1%</td><td class="n">0.43 (0.18 to 0.72)</td><td class="n">624</td><td class="n">35</td><td class="n">5.6%</td><td class="n">0.61 (0.42 to 0.83)</td></tr>
+<tr><td>2</td><td class="n">191</td><td class="n">2</td><td class="n">1.0%</td><td class="n">0.15 (0.00 to 0.31)</td><td class="n">623</td><td class="n">26</td><td class="n">4.2%</td><td class="n">0.45 (0.31 to 0.61)</td></tr>
+<tr><td>3</td><td class="n">192</td><td class="n">13</td><td class="n">6.8%</td><td class="n">0.94 (0.51 to 1.42)</td><td class="n">624</td><td class="n">32</td><td class="n">5.1%</td><td class="n">0.56 (0.38 to 0.74)</td></tr>
+<tr><td>4</td><td class="n">191</td><td class="n">6</td><td class="n">3.1%</td><td class="n">0.44 (0.16 to 0.77)</td><td class="n">623</td><td class="n">38</td><td class="n">6.1%</td><td class="n">0.66 (0.50 to 0.84)</td></tr>
+<tr><td>5</td><td class="n">192</td><td class="n">8</td><td class="n">4.2%</td><td class="n">0.58 (0.30 to 0.84)</td><td class="n">624</td><td class="n">42</td><td class="n">6.7%</td><td class="n">0.73 (0.55 to 0.94)</td></tr>
+<tr><td>6</td><td class="n">191</td><td class="n">8</td><td class="n">4.2%</td><td class="n">0.58 (0.27 to 0.96)</td><td class="n">623</td><td class="n">58</td><td class="n">9.3%</td><td class="n">1.01 (0.82 to 1.21)</td></tr>
+<tr><td>7</td><td class="n">191</td><td class="n">15</td><td class="n">7.9%</td><td class="n">1.09 (0.68 to 1.56)</td><td class="n">623</td><td class="n">56</td><td class="n">9.0%</td><td class="n">0.98 (0.81 to 1.17)</td></tr>
+<tr><td>8</td><td class="n">192</td><td class="n">10</td><td class="n">5.2%</td><td class="n">0.72 (0.39 to 1.09)</td><td class="n">624</td><td class="n">66</td><td class="n">10.6%</td><td class="n">1.15 (0.94 to 1.37)</td></tr>
+<tr><td>9</td><td class="n">191</td><td class="n">25</td><td class="n">13.1%</td><td class="n">1.82 (1.31 to 2.36)</td><td class="n">623</td><td class="n">99</td><td class="n">15.9%</td><td class="n">1.73 (1.47 to 2.00)</td></tr>
+<tr class="hl"><td>10 (worst, flagged)</td><td class="n">192</td><td class="n">45</td><td class="n">23.4%</td><td class="n">3.25 (2.37 to 4.26)</td><td class="n">624</td><td class="n">121</td><td class="n">19.4%</td><td class="n">2.11 (1.80 to 2.43)</td></tr>
+</tbody>
+</table>
+<p class="tnote">Base rates 7.2% (Change Signal, pool H) and 9.2% (CSI, pooled). Source: RESULTS_A7 Y1.</p>
+</div>
+
+
+
+<p class="small" style="margin-top:28px">Source files. Every number in this paper is taken from the canonical facts sheet (<code>Docs from Claude/ContextQuant_Facts_2026-11-22.md</code>) or from the program results files it cites in <code>contextquant-program-2026-11/</code> (RESULTS.md and RESULTS_A3.md to RESULTS_A9.md), with the registrations in the same folder. Where a table derives a figure (for example an odds ratio from a log odds), the derivation is stated in its note. Draft for review, not for distribution.</p>
+
+</main>
+</body>
+</html>

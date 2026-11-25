@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Evidence | ContextQuant</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="charts.js"></script>
+</head>
+<body>
+<nav>
+  <a class="brand" href="index.html">ContextQuant</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="links" id="navlinks">
+    <a href="index.html">Home</a>
+    <a href="journey.html">Journey</a>
+    <a class="active" href="evidence.html">Findings</a>
+    <a href="method.html">Methodology</a>
+    <a href="business.html">Business</a>
+    <a href="academic.html">Academic</a>
+    <a href="track-record.html">Track record</a>
+    <a href="product/index.html">Product Dashboard Preview</a>
+    <a class="cta" href="mailto:info@contextquant.com">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="eyebrow">Evidence</div>
+    <h1>What the flags did, 2021 to 2026</h1>
+    <p class="lead">All figures are out of sample: the method was designed on 2015 to 2020 and judged only on later years. Rated companies, downgrades by S&amp;P, Moody's or Fitch. Ratings data run to September 2025.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">1. The flagged tenth</div>
+    <h2>How often flagged companies were downgraded</h2>
+    <p>Each quarter, companies are ranked by the ContextQuant readings. The worst tenth is "flagged". The chart compares the share of flagged filings followed by a downgrade with the share for all filings.</p>
+    <div class="chart" id="bars">
+      <div class="chart-title">Downgrade rate: flagged tenth against all filings</div>
+      <div class="chart-sub">Change Signal: Dow 30 and semiconductor studies with competitors (1,766 filings, 139 companies). Credit Stress Index and Tone Shift: the wider panel (about 6,000 filings each). "Calm": the agency's outlook was stable or positive with no watch.</div>
+      <div class="legend"><span><i style="background:#3fa863"></i>Flagged tenth</span><span><i style="background:#5b8dd9"></i>All filings</span></div>
+    </div>
+    <div class="table-wrap"><table>
+      <tr><th>Reading</th><th>Horizon</th><th class="num">Flagged</th><th class="num">All</th><th class="num">Lift (90% interval)</th><th class="num">Share of all downgrades caught</th></tr>
+      <tr><td><strong>Change Signal</strong></td><td>3 months</td><td class="num">8.6%</td><td class="num">2.5%</td><td class="num">3.4x (2.5 to 4.5)</td><td class="num">35%</td></tr>
+      <tr><td><strong>Change Signal</strong></td><td>6 months</td><td class="num">14.7%</td><td class="num">4.2%</td><td class="num">3.5x (2.6 to 4.6)</td><td class="num">35%</td></tr>
+      <tr><td><strong>Change Signal</strong></td><td>12 months</td><td class="num">23.4%</td><td class="num">7.2%</td><td class="num">3.3x (2.4 to 4.3)</td><td class="num">33%</td></tr>
+      <tr><td><strong>Change Signal, calm companies</strong></td><td>12 months</td><td class="num">16.9%</td><td class="num">4.2%</td><td class="num">4.1x (3.0 to 5.4)</td><td class="num">41%</td></tr>
+      <tr><td>Credit Stress Index</td><td>12 months</td><td class="num">19.4%</td><td class="num">9.2%</td><td class="num">2.1x (1.8 to 2.4)</td><td class="num">21%</td></tr>
+      <tr><td>Credit Stress Index, calm companies</td><td>12 months</td><td class="num">11.0%</td><td class="num">5.5%</td><td class="num">2.0x (1.6 to 2.4)</td><td class="num">20%</td></tr>
+      <tr><td>Tone Shift (Nasdaq-100 universe)</td><td>12 months</td><td class="num">13.8%</td><td class="num">9.7%</td><td class="num">1.4x (1.2 to 1.6)</td><td class="num">14%</td></tr>
+    </table></div>
+    <p class="muted">Change Signal: does this filing read worse than the company's last one? Credit Stress Index: a count of credit-relevant disclosures, each backed by a quoted passage. Tone Shift: the quarter-on-quarter change in overall tone against peers.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">2. Beyond the standard toolkit</div>
+    <h2>It adds to what a credit analyst already uses</h2>
+    <p>Each reading was added to a downgrade model that already contains the rating, rating history and outlook, stock return and volatility, size, leverage, analyst coverage, the last earnings surprise, market and sector, 13 economic series, distance to default, Altman Z, Ohlson O, 23 volatility measures (including GARCH and Yang-Zhang) and the volatility of earnings, sales and cash flow.</p>
+    <div class="table-wrap"><table>
+      <tr><th>Input added to that model</th><th class="num">Odds of a downgrade per step of worsening</th><th>Verdict</th></tr>
+      <tr><td><strong>Change Signal</strong> (Dow 30 alone)</td><td class="num">2.5x</td><td><span class="badge b-strong">Adds</span></td></tr>
+      <tr><td><strong>Change Signal</strong> (Dow 30 and semiconductors)</td><td class="num">2.2x</td><td><span class="badge b-strong">Adds</span></td></tr>
+      <tr><td><strong>Credit Stress Index</strong></td><td class="num">1.19x</td><td><span class="badge b-strong">Adds</span></td></tr>
+      <tr><td><strong>Tone Shift</strong></td><td class="num">1.14x</td><td><span class="badge b-strong">Adds</span></td></tr>
+      <tr><td>Word-count sentiment (negative, uncertainty, constraining, litigious words; levels and changes)</td><td class="num">about 1.0</td><td><span class="badge b-out">Nothing</span></td></tr>
+      <tr><td>FinBERT tone (levels and changes, raw and against peers)</td><td class="num">about 1.0</td><td><span class="badge b-out">Nothing</span></td></tr>
+      <tr><td>"Lazy Prices" text-change measures</td><td class="num">n/a</td><td>Do not explain the ContextQuant readings</td></tr>
+    </table></div>
+    <div class="note"><p>A step is one standard deviation of the reading. In one model with every rival at once, only the Change Signal and the Credit Stress Index keep significant weight. Honest limit: the agencies' own information already ranks companies well (accuracy 0.875), so no text input lifts the overall ranking much. The value is in the tail: the flagged names, and companies the agency still calls stable.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">3. Against the right baseline</div>
+    <h2>Flags appear before downgrades, not just everywhere</h2>
+    <p>A year holds three or four filings, so even an unrelated company has a fair chance of one flag. Every S&amp;P downgrade was compared with up to ten companies at the same rating, over the same 365 days, that were not downgraded.</p>
+    <div class="chart" id="matched">
+      <div class="chart-title">Share with a flagged filing in the year before</div>
+      <div class="chart-sub">Downgraded companies against matched companies at the same rating that were not downgraded, 2021 to 2025.</div>
+      <div class="legend"><span><i style="background:#3fa863"></i>Downgraded</span><span><i style="background:#5b8dd9"></i>Matched, not downgraded</span></div>
+    </div>
+    <div class="table-wrap"><table>
+      <tr><th>Reading</th><th>Downgrades</th><th class="num">Flagged before downgrade</th><th class="num">Matched companies</th><th class="num">Difference (90% interval)</th></tr>
+      <tr><td><strong>Change Signal</strong></td><td>34</td><td class="num">67.6%</td><td class="num">27.9%</td><td class="num">+39.7 pts (+24.3 to +52.9)</td></tr>
+      <tr><td><strong>Credit Stress Index</strong></td><td>142</td><td class="num">49.3%</td><td class="num">27.8%</td><td class="num">+21.5 pts (+13.4 to +29.6)</td></tr>
+      <tr><td><strong>Tone Shift</strong></td><td>134</td><td class="num">53.7%</td><td class="num">41.5%</td><td class="num">+12.3 pts (+4.0 to +21.0)</td></tr>
+      <tr><td>Tone Shift, downgrades with no agency warning</td><td>23</td><td class="num">73.9%</td><td class="num">39.8%</td><td class="num">+34.1 pts (+17.0 to +49.6)</td></tr>
+    </table></div>
+    <p class="muted">Change Signal also flagged all 6 downgrades that came with no agency warning in its sample; too few to quote as a rate.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">4. Months ahead</div>
+    <h2>The signal turns before the downgrade</h2>
+    <p>Average Change Signal in the four quarters before each downgrade, against similar companies (same pool, quarter and rating notch) that were not downgraded.</p>
+    <div class="chart" id="path">
+      <div class="chart-title">Change Signal before a downgrade (higher is worse)</div>
+      <div class="chart-sub">Dow 30 and semiconductor studies, 2021 to 2025. 47 to 61 downgrade filings and 347 to 536 matched filings per quarter.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">5. One full quarter, hits and misses</div>
+    <h2>Every company flagged in July to September 2024</h2>
+    <p>The quarter was fixed by rule before the results were seen: the latest one with a full year of rating outcomes. Every flagged name is listed. Six of 18 were downgraded within a year (33%, against 7% for all filings); Intel's came six days after its filing, too soon to count as warning.</p>
+    <div class="table-wrap"><table>
+      <tr><th>Company</th><th>Filed</th><th>Downgraded within 12 months</th><th class="num">Warning (days)</th></tr>
+      <tr class="hit"><td>Nike (NKE)</td><td>2024-07-25</td><td>Yes, 2025-07-16</td><td class="num">356</td></tr>
+      <tr class="miss"><td>Boeing (BA)</td><td>2024-07-31</td><td>No</td><td class="num"></td></tr>
+      <tr class="miss"><td>Humana (HUM)</td><td>2024-07-31</td><td>No</td><td class="num"></td></tr>
+      <tr class="miss"><td>Terex (TEX)</td><td>2024-07-31</td><td>No</td><td class="num"></td></tr>
+      <tr class="hit"><td>Intel (INTC)</td><td>2024-08-02</td><td>Yes, 2024-08-08</td><td class="num">6</td></tr>
+      <tr class="miss"><td>Illinois Tool Works (ITW)</td><td>2024-08-02</td><td>No</td><td class="num"></td></tr>
+      <tr class="hit"><td>CVS Health (CVS)</td><td>2024-08-07</td><td>Yes, 2024-12-16</td><td class="num">131</td></tr>
+      <tr class="miss"><td>Rockwell Automation (ROK)</td><td>2024-08-07</td><td>No</td><td class="num"></td></tr>
+      <tr class="hit"><td>Warner Bros. Discovery (WBD)</td><td>2024-08-07</td><td>Yes, 2025-05-20</td><td class="num">286</td></tr>
+      <tr class="miss"><td>AGCO (AGCO)</td><td>2024-08-08</td><td>No</td><td class="num"></td></tr>
+      <tr class="miss"><td>McDonald's (MCD)</td><td>2024-08-08</td><td>No</td><td class="num"></td></tr>
+      <tr class="hit"><td>Under Armour (UAA)</td><td>2024-08-08</td><td>Yes, 2025-04-28</td><td class="num">263</td></tr>
+      <tr class="miss"><td>Yum! Brands (YUM)</td><td>2024-08-08</td><td>No</td><td class="num"></td></tr>
+      <tr class="miss"><td>UnitedHealth (UNH)</td><td>2024-08-09</td><td>No</td><td class="num"></td></tr>
+      <tr class="miss"><td>Home Depot (HD)</td><td>2024-08-20</td><td>No</td><td class="num"></td></tr>
+      <tr class="miss"><td>Deere (DE)</td><td>2024-08-29</td><td>No</td><td class="num"></td></tr>
+      <tr class="hit"><td>Dollar General (DG)</td><td>2024-08-29</td><td>Yes, 2025-03-28</td><td class="num">211</td></tr>
+      <tr class="miss"><td>Lowe's (LOW)</td><td>2024-08-29</td><td>No</td><td class="num"></td></tr>
+    </table></div>
+    <p class="muted">A flag is a reason to look, not a forecast: most flagged companies were not downgraded. Filled dot: downgraded within 12 months.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">6. Where it works</div>
+    <h2>Universes, side by side</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Universe</th><th class="num">Companies</th><th>Credit signal after the full controls</th><th>Status</th></tr>
+      <tr><td>Dow 30 and competitors</td><td class="num">152</td><td>Change Signal 2.5x per step</td><td><span class="badge b-strong">Works</span></td></tr>
+      <tr><td>Nasdaq-100 and competitors</td><td class="num">724</td><td>Tone Shift 1.14x per step</td><td><span class="badge b-strong">Works</span></td></tr>
+      <tr><td>Semiconductors</td><td class="num">42</td><td>Change Signal significant, estimate unstable (few downgrades)</td><td><span class="badge b-wait">Small sample</span></td></tr>
+      <tr><td>Healthcare</td><td class="num">34</td><td>Same direction, not significant</td><td><span class="badge b-wait">Small sample</span></td></tr>
+      <tr><td>Banks and insurers</td><td class="num">37</td><td>Too few downgrades to estimate</td><td><span class="badge b-wait">Small sample</span></td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="eyebrow">7. How to read these results</div>
+    <h2>Where the readings add most</h2>
+    <p><strong style="color:var(--text-primary)">Beside a credit model, as a watch list.</strong> A model with the rating, outlook and market data already ranks companies well (accuracy 0.77 to 0.88). Adding the readings concentrates downgrades in the flagged names but did not lift the 2024 test-year accuracy after correction, even among calm companies.</p>
+    <p><strong style="color:var(--text-primary)">Where the agency is still calm.</strong> When S&amp;P had already put a company on negative outlook or watch, the flag came first in 25% to 48% of those downgrades. The value is at companies the agency still calls stable.</p>
+    <p><strong style="color:var(--text-primary)">The final memory check is locked and pending.</strong> The language model was trained on text up to mid-2026, so it may know what happened to these companies. Asking it directly what it remembers, and holding that fixed, removes only 4% to 10% of the credit results, and they work as well on companies it says it knows little about. The clean test is on filings written after its training ended: see the <a href="track-record.html">track record</a>.</p>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>ContextQuant. Research preview, not investment advice.</span><span><a href="mailto:info@contextquant.com">info@contextquant.com</a></span></div></footer>
+<script>
+cqBars('bars', [
+  { label: 'Change Signal|3 months', flag: 8.6, base: 2.5, note: 'Lift 3.4x' },
+  { label: 'Change Signal|6 months', flag: 14.7, base: 4.2, note: 'Lift 3.5x' },
+  { label: 'Change Signal|12 months', flag: 23.4, base: 7.2, note: 'Lift 3.3x' },
+  { label: 'Change Signal, calm|12 months', flag: 16.9, base: 4.2, note: 'Lift 4.1x' },
+  { label: 'Credit Stress Index|12 months', flag: 19.4, base: 9.2, note: 'Lift 2.1x' },
+  { label: 'Tone Shift|12 months', flag: 13.8, base: 9.7, note: 'Lift 1.4x' }
+], { aria: 'Bar chart of downgrade rates, flagged tenth against all filings', flagLabel: 'Flagged tenth', baseLabel: 'All filings' });
+cqBars('matched', [
+  { label: 'Change Signal|34 downgrades', flag: 67.6, base: 27.9, note: '+39.7 pts' },
+  { label: 'Credit Stress Index|142 downgrades', flag: 49.3, base: 27.8, note: '+21.5 pts' },
+  { label: 'Tone Shift|134 downgrades', flag: 53.7, base: 41.5, note: '+12.3 pts' },
+  { label: 'Tone Shift, no warning|23 downgrades', flag: 73.9, base: 39.8, note: '+34.1 pts' }
+], { aria: 'Bar chart of flag rates before downgrades against matched companies', flagLabel: 'Downgraded', baseLabel: 'Matched, not downgraded' });
+cqLines('path', ['4 quarters before', '3 before', '2 before', '1 before', 'Downgrade quarter'], [
+  { name: 'Later downgraded', key: 'flag', values: [0.090, 0.096, 0.112, 0.096, 0.111] },
+  { name: 'Matched, not downgraded', key: 'base', values: [-0.114, -0.108, -0.137, -0.164, -0.177] }
+], { aria: 'Line chart of the Change Signal before downgrades', step: 0.1 });
+</script>
+<script src="site.js"></script>
+</body>
+</html>

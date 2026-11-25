@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Methodology | ContextQuant</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <a class="brand" href="index.html">ContextQuant</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="links" id="navlinks">
+    <a href="index.html">Home</a>
+    <a href="journey.html">Journey</a>
+    <a href="evidence.html">Findings</a>
+    <a class="active" href="method.html">Methodology</a>
+    <a href="business.html">Business</a>
+    <a href="academic.html">Academic</a>
+    <a href="track-record.html">Track record</a>
+    <a href="product/index.html">Product Dashboard Preview</a>
+    <a class="cta" href="mailto:info@contextquant.com">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="eyebrow">Methodology</div>
+    <h1>Rules first, results second</h1>
+    <p class="lead">Most claims about text signals come from back-tests tuned until they look good. ContextQuant works the other way round: every test is written down and time-stamped before the data is examined, and runs once.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">What is read</div>
+      <h2>Public text, at scale</h2>
+      <p>Every quarterly and annual report (10-Q, 10-K, 20-F, 40-F) and, where available, every earnings-call transcript of 886 US-listed companies from 2015 to 2026: the Dow 30 and Nasdaq-100 with their competitors, plus banks, insurers, healthcare and semiconductor companies. 129,974 filings, 16,035 calls, about a billion words, all from public sources.</p>
+      <p>Each reading is compared with the company's own industry and its named competitors in the same quarter, so a company is judged against the right yardstick: banks always sound cautious; software companies always sound upbeat.</p>
+    </div>
+    <div>
+      <div class="eyebrow">The readings</div>
+      <h2>Three ways to read, compared head to head</h2>
+      <p><strong style="color:var(--text-primary)">A finance word list</strong> (the academic standard), <strong style="color:var(--text-primary)">FinBERT</strong> (a small language model trained on financial text) and <strong style="color:var(--text-primary)">a large language model reading the filing</strong> the way an analyst would, including against the company's previous filing and its numbers.</p>
+      <p>A measurement reading is also used: the model lists credit-relevant disclosures with exact quotes, every quote is checked against the filing, and a fixed formula turns them into an index. Memory cannot add a quote that is not there. Prompts, fields and formulas are proprietary.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The checks</div>
+    <h2>What every result has to survive</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Check</th><th>What it means</th></tr>
+      <tr><td><strong>Pre-registration</strong></td><td>Hypotheses, outcomes, thresholds and expected directions written down and time-stamped in version control before any test. Each extension is a numbered, dated amendment.</td></tr>
+      <tr><td><strong>One run</strong></td><td>Each registered test runs once. No re-runs with different settings, no picking the best version.</td></tr>
+      <tr><td><strong>Out of sample</strong></td><td>Methods designed on 2015 to 2020; every reported result is from 2021 to 2026.</td></tr>
+      <tr><td><strong>Company-clustered intervals</strong></td><td>2,000 re-draws of whole companies, so a few companies with many filings cannot dominate.</td></tr>
+      <tr><td><strong>Correction for many tests</strong></td><td>Benjamini-Hochberg within every family of tests, so false discoveries stay rare.</td></tr>
+      <tr><td><strong>Permutation tests</strong></td><td>Readings shuffled at random within each quarter; shuffled readings almost never match the real ones.</td></tr>
+      <tr><td><strong>Full controls</strong></td><td>Credit results are judged after rating, outlook, market data, distance to default, Altman Z, Ohlson O, 23 volatility measures and 13 economic series.</td></tr>
+      <tr><td><strong>Timing audit</strong></td><td>Every outcome checked to start after the filing was public, so a reading is never credited with agreeing with news already out.</td></tr>
+      <tr><td><strong>Memory tests</strong></td><td>Company names hidden; the model asked directly what it remembers and that answer held fixed; and filings written after its training ended scored and locked before their outcomes exist.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section style="border-bottom:none">
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Why memory matters</div>
+      <h2>A model can remember the future of the past</h2>
+      <p>A language model trained on text up to mid-2026 may have read what happened to a company in 2023. When it reads that company's 2022 filing, its "prediction" could be recall. In production this cannot help, because every forecast is about a future that has not happened. In a back-test it can inflate results.</p>
+      <p>That is why every reported result is tested for it. The credit results kept 90% to 96% of their strength under every memory test, and the final check runs on filings written after the model's training ended.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Models change</div>
+      <h2>Built to outlive a model version</h2>
+      <p>Language models are retired. The measurement reading is designed so that a new model can be checked against the old one item by item: the same quotes should be found, and the formula and history carry over. Each new model version gets its own time-stamped post-cutoff record.</p>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>ContextQuant. Research preview, not investment advice.</span><span><a href="mailto:info@contextquant.com">info@contextquant.com</a></span></div></footer>
+<script src="site.js"></script>
+</body>
+</html>

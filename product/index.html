@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<title>ContextQuant Product Dashboard Preview</title>
+<meta name="description" content="Product dashboard preview of the ContextQuant credit early-warning dashboard, built on ContextQuant research data. Not investment advice.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html" title="Back to the ContextQuant site">ContextQuant</a>
+  <span class="pill">Product Dashboard Preview</span>
+  <span class="spacer"></span>
+  <a class="backlink" href="../index.html">&larr; Back to site</a>
+  <span class="period" id="period"></span>
+</header>
+<div class="shell">
+  <nav class="sidenav" id="sidenav" aria-label="Views">
+    <div class="navlabel">Views</div>
+    <a href="#watch" data-view="watch"><span class="num">1</span>Watch list</a>
+    <a href="#company" data-view="company"><span class="num">2</span>Company view</a>
+    <a href="#evidence" data-view="evidence"><span class="num">3</span>Evidence passages</a>
+    <a href="#backtest" data-view="backtest"><span class="num">4</span>Back-test</a>
+    <a href="#portfolio" data-view="portfolio"><span class="num">5</span>Portfolio check</a>
+    <a href="#sectors" data-view="sectors"><span class="num">6</span>Sector risk map</a>
+    <a href="#alerts" data-view="alerts"><span class="num">7</span>Alerts</a>
+    <div class="sidenote">Readings are research scores, locked before any outcome exists. Flags mark the worst tenth of each score in the current set.</div>
+  </nav>
+  <main>
+    <div class="view" id="view" aria-live="polite"></div>
+    <div class="footer">
+      <span>Product Dashboard Preview built on ContextQuant research data. Not investment advice.</span>
+      <span>Readings are research scores, not ratings or recommendations.</span>
+    </div>
+  </main>
+</div>
+<div id="tip" role="tooltip"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

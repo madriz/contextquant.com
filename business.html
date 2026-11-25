@@ -3,279 +3,135 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ContextQuant | Business Applications</title>
-<meta name="description" content="ContextQuant business applications: equity research alerts, credit risk early warning, options timing signals, wealth advisory intelligence. ROA prediction IC=+0.398 OOS.">
-<link rel="canonical" href="https://contextquant.com/business.html">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<!-- Analytics loaded after cookie consent (see bottom of page) -->
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg-deep:#060a12;--bg-card:rgba(255,255,255,0.025);--bg-card-hover:rgba(255,255,255,0.045);--border:rgba(255,255,255,0.06);--border-hover:rgba(74,186,112,0.3);--green:#4aba70;--green-dim:rgba(74,186,112,0.15);--text-primary:#e8ecf2;--text-secondary:#8a94a8;--text-muted:#5a6577;--mono:'DM Mono','Courier New',monospace;--serif:'Instrument Serif',Georgia,serif;--sans:'DM Sans','Helvetica Neue',sans-serif}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg-deep);color:var(--text-primary);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,10,18,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 60px;height:64px;display:flex;align-items:center;justify-content:space-between}
-.nav-brand{font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:4px;color:var(--green);text-transform:uppercase;text-decoration:none}
-.nav-links{display:flex;gap:36px;align-items:center}.nav-links a{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color 0.3s}.nav-links a:hover{color:var(--text-primary)}.nav-links a.active{color:var(--green)}
-.nav-cta{font-family:var(--mono)!important;font-size:12px!important;padding:8px 20px;border:1px solid var(--green);color:var(--green)!important;border-radius:4px;transition:all 0.3s}.nav-cta:hover{background:var(--green-dim)}
-.page-hero{padding:140px 60px 80px;max-width:1200px;margin:0 auto;position:relative}
-.page-hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 600px 400px at 20% 40%,rgba(74,186,112,0.04) 0%,transparent 70%);pointer-events:none}
-.page-label{font-family:var(--mono);font-size:11px;letter-spacing:5px;color:var(--green);text-transform:uppercase;margin-bottom:20px;position:relative}
-.page-title{font-family:var(--serif);font-size:52px;line-height:1.15;color:#fff;margin-bottom:24px;position:relative}
-.page-sub{font-size:18px;font-weight:300;color:var(--text-secondary);line-height:1.8;max-width:700px;position:relative}
-section{padding:80px 60px;max-width:1200px;margin:0 auto}
-.section-label{font-family:var(--mono);font-size:11px;letter-spacing:5px;color:var(--green);text-transform:uppercase;margin-bottom:20px}
-.section-title{font-family:var(--serif);font-size:40px;color:#fff;margin-bottom:24px}
-.divider{height:1px;background:linear-gradient(90deg,rgba(74,186,112,0.4),rgba(74,186,112,0.15) 50%,transparent);margin:40px 0}
-.usecase{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:48px 0;border-bottom:1px solid var(--border)}.usecase:last-child{border-bottom:none}
-.usecase-label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--green);padding-top:4px}
-.usecase-title{font-size:22px;font-weight:600;color:var(--text-primary);margin-bottom:12px}
-.usecase-text{font-size:16px;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:16px}
-.usecase-stat{display:inline-block;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:10px 18px;margin-right:10px;margin-bottom:8px}
-.usecase-stat .sn{font-family:var(--mono);font-size:16px;font-weight:500;color:var(--green)}.usecase-stat .sd{font-size:11px;color:var(--text-muted);margin-left:6px}
-.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-.value-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:28px 24px;transition:all 0.3s}.value-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
-.vt{font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:10px}.vd{font-size:14px;font-weight:300;color:var(--text-secondary);line-height:1.7}
-.cta-section{padding:100px 60px;text-align:center;max-width:800px;margin:0 auto}
-.ct{font-family:var(--serif);font-size:36px;color:#fff;margin-bottom:16px}.cx{font-size:16px;color:var(--text-secondary);margin-bottom:32px;line-height:1.8}
-.btn{font-family:var(--mono);font-size:13px;padding:14px 36px;background:var(--green);color:var(--bg-deep);border:none;border-radius:4px;text-decoration:none;transition:all 0.3s}.btn:hover{background:#5ccf85}
-footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between}.fb{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase}.fr{font-size:12px;color:var(--text-muted)}
-.fi{opacity:0;transform:translateY(24px);transition:opacity 0.7s,transform 0.7s}.fi.v{opacity:1;transform:translateY(0)}
-@media(max-width:900px){nav{padding:0 24px}.page-hero,section,.cta-section{padding-left:24px;padding-right:24px}.usecase{grid-template-columns:1fr;gap:12px}.value-grid{grid-template-columns:1fr}.signal-score-grid{grid-template-columns:1fr!important}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}}
-
-/* Hamburger nav */
-.nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;cursor:pointer;background:none;border:none;padding:0;z-index:200}
-.nav-hamburger span{display:block;height:2px;background:var(--green);border-radius:2px;transition:all 0.3s}
-.nav-hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-.nav-hamburger.open span:nth-child(2){opacity:0}
-.nav-hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-
-@media(max-width:900px){
-  .nav-hamburger{display:flex !important}
-  .nav-links{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99}
-  .nav-links.mobile-open{display:flex}
-  .nav-links a{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px}
-  .nav-cta{margin-top:8px;text-align:center;padding:12px 20px}
-}
-@media(max-width:480px){
-  .page-title,.hero-title{font-size:32px!important}
-  .section-title{font-size:28px!important}
-}
-</style>
+<title>Business applications | ContextQuant</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav><a href="index.html" class="nav-brand">ContextQuant</a><div class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="index.html#platform">Platform</a><a href="index.html#findings">Findings</a><a href="business.html" class="active">Business</a><a href="academic.html">Academic</a><a href="dashboard.html">Dashboard</a><a href="mailto:info@contextquant.com?subject=ContextQuant%20Inquiry" class="nav-cta">Get in Touch</a></div><button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+<nav>
+  <a class="brand" href="index.html">ContextQuant</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="links" id="navlinks">
+    <a href="index.html">Home</a>
+    <a href="journey.html">Journey</a>
+    <a href="evidence.html">Findings</a>
+    <a href="method.html">Methodology</a>
+    <a class="active" href="business.html">Business</a>
+    <a href="academic.html">Academic</a>
+    <a href="track-record.html">Track record</a>
+    <a href="product/index.html">Product Dashboard Preview</a>
+    <a class="cta" href="mailto:info@contextquant.com">Contact</a>
+  </div>
 </nav>
 
-<div class="page-hero">
-<div class="page-label">Business Applications</div>
-<h1 class="page-title">Intelligence your competitors<br>do not have yet</h1>
-<p class="page-sub">ContextQuant adds a contextual intelligence layer on top of existing research infrastructure. It does not replace your analysts, your models, or your terminals. It tells them what changed in the filing universe that nobody else has noticed.</p>
-</div>
+<header class="hero" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="eyebrow">Business applications</div>
+    <h1>A short list of names that deserve a closer look, and why</h1>
+    <p class="lead">ContextQuant does not replace your analysts, your rating models or your terminals. It reads what they do not have time to read, every quarter, and tells them which companies' own words have turned worse, with the passages behind each flag.</p>
+  </div>
+</header>
 
 <section>
-<div class="usecase"><div class="usecase-label">Equity<br>Research</div><div><div class="usecase-title">From consensus processing to anomaly detection</div><div class="usecase-text">Every major research team starts the day with the same data from the same terminals. ContextQuant adds an automated alert layer that flags companies whose filings changed in ways that historically predict underperformance, before the street has reacted. When a company's risk language becomes materially more specific than prior quarters and more specific than its peers, the system fires an alert with the historical evidence for what happens next.</div><div class="usecase-text">When our accruals screen flags a company AND the filing language is cautious, the next quarter is particularly predictable (IC=-0.128 OOS, 3x the base signal, walk-forward confirmed 6/8 years). The forward-looking ratio is a contrarian early warning: when management shifts to more future-oriented language, current fundamentals are weakening (IC=-0.282 financials, -0.367 healthcare).</div><span class="usecase-stat"><span class="sn">-0.103</span><span class="sd">IC · LM sentiment · 3 studies</span></span><span class="usecase-stat"><span class="sn">-0.128</span><span class="sd">IC · high-accruals · 3x base</span></span><span class="usecase-stat"><span class="sn">-0.282</span><span class="sd">IC · forward ratio · contrarian</span></span></div></div>
-
-<div class="usecase"><div class="usecase-label">Trading</div><div><div class="usecase-title">Four orthogonal signal dimensions, event-driven triggers</div><div class="usecase-text">The composite signal achieves an Information Ratio of 1.41 across ten years of out-of-sample testing with zero sign flips. Each component is uncorrelated with traditional quantitative factors, adding genuine diversification to existing signal libraries. Four Haiku features (confidence, net sentiment, risk tone, forward ratio) provide factor-like dimensions from the same filing.</div><div class="usecase-text">When a Regulation FD disclosure co-occurs with a filing signal, earnings prediction strength increases 10x (IC=-0.138 vs -0.013, N=1,411 vs 3,218). This defines a timing condition: enter positions when Reg FD + cautious NLP co-occur, not on NLP alone. The joint alignment filter (negative LM + downward revision) adds a second condition: 95.6% beat rate (N=135 OOS).</div><span class="usecase-stat"><span class="sn">IR 1.41</span><span class="sd">composite · zero sign flips</span></span><span class="usecase-stat"><span class="sn">10x</span><span class="sd">Reg FD amplification</span></span><span class="usecase-stat"><span class="sn">95.6%</span><span class="sd">beat rate · joint alignment</span></span></div></div>
-
-<div class="usecase"><div class="usecase-label">Credit<br>Risk</div><div><div class="usecase-title">Balance sheet prediction from filing language</div><div class="usecase-text">Filing language predicts ROA changes one quarter before the balance sheet shows them. The AI confidence score achieves IC=+0.398 OOS in financials (p&lt;0.001, N=428), surviving all macro controls at t=+4.77. Higher management confidence predicts ROA improvement. This is the simplest, strongest credit signal in the program: one number from one filing predicts balance sheet direction.</div><div class="usecase-text">When our signal fires negative and the company misses earnings, ROA deteriorates 50% of the time versus 21% when the signal is positive and the company beats. That is a 29 percentage point spread. The NLP signal predicts ROA most strongly for companies whose management guidance is least reliable (IC=+0.376 for slight-miss companies versus +0.005 for volatile beaters).</div><span class="usecase-stat"><span class="sn">+0.398</span><span class="sd">IC · AI confidence vs ROA</span></span><span class="usecase-stat"><span class="sn">t = 4.77</span><span class="sd">survives all macro controls</span></span><span class="usecase-stat"><span class="sn">29pp</span><span class="sd">beat-miss ROA spread</span></span></div></div>
-
-<div class="usecase" id="wealth"><div class="usecase-label">Wealth<br>Advisory</div><div><div class="usecase-title">Plain-language quality metrics for client conversations</div><div class="usecase-text">Management credibility classification plus AI confidence score provide plain-language quality metrics backed by five years of out-of-sample validation. The signal works best where management guidance is least reliable (IC=+0.376 for slight-miss companies versus +0.005 for volatile beaters). When your client asks "is this company getting better or worse," the confidence score answers with validated evidence.</div><div class="usecase-text">The confidence score is a single number from 0 to 1 that predicts next-quarter profitability direction. Higher is better. IC=+0.398 OOS in financials (p&lt;0.001, N=428). The forward-looking ratio adds a contrarian early warning: "This company's management is spending more time talking about the future than usual. Historically, this predicts the current quarter's fundamentals are weakening." Accessible, evidence-based, and counterintuitive enough to demonstrate analytical value.</div><span class="usecase-stat"><span class="sn">+0.398</span><span class="sd">IC · confidence score vs ROA</span></span><span class="usecase-stat"><span class="sn">+0.376</span><span class="sd">IC · slight-miss companies</span></span></div></div>
-
-<div class="usecase"><div class="usecase-label">Risk<br>Management</div><div><div class="usecase-title">A system that adapts to the environment</div><div class="usecase-text">Signal weights adjust automatically based on the current macro regime. During tariff escalation or rate transitions, risk specificity signals are upweighted. During calm markets, sentiment drift takes priority. The CRO's dashboard reflects the current environment, not a static model.</div><div class="usecase-text">When multiple signals fire together on the same company (elevated risk specificity, negative outlook divergence, widening transcript-filing gap), the alert is high-confidence. When none fire, the system stays quiet. That asymmetry is a feature, not a bug.</div><span class="usecase-stat"><span class="sn">IR 1.41</span><span class="sd">zero sign flips · 6 walk-forward test years</span></span></div></div>
-</section>
-
-<div class="divider" style="max-width:1200px;margin:0 auto"></div>
-
-<section>
-<div class="section-label">Why This Is Different</div>
-<div class="section-title">Not another data feed. A structural edge.</div>
-<div class="value-grid">
-<div class="value-card"><div class="vt">Peer-Relative Measurement</div><div class="vd">Every signal measured as a competitive delta. It is not enough to know a company added a risk factor. What matters is whether its competitors added the same one.</div></div>
-<div class="value-card"><div class="vt">Regime-Aware Signals</div><div class="vd">The system knows which signal matters in which environment. Risk specificity in stress, sentiment in calm. Dynamic weighting, not a static model.</div></div>
-<div class="value-card"><div class="vt">Validated, Not Backtested</div><div class="vd">Seven-test validation battery across three independent universes. Benjamini-Hochberg correction, panel fixed effects, Fama-French five-factor alpha, walk-forward, year-by-year stability, regime conditioning, economic magnitude. 135 signal tests, 35 significant OOS.</div></div>
-<div class="value-card"><div class="vt">Complementary to Existing Tools</div><div class="vd">Operates on the textual dimension that traditional quantitative factors do not capture. Adds diversification rather than duplicating existing inputs.</div></div>
-<div class="value-card"><div class="vt">Transparent About Limitations</div><div class="vd">Twelve of fifteen hypotheses produced weak, nuanced, or non-significant results. We report everything. Intellectual honesty is the foundation of the platform's credibility.</div></div>
-<div class="value-card"><div class="vt">Built to Scale</div><div class="vd">Currently 222 companies across three studies. Architecture supports 4,000+ US via EDGAR, 3,500+ Canadian via SEDAR+, and European and Asian markets. IT and Energy sector studies planned next.</div></div>
-</div>
-</section>
-
-<div class="divider" style="max-width:1200px;margin:0 auto"></div>
-
-<!-- FINANCIAL SECTOR STUDY -->
-<section>
-<div class="section-label">Three Sector Studies &middot; Financials (37) &middot; Healthcare (34) &middot; Diversified (185)</div>
-<div class="section-title">Cross-Sector Replication and New Signals</div>
-
-<div class="usecase-text" style="max-width:720px;">The earnings prediction signal (LM sentiment) replicates across all three studies: IC=-0.103 (financials), -0.100 (healthcare), -0.090 (diversified). Same mechanism, same direction, same magnitude. All survive Benjamini-Hochberg correction. The combination study added balance sheet prediction: NLP now predicts ROA changes one quarter ahead (IC=+0.120 OOS financials, +0.190 OOS diversified), surviving all macro controls at t=+4.77.</div>
-
-<div class="usecase-text" style="max-width:720px;margin-bottom:4px;"><strong style="color:var(--text-primary);">Haiku adds orthogonal balance sheet prediction.</strong></div>
-
-<div class="usecase-text" style="max-width:720px;">Claude Haiku confidence predicts ROA changes OOS in all three studies (financials +0.332, healthcare +0.295, diversified +0.081). The anti-overfitting signature is consistent: IS near zero in all three, OOS positive and significant. In healthcare, the H11 transcript-filing gap was confirmed with the opposite mechanism: optimistic call relative to filing predicts positive surprise (pipeline confidence), while in financials the same divergence is bearish (overconfidence).</div>
-
-<div style="margin-top:48px;margin-bottom:16px;">
-<div style="font-family:var(--mono);font-size:11px;letter-spacing:4px;color:var(--text-muted);text-transform:uppercase;margin-bottom:20px;">Why Three Studies</div>
-</div>
-
-<div class="usecase-text" style="max-width:720px;"><strong style="color:var(--text-primary);">First,</strong> the financial sector (37 companies) has uniquely comparable disclosure structures. Banks competing with banks, insurers with insurers. Peer-relative signals are cleaner when peers face identical disclosure requirements. The Haiku-LM combination reaches IC=+0.296 with near-zero correlation (+0.027).</div>
-
-<div class="usecase-text" style="max-width:720px;"><strong style="color:var(--text-primary);">Second,</strong> the healthcare sector (34 companies) tests whether signals transfer across different disclosure cultures. They do, with important differences: managed care signals flip direction, large pharma forward-looking ratio is a standalone signal (IC=+0.350), and the transcript-filing gap operates with the opposite mechanism (pipeline confidence rather than overconfidence).</div>
-
-<div class="usecase-text" style="max-width:720px;"><strong style="color:var(--text-primary);">Third,</strong> the diversified universe (185 companies, 9 GICS sectors) tests scale. Panel fixed effects fail cross-sector (p=0.987), confirming sector homogeneity matters. But the LM signal still holds at IC=-0.090 (BH p=0.004), and the accruals interaction is strongest here (3x signal in high-accruals companies, 6/8 years walk-forward confirmed).</div>
-
-<!-- FINDINGS GRID -->
-<div class="value-grid" style="margin-top:56px;">
-
-<div class="value-card" style="border-top:3px solid var(--green);">
-<div class="vt">H11: Call vs. Filing Divergence Predicts Returns</div>
-<div class="vd" style="margin-bottom:16px;">When bank management sounds more optimistic on the earnings call than their most recent annual filing suggests, the stock underperforms. This gap, between what management writes in regulated filings and says in public calls, is measurable and persistent.</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-<div class="usecase-stat" style="margin:0;"><span class="sn">&minus;0.115</span><span class="sd">Pooled IC (180d), p=0.079</span></div>
-<div class="usecase-stat" style="margin:0;"><span class="sn">&minus;0.193</span><span class="sd">Walk-forward IC</span></div>
-<div class="usecase-stat" style="margin:0;"><span class="sn">6 / 8</span><span class="sd">years correct direction</span></div>
-<div class="usecase-stat" style="margin:0;"><span class="sn">2023&ndash;25</span><span class="sd">IC strengthening</span></div>
-</div>
-</div>
-
-<div class="value-card" style="border-top:3px solid #5b8dd9;">
-<div class="vt">H9: Peer-Relative Optimism Predicts Underperformance</div>
-<div class="vd" style="margin-bottom:16px;">When a bank&rsquo;s management tone on the earnings call is more optimistic than peer-group median at the same moment, controlling for the macro environment all banks face simultaneously, the stock underperforms at the 180-day horizon. The signal is stronger in the 17-bank universe than in the original broad-market study.</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-<div class="usecase-stat" style="margin:0;"><span class="sn">&minus;0.445</span><span class="sd">OOS IC (fixed split), p=0.049</span></div>
-<div class="usecase-stat" style="margin:0;"><span class="sn">2.98&times;</span><span class="sd">OOS/IS ratio</span></div>
-</div>
-<div style="font-size:12px;color:var(--text-muted);margin-top:10px;font-style:italic;">Train: 2018&ndash;2021 &nbsp;|&nbsp; Test: 2022&ndash;2025</div>
-</div>
-
-<div class="value-card" style="border-top:3px solid #e67e51;">
-<div class="vt">H2: Filing Sentiment Drift Strongest for Canadian Banks</div>
-<div class="vd" style="margin-bottom:16px;">The MD&amp;A sentiment drift signal, confirmed in the original study, holds across all 37 financial sector companies, but with meaningful subgroup variation. Canadian banks and P&amp;C insurers drive the strongest signal. US regional banks show near-zero IC, consistent with more formulaic disclosure practices.</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-<div class="usecase-stat" style="margin:0;"><span class="sn">+0.116</span><span class="sd">OOS IC (all 37), 80% hit rate</span></div>
-<div class="usecase-stat" style="margin:0;"><span class="sn">+0.121</span><span class="sd">Canadian banks (strongest)</span></div>
-<div class="usecase-stat" style="margin:0;"><span class="sn">+0.085</span><span class="sd">P&amp;C insurance</span></div>
-<div class="usecase-stat" style="margin:0;"><span class="sn">~0.000</span><span class="sd">US regional banks</span></div>
-</div>
-</div>
-
-</div>
-
-<!-- SIGNAL BOUNDARY NOTE -->
-<div style="margin-top:40px;padding:20px 24px;border-left:3px solid var(--text-muted);background:rgba(255,255,255,0.015);border-radius:0 6px 6px 0;max-width:720px;">
-<div style="font-size:14px;font-weight:300;color:var(--text-secondary);line-height:1.8;">The financial sector findings are based on 37 companies tested over 2015-2025. Healthcare uses 34 companies, diversified uses 185. The H11 and H9 banking signals use 17 companies. ROA prediction survives all macro controls in financials (t=+4.77) but not in other studies. Healthcare Haiku trend weakens 2022-2025. Combined signal discovered OOS, not pre-specified. Nothing here constitutes investment advice.</div>
-</div>
-
-<!-- DASHBOARD LINK -->
-<div style="text-align:center;margin-top:48px;">
-<a href="dashboard.html" style="font-family:var(--mono);font-size:13px;font-weight:500;padding:14px 36px;background:transparent;color:var(--text-secondary);border:1px solid var(--border);border-radius:4px;text-decoration:none;transition:all 0.3s;display:inline-block;">View Live Signal Dashboard &rarr;</a>
-</div>
-
-<!-- SIGNAL SNAPSHOT -->
-<div style="margin-top:56px;">
-<div style="font-family:var(--mono);font-size:11px;letter-spacing:4px;color:var(--green);text-transform:uppercase;margin-bottom:8px;">Current Signal Scores, March 2026</div>
-<div style="font-size:13px;color:var(--text-muted);margin-bottom:24px;">Composite z-score. Updated quarterly after each earnings cycle. Signal horizon: 90&ndash;180 days.</div>
-
-<div class="signal-score-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;">
-
-<!-- BEARISH -->
-<div>
-<div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#ff4560;margin-bottom:12px;">Bearish</div>
-<table style="width:100%;border-collapse:collapse;">
-<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">MFC</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;2.35</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Life Ins</td></tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">BNS</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;1.89</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Canadian Bank</td></tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">TD</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;1.55</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Canadian Bank</td></tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">DB</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;1.38</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Capital Mkts</td></tr>
-<tr><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">JPM</td><td style="font-family:var(--mono);font-size:13px;color:#ff4560;text-align:right;">&minus;1.26</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">US Bank</td></tr>
-</table>
-</div>
-
-<!-- BULLISH -->
-<div>
-<div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px;">Bullish</div>
-<table style="width:100%;border-collapse:collapse;">
-<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">UNM</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.79</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Life Ins</td></tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">FITB</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.37</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">US Regional</td></tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">MKL</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.24</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">P&amp;C Ins</td></tr>
-<tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">PGR</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.21</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">P&amp;C Ins</td></tr>
-<tr><td style="font-family:var(--mono);font-size:13px;padding:7px 0;color:var(--text-primary);">MS</td><td style="font-family:var(--mono);font-size:13px;color:var(--green);text-align:right;">+1.20</td><td style="font-size:11px;color:var(--text-muted);text-align:right;padding-left:12px;">Capital Mkts</td></tr>
-</table>
-</div>
-
-</div>
-<div style="font-size:11px;color:var(--text-muted);margin-top:16px;font-style:italic;max-width:720px;">Signal scores are research outputs, not trading recommendations. Healthcare and diversified study signal scores available on request. See <a href="dashboard.html" style="color:var(--text-secondary);">dashboard</a> for full universe and methodology detail.</div>
-</div>
-
-</section>
-
-<div class="cta-section">
-<div class="ct">Ready to see what your filings are telling you?</div>
-<div class="cx">We would welcome the opportunity to walk through the findings, demonstrate the platform, and discuss what a partnership could look like.</div>
-<a href="mailto:info@contextquant.com?subject=ContextQuant%20Business%20Inquiry" class="btn">info@contextquant.com</a>
-</div>
-
-<footer><div class="fb">ContextQuant &copy; 2026</div><div class="fr">Predictive signals from public data the market chose not to read</div></footer>
-<script>const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.fade-in').forEach(el=>o.observe(el));</script>
-<script>
-(function(){
-  var hb=document.getElementById('navHamburger');
-  var nl=document.getElementById('navLinks');
-  if(!hb||!nl)return;
-  hb.addEventListener('click',function(){
-    hb.classList.toggle('open');
-    nl.classList.toggle('mobile-open');
-  });
-  nl.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){
-      hb.classList.remove('open');
-      nl.classList.remove('mobile-open');
-    });
-  });
-})();
-</script>
-<!-- Cookie consent banner -->
-<div id="cqCookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(6,10,18,0.98);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.06);padding:20px 24px;">
-  <div style="max-width:1200px;margin:0 auto;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;">
-    <div style="flex:1;min-width:260px;font-size:13px;font-weight:300;color:#8a94a8;line-height:1.6;">This site uses cookies for analytics to understand how visitors interact with our research. No personal data is sold or shared with third parties.</div>
-    <div style="display:flex;gap:12px;flex-shrink:0;">
-      <button id="cqCookieDecline" style="font-family:'DM Mono','Courier New',monospace;font-size:12px;padding:10px 22px;background:transparent;color:#8a94a8;border:1px solid rgba(255,255,255,0.06);border-radius:4px;cursor:pointer;transition:all 0.3s;">Decline</button>
-      <button id="cqCookieAccept" style="font-family:'DM Mono','Courier New',monospace;font-size:12px;padding:10px 22px;background:#4aba70;color:#060a12;border:none;border-radius:4px;cursor:pointer;transition:all 0.3s;">Accept</button>
+  <div class="wrap">
+    <div class="eyebrow">Credit risk</div>
+    <h2>Surveillance of the names the agency still calls stable</h2>
+    <div class="two">
+      <div>
+        <h3>The problem</h3>
+        <p>Rating agencies move slowly, and a portfolio has more issuers than a team can re-read every quarter. Most deterioration is visible in disclosures before it shows up in a rating, but nobody reads all of them.</p>
+        <h3>What ContextQuant gives</h3>
+        <p>A quarterly ranked watch list of issuers whose filings read worse than their last one, with the counted disclosures (liquidity and refinancing language, new risk factors, guidance cuts, management-attributed headwinds) and the quoted passages behind them.</p>
+      </div>
+      <div>
+        <h3>The evidence</h3>
+        <p>Flagged tenth downgraded within a year: 23.4% against 7.2% (3.3x), a third of all downgrades. Among issuers the agency still rated stable: 16.9% against 4.2% (4.1x). Before downgrades, 68% of downgraded companies were flagged against 28% of matched companies at the same rating. The reading keeps its weight beside distance to default, Altman Z, Ohlson O and 23 volatility measures.</p>
+        <h3>Workflow</h3>
+        <p>Each quarter: flags arrive after the filing season; analysts review the flagged names that the agency still rates stable first; each flag links to its passages; decisions and outcomes are logged.</p>
+      </div>
     </div>
   </div>
-</div>
-<script>
-(function(){
-  function loadGA4(){
-    if(window.__cqGA4Loaded)return;
-    window.__cqGA4Loaded=true;
-    var s=document.createElement('script');
-    s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id=G-YC6H3H6DWF';
-    document.head.appendChild(s);
-    window.dataLayer=window.dataLayer||[];
-    function gtag(){dataLayer.push(arguments);}
-    window.gtag=gtag;
-    gtag('js',new Date());
-    gtag('config','G-YC6H3H6DWF');
-  }
-  var banner=document.getElementById('cqCookieBanner');
-  var accept=document.getElementById('cqCookieAccept');
-  var decline=document.getElementById('cqCookieDecline');
-  var accepted=null,declined=null;
-  try{accepted=localStorage.getItem('cq_cookies_accepted');}catch(e){}
-  try{declined=localStorage.getItem('cq_cookies_declined');}catch(e){}
-  if(accepted==='true'){loadGA4();}
-  else if(declined!=='true'&&banner){banner.style.display='block';}
-  if(accept)accept.addEventListener('click',function(){
-    try{localStorage.setItem('cq_cookies_accepted','true');}catch(e){}
-    if(banner)banner.style.display='none';
-    loadGA4();
-  });
-  if(decline)decline.addEventListener('click',function(){
-    try{localStorage.setItem('cq_cookies_declined','true');}catch(e){}
-    if(banner)banner.style.display='none';
-  });
-})();
-</script>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Equity research</div>
+    <h2>Triage at the scale of the market</h2>
+    <div class="two">
+      <div>
+        <h3>The problem</h3>
+        <p>A research team reads 20 to 40 filings a quarter per analyst. A third of the companies in a broad universe are followed by fewer than 12 analysts. The filing that changed most is often the one nobody read.</p>
+        <h3>What ContextQuant gives</h3>
+        <p>A peer-relative score for every filing the day it is filed: how much worse (or better) it reads than the company's last one and than its competitors, and which passages moved.</p>
+      </div>
+      <div>
+        <h3>The evidence</h3>
+        <p>The reading identifies the companies whose disclosures deteriorated most against their own last filing and their peers, and that deterioration is followed by credit downgrades far more often than chance. It is built to decide what to read first and where risk is building, not as a trading signal.</p>
+        <h3>Workflow</h3>
+        <p>Morning list of new filings ranked by change against peers; drill into the flagged passages; add to coverage notes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Wealth management</div>
+    <h2>A credit early-warning light beside each holding</h2>
+    <div class="two">
+      <div>
+        <h3>The problem</h3>
+        <p>Advisors hold hundreds of issuers across client portfolios, in bonds and equities, and need to know which ones deserve a conversation before a downgrade forces one.</p>
+        <h3>What ContextQuant gives</h3>
+        <p>A flag on each holding whose latest filing turned worse, with a plain-language reason drawn from the company's own words, suitable for suitability reviews and client conversations.</p>
+      </div>
+      <div>
+        <h3>The evidence</h3>
+        <p>About a quarter of flagged companies were downgraded within a year, against one in fourteen overall. A flag is a reason to look, not a sell signal: most flagged companies were not downgraded.</p>
+        <h3>Workflow</h3>
+        <p>Upload or sync holdings; see flagged positions and reasons; schedule reviews; track outcomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">If you buy sentiment data</div>
+    <h2>Standard sentiment adds nothing to a credit model</h2>
+    <p>Word-count sentiment and FinBERT tone from company filings, as levels or quarterly changes, raw or measured against peers, add no information to a downgrade model that already holds the rating, outlook and market data. The ContextQuant reading does. (Scope: company filings and credit outcomes; news and social-media sentiment were not tested.)</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Practitioner paper</div>
+    <h2>Early warning from what companies write</h2>
+    <p>A 14-page paper for credit, research and wealth teams: what the readings flag, how strongly, beside which tools, and how to use them. November 2026.</p>
+    <button class="paper-btn" data-paper="practitioner">Download the practitioner paper</button>
+  </div>
+</section>
+
+<section style="border-bottom:none">
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Partnership</div>
+      <h2>Grow the program, or point it at your positions</h2>
+      <p>Interested in extending ContextQuant to more companies and markets, or in seeing how your own holdings read? <a href="mailto:info@contextquant.com?subject=ContextQuant%20partnership">Get in touch.</a></p>
+    </div>
+    <div>
+      <div class="eyebrow">See it</div>
+      <h2>Product Dashboard Preview</h2>
+      <p>A working preview built on ContextQuant research data: the current watch list (scores locked before outcomes exist), company drill-downs with readings against peers and volatility profiles, a back-test view, a portfolio check and alert settings.</p>
+      <p><a href="product/index.html">Open the product dashboard preview.</a></p>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>ContextQuant. Research preview, not investment advice.</span><span><a href="mailto:info@contextquant.com">info@contextquant.com</a></span></div></footer>
+<script src="site.js"></script>
 </body>
 </html>
