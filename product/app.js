@@ -414,7 +414,7 @@
         <div class="legend"><span><i class="line" style="background:${C.flag}"></i>Later downgraded</span><span><i class="line" style="background:${C.base}"></i>Matched, not downgraded</span></div>
         <div class="chart" id="y3chart"></div>
         <p class="caption" id="y3cap"></p>
-        <div class="limit"><b>Limit.</b> These are group averages, not a forecast for one company. The language model may partly remember what happened to these companies: holding a recall probe fixed removes 4% to 12% of the credit effects (all still significant). Filings made after the model's training ended, like the current watch list, are the clean test; they report from 2027.</div>
+        <div class="limit"><b>Limit.</b> These are group averages, not a forecast for one company. The language model may partly remember what happened to these companies: holding a recall probe fixed removes 4% to 10% of the credit effects (all still significant). Filings made after the model's training ended, like the current watch list, are the clean test; they report from 2027.</div>
       </div>`;
     const seg = (id, k, num) => document.getElementById(id).addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; W4[k] = num ? +b.dataset.k : b.dataset.k;
       [...document.querySelectorAll('#' + id + ' button')].forEach(x => x.classList.toggle('on', x === b)); drawBacktest(); });
